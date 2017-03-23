@@ -9,8 +9,16 @@ namespace MarketClient
 
     public class Request
     {
-        public object auth;
-        public string type;
+        public Object auth;
+        public String type;
+
+        /*
+        public Request(Object auth, String type)
+        {
+            this.auth = auth;
+            this.type = type;
+        }
+        */
     }
 
 
@@ -19,6 +27,15 @@ namespace MarketClient
         public int commodity;
         public int amount;
         public int price;
+
+        /*
+        public BuySellRequest(Object auth, String type, int commodity, int amount, int price)
+        {
+            this.commodity = commodity;
+            this.amount = amount;
+            this.price = price;
+        }
+        */
     }
 
     public class CancelRequest : Request

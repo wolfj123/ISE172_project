@@ -21,12 +21,15 @@ namespace MarketClient
 
         public int SendBuyRequest(int price, int commodity, int amount)
         {
+            /*
             BuySellRequest req = new BuySellRequest();
             req.type = "buy";
             //req.auth = ??????
             req.price = price;
             req.commodity = commodity;
             req.amount = amount;
+
+            */
 
             String output = client.SendPostRequest(userInfo.url, userInfo.username, userInfo.token);
             return Int32.Parse(output);

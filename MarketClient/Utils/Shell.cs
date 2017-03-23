@@ -14,7 +14,43 @@ namespace MarketClient.Utils
             return int.TryParse(s, out i);
         }
 
-        static public String ArrayToString(String[] arr)
+
+
+        static public String EnumarableToString(IEnumerable<Object> list)
+        {
+            
+        }
+
+
+
+        //Maybe we can make a method for all IEnumerable...
+        static public String StringListToString(IEnumerable<String> list)
+        {
+
+            String output = "";
+            foreach (String str in list)
+            {
+                output += str + ", ";
+            }
+
+            return output;
+
+        }
+
+        static public String intListToString(IEnumerable<int> list)
+        {
+            String output = "";
+            foreach (int i in list)
+            {
+                output += i.ToString() + ", ";
+            }
+
+            return output;
+
+        }
+
+        /*
+        static private String ArrayToString(String[] arr)
         {
             String output = "";
             for(int i=0; i<arr.Length; i=i+1)
@@ -28,7 +64,7 @@ namespace MarketClient.Utils
 
         }
 
-        static public String ArrayToString(int[] arr)
+        static private String ArrayToString(int[] arr)
         {
             String output = "";
             for (int i = 0; i < arr.Length; i = i + 1)
@@ -40,6 +76,7 @@ namespace MarketClient.Utils
             return output;
         }
 
+        */
 
     }
 }

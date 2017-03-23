@@ -11,13 +11,13 @@ namespace MarketClient.DataEntries.DAL
     {
         public int price;
         public int amount;
-        public int type;
+        public String type;
         public String user;
         public int commodity;
 
         public String ToString()
         {
-            String output = "User: " + this.user + ", Type: " + this.type + ", Commodity: " + this.commodity + ", Price:" + this.price +", Amount:" +this.amount;
+            String output = "User: " + this.user + ", Type: " + this.type + ", Commodity: " + this.commodity.ToString() + ", Price:" + this.price.ToString() +", Amount:" +this.amount.ToString();
             return output;
         }
 

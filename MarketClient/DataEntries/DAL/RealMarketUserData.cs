@@ -4,24 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
-
-
-//Must convert "requests" arry to strings
+using MarketClient.Utils;
 
 
 namespace MarketClient.DataEntries.DAL
 {
     class RealMarketUserData : IMarketUserData
     {
-        public String commodities;
-        public String funds;
-        public String[] requests;
+        public Dictionary<string, int> commodities;
+        public int funds;
+        public List<int> requests;
 
         public String ToString()
         {
-            String output = "Commodities: " + this.commodities + ", Funds: " + this.funds + ", Requests:";
+            String output = "Commodities: "+ , Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
             return output;
-
         }
 
     }

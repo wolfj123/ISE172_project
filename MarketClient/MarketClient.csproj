@@ -58,7 +58,7 @@
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\InputSlot.cs" />
     <Compile Include="UI\Interperator.cs" />
-    <Compile Include="UI\UserInterface.cs" />
+    <Compile Include="UI\Program.cs" />
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="DataEntries\IMarketCommodityOffer.cs" />

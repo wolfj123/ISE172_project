@@ -50,12 +50,14 @@
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
     <Compile Include="DAL\LoginInfo.cs" />
+    <Compile Include="DAL\RealCommodityOffer.cs" />
     <Compile Include="DAL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\InputSlot.cs" />
     <Compile Include="UI\Interperator.cs" />
     <Compile Include="UI\UserInterface.cs" />
+    <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="DataEntries\IMarketCommodityOffer.cs" />
     <Compile Include="IMarketClient.cs" />

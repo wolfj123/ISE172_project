@@ -2,5 +2,6 @@
 {
     public interface IMarketCommodityOffer
     {
+        string ToString();
     }
 }

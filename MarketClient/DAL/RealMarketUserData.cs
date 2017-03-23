@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
-
-
-//Must convert "requests" arry to strings
+using MarketClient.Utils;
 
 
 namespace MarketClient.DAL
@@ -19,7 +17,7 @@ namespace MarketClient.DAL
 
         public String ToString()
         {
-            String output = "Commodities: " + this.commodities + ", Funds: " + this.funds + ", Requests:";
+            String output = "Commodities: " + this.commodities + ", Funds: " + this.funds + ", Requests: {" + Shell.ArrayToString(requests) + "}";
             return output;
 
         }

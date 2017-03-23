@@ -2,5 +2,6 @@
 {
     public interface IMarketItemQuery
     {
+        string ToString();
     }
 }

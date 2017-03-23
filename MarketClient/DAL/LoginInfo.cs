@@ -49,8 +49,11 @@ namespace MarketClient.DAL
 
     }
 
-    public class DefaultLoginInfo : DynamicLoginInfo
+    public class DefaultLoginInfo : LoginInfo
     {
+        protected String url;
+        protected String username;
+        protected String token;
         public DefaultLoginInfo()
         {
             this.url = "http://ise172.ise.bgu.ac.il";
@@ -73,6 +76,21 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY----- ";
 
             this.token = SimpleCtyptoLibrary.CreateToken(this.username, PrivateKey);
+        }
+
+        public String GetURL()
+        {
+            return this.url;
+        }
+
+        public String GetUser()
+        {
+            return this.username;
+        }
+
+        public String GetToken()
+        {
+            return this.token;
         }
 
     }

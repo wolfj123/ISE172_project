@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
+using MarketClient.DataEntries.DAL;
 
 
 
 namespace MarketClient.BL
 {
-    class Poster : IMarketClient
+    public class Poster : IMarketClient
     {
         private LoginInfo loginInfo;
         private SimpleHTTPClient client;
@@ -51,17 +52,26 @@ namespace MarketClient.BL
 
         IMarketUserData SendQueryUserRequest()
         {
-
+            QueryUserRequest userReq = new QueryUserRequest();
+            RealMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), userReq);
+            return output;
         }
 
         IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
-
+            QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
+            RealMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), QMReq);
+            return output;
         }
 
         bool SendCancelBuySellRequest(int id)
         {
-
+            CancelRequest cancelReq = new CancelRequest(id);
+            String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), cancelReq);
+            if (output.Equals("OK"))
+                return true;
+            else
+                return false;
         }
 
     }

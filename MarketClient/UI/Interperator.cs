@@ -85,11 +85,7 @@ namespace MarketClient.UI
             return inputSlots.data;
         }
 
-        static public bool isNumeric(String s)
-        {
-            int i = 0;
-            return int.TryParse(s, out i);
-        }
+
 
     }
 

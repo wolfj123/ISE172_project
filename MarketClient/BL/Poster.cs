@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DAL;
+using MarketClient.Utils;
 
 
 
@@ -12,7 +13,7 @@ namespace MarketClient.BL
     class Poster : IMarketClient
     {
         private LoginInfo loginInfo;
-        SimpleHTTPClient client;
+        private SimpleHTTPClient client;
 
         public Poster(LoginInfo loginInfo)
         {
@@ -22,23 +23,22 @@ namespace MarketClient.BL
 
         public int SendBuyRequest(int price, int commodity, int amount)
         {
-            /*
-            BuySellRequest req = new BuySellRequest();
-            req.type = "buy";
-            //req.auth = ??????
-            req.price = price;
-            req.commodity = commodity;
-            req.amount = amount;
-
-            */
-
-            String output = client.SendPostRequest(loginInfo.url, loginInfo.username, loginInfo.token);
-            return Int32.Parse(output);
+            BuySellRequest buyReq = new BuySellRequest(commodity, amount, price);
+            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), buyReq);
+            if (Utils.Shell.isNumeric(output))
+                return Int32.Parse(output);
+            else
+                return -1;
         }
 
         int SendSellRequest(int price, int commodity, int amount)
         {
-            
+            BuySellRequest sendReq = new BuySellRequest(commodity, amount, price);
+            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
+            if (Utils.Shell.isNumeric(output))
+                return Int32.Parse(output);
+            else
+                return -1;
         }
 
 

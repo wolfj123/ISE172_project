@@ -10,9 +10,9 @@ namespace MarketClientTest
     public class UnitTest1
     {
         // fill those variable with our own data
-        private const string Url = "TEST";
-        private const string User = "TEST";
-        private const string PrivateKey = "TEST";
+        private const string Url = "http://ise172.ise.bgu.ac.il";
+        private const string User = "user36";
+        private const string PrivateKey = "";
 
 
         [TestMethod]

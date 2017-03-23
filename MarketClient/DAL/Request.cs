@@ -16,10 +16,17 @@ namespace MarketClient.DAL
 
     public class BuySellRequest : Request
     {
-
+       
         public int commodity;
         public int amount;
         public int price;
+
+        public BuySellRequest (int commodity, int amount, int price)
+        {
+            this.amount = amount;
+            this.commodity = commodity;
+            this.price = price;
+        }
     }
 
     public class CancelRequest : Request

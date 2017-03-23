@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 
-namespace BL
+namespace MarketClient.BL
 {
     class Poster : IMarketClient
     {

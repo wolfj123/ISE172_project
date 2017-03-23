@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MarketClient.Utils;
 
 
-namespace MarketClient
+namespace UI
 {
     class Program
     {

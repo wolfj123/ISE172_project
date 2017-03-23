@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient
+namespace DL
 {
 
     public class Request
@@ -16,6 +16,7 @@ namespace MarketClient
 
     public class BuySellRequest : Request
     {
+
         public int commodity;
         public int amount;
         public int price;

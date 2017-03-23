@@ -7,7 +7,7 @@ using MarketClient.DataEntries;
 
 namespace MarketClient.DataEntries.DAL
 {
-    class RealCommodityOffer : IMarketCommodityOffer
+    class RealMarketCommodityOffer : IMarketCommodityOffer
     {
         public String ask;
         public String bid;

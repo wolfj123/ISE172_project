@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
     <Compile Include="DataEntries\DAL\LoginInfo.cs" />
-    <Compile Include="DataEntries\DAL\RealCommodityOffer.cs" />
+    <Compile Include="DataEntries\DAL\RealMarketCommodityOffer.cs" />
     <Compile Include="DataEntries\DAL\RealMarketItemQuery.cs" />
     <Compile Include="DataEntries\DAL\RealMarketUserData.cs" />
     <Compile Include="DataEntries\DAL\Request.cs" />

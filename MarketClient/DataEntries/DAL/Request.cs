@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.dataEntries.DAL
+namespace MarketClient.DataEntries.DAL
 {
 
     public class Request
     {
         public Object auth;
         public String type;
+
     }
 
 
@@ -32,6 +33,11 @@ namespace MarketClient.dataEntries.DAL
     public class CancelRequest : Request
     {
         public int id;
+
+        public CancelRequest(int id)
+        {
+            this.id = id;
+        }
     }
 
     public class QueryBuySellRequest : Request
@@ -47,6 +53,11 @@ namespace MarketClient.dataEntries.DAL
     public class QueryMarketRequest : Request
     {
         public int commodity;
+
+        public QueryMarketRequest(int commodity)
+        {
+            this.commodity = commodity;
+        }
     }
 
     public class QueryUserRequest : Request

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MarketClient.DAL;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
 

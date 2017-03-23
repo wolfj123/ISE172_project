@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarketClient.BL;
+using MarketClient.DAL;
 
 namespace MarketClient.UI
 {
     public class Interperator
     {
-        private Credentials userInfo;
+        private LoginInfo loginInfo;
         private Poster poster;
 
-        public Interperator(Credentials userInfo)
+        public Interperator(LoginInfo loginInfo)
         {
-            this.userInfo = userInfo;
-            this.poster = new Poster(userInfo);
+            this.loginInfo = loginInfo;
+            this.poster = new Poster(loginInfo);
         }
 
 

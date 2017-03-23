@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarketClient.DAL;
 
 
 
@@ -10,12 +11,12 @@ namespace MarketClient.BL
 {
     class Poster : IMarketClient
     {
-        private Credentials userInfo;
+        private LoginInfo loginInfo;
         SimpleHTTPClient client;
 
-        public Poster(Credentials credenatials)
+        public Poster(LoginInfo loginInfo)
         {
-            this.userInfo = credenatials;
+            this.loginInfo = loginInfo;
             this.client = new SimpleHTTPClient();
         }
 
@@ -31,7 +32,7 @@ namespace MarketClient.BL
 
             */
 
-            String output = client.SendPostRequest(userInfo.url, userInfo.username, userInfo.token);
+            String output = client.SendPostRequest(loginInfo.url, loginInfo.username, loginInfo.token);
             return Int32.Parse(output);
         }
 

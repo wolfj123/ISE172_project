@@ -12,7 +12,7 @@ namespace MarketClient.BL
     class Poster : IMarketClient
     {
         private LoginInfo loginInfo;
-        SimpleHTTPClient client;
+        private SimpleHTTPClient client;
 
         public Poster(LoginInfo loginInfo)
         {
@@ -22,23 +22,16 @@ namespace MarketClient.BL
 
         public int SendBuyRequest(int price, int commodity, int amount)
         {
-            /*
-            BuySellRequest req = new BuySellRequest();
-            req.type = "buy";
-            //req.auth = ??????
-            req.price = price;
-            req.commodity = commodity;
-            req.amount = amount;
-
-            */
-
-            String output = client.SendPostRequest(loginInfo.url, loginInfo.username, loginInfo.token);
+            BuySellRequest buyReq = new BuySellRequest(commodity, amount, price);
+            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL, loginInfo.GetUser, loginInfo.GetToken, buyReq);
             return Int32.Parse(output);
         }
 
         int SendSellRequest(int price, int commodity, int amount)
         {
-            
+            BuySellRequest sendReq = new BuySellRequest(commodity, amount, price);
+            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL, loginInfo.GetUser, loginInfo.GetToken, buyReq);
+            return Int32.Parse(output);
         }
 
 

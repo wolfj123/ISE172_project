@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.DAL
+namespace MarketClient.dataEntries.DAL
 {
 
     public class Request

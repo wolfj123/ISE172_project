@@ -9,7 +9,7 @@ using MarketClient.DataEntries;
 //Must convert "requests" arry to strings
 
 
-namespace MarketClient.DAL
+namespace MarketClient.DataEntries.DAL
 {
     class RealMarketUserData : IMarketUserData
     {

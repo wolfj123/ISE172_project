@@ -37,6 +37,11 @@ namespace MarketClient.DAL
     public class QueryBuySellRequest : Request
     {
         public int id;
+        
+        public QueryBuySellRequest (int id)
+        {
+            this.id = id;
+        }
     }
 
     public class QueryMarketRequest : Request

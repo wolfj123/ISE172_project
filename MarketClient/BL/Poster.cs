@@ -32,7 +32,7 @@ namespace MarketClient.BL
                 return -1;
         }
 
-        int SendSellRequest(int price, int commodity, int amount)
+        public int SendSellRequest(int price, int commodity, int amount)
         {
             BuySellRequest sendReq = new BuySellRequest(commodity, amount, price);
             String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
@@ -43,28 +43,28 @@ namespace MarketClient.BL
         }
 
 
-        IMarketItemQuery SendQueryBuySellRequest(int id)
+        public IMarketItemQuery SendQueryBuySellRequest(int id)
         {
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
-            RealMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), queryBS);
+            IMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), queryBS);
             return output;
         }
 
-        IMarketUserData SendQueryUserRequest()
+        public IMarketUserData SendQueryUserRequest()
         {
             QueryUserRequest userReq = new QueryUserRequest();
-            RealMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), userReq);
+            IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), userReq);
             return output;
         }
 
-        IMarketCommodityOffer SendQueryMarketRequest(int commodity)
+        public IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
             QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
-            RealMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), QMReq);
+            IMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), QMReq);
             return output;
         }
 
-        bool SendCancelBuySellRequest(int id)
+        public bool SendCancelBuySellRequest(int id)
         {
             CancelRequest cancelReq = new CancelRequest(id);
             String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), cancelReq);

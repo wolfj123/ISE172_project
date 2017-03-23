@@ -17,7 +17,7 @@ namespace MarketClient.DataEntries.DAL
 
         public String ToString()
         {
-            String output = "Commodities: "+ , Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
+            String output = "Commodities:" + Shell.DictionaryToString(commodities) + ", Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
             return output;
         }
 

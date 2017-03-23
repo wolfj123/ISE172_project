@@ -16,33 +16,69 @@ namespace MarketClient.Utils
 
 
 
-        static public String EnumarableToString(IEnumerable<Object> list)
+        //Need to somehow create a function for all Enumerable objects
+
+
+        static public String DictionaryToString(Dictionary<String,int> dict)
         {
-            
+            bool first = true;
+            String output = "";
+            foreach (KeyValuePair<string, int> pair in dict)
+            {
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    output += ", ";
+                }
+
+                output += pair.Value.ToString();
+            }
+
+            return output;
+
         }
-
-
-
-        //Maybe we can make a method for all IEnumerable...
-        static public String StringListToString(IEnumerable<String> list)
+        
+        static public String StringListToString(List<String> list)
         {
-
+            bool first = true;
             String output = "";
             foreach (String str in list)
             {
-                output += str + ", ";
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    output += ", ";
+                }
+
+                output += str;
             }
 
             return output;
 
         }
 
-        static public String intListToString(IEnumerable<int> list)
+        static public String intListToString(List<int> list)
         {
+            bool first = true;
             String output = "";
             foreach (int i in list)
             {
-                output += i.ToString() + ", ";
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    output += ", ";
+                }
+
+                output += i.ToString();
             }
 
             return output;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
 
-namespace MarketClient.DAL
+namespace MarketClient.DataEntries.DAL
 {
     class RealCommodityOffer : IMarketCommodityOffer
     {

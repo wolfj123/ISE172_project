@@ -49,16 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
-    <Compile Include="DAL\LoginInfo.cs" />
-    <Compile Include="DAL\RealCommodityOffer.cs" />
-    <Compile Include="DAL\RealMarketItemQuery.cs" />
-    <Compile Include="DAL\RealMarketUserData.cs" />
-    <Compile Include="DAL\Request.cs" />
+    <Compile Include="DataEntries\DAL\LoginInfo.cs" />
+    <Compile Include="DataEntries\DAL\RealCommodityOffer.cs" />
+    <Compile Include="DataEntries\DAL\RealMarketItemQuery.cs" />
+    <Compile Include="DataEntries\DAL\RealMarketUserData.cs" />
+    <Compile Include="DataEntries\DAL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\InputSlot.cs" />
     <Compile Include="UI\Interperator.cs" />
-    <Compile Include="UI\UserInterface.cs" />
+    <Compile Include="UI\Program.cs" />
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="DataEntries\IMarketCommodityOffer.cs" />

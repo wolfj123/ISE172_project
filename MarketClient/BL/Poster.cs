@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DAL;
 using MarketClient.Utils;
+using MarketClient.DataEntries;
 
 
 
@@ -44,7 +45,9 @@ namespace MarketClient.BL
 
         IMarketItemQuery SendQueryBuySellRequest(int id)
         {
-
+            QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
+            RealMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), queryBS);
+            return output;
         }
 
         IMarketUserData SendQueryUserRequest()

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.Utils;
 
-namespace MarketClient.DAL
+namespace MarketClient.DataEntries.DAL
 {
 
     public interface LoginInfo

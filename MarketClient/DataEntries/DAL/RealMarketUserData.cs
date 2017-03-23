@@ -7,19 +7,18 @@ using MarketClient.DataEntries;
 using MarketClient.Utils;
 
 
-namespace MarketClient.DAL
+namespace MarketClient.DataEntries.DAL
 {
     class RealMarketUserData : IMarketUserData
     {
-        public String commodities;
-        public String funds;
-        public String[] requests;
+        public Dictionary<string, int> commodities;
+        public int funds;
+        public List<int> requests;
 
         public String ToString()
         {
-            String output = "Commodities: " + this.commodities + ", Funds: " + this.funds + ", Requests: {" + Shell.ArrayToString(requests) + "}";
+            String output = "Commodities: "+ , Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
             return output;
-
         }
 
     }

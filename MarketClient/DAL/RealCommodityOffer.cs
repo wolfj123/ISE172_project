@@ -9,6 +9,13 @@ namespace MarketClient.DAL
 {
     class RealCommodityOffer : IMarketCommodityOffer
     {
+        public String ask;
+        public String bid;
 
+        public String ToString()
+        {
+            String output = "Ask: " + this.ask + ", Bid: " + this.bid;
+            return output;
+        }
     }
 }

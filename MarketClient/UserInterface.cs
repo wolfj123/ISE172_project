@@ -39,11 +39,10 @@ rxv9gh / KJgqOXc / YV3RG1FuQdflRy3ZvQutoIrznyKA =
     */
 
 
-
             Credentials userInfo = new Credentials(url, username, token);
-            
+            Interperator interperator = new Interperator(userInfo);
 
-
+            interperator.Run();
 
         }
 
@@ -51,20 +50,35 @@ rxv9gh / KJgqOXc / YV3RG1FuQdflRy3ZvQutoIrznyKA =
     }
 
 
-
-
-
     public class Interperator
     {
         private Credentials userInfo;
-        private Poster poster;
+        //private Poster poster;
 
         public Interperator(Credentials userInfo)
         {
             this.userInfo = userInfo;
-            this.poster = new Poster(userInfo);
+            //this.poster = new Poster(userInfo);
         }
 
+
+        public void Run()
+        {
+            while(true)
+            {
+                String cmd = Console.ReadLine();
+                while(!isNumeric(cmd))
+                {
+                    Display.MustBeInt();
+                    cmd = Console.ReadLine();
+                }
+
+                Interperate(Int32.Parse(cmd));
+
+            }
+
+
+        }
 
         public void Interperate(int cmd)
         {
@@ -73,7 +87,8 @@ rxv9gh / KJgqOXc / YV3RG1FuQdflRy3ZvQutoIrznyKA =
             {
                 case 1 : //Buy
 
-                    InputSlot inputSlots = new InputSlot("price", "commodity", "amount");
+                    String[] slots = new String[] { "price", "commodity", "amount" };
+                    InputSlot inputSlots = new InputSlot(slots);
                     int[] inputs = AskInput(inputSlots);
                     
                     //int response = poster.SendBuyRequest(inputs[0], inputs[1], inputs[2]);
@@ -144,7 +159,7 @@ rxv9gh / KJgqOXc / YV3RG1FuQdflRy3ZvQutoIrznyKA =
         public String[] names;
         public int[] data;
 
-        public InputSlot(String[] name)
+        public InputSlot(String[] names)
         {
             this.names = names;
             this.data = new int[names.Length];

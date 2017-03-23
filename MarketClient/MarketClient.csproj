@@ -48,7 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Poster.cs" />
+    <Compile Include="Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
+    <Compile Include="UserInterface.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="DataEntries\IMarketCommodityOffer.cs" />
     <Compile Include="IMarketClient.cs" />

@@ -8,16 +8,44 @@ namespace MarketClient.Utils
 {
     static public class Shell
     {
+
+        //isNumeric function for String and Strin[]
         static public bool isNumeric(String s)
         {
+            if (s.Length == 0)
+                throw new Exception("String s cannot be empty!");
             int i = 0;
             return int.TryParse(s, out i);
         }
 
 
+        static public bool isNumeric(String[] s)
+        {
+            if (s == null || s.Length == 0)
+                throw new NullReferenceException();
+            return isNumeric(s, 0);
+
+        }
+
+
+        static public bool isNumeric(String[] s, int start)
+        {
+            if (start >= s.Length)
+                throw new IndexOutOfRangeException();
+
+            for (int i=start; i<s.Length; i=i+1)
+            {
+                if (!isNumeric(s[i]))
+                    return false;
+            }
+
+            return true;
+        }
+
+
+
 
         //Need to somehow create a function for all Enumerable objects
-
 
         static public String DictionaryToString(Dictionary<String,int> dict)
         {
@@ -84,35 +112,6 @@ namespace MarketClient.Utils
             return output;
 
         }
-
-        /*
-        static private String ArrayToString(String[] arr)
-        {
-            String output = "";
-            for(int i=0; i<arr.Length; i=i+1)
-            {
-                output += arr[i];
-                if (i < arr.Length - 1)
-                    output += ", ";
-            }
-
-            return output;
-
-        }
-
-        static private String ArrayToString(int[] arr)
-        {
-            String output = "";
-            for (int i = 0; i < arr.Length; i = i + 1)
-            {
-                output += arr[i].ToString();
-                if (i < arr.Length - 1)
-                    output += ", ";
-            }
-            return output;
-        }
-
-        */
 
     }
 }

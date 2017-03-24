@@ -14,16 +14,18 @@ namespace MarketClient.UI
     {
         static void Main()
         {
+            Interperator interp = new PrimInterperator(new DefaultLoginInfo());
+            Display.Welcome();
+
+            while (true)
+            {
+                String cmd = Console.ReadLine();
+                Console.WriteLine(interp.Interperate(cmd));
+           
+            }
             
-
-
-
-
-
         }
         
     }
-
-
-
+    
 }

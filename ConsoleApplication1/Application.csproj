@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{371E8EA8-CE7A-4AB2-85E5-EAC135DF4A26}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{31EF31A4-3596-405F-95C3-04AD1C8B22CA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarketClient</RootNamespace>
-    <AssemblyName>MarketClient</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,17 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>.\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,29 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Poster.cs" />
-    <Compile Include="DataEntries\DAL\LoginInfo.cs" />
-    <Compile Include="DataEntries\DAL\RealMarketCommodityOffer.cs" />
-    <Compile Include="DataEntries\DAL\RealMarketItemQuery.cs" />
-    <Compile Include="DataEntries\DAL\RealMarketUserData.cs" />
-    <Compile Include="DataEntries\DAL\Request.cs" />
-    <Compile Include="SimpleHTTPClient.cs" />
-    <Compile Include="UI\Display.cs" />
-    <Compile Include="UI\InputSlot.cs" />
-    <Compile Include="UI\Interperator.cs" />
-    <Compile Include="UI\PrimInterperator.cs" />
-    <Compile Include="Utils\Shell.cs" />
-    <Compile Include="Utils\MarketException.cs" />
-    <Compile Include="DataEntries\IMarketCommodityOffer.cs" />
-    <Compile Include="IMarketClient.cs" />
-    <Compile Include="DataEntries\IMarketItemQuery.cs" />
-    <Compile Include="DataEntries\IMarketUserData.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\SimpleCtyptoLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BouncyCastle.Crypto.dll" />
-    <Content Include="Newtonsoft.Json.dll" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketClient\MarketClient.csproj">
+      <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
+      <Name>MarketClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

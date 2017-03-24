@@ -25,7 +25,9 @@ namespace MarketClient.UI
             if (!(cmd is String))
                 throw new Exception("PrimInterperator only accepts commands as Strings");
 
-            return Interperate(cmd);
+            String s = (String)cmd;
+
+            return Interperate(s);
 
         }
 
@@ -132,7 +134,8 @@ namespace MarketClient.UI
                     return "Unknown Command";
 
             }
-            return "Unknown Command";
+            Console.WriteLine();
+            return " ";
 
 
         }

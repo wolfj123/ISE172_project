@@ -22,6 +22,19 @@ namespace MarketClient.UI
 
         static public void Help()
         {
+            Console.WriteLine("Command List:");
+
+            Console.WriteLine();
+
+            Console.WriteLine("buy <int price> <int commodity> <int amount>");
+            Console.WriteLine("sell <int price> <int commodity> <int amount>");
+            Console.WriteLine("cancel <int request id>");
+            Console.WriteLine("qreq <int request id>");
+            Console.WriteLine("quser");
+            Console.WriteLine("qmarket <int commodity>");
+
+            Console.WriteLine();
+            Console.WriteLine();
 
         }
 
@@ -38,6 +51,7 @@ namespace MarketClient.UI
         static public void Welcome()
         {
             Write("Welcome to the Market Client");
+            Help();
         }
 
         static public void Username()

@@ -11,6 +11,7 @@ namespace MarketClient.UI
         public String[] names;
         public int[] data;
 
+         
         public InputSlot(String[] names)
         {
             this.names = names;

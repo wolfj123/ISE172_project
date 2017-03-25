@@ -9,7 +9,7 @@ namespace MarketClient.Utils
     static public class Shell
     {
 
-        //isNumeric function for String and Strin[]
+        //isNumeric function for String and String[]
         static public bool isNumeric(String s)
         {
             if (s.Length == 0)

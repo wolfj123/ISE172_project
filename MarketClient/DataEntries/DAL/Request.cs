@@ -9,14 +9,14 @@ namespace MarketClient.DataEntries.DAL
 
     public class Request
     {
-        protected object auth;
+       /** protected object auth;
         //public String type;
 
         
         public Request (object auth)
         {
             this.auth = auth;
-        }
+        }**/
     }
 
     public class BuySellRequest : Request
@@ -26,7 +26,7 @@ namespace MarketClient.DataEntries.DAL
         public int amount;
         public int price;
 
-        public BuySellRequest (int commodity, int amount, int price) :base(null)
+        public BuySellRequest (int commodity, int amount, int price) 
         {
             this.amount = amount;
             this.commodity = commodity;
@@ -38,7 +38,7 @@ namespace MarketClient.DataEntries.DAL
     {
         public int id;
 
-        public CancelRequest(int id) : base(null)
+        public CancelRequest(int id) 
         {
             this.id = id;
         }
@@ -48,7 +48,7 @@ namespace MarketClient.DataEntries.DAL
     {
         public int id;
         
-        public QueryBuySellRequest (int id) : base(null)
+        public QueryBuySellRequest (int id) 
         {
             this.id = id;
         }
@@ -58,7 +58,7 @@ namespace MarketClient.DataEntries.DAL
     {
         public int commodity;
 
-        public QueryMarketRequest(int commodity) : base(null)
+        public QueryMarketRequest(int commodity) 
         {
             this.commodity = commodity;
         }
@@ -66,7 +66,7 @@ namespace MarketClient.DataEntries.DAL
 
     public class QueryUserRequest : Request 
     {
-        public QueryUserRequest () : base(null)
+        public QueryUserRequest () 
         {
         }
     }

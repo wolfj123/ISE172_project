@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Poster - Copy.cs" />
     <Compile Include="BL\Poster.cs" />
     <Compile Include="DataEntries\DAL\LoginInfo.cs" />
     <Compile Include="DataEntries\DAL\RealMarketCommodityOffer.cs" />

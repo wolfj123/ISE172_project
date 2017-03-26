@@ -9,14 +9,7 @@ namespace MarketClient.DataEntries.DAL
 
     public class Request
     {
-       /** protected object auth;
-        //public String type;
-
-        
-        public Request (object auth)
-        {
-            this.auth = auth;
-        }**/
+        public String type;
     }
 
     public class BuySellRequest : Request
@@ -31,6 +24,41 @@ namespace MarketClient.DataEntries.DAL
             this.amount = amount;
             this.commodity = commodity;
             this.price = price;
+ 
+        }
+    }
+
+    public class BuyRequest : Request
+    {
+
+        public int commodity;
+        public int amount;
+        public int price;
+
+        public BuyRequest(int commodity, int amount, int price)
+        {
+            this.amount = amount;
+            this.commodity = commodity;
+            this.price = price;
+            this.type = "buy";
+
+        }
+    }
+
+    public class SellRequest : Request
+    {
+
+        public int commodity;
+        public int amount;
+        public int price;
+
+        public SellRequest(int commodity, int amount, int price)
+        {
+            this.amount = amount;
+            this.commodity = commodity;
+            this.price = price;
+            this.type = "sell";
+
         }
     }
 
@@ -41,6 +69,7 @@ namespace MarketClient.DataEntries.DAL
         public CancelRequest(int id) 
         {
             this.id = id;
+            this.type = "cancelBuySell";
         }
     }
 
@@ -51,6 +80,7 @@ namespace MarketClient.DataEntries.DAL
         public QueryBuySellRequest (int id) 
         {
             this.id = id;
+            this.type = "queryBuySell";
         }
     }
 
@@ -61,6 +91,7 @@ namespace MarketClient.DataEntries.DAL
         public QueryMarketRequest(int commodity) 
         {
             this.commodity = commodity;
+            this.type = "queryMarket";
         }
     }
 
@@ -68,6 +99,7 @@ namespace MarketClient.DataEntries.DAL
     {
         public QueryUserRequest () 
         {
+            this.type = "queryUser";
         }
     }
 

@@ -46,28 +46,28 @@ namespace MarketClient.BL
         public IMarketItemQuery SendQueryBuySellRequest(int id)
         {
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
-            IMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), queryBS);
+            RealMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
             return output;
         }
 
         public IMarketUserData SendQueryUserRequest()
         {
             QueryUserRequest userReq = new QueryUserRequest();
-            IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), userReq);
+            RealMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
             return output;
         }
 
         public IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
             QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
-            IMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), QMReq);
+            RealMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
             return output;
         }
 
         public bool SendCancelBuySellRequest(int id)
         {
             CancelRequest cancelReq = new CancelRequest(id);
-            String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetURL(), loginInfo.GetToken(), cancelReq);
+            String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), cancelReq);
             if (output.Equals("OK"))
                 return true;
             else

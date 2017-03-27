@@ -17,8 +17,6 @@ namespace MarketClient.DataEntries.DAL
         String GetToken();
     }
 
-
-
     public class DynamicLoginInfo : LoginInfo
     {
         protected String url;
@@ -58,7 +56,6 @@ namespace MarketClient.DataEntries.DAL
         {
             this.url = "http://ise172.ise.bgu.ac.il";
             this.username = "user36";
-
             String PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk
 1gNQrmD9ICjyEOGrKaubCJnrI0Zcjvfml3n9FhJUJeD6XrE6dSY0znUoNc8juBae

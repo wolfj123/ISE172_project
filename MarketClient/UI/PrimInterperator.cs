@@ -16,7 +16,7 @@ namespace MarketClient.UI
 
         public PrimInterperator(LoginInfo loginInfo)
         {
-            marketClient = new Poster(loginInfo);
+           marketClient = new Poster(loginInfo);
         }
 
 

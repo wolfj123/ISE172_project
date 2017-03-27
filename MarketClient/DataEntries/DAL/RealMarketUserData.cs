@@ -17,7 +17,18 @@ namespace MarketClient.DataEntries.DAL
 
         public String ToString()
         {
-            String output = "Commodities:" + Shell.DictionaryToString(commodities) + ", Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
+            String output = "Unassigned";
+
+            try
+            {
+                output = "Commodities: " + Shell.DictionaryToString(commodities) + "\nFunds: " + this.funds.ToString() + "\nRequests: {" + Shell.intListToString(requests) + "}";
+            }
+            catch (Exception e)
+            {
+                output = "\n\n" + e.Message;
+            }
+
+
             return output;
         }
 

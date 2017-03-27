@@ -17,9 +17,20 @@ namespace MarketClient.DataEntries.DAL
 
         public String ToString()
         {
-            String output = "User: " + this.user + ", Type: " + this.type + ", Commodity: " + this.commodity.ToString() + ", Price:" + this.price.ToString() +", Amount:" +this.amount.ToString();
+            String output = "Unassigned";
+
+            try
+            {
+                output = "User: " + this.user + "\nType: " + this.type + "\nCommodity: " + this.commodity.ToString() + "\nPrice:" + this.price.ToString() + "\nAmount:" + this.amount.ToString();
+            }
+            catch (Exception e)
+            {
+                output = "\n\n" + e.Message;
+            }
+
             return output;
         }
+        
 
     }
 }

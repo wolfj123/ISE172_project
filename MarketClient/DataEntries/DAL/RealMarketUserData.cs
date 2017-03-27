@@ -11,14 +11,25 @@ namespace MarketClient.DataEntries.DAL
 {
     class RealMarketUserData : IMarketUserData
     {
-        public Dictionary<string, int> commodities;
-        public int funds;
+        public Dictionary<String, int> commodities;
+        public double funds;
         public List<int> requests;
 
 
         public String ToString()
         {
-            String output = "Commodities:" + Shell.DictionaryToString(commodities) + ", Funds: " + this.funds.ToString() + ", Requests: {" + Shell.intListToString(requests) + "}";
+            String output = "Unassigned";
+
+            try
+            {
+                output = "Commodities: " + Shell.DictionaryToString(commodities) + "\nFunds: " + this.funds.ToString() + "\nRequests: {" + Shell.intListToString(requests) + "}";
+            }
+            catch (Exception e)
+            {
+                output = "\n\n" + e.Message;
+            }
+
+
             return output;
         }
 

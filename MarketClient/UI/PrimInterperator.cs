@@ -47,7 +47,18 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        int response = marketClient.SendBuyRequest(Int32.Parse(input[1]), Int32.Parse(input[2]), Int32.Parse(input[3]));
+
+                        int response = -1;
+
+                        try
+                        {
+                            response = marketClient.SendBuyRequest(Int32.Parse(input[1]), Int32.Parse(input[2]), Int32.Parse(input[3]));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+
                         return response.ToString();
                     }
                     break;
@@ -61,7 +72,17 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        int response = marketClient.SendSellRequest(Int32.Parse(input[1]), Int32.Parse(input[2]), Int32.Parse(input[3]));
+                        int response = -1;
+
+                        try
+                        {
+                            response = marketClient.SendSellRequest(Int32.Parse(input[1]), Int32.Parse(input[2]), Int32.Parse(input[3]));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
+
                         return response.ToString();
                     }
                     break;
@@ -75,7 +96,17 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        bool response = marketClient.SendCancelBuySellRequest(Int32.Parse(input[1]));
+                        bool response = false;
+
+                        try
+                        {
+                            response = marketClient.SendCancelBuySellRequest(Int32.Parse(input[1]));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
+
                         return response.ToString();
                     }
                     break;
@@ -89,7 +120,18 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        IMarketItemQuery response = marketClient.SendQueryBuySellRequest(Int32.Parse(input[1]));
+
+                        IMarketItemQuery response = new RealMarketItemQuery();
+
+                        try
+                        {
+                            response = marketClient.SendQueryBuySellRequest(Int32.Parse(input[1]));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        
                         if (response == null)
                             return "False";
                         else
@@ -104,7 +146,17 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        IMarketUserData response = marketClient.SendQueryUserRequest();
+                        IMarketUserData response = new RealMarketUserData();
+
+                        try
+                        {
+                            response = marketClient.SendQueryUserRequest();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                       
                         if (response == null)
                             return "False";
                         else
@@ -122,7 +174,17 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-                        IMarketCommodityOffer response = marketClient.SendQueryMarketRequest(Int32.Parse(input[1]));
+                        IMarketCommodityOffer response = new RealMarketCommodityOffer();
+
+                        try
+                        {
+                            response = marketClient.SendQueryMarketRequest(Int32.Parse(input[1]));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
+                        
                         if (response == null)
                             return "False";
                         else

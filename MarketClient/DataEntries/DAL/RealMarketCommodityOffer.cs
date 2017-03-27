@@ -14,8 +14,21 @@ namespace MarketClient.DataEntries.DAL
 
         public String ToString()
         {
-            String output = "Ask: " + this.ask + ", Bid: " + this.bid;
+
+
+            String output = "Unassigned";
+
+            try
+            {
+                output = "Ask: " + this.ask + "\nBid: " + this.bid;
+            }
+            catch (Exception e)
+            {
+                output = "\n\n" + e.Message;
+            }
+
             return output;
+
         }
     }
 }

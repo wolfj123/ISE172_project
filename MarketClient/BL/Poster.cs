@@ -24,43 +24,50 @@ namespace MarketClient.BL
 
         public int SendBuyRequest(int price, int commodity, int amount)
         {
-            BuySellRequest buyReq = new BuySellRequest(commodity, amount, price);
-            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), buyReq);
+            BuyRequest buyReq = new BuyRequest(commodity, amount, price);
+            String output = client.SendPostRequest<BuyRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), buyReq);
             if (Utils.Shell.isNumeric(output))
                 return Int32.Parse(output);
             else
+            {
+                Console.WriteLine(output);
                 return -1;
+            }
+                
         }
 
         public int SendSellRequest(int price, int commodity, int amount)
         {
-            BuySellRequest sendReq = new BuySellRequest(commodity, amount, price);
-            String output = client.SendPostRequest<BuySellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
+            SellRequest sendReq = new SellRequest(commodity, amount, price);
+            String output = client.SendPostRequest<SellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
             if (Utils.Shell.isNumeric(output))
                 return Int32.Parse(output);
             else
+            {
+                Console.WriteLine(output);
                 return -1;
+            }
         }
 
 
         public IMarketItemQuery SendQueryBuySellRequest(int id)
         {
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
-            RealMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
+            IMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
             return output;
         }
 
         public IMarketUserData SendQueryUserRequest()
         {
             QueryUserRequest userReq = new QueryUserRequest();
-            RealMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
+            IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
             return output;
         }
 
         public IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
             QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
-            RealMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
+            IMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
             return output;
         }
 
@@ -71,7 +78,12 @@ namespace MarketClient.BL
             if (output.Equals("OK"))
                 return true;
             else
+            {
+                Console.WriteLine(output);
                 return false;
+            }
+
+                
         }
 
     }

@@ -62,7 +62,8 @@ namespace MarketClient.Utils
                     output += ", ";
                 }
 
-                output += pair.Value.ToString();
+                output +="{" + pair.Key + ": " +pair.Value.ToString() + "}";
+                
             }
 
             return output;

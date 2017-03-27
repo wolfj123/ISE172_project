@@ -129,7 +129,7 @@ namespace MarketClient.UI
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e);
+                            Console.WriteLine(e.Message);
                         }
                         
                         if (response == null)
@@ -154,7 +154,7 @@ namespace MarketClient.UI
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e);
+                            Console.WriteLine(e.Message);
                         }
                        
                         if (response == null)

@@ -11,8 +11,8 @@ namespace MarketClient.DataEntries.DAL
 {
     class RealMarketUserData : IMarketUserData
     {
-        public Dictionary<string, int> commodities;
-        public int funds;
+        public Dictionary<String, int> commodities;
+        public double funds;
         public List<int> requests;
 
         public String ToString()

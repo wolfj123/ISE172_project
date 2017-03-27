@@ -29,7 +29,11 @@ namespace MarketClient.BL
             if (Utils.Shell.isNumeric(output))
                 return Int32.Parse(output);
             else
+            {
+                Console.WriteLine(output);
                 return -1;
+            }
+                
         }
 
         public int SendSellRequest(int price, int commodity, int amount)
@@ -39,7 +43,10 @@ namespace MarketClient.BL
             if (Utils.Shell.isNumeric(output))
                 return Int32.Parse(output);
             else
+            {
+                Console.WriteLine(output);
                 return -1;
+            }
         }
 
 
@@ -71,7 +78,12 @@ namespace MarketClient.BL
             if (output.Equals("OK"))
                 return true;
             else
+            {
+                Console.WriteLine(output);
                 return false;
+            }
+
+                
         }
 
     }

@@ -13,7 +13,7 @@ namespace MarketClient.Utils
         static public bool isNumeric(String s)
         {
             if (s.Length == 0)
-                throw new Exception("String s cannot be empty!");
+                return false;
             int i = 0;
             return int.TryParse(s, out i);
         }

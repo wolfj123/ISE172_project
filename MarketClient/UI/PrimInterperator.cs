@@ -58,7 +58,7 @@ namespace MarketClient.UI
                             Console.WriteLine(e.Message);
                         }
 
-                        return response.ToString();
+                        return response == -1 ? "" : response.ToString();
                     }
                     break;
 
@@ -82,7 +82,7 @@ namespace MarketClient.UI
                             Console.WriteLine(e);
                         }
 
-                        return response.ToString();
+                        return response == -1 ? "" : response.ToString();
                     }
                     break;
 
@@ -105,8 +105,7 @@ namespace MarketClient.UI
                         {
                             Console.WriteLine(e);
                         }
-
-                        //return response.ToString();
+                        
                         if (response)
                             return "OK";
                         else return "";
@@ -178,17 +177,20 @@ namespace MarketClient.UI
                     {
                         IMarketCommodityOffer response = new RealMarketCommodityOffer();
 
+                        bool error = false;
+
                         try
                         {
                             response = marketClient.SendQueryMarketRequest(Int32.Parse(input[1]));
                         }
                         catch (Exception e)
                         {
+                            error = true;
                             Console.WriteLine(e);
                         }
                         
-                        if (response == null)
-                            return "False";
+                        if (error)
+                            return "";
                         else
                             return response.ToString();
                     }

@@ -19,10 +19,10 @@ namespace Application
             {
                 String cmd = Console.ReadLine();
                 Console.WriteLine(interp.Interperate(cmd));
-
             }
 
         }
 
     }
+
 }

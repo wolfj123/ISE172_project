@@ -53,21 +53,33 @@ namespace MarketClient.BL
         public IMarketItemQuery SendQueryBuySellRequest(int id)
         {
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
+<<<<<<< HEAD
+            RealMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
+=======
             IMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
+>>>>>>> 0bf8510ab6444918aff11a361e8c13982c0e193e
             return output;
         }
 
         public IMarketUserData SendQueryUserRequest()
         {
             QueryUserRequest userReq = new QueryUserRequest();
+<<<<<<< HEAD
+            RealMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
+=======
             IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
+>>>>>>> 0bf8510ab6444918aff11a361e8c13982c0e193e
             return output;
         }
 
         public IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
             QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
+<<<<<<< HEAD
+            RealMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
+=======
             IMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
+>>>>>>> 0bf8510ab6444918aff11a361e8c13982c0e193e
             return output;
         }
 
@@ -75,14 +87,15 @@ namespace MarketClient.BL
         {
             CancelRequest cancelReq = new CancelRequest(id);
             String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), cancelReq);
-            Console.WriteLine(output);
             if (output.Equals("OK"))
                 return true;
             else
             {
+                Console.WriteLine(output);
                 return false;
             }
 
+                
         }
 
     }

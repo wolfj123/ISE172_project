@@ -24,7 +24,6 @@ namespace MarketClient.DataEntries.DAL
             this.amount = amount;
             this.commodity = commodity;
             this.price = price;
- 
         }
     }
 

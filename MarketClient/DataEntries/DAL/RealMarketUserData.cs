@@ -15,6 +15,7 @@ namespace MarketClient.DataEntries.DAL
         public double funds;
         public List<int> requests;
 
+
         public String ToString()
         {
             String output = "Unassigned";

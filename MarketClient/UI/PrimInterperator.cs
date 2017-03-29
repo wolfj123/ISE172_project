@@ -47,7 +47,6 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else
                     {
-
                         int response = -1;
 
                         try
@@ -107,7 +106,10 @@ namespace MarketClient.UI
                             Console.WriteLine(e);
                         }
 
-                        return response.ToString();
+                        //return response.ToString();
+                        if (response)
+                            return "OK";
+                        else return "";
                     }
                     break;
 

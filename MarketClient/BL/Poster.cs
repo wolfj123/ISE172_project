@@ -75,15 +75,14 @@ namespace MarketClient.BL
         {
             CancelRequest cancelReq = new CancelRequest(id);
             String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), cancelReq);
+            Console.WriteLine(output);
             if (output.Equals("OK"))
                 return true;
             else
             {
-                Console.WriteLine(output);
                 return false;
             }
 
-                
         }
 
     }

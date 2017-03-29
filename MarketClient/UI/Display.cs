@@ -10,17 +10,17 @@ namespace MarketClient.UI
     public static class Display
     {
 
-        static public void Write(String s)
+        static public void Write(String s) //write s on the cmd console
         {
             Console.WriteLine(s);
         }
 
-        static public void Clear()
+        static public void Clear() //clear the cmd console
         {
             Console.Clear();
         }
 
-        static public void Help()
+        static public void Help() //write the avilable functions for the user
         {
             Console.WriteLine("Command List:");
 
@@ -38,12 +38,12 @@ namespace MarketClient.UI
 
         }
 
-        static public void Unknown()
+        static public void Unknown() 
         {
             Console.WriteLine("Unknown Command");
         }
 
-        static public void MustBeInt()
+        static public void MustBeInt() 
         {
             Console.WriteLine("Input must be integer!");
         }
@@ -59,7 +59,7 @@ namespace MarketClient.UI
             Write("Username?");
         }
 
-        static public void Key()
+        static public void Key() 
         {
             Write("Key?");
         }

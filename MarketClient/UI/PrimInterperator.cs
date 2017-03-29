@@ -33,23 +33,23 @@ namespace MarketClient.UI
 
         private String Interperate (String cmd)
         {
-            String[] input = cmd.Split();
+            String[] input = cmd.Split(); //split the input into words in order to analyze it
 
             String err;
 
-            switch (input[0])
+            switch (input[0]) //gose throw every case senarieo possibale for the input
             {
                 case "buy":
                      err = "Invalid Paramaters for 'buy' request. Correct format is: buy <int price> <int commodity> <int amount>";
-                    if (input.Length != 4)
+                    if (input.Length != 4) 
                         Console.WriteLine(err);
                     else if (!Shell.isNumeric(input, 1))
                         Console.WriteLine(err);
-                    else
+                    else //the input is leagle 
                     {
                         int response = -1;
 
-                        try
+                        try //send buy requst and return the received output
                         {
                             response = marketClient.SendBuyRequest(Int32.Parse(input[1]), Int32.Parse(input[2]), Int32.Parse(input[3]));
                         }
@@ -58,7 +58,7 @@ namespace MarketClient.UI
                             Console.WriteLine(e.Message);
                         }
 
-                        return response == -1 ? "" : response.ToString();
+                        return response == -1 ? "" : response.ToString(); //if the send request failed return -1 else return the response
                     }
                     break;
 
@@ -69,7 +69,7 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else if (!Shell.isNumeric(input, 1))
                         Console.WriteLine(err);
-                    else
+                    else //send sell requst and return the received output
                     {
                         int response = -1;
 
@@ -82,7 +82,7 @@ namespace MarketClient.UI
                             Console.WriteLine(e);
                         }
 
-                        return response == -1 ? "" : response.ToString();
+                        return response == -1 ? "" : response.ToString(); //if the buy request failed return -1 else return the response
                     }
                     break;
 
@@ -93,7 +93,7 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else if (!Shell.isNumeric(input, 1))
                         Console.WriteLine(err);
-                    else
+                    else //send cancel requst and return the received output
                     {
                         bool response = false;
 
@@ -119,7 +119,7 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else if (!Shell.isNumeric(input, 1))
                         Console.WriteLine(err);
-                    else
+                    else //send Market Item Query requst and return the received output
                     {
 
                         IMarketItemQuery response = new RealMarketItemQuery();
@@ -145,7 +145,7 @@ namespace MarketClient.UI
                     err = "Invalid Paramaters for 'quser' request. Correct format is: quser";
                     if (input.Length != 1)
                         Console.WriteLine(err);
-                    else
+                    else //send market user data requst and return the received output
                     {
                         IMarketUserData response = new RealMarketUserData();
 
@@ -173,7 +173,7 @@ namespace MarketClient.UI
                         Console.WriteLine(err);
                     else if (!Shell.isNumeric(input, 1))
                         Console.WriteLine(err);
-                    else
+                    else //send Market commodity offer requst and return the received output
                     {
                         IMarketCommodityOffer response = new RealMarketCommodityOffer();
 
@@ -196,7 +196,7 @@ namespace MarketClient.UI
                     }
                     break;
 
-                default:
+                default: //in case of invalid input
                     return "Unknown Command";
 
             }

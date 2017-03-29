@@ -12,7 +12,7 @@ namespace Application
     {
         static void Main()
         {
-            Interperator interp = new PrimInterperator(new DefaultLoginInfo());
+            Interperator interp = new PrimInterperator(new DefaultLoginInfo()); 
             Display.Welcome();
 
             while (true)

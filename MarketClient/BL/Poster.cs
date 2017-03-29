@@ -24,11 +24,11 @@ namespace MarketClient.BL
 
         public int SendBuyRequest(int price, int commodity, int amount)
         {
-            BuyRequest buyReq = new BuyRequest(commodity, amount, price);
+            BuyRequest buyReq = new BuyRequest(commodity, amount, price); //create and define buy request
             String output = client.SendPostRequest<BuyRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), buyReq);
-            if (Utils.Shell.isNumeric(output))
+            if (Utils.Shell.isNumeric(output)) //if the request output is numeric then it succeeded 
                 return Int32.Parse(output);
-            else
+            else // the request failed , printing the output 
             {
                 Console.WriteLine(output);
                 return -1;
@@ -38,11 +38,11 @@ namespace MarketClient.BL
 
         public int SendSellRequest(int price, int commodity, int amount)
         {
-            SellRequest sendReq = new SellRequest(commodity, amount, price);
+            SellRequest sendReq = new SellRequest(commodity, amount, price); //create and define sell request
             String output = client.SendPostRequest<SellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
-            if (Utils.Shell.isNumeric(output))
+            if (Utils.Shell.isNumeric(output)) //if the request output is numeric then it succeeded 
                 return Int32.Parse(output);
-            else
+            else // the request failed , printing the output
             {
                 Console.WriteLine(output);
                 return -1;
@@ -52,31 +52,31 @@ namespace MarketClient.BL
 
         public IMarketItemQuery SendQueryBuySellRequest(int id)
         {
-            QueryBuySellRequest queryBS = new QueryBuySellRequest(id);
+            QueryBuySellRequest queryBS = new QueryBuySellRequest(id); //create buy/sell query request
             IMarketItemQuery output = client.SendPostRequest<QueryBuySellRequest, RealMarketItemQuery>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), queryBS);
             return output;
         }
 
         public IMarketUserData SendQueryUserRequest()
         {
-            QueryUserRequest userReq = new QueryUserRequest();
+            QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
             return output;
         }
 
         public IMarketCommodityOffer SendQueryMarketRequest(int commodity)
         {
-            QueryMarketRequest QMReq = new QueryMarketRequest(commodity);
+            QueryMarketRequest QMReq = new QueryMarketRequest(commodity); //create query market rquest
             IMarketCommodityOffer output = client.SendPostRequest<QueryMarketRequest, RealMarketCommodityOffer>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), QMReq);
             return output;
         }
 
         public bool SendCancelBuySellRequest(int id)
         {
-            CancelRequest cancelReq = new CancelRequest(id);
+            CancelRequest cancelReq = new CancelRequest(id); //create cancel requst
             String output = client.SendPostRequest<CancelRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), cancelReq);
-            Console.WriteLine(output);
-            if (output.Equals("OK"))
+            Console.WriteLine(output); 
+            if (output.Equals("OK")) //if the output is OK then it succeeded
                 return true;
             else
             {

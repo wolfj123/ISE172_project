@@ -41,19 +41,15 @@ namespace MarketClient.Utils
 
             return true;
         }
-
-
-
-
-        //Need to somehow create a function for all Enumerable objects
-
+        
+        //combine the values in the dictionary into string
         static public String DictionaryToString(Dictionary<String,int> dict)
         {
             bool first = true;
-            String output = "";
+            string output = "";
             foreach (KeyValuePair<string, int> pair in dict)
             {
-                if (first)
+                if (first) //designated to avoid "," at the beginning   
                 {
                     first = false;
                 }
@@ -65,18 +61,19 @@ namespace MarketClient.Utils
                 output +="{" + pair.Key + ": " +pair.Value.ToString() + "}";
                 
             }
-
+            
             return output;
 
         }
-        
+
+        //combine the values in the list into string
         static public String StringListToString(List<String> list)
         {
             bool first = true;
-            String output = "";
+            string output = "";
             foreach (String str in list)
             {
-                if (first)
+                if (first) //designated to avoid "," at the beginning
                 {
                     first = false;
                 }
@@ -92,13 +89,14 @@ namespace MarketClient.Utils
 
         }
 
+        //combine the values in the int list into string
         static public String intListToString(List<int> list)
         {
             bool first = true;
             String output = "";
             foreach (int i in list)
             {
-                if (first)
+                if (first) //designated to avoid "," at the beginning
                 {
                     first = false;
                 }

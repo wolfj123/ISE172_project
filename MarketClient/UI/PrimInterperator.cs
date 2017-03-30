@@ -124,17 +124,20 @@ namespace MarketClient.UI
 
                         IMarketItemQuery response = new RealMarketItemQuery();
 
+                        bool error = false;
+
                         try
                         {
                             response = marketClient.SendQueryBuySellRequest(Int32.Parse(input[1]));
                         }
                         catch (Exception e)
                         {
+                            error = true;
                             Console.WriteLine(e.Message);
                         }
                         
-                        if (response == null)
-                            return "False";
+                        if (error)
+                            return "";
                         else
                             return response.ToString();
                     }
@@ -148,6 +151,7 @@ namespace MarketClient.UI
                     else
                     {
                         IMarketUserData response = new RealMarketUserData();
+                        bool error = false;
 
                         try
                         {
@@ -155,11 +159,12 @@ namespace MarketClient.UI
                         }
                         catch (Exception e)
                         {
+                            error = true;
                             Console.WriteLine(e.Message);
                         }
                        
-                        if (response == null)
-                            return "False";
+                        if (error)
+                            return "";
                         else
                             return response.ToString();
                     }

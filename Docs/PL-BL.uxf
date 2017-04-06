@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>50</y>
+      <w>290</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>/IMarketRequest/
+--
++ enum ? rType {Buy, Sell, Cancel, 
+	Query, User, Market}
++ String auth
++ int id
++ int commodity
++ int price
++ int amount
+--
+--
+if an attribute is missing it should be NULL
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>350</x>
+      <y>390</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>For Jonathan:
+
+
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>80</x>
+      <y>390</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>For Shira:
+
+finish the IMarketResponse
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>50</y>
+      <w>290</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>/IMarketResponse/
+--
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

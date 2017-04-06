@@ -4,8 +4,8 @@
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>320</x>
-      <y>360</y>
+      <x>270</x>
+      <y>480</y>
       <w>240</w>
       <h>170</h>
     </coordinates>
@@ -19,13 +19,17 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>50</x>
-      <y>360</y>
+      <x>10</x>
+      <y>480</y>
       <w>240</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>For Hadas:
-
+must analyze all the logs that 
+should be written
+must describe object/class/methods 
+that you need from
+the BL
 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -33,15 +37,14 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>20</x>
       <y>20</y>
       <w>290</w>
       <h>170</h>
     </coordinates>
-    <panel_attributes>/Some kind of interface/
+    <panel_attributes>//
 --
-
-
+--
 
 </panel_attributes>
     <additional_attributes/>

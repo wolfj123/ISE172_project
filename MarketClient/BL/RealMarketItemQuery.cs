@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
-using MarketClient.Utils;
 
-
-namespace MarketClient.DataEntries.DAL
+namespace MarketClient.BL
 {
-    class RealMarketUserData : IMarketUserData
+    class RealMarketItemQuery : IMarketItemQuery
     {
-        public Dictionary<String, int> commodities;
-        public double funds;
-        public List<int> requests;
-
+        public int price;
+        public int amount;
+        public String type;
+        public String user;
+        public int commodity;
 
         public String ToString()
         {
@@ -22,16 +21,16 @@ namespace MarketClient.DataEntries.DAL
 
             try
             {
-                output = "Commodities: " + Shell.DictionaryToString(commodities) + "\nFunds: " + this.funds.ToString() + "\nRequests: {" + Shell.intListToString(requests) + "}";
+                output = "User: " + this.user + "\nType: " + this.type + "\nCommodity: " + this.commodity.ToString() + "\nPrice:" + this.price.ToString() + "\nAmount:" + this.amount.ToString();
             }
             catch (Exception e)
             {
                 output = "\n\n" + e.Message;
             }
 
-
             return output;
         }
+        
 
     }
 }

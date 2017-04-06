@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.DataEntries.DAL
+namespace MarketClient.BL
 {
-
     public class Request
     {
         public String type;

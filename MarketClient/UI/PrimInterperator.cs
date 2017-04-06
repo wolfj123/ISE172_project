@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using MarketClient.BL;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
-using MarketClient.DataEntries.DAL;
 
 namespace MarketClient.UI
 {

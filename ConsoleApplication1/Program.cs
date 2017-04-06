@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.UI;
-using MarketClient.DataEntries.DAL;
+using MarketClient.BL;
 
 namespace Application
 {

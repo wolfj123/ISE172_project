@@ -1,6 +1,7 @@
 .vs/*
 MarketClient/obj/Debug/*
 MarketClientTest/obj/Debug/*
+ConsoleApplication1/obj/Debug/*
 TestResults/*
 
 

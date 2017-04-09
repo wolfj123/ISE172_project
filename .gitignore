@@ -1,7 +1,7 @@
 .vs/*
-MarketClient/obj/Debug/*
-MarketClientTest/obj/Debug/*
-ConsoleApplication1/obj/Debug/*
+MarketClient/obj/*
+MarketClientTest/obj/*
+ConsoleApplication1/obj/*
 TestResults/*
 
 
@@ -313,4 +313,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+ï¿½ 2017 GitHub, Inc. Terms Privacy Security Status Help

@@ -51,12 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Poster.cs" />
+    <Compile Include="BL\milestone1\Poster.cs" />
     <Compile Include="UI\LoginInfo.cs" />
-    <Compile Include="BL\RealMarketCommodityOffer.cs" />
-    <Compile Include="BL\RealMarketItemQuery.cs" />
-    <Compile Include="BL\RealMarketUserData.cs" />
-    <Compile Include="BL\Request.cs" />
+    <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
+    <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
+    <Compile Include="BL\milestone1\RealMarketUserData.cs" />
+    <Compile Include="BL\milestone1\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />

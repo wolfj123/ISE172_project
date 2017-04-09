@@ -1,8 +1,8 @@
-.vs/*
-MarketClient/obj/*
-MarketClientTest/obj/*
-ConsoleApplication1/obj/*
-TestResults/*
+.vs/
+MarketClient/obj/
+MarketClientTest/obj/
+ConsoleApplication1/obj/
+TestResults/
 
 
 

@@ -51,7 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AMA.cs" />
+    <Compile Include="BL\ILogic.cs" />
+    <Compile Include="BL\LogicBlock.cs" />
     <Compile Include="BL\milestone1\Poster.cs" />
+    <Compile Include="PL-BL\Rtype.cs" />
+    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="UI\LoginInfo.cs" />
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />

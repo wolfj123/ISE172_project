@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace MarketClient.PL_BL
 {
-        public enum  Rtype
-        {
-            Buy,
-            Sell,
-            Cancel,
-            Query,
-            User,
-            Market
-        }
+    public enum  RequestType
+    {
+        buy,
+        sell,
+        cancel,
+        query,
+        user,
+        market
+    }
+
+    public enum ResponseType
+    {
+        quser,
+        qmarket,
+        qreq
+    }
 
 }

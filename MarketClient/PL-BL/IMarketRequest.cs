@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MarketClient.PL_BL
 {
-    interface IMarketRequest
+    public interface IMarketRequest
     {
         Rtype getType();
 
-        String getAuth();
+        string getAuth();
 
         int getID();
 
@@ -20,5 +20,10 @@ namespace MarketClient.PL_BL
 
         int getAmount();
 
+        string getUser();
+
+        string getKey();
     }
+
+}
 }

@@ -7,7 +7,7 @@ using MarketClient.DataEntries;
 using MarketClient.Utils;
 
 
-namespace MarketClient.BL
+namespace MarketClient.BL.milestone1
 {
     class RealMarketUserData : IMarketUserData
     {

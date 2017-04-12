@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
 
-namespace MarketClient.BL
+namespace MarketClient.BL.milestone1
 {
     class RealMarketCommodityOffer : IMarketCommodityOffer
     {

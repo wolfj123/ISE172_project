@@ -8,7 +8,7 @@ using MarketClient.DataEntries;
 
 
 
-namespace MarketClient.BL
+namespace MarketClient.BL.milestone1
 {
     public class Poster : IMarketClient
     {

@@ -8,15 +8,32 @@ namespace MarketClient.BL
 {
     public class LogicBlock
     {
-        private LogicCondition condition;
-        private LogicAction action;
+
+
+        private LogicCondition cond;
+        private LogicAction act;
         
 
-        public LogicBlock(LogicCondition condition, LogicAction action)
+        public LogicBlock(LogicCondition cond, LogicAction act)
         {
-            this.condition = condition;
-            this.action = action;
+            this.cond = cond;
+            this.act = act;
         }
+
+        public int run()
+        {
+            int cost = cond.requestCost();
+
+            if (cond.isMet())
+            {
+                act.run();
+                cost = act.requestCost();
+            }
+
+            return cost;
+        }
+
+
 
     }
 

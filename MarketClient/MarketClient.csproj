@@ -62,7 +62,7 @@
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
-    <Compile Include="BL\milestone1\Request.cs" />
+    <Compile Include="BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />

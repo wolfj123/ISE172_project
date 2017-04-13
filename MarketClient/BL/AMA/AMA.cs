@@ -47,30 +47,17 @@ namespace MarketClient.BL
 
         public void run()
         {
-            int currentReqCost = 0;
-            while (currentReqCost <= maxReq & blocks.Count>0)
+            int totalReqSent = 0;
+            while (totalReqSent <= maxReq & blocks.Count>0)
             {
                 //stores the first LogicBlock and moves it to the end of the list
                 LogicBlock currentBlock = blocks[0];
                 blocks.RemoveAt(0);
                 blocks.Add(currentBlock);
 
-                bool doAction = false;
-
-                //verify if the condition cost will not exceed the maximum
-                if(currentReqCost + currentBlock.getConditionCost() <= maxReq)
-                {
-                    doAction = currentBlock.isMet();
-                    currentReqCost += currentBlock.getConditionCost();
-                }
-
-                //verify if the action cost will not exceed the maximum
-                if (doAction) 
-                    if(currentReqCost + currentBlock.getActionCost() <= maxReq)
-                    {
-                        currentBlock.action();
-                        currentReqCost += currentBlock.getActionCost();
-                    }
+                //verify if the next block can be run without flooding the server
+                if(totalReqSent + currentBlock.maxReqCount() <= maxReq)
+                    totalReqSent += currentBlock.run();
             }
 
         }

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//CURRENTLY OBSOLETE
+
+
 namespace MarketClient.BL
 {
     public interface LogicCondition

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using MarketClient;
 using MarketClient.PL_BL;
 
+/*For now I will not be using this class
+ * instead- I will be using the milestone1 Request class
+ */
+
 namespace MarketClient.BL
 {
     public interface MRequest

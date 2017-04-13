@@ -8,7 +8,7 @@ namespace MarketClient.PL_BL
 {
     public interface IMarketRequest
     {
-        RequestType getType();
+        Rtype getType();
 
         string getAuth();
 

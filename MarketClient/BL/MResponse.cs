@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.PL_BL;
+using MarketClient.Utils;
 
 namespace MarketClient.BL
 {
-    public class Response : IMarketResponse
+    public class MResponse : IMarketResponse
     {
+        private ResponseType resType;
+
 
         //MarketCommodityOffer
         private String ask;
@@ -28,6 +31,12 @@ namespace MarketClient.BL
 
 
 
+        public string toString()
+        {
+
+
+
+        }
 
 
 

@@ -8,16 +8,16 @@ using MarketClient.PL_BL;
 
 namespace MarketClient.BL
 {
-    public interface Request
+    public interface MRequest
     {
 
         IMarketResponse sendRequest();
 
-        String toString();
+        //String toString();
     }
 
 
-    public class BuyRequest : Request
+    public class MBuyRequest : MRequest
     {
         private int commodity;
         private int amount;

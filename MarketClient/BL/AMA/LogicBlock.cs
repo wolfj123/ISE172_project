@@ -9,7 +9,6 @@ namespace MarketClient.BL
     public class LogicBlock
     {
 
-
         private LogicCondition cond;
         private LogicAction act;
         
@@ -20,19 +19,26 @@ namespace MarketClient.BL
             this.act = act;
         }
 
-        public int run()
+        public bool isMet()
         {
-            int cost = cond.requestCost();
-
-            if (cond.isMet())
-            {
-                act.run();
-                cost = act.requestCost();
-            }
-
-            return cost;
+            return cond.isMet();
         }
 
+
+        public void action()
+        {
+            act.action();
+        }
+
+        public int getConditionCost()
+        {
+            return cond.requestCost();
+        }
+
+        public int getActionCost()
+        {
+            return act.requestCost();
+        }
 
 
     }

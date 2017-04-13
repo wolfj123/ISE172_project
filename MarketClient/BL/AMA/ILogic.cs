@@ -16,7 +16,7 @@ namespace MarketClient.BL
 
     public interface LogicAction
     {
-        void run();
+        void action();
 
         int requestCost();
     }

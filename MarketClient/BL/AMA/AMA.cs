@@ -16,11 +16,8 @@ namespace MarketClient.BL
      */
     public class AMA
     {
-
-        private bool enabled;
         private List<LogicBlock> blocks; //The list containing all the LogicBlocks
         private int maxReq; //The maximum requests allowed per interval
-        private int currentReqCost; //The number of request sent in the time interval
         private System.Timers.Timer aTimer;
 
         public AMA(int maxReq, double interval)
@@ -37,73 +34,71 @@ namespace MarketClient.BL
             // Have the timer fire repeated events (true is the default)
             aTimer.AutoReset = true;
 
-            // Start the timer
-            aTimer.Enabled = true;
+            // Do not initiate the timer
+            aTimer.Enabled = false;
 
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-
-
-
-
-            currentReqCost = 0;
+            if(blocks.Count>0)
+                run();
         }
-
-
-
-        public void add(LogicBlock block)
-        {
-
-
-
-        }
-
-        public void clearLogic()
-        {
-
-
-        }
-
 
         public void run()
         {
-            while (enabled)
+            int currentReqCost = 0;
+            while (currentReqCost <= maxReq & blocks.Count>0)
             {
+                //stores the first LogicBlock and moves it to the end of the list
+                LogicBlock currentBlock = blocks[0];
+                blocks.RemoveAt(0);
+                blocks.Add(currentBlock);
 
+                bool doAction = false;
 
+                //verify if the condition cost will not exceed the maximum
+                if(currentReqCost + currentBlock.getConditionCost() <= maxReq)
+                {
+                    doAction = currentBlock.isMet();
+                    currentReqCost += currentBlock.getConditionCost();
+                }
 
-
-
-
-
-
-
+                //verify if the action cost will not exceed the maximum
+                if (doAction) 
+                    if(currentReqCost + currentBlock.getActionCost() <= maxReq)
+                    {
+                        currentBlock.action();
+                        currentReqCost += currentBlock.getActionCost();
+                    }
             }
-
-
-
-        }
-
-        private LogicBlock nextBlock()
-        {
-
-
-
 
         }
 
         public bool isEnabled()
         {
-            return enabled;
+            return aTimer.Enabled;
         }
 
         public void enable(bool toEnable)
         {
-            enabled = toEnable;
-            run();
+            aTimer.Enabled = toEnable;
         }
+
+        public void add(LogicBlock block)
+        {
+            blocks.Add(block);
+        }
+
+        public void clearLogic()
+        {
+            blocks.Clear();
+        }
+
+
+
+
+
 
     }
 }

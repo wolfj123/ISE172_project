@@ -51,21 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA.cs" />
-    <Compile Include="BL\Communicator.cs" />
-    <Compile Include="BL\Response.cs" />
-    <Compile Include="BL\Request.cs" />
-    <Compile Include="BL\ILogic.cs" />
-    <Compile Include="BL\LogicBlock.cs" />
-    <Compile Include="BL\milestone1\Poster.cs" />
+    <Compile Include="BL\Poster.cs" />
+    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
-    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="UI\LoginInfo.cs" />
-    <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
-    <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
-    <Compile Include="BL\milestone1\RealMarketUserData.cs" />
-    <Compile Include="BL\milestone1\Request.cs" />
+    <Compile Include="BL\RealMarketCommodityOffer.cs" />
+    <Compile Include="BL\RealMarketItemQuery.cs" />
+    <Compile Include="BL\RealMarketUserData.cs" />
+    <Compile Include="BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />
@@ -82,6 +76,9 @@
   <ItemGroup>
     <Content Include="BouncyCastle.Crypto.dll" />
     <Content Include="Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BL-DAL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

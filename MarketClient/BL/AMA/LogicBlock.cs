@@ -10,19 +10,37 @@ namespace MarketClient.BL
 
     public interface LogicBlock
     {
-        int run();
+        void run();
 
-        int maxReqCount();
+        bool conditionIsMet();
+
+        int actionReqCount();
+
+        int conditionReqCount();
 
     }
 
 
+
+
     public class BidBuy : LogicBlock
     {
-        public BidBuy(int commodity, )
+
+        /* TODO: 
+         * this object should send a query for a commodity and if the bid is a lower than a threshold send a buy request
+         */
+
+        private int commodity;
+        private int bid;
+        private IMarketResponse response;
+
+        public BidBuy(int commodity, int bid)
+        {
+
+        }
 
 
-        private IMarketResponse
+
 
 
     }

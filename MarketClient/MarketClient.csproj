@@ -57,6 +57,7 @@
     <Compile Include="BL\AMA\ILogic.cs" />
     <Compile Include="BL\AMA\LogicBlock.cs" />
     <Compile Include="BL\Poster.cs" />
+    <Compile Include="DataEntries\Logger\Logger.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\Rtype.cs" />

@@ -33,37 +33,88 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
         [TestMethod]
-        public void TestCommUserQuery() {
+        public void TestCommUserQuery()
+        {
 
             string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-
             Communicator comm = new Communicator(Url, User, Token);
+
+            IMarketResponse resp = comm.SendQueryUserRequest();
+            Console.WriteLine(resp.ToString());
+        }
+
+
+        [TestMethod]
+        public void TestCommWrongUser()
+        {
+            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", Token);
+
             IMarketResponse resp = comm.SendQueryUserRequest();
             Console.WriteLine(resp.ToString());
         }
 
         [TestMethod]
-        public void TestCommBuyRequest()
+        public void TestCommBuyRequestAndCancel()
         {
             string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-
             Communicator comm = new Communicator(Url, User, Token);
-            IMarketResponse resp = comm.SendBuyRequest(1,1,1);
+
+            IMarketResponse resp = comm.SendBuyRequest(1, 1, 1);
             string respString = resp.ToString();
             Console.WriteLine(respString);
 
-            if (Shell.isNumeric(respString))
-                TestCommCancelRequest(Int32.Parse(respString));
-
+            //if (Shell.isNumeric(respString))
+               // TestCommCancelRequest(Int32.Parse(respString));
         }
 
-        public void TestCommCancelRequest(int id)
+        [TestMethod]
+        public void TestCommCancelRequest()
         {
             string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-
             Communicator comm = new Communicator(Url, User, Token);
-            IMarketResponse resp = comm.SendCancelBuySellRequest(id);
+
+            IMarketResponse resp = comm.SendCancelBuySellRequest(11);
             Console.WriteLine(resp.ToString());
+        }
+
+
+        [TestMethod]
+        public void TestCommSellRequestAndQuery()
+        {
+            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, User, Token);
+
+            IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
+            string respString = resp.ToString();
+            Console.WriteLine(respString);
+
+           // if (Shell.isNumeric(respString))
+               // TestCommCancelRequest(Int32.Parse(respString));
+        }
+
+
+        [TestMethod]
+        public void TestCommCommodityQuery()
+        {
+            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, User, Token);
+
+            IMarketResponse resp = comm.SendQueryMarketRequest(1);
+            string respString = resp.ToString();
+            Console.WriteLine(respString);
+        }
+
+
+        [TestMethod]
+        public void TestCommWrongCommodityQuery()
+        {
+            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, User, Token);
+
+            IMarketResponse resp = comm.SendQueryMarketRequest(12);
+            string respString = resp.ToString();
+            Console.WriteLine(respString);
         }
 
     }

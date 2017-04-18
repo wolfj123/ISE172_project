@@ -180,7 +180,7 @@ namespace MarketClient.BL
 
             try
             {
-                marketResponse = client.SendPostRequest<CancelRequest, Mcancel>(url, user, token, cancelReq);
+                marketResponse.response = client.SendPostRequest<CancelRequest>(url, user, token, cancelReq);
             }
             catch (Exception e)
             {

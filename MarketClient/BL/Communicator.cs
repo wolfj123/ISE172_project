@@ -74,13 +74,14 @@ namespace MarketClient.BL
 
         public Communicator(string url, string user, string token)
         {
+            this.url = url;
+            this.user = user;
+            this.token = token;
             this.client = new SimpleHTTPClient();
         }
 
 
-
-
-        public IMarketResponse SendBuyRequestSendBuyRequest(int price, int commodity, int amount)
+        public IMarketResponse SendBuyRequest(int price, int commodity, int amount)
         {
             BuyRequest buyReq = new BuyRequest(commodity, amount, price); //create and define buy request
             MBuySell marketResponse = new MBuySell();
@@ -98,8 +99,7 @@ namespace MarketClient.BL
             return marketResponse;
         }
 
-
-        IMarketResponse SendSellRequest(int price, int commodity, int amount)
+        public IMarketResponse SendSellRequest(int price, int commodity, int amount)
         {
             SellRequest sellReq = new SellRequest(commodity, amount, price); //create and define sell request
             MBuySell marketResponse = new MBuySell();
@@ -118,7 +118,7 @@ namespace MarketClient.BL
 
         }
 
-        IMarketResponse SendQueryBuySellRequest(int id)
+        public IMarketResponse SendQueryBuySellRequest(int id)
         {
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id); //create buy/sell query request
             MQReq marketResponse = new MQReq();
@@ -137,7 +137,7 @@ namespace MarketClient.BL
 
         }
 
-        IMarketResponse SendQueryUserRequest()
+        public IMarketResponse SendQueryUserRequest()
         {
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             MQUser marketResponse = new MQUser();
@@ -155,8 +155,7 @@ namespace MarketClient.BL
             return marketResponse;
         }
 
-
-        IMarketResponse SendQueryMarketRequest(int commodity)
+        public IMarketResponse SendQueryMarketRequest(int commodity)
         {
             QueryMarketRequest QMReq = new QueryMarketRequest(commodity); //create query market rquest
             MQCommodity marketResponse = new MQCommodity();
@@ -174,8 +173,7 @@ namespace MarketClient.BL
             return marketResponse;
         }
 
-
-        IMarketResponse SendCancelBuySellRequest(int id)
+        public IMarketResponse SendCancelBuySellRequest(int id)
         {
             CancelRequest cancelReq = new CancelRequest(id); //create cancel requst
             Mcancel marketResponse = new Mcancel();

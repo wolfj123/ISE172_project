@@ -10,6 +10,9 @@ using MarketClient.PL_BL;
  * instead- I will be using the milestone1 Request class
  */
 
+
+
+    /*
 namespace MarketClient.BL
 {
     public interface MRequest
@@ -35,3 +38,5 @@ namespace MarketClient.BL
 
 
 }
+
+    */

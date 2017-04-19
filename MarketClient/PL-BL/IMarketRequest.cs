@@ -23,7 +23,7 @@ namespace MarketClient.PL_BL
         string getUser();
 
         string getKey();
-
     }
 
 }
+

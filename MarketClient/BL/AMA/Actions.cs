@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.BL
+namespace MarketClient.BL.AMA
 {
-    public class Communicator : IMarketClient
+    class Buy10 : LogicAction
     {
+        public Buy10(int commodity)
+
+
 
 
     }

@@ -14,9 +14,14 @@ namespace MarketClient.Utils
         }
 
         //Added to implmement IMarketResponse
-        public string toString()
+        public override string ToString()
         {
             return this.Message;
+        }
+
+        public ResponseType getType()
+        {
+            return ResponseType.excp;
         }
 
 

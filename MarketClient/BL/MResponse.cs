@@ -8,32 +8,20 @@ using MarketClient.Utils;
 
 namespace MarketClient.BL
 {
-    public class MBuySell : IMarketResponse
+    public class GenericMarketResponse : IMarketResponse
     {
-        public RequestType rType;
-        public string id;
-
-
-        public MBuySell()
-        {
-            rType = RequestType.buy;
-        }
-
-        public override string ToString()
-        {
-            return id;
-        }
-
-    }
-
-    public class Mcancel : IMarketResponse
-    {
-        public RequestType rType;
         public string response;
+        public ResponseType rType;
 
-        public Mcancel()
+        public GenericMarketResponse()
         {
-            rType = RequestType.cancel;
+            response = "";
+            rType = ResponseType.generic;
+        }
+
+        public ResponseType getType()
+        {
+            return rType;
         }
 
         public override string ToString()
@@ -43,10 +31,35 @@ namespace MarketClient.BL
 
     }
 
-    public class MQReq : IMarketResponse
+    public class MBuySell : GenericMarketResponse
     {
+        public string id;
 
-        public RequestType rType;
+
+        public MBuySell()
+        {
+            rType = ResponseType.buysell;
+        }
+
+        public override string ToString()
+        {
+            return id;
+        }
+
+    }
+
+    public class Mcancel : GenericMarketResponse
+    {
+        public Mcancel()
+        {
+            rType = ResponseType.cancel;
+        }
+
+
+    }
+
+    public class MQReq : GenericMarketResponse
+    {
         public int price;
         public int amount;
         public string type;
@@ -55,7 +68,7 @@ namespace MarketClient.BL
 
         public MQReq()
         {
-            rType = RequestType.query;
+            rType = ResponseType.qreq;
         }
 
         public override string ToString()
@@ -77,23 +90,21 @@ namespace MarketClient.BL
 
     }
 
-    public class MQUser : IMarketResponse
+    public class MQUser : GenericMarketResponse
     {
-
-        public RequestType rType;
         public Dictionary<String, int> commodities;
         public double funds;
         public List<int> requests;
 
         public MQUser()
         {
-            rType = RequestType.user;
+            rType = ResponseType.quser;
         }
 
 
         public override string ToString()
         {
-            String output = "Unassigned";
+            string output = "Unassigned";
 
             try
             {
@@ -110,16 +121,14 @@ namespace MarketClient.BL
 
     }
 
-    public class MQCommodity : IMarketResponse
+    public class MQCommodity : GenericMarketResponse
     {
-
-        public RequestType rType;
         public string ask;
         public string bid;
 
         public MQCommodity()
         {
-            rType = RequestType.market;
+            rType = ResponseType.qcommodity;
         }
 
         public override string ToString()
@@ -139,43 +148,4 @@ namespace MarketClient.BL
         }
 
     }
-
-
-
-
-    //PROBABALY OBSOLETE
-
-    /*
-    public class MResponse : IMarketResponse
-    {
-        private ResponseType resType;
-
-
-        //MarketCommodityOffer
-        private String ask;
-        private String bid;
-
-        //MarketItemQuery
-        private int price;
-        private int amount;
-        private String type;
-        private String user;
-        private int commodity;
-
-        //MarketUserData
-        private Dictionary<String, int> commodities;
-        private double funds;
-        private List<int> requests;
-
-
-
-        public string toString()
-        {
-
-
-
-        }
-    }
-
-    */
 }

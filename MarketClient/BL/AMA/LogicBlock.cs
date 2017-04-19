@@ -4,20 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.PL_BL;
+using MarketClient.Utils;
 
 namespace MarketClient.BL
 {
 
     public interface LogicBlock
     {
-        void run();
+        bool isMet(IMarketResponse response);
 
-        bool conditionIsMet();
+        bool repeat();
 
-        int actionReqCount();
+        void setRepeat();
 
-        int conditionReqCount();
+        IMarketResponse ask();
 
+        IMarketResponse action();
+
+        IMarketResponse runBlock();
     }
 
 
@@ -32,76 +36,46 @@ namespace MarketClient.BL
 
         private int commodity;
         private int bid;
-        private IMarketResponse response;
+        private bool loop;
 
         public BidBuy(int commodity, int bid)
         {
-
+            this.bid = bid;
+            this.commodity = commodity;
+            loop = false;
         }
 
+        bool isMet(IMarketResponse response)
+        {
+            if (response == null)
+                throw new NullReferenceException("response cannot be null");
 
+            if (response is MarketException)
+                return false;
+
+            if (!(response is MQCommodity))
+                throw new ArgumentException("response must be MQCommodity");
+
+            MQCommodity currResponse = (MQCommodity)response;
+
+            if (Int32.Parse(currResponse.bid) <= this.bid)
+                return true;
+            else return false;
+        }
+
+        public bool repeat()
+        {
+            return loop;
+        }
+
+        public void setRepeat(bool loop)
+        {
+            this.loop = loop;
+        }
 
 
 
     }
-
-    public class AskSell : LogicBlock
-    {
-        
-
-
-        public AskSell(int commodity, int ask)
-        {
-
-        }
-
-
-        private IMarketResponse
-
-
-    }
-
-
-
-    /*
-    public class LogicBlock
-    {
-
-        private LogicCondition cond;
-        private LogicAction act;
-        
-
-        public LogicBlock(LogicCondition cond, LogicAction act)
-        {
-            this.cond = cond;
-            this.act = act;
-        }
-
-        public bool isMet()
-        {
-            return cond.isMet();
-        }
-
-
-        public void action()
-        {
-            act.action();
-        }
-
-        public int getConditionCost()
-        {
-            return cond.requestCost();
-        }
-
-        public int getActionCost()
-        {
-            return act.requestCost();
-        }
-
-
-    }
-
-    */
 
 
 }

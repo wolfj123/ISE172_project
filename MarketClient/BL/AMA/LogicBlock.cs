@@ -36,7 +36,7 @@ namespace MarketClient.BL.AMA
 
         public bool isRepeated()
         {
-            throw new NotImplementedException();
+            return repeat;
         }
 
         public object run()

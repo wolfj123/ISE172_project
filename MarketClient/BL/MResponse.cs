@@ -147,5 +147,15 @@ namespace MarketClient.BL
             return output;
         }
 
+        public int getAsk()
+        {
+            return Int32.Parse(this.ask);
+        }
+
+        public int getBid()
+        {
+            return Int32.Parse(this.bid);
+        }
+
     }
 }

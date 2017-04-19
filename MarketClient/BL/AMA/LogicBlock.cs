@@ -9,43 +9,57 @@ using MarketClient.Utils;
 namespace MarketClient.BL
 {
 
-    public interface LogicBlock
+    public abstract class LogicBlock
     {
-        bool isMet(IMarketResponse response);
+        private bool loop;
 
-        bool repeat();
+        public bool repeat()
+        {
+            return loop;
+        }
 
-        void setRepeat();
+        public void setRepeat(bool loop)
+        {
+            this.loop = loop;
+        }
 
-        IMarketResponse ask();
+        public IMarketResponse runBlock()
+        {
+            IMarketResponse resp = ask();
 
-        IMarketResponse action();
+            if (isMet(resp))
+                return action();
+            else
+                return resp;
+        }
 
-        IMarketResponse runBlock();
+        public abstract bool isMet(IMarketResponse response);
+
+        public abstract IMarketResponse ask();
+
+        public abstract IMarketResponse action(IMarketResponse response);
     }
-
-
 
 
     public class BidBuy : LogicBlock
     {
-
-        /* TODO: 
-         * this object should send a query for a commodity and if the bid is a lower than a threshold send a buy request
-         */
-
         private int commodity;
         private int bid;
-        private bool loop;
+        private int amount;
 
-        public BidBuy(int commodity, int bid)
+        private ICommunicator communicator;
+
+        public BidBuy(int commodity, int bid , int amount, ICommunicator communicator)
         {
             this.bid = bid;
             this.commodity = commodity;
-            loop = false;
+            this.communicator = communicator;
+            this.amount = amount;
+
+            setRepeat(false);
         }
 
-        bool isMet(IMarketResponse response)
+        public override bool isMet(IMarketResponse response)
         {
             if (response == null)
                 throw new NullReferenceException("response cannot be null");
@@ -63,19 +77,27 @@ namespace MarketClient.BL
             else return false;
         }
 
-        public bool repeat()
+        public override IMarketResponse ask()
         {
-            return loop;
+            return communicator.SendQueryMarketRequest(commodity);
         }
 
-        public void setRepeat(bool loop)
+        public override IMarketResponse action(IMarketResponse response)
         {
-            this.loop = loop;
+            if (response == null || !(response is MQCommodity))
+                throw new NullReferenceException("response must be valid MQCommodity");
+
+            MQCommodity resp = (MQCommodity)response;
+            int price = resp.getBid()+1;
+
+            return communicator.SendBuyRequest(price, commodity, amount);
+
         }
-
-
-
     }
 
+    public class collectInfo : LogicBlock
+    {
+
+    }
 
 }

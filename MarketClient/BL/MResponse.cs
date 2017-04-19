@@ -35,7 +35,6 @@ namespace MarketClient.BL
     {
         public string id;
 
-
         public MBuySell()
         {
             rType = ResponseType.buysell;
@@ -117,6 +116,21 @@ namespace MarketClient.BL
 
 
             return output;
+        }
+
+        public double Funds()
+        {
+            return funds;
+        }
+
+        public Dictionary<String, int> getCommodities()
+        {
+            return commodities;
+        }
+
+        public List<int> getRequests()
+        {
+            return requests;
         }
 
     }

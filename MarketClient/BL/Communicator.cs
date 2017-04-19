@@ -80,7 +80,6 @@ namespace MarketClient.BL
             this.client = new SimpleHTTPClient();
         }
 
-
         public IMarketResponse SendBuyRequest(int price, int commodity, int amount)
         {
             BuyRequest buyReq = new BuyRequest(commodity, amount, price); //create and define buy request

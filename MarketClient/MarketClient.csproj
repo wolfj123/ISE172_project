@@ -51,12 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\temp\ILogic.cs" />
     <Compile Include="BL\AMA\LogicBlock.cs" />
+    <Compile Include="BL\AMA\AMA.cs" />
     <Compile Include="BL\Communicator.cs" />
     <Compile Include="BL\MResponse.cs" />
-    <Compile Include="BL\AMA\temp\MRequest.cs" />
     <Compile Include="BL\milestone1\Poster.cs" />
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />

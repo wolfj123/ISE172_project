@@ -3,101 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MarketClient.PL_BL;
-using MarketClient.Utils;
 
-namespace MarketClient.BL
+namespace MarketClient.BL.AMA
 {
+    public interface LogicBlock
+    { 
+        object run();
 
-    public abstract class LogicBlock
-    {
-        private bool loop;
+        bool isRepeated();
 
-        public bool repeat()
-        {
-            return loop;
-        }
-
-        public void setRepeat(bool loop)
-        {
-            this.loop = loop;
-        }
-
-        public IMarketResponse runBlock()
-        {
-            IMarketResponse resp = ask();
-
-            if (isMet(resp))
-                return action();
-            else
-                return resp;
-        }
-
-        public abstract bool isMet(IMarketResponse response);
-
-        public abstract IMarketResponse ask();
-
-        public abstract IMarketResponse action(IMarketResponse response);
+        void setRepeat(bool repeat);
     }
 
 
-    public class BidBuy : LogicBlock
+
+
+    public class BuyCommodityStatus : LogicBlock
     {
-        private int commodity;
-        private int bid;
-        private int amount;
+        ICommunicator comm;
+        bool repeat;
 
-        private ICommunicator communicator;
+        bool pending;
+        int commodity;
 
-        public BidBuy(int commodity, int bid , int amount, ICommunicator communicator)
+        public BuyCommodityStatus(int commodity, ICommunicator comm, bool repeat)
         {
-            this.bid = bid;
             this.commodity = commodity;
-            this.communicator = communicator;
-            this.amount = amount;
-
-            setRepeat(false);
+            this.repeat = repeat;
+            this.comm = comm;
+            this.pending = false;
         }
 
-        public override bool isMet(IMarketResponse response)
+        public bool isRepeated()
         {
-            if (response == null)
-                throw new NullReferenceException("response cannot be null");
-
-            if (response is MarketException)
-                return false;
-
-            if (!(response is MQCommodity))
-                throw new ArgumentException("response must be MQCommodity");
-
-            MQCommodity currResponse = (MQCommodity)response;
-
-            if (Int32.Parse(currResponse.bid) <= this.bid)
-                return true;
-            else return false;
+            throw new NotImplementedException();
         }
 
-        public override IMarketResponse ask()
+        public object run()
         {
-            return communicator.SendQueryMarketRequest(commodity);
+            throw new NotImplementedException();
         }
 
-        public override IMarketResponse action(IMarketResponse response)
+        public void setRepeat(bool repeat)
         {
-            if (response == null || !(response is MQCommodity))
-                throw new NullReferenceException("response must be valid MQCommodity");
-
-            MQCommodity resp = (MQCommodity)response;
-            int price = resp.getBid()+1;
-
-            return communicator.SendBuyRequest(price, commodity, amount);
-
+            throw new NotImplementedException();
         }
     }
-
-    public class collectInfo : LogicBlock
-    {
-
-    }
-
 }

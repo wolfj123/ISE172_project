@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace MarketClient.BL
+namespace MarketClient.BL.AMA
 {
 
     /*Should have a list of logic blocks
@@ -47,18 +47,11 @@ namespace MarketClient.BL
 
         public void run()
         {
-            int totalReqSent = 0;
-            while (totalReqSent <= maxReq & blocks.Count>0)
-            {
-                //stores the first LogicBlock and moves it to the end of the list
-                LogicBlock currentBlock = blocks[0];
-                blocks.RemoveAt(0);
-                blocks.Add(currentBlock);
+           // int totalReqSent = 0;
+           // while ()
+           // {
 
-                //verify if the next block can be run without flooding the server
-                if(totalReqSent + currentBlock.maxReqCount() <= maxReq)
-                    totalReqSent += currentBlock.run();
-            }
+           // }
 
         }
 
@@ -88,4 +81,6 @@ namespace MarketClient.BL
 
 
     }
+
+    
 }

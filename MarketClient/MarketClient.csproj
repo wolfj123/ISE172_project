@@ -51,19 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\Actions.cs" />
-    <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\Conditions.cs" />
-    <Compile Include="BL\AMA\ILogic.cs" />
-    <Compile Include="BL\AMA\LogicBlock.cs" />
-    <Compile Include="BL\Poster.cs" />
-    <Compile Include="PL-BL\IMarketRequest.cs" />
+    <Compile Include="BL\Communicator.cs" />
+    <Compile Include="BL\MResponse.cs" />
+    <Compile Include="BL\MRequest.cs" />
+    <Compile Include="BL\milestone1\Poster.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
+    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="UI\LoginInfo.cs" />
-    <Compile Include="BL\RealMarketCommodityOffer.cs" />
-    <Compile Include="BL\RealMarketItemQuery.cs" />
-    <Compile Include="BL\RealMarketUserData.cs" />
+    <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
+    <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
+    <Compile Include="BL\milestone1\RealMarketUserData.cs" />
     <Compile Include="BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />

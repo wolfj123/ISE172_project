@@ -16,11 +16,11 @@ namespace MarketClientTest
         public void TestTimer()
         {
             LogicBlock testLogic = new PrintLogic();
-            AMA amaTest = new AMA(10, 10000);
+            AMA amaTest = new AMA(15, 5000);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(15000);
             amaTest.enable(false);
         }
 
@@ -35,7 +35,7 @@ namespace MarketClientTest
         }
         public override object run()
         {
-            Trace.WriteLine("test");
+            Trace.WriteLine(DateTime.Now);
             return null;
         }
     }

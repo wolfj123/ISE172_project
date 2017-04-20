@@ -46,7 +46,7 @@ namespace MarketClient.BL
 
         public void run()
         {
-            for (int i=0; i<maxReq & i<blocks.Count; i++)
+            for (int i=0; i<maxReq & i<blocks.Count; i=i+1)
             {
                 //Take out and remove first logic block
                 LogicBlock currentLogic = blocks[i];

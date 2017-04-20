@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace MarketClient.BL.AMA
+namespace MarketClient.BL
 {
-
     /*Should have a list of logic blocks
      * 
      * can run and manage the usage of blocks by their request cost
@@ -47,12 +46,26 @@ namespace MarketClient.BL.AMA
 
         public void run()
         {
-           // int totalReqSent = 0;
-           // while ()
-           // {
+            for (int i=0; i<maxReq & i<blocks.Count; i++)
+            {
+                //Take out and remove first logic block
+                LogicBlock currentLogic = blocks[i];
+                blocks.RemoveAt(0);
 
-           // }
+                //if it should be repeated - add it to the end of the list
+                if (currentLogic.isRepeated())
+                    blocks.Add(currentLogic);
 
+                //run the logic block
+                object output = currentLogic.run();
+
+                //if the output is another logic block - add it to the top of the list
+                if (output is LogicBlock)
+                {
+                    LogicBlock newLogic = (LogicBlock)output;
+                    blocks.Insert(0, newLogic);
+                }
+            }
         }
 
         public bool isEnabled()
@@ -74,13 +87,5 @@ namespace MarketClient.BL.AMA
         {
             blocks.Clear();
         }
-
-
-
-
-
-
-    }
-
-    
+    } 
 }

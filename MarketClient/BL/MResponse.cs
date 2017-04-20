@@ -45,6 +45,14 @@ namespace MarketClient.BL
             return id;
         }
 
+        public int getID()
+        {
+            if (Shell.isNumeric(id))
+                return Int32.Parse(id);
+            else
+                return -1;
+        }
+
     }
 
     public class Mcancel : GenericMarketResponse

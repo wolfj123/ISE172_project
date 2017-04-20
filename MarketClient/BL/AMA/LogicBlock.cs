@@ -3,50 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarketClient.PL_BL;
+using MarketClient.Utils;
 
-namespace MarketClient.BL.AMA
+namespace MarketClient.BL
 {
-    public interface LogicBlock
-    { 
-        object run();
-
-        bool isRepeated();
-
-        void setRepeat(bool repeat);
-    }
-
-
-
-
-    public class BuyCommodityStatus : LogicBlock
+    public abstract class LogicBlock
     {
-        ICommunicator comm;
-        bool repeat;
+        protected bool repeat;
 
-        bool pending;
-        int commodity;
+        public abstract object run();
 
-        public BuyCommodityStatus(int commodity, ICommunicator comm, bool repeat)
-        {
-            this.commodity = commodity;
-            this.repeat = repeat;
-            this.comm = comm;
-            this.pending = false;
-        }
-
-        public bool isRepeated()
+        public  bool isRepeated()
         {
             return repeat;
         }
 
-        public object run()
-        {
-            throw new NotImplementedException();
-        }
-
         public void setRepeat(bool repeat)
         {
-            throw new NotImplementedException();
+            this.repeat = repeat;
         }
     }
+
+
+    public abstract class CheckStatus : LogicBlock
+    {
+        protected ICommunicator comm;
+        protected int id;
+        protected int commodity;
+
+        public CheckStatus(int commodity, ICommunicator comm, bool repeat)
+            : this(commodity,-1 ,comm,repeat)
+        {
+        }
+
+        public CheckStatus(int commodity, int id, ICommunicator comm, bool repeat)
+        {
+            setRepeat(repeat);
+            this.commodity = commodity;
+            this.comm = comm;
+            this.id = id;
+        }
+
+        public bool isPending()
+        {
+            bool pending = false;
+            //If there is a pending buy request - check the status
+            if (id > -1)
+            {
+                IMarketResponse response = comm.SendQueryBuySellRequest(id);
+
+                if (response.getType() == ResponseType.qreq) //if response is valid query market request
+                    pending = true;
+                else
+                    id = -1;
+            }
+
+            return pending;
+        }
+
+        public void setID(int id)
+        {
+            this.id = id;
+        }
+
+        public abstract override object run();
+    }
+
+
+
 }

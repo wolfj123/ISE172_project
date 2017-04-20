@@ -9,15 +9,35 @@ namespace MarketClient.BL
 {
 
     //TODO logic that creates a list of sell checks for all your commodities
+
     public class SimpleSellListLogic : LogicBlock
     {
         private ICommunicator comm;
         private int price;
         private int amount;
+        private LogicBlock[] children;
+        
 
         public SimpleSellListLogic(int price, int amount, int numOfCommodities, ICommunicator comm)
         {
+            this.price = price;
+            this.amount = amount;
+            this.comm = comm;
+            children = new LogicBlock[numOfCommodities];
+            for (int i=0; i<children.Length; i++)
+                children[i] = null;
+        }
 
+        public bool hasChild(int commodity)
+        {
+            if (children[commodity] != null)
+                return true;
+            else return false;
+        }
+
+        public void setChild(int commodity, LogicBlock logic)
+        {
+            children[commodity] = logic;
         }
 
         public override object run()
@@ -33,15 +53,17 @@ namespace MarketClient.BL
     {
         private int price;
         private int amount;
+        private SimpleSellListLogic parent;
 
-        public SimpleSellCheckStatus(int commodity, int price, int amount, ICommunicator comm, bool repeat)
-            : this(commodity, price, amount, -1, comm, repeat)
+        public SimpleSellCheckStatus(int commodity, int price, int amount, ICommunicator comm, bool repeat, SimpleSellListLogic parent)
+            : this(commodity, price, amount, -1, comm, repeat, parent)
         {
         }
 
-        public SimpleSellCheckStatus(int commodity, int price, int amount, int id, ICommunicator comm, bool repeat)
+        public SimpleSellCheckStatus(int commodity, int price, int amount, int id, ICommunicator comm, bool repeat, SimpleSellListLogic parent)
              : base(commodity, id, comm, repeat)
         {
+            this.parent = parent;
             this.price = price;
             this.amount = amount;
         }
@@ -64,10 +86,10 @@ namespace MarketClient.BL
         private int price;
         private int amount;
         private ICommunicator comm;
-        private SimpleSellCheckStatus parent;
+        private SimpleSellListLogic parent;
 
         public SimpleSellCondition(int commodity, int price, int amount,
-             SimpleSellCheckStatus parent, ICommunicator comm)
+             SimpleSellListLogic parent, ICommunicator comm)
         {
             this.commodity = commodity;
             this.price = price;
@@ -106,6 +128,7 @@ namespace MarketClient.BL
         public SimpleSellAction(int commodity, int price, int amount,
                  SimpleSellCheckStatus parent, ICommunicator comm)
         {
+            setRepeat(repeat);
             this.commodity = commodity;
             this.price = price;
             this.amount = amount;

@@ -46,10 +46,11 @@ namespace MarketClient.BL
 
         public void run()
         {
-            for (int i=0; i<maxReq & i<blocks.Count; i=i+1)
+            int count = 0;
+            while (count < maxReq & blocks.Count > 0)
             {
                 //Take out and remove first logic block
-                LogicBlock currentLogic = blocks[i];
+                LogicBlock currentLogic = blocks[0];
                 blocks.RemoveAt(0);
 
                 //if it should be repeated - add it to the end of the list
@@ -65,6 +66,7 @@ namespace MarketClient.BL
                     LogicBlock newLogic = (LogicBlock)output;
                     blocks.Insert(0, newLogic);
                 }
+                count++;
             }
         }
 

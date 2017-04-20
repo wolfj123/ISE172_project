@@ -16,11 +16,11 @@ namespace MarketClientTest
         public void TestTimer()
         {
             LogicBlock testLogic = new PrintLogic();
-            AMA amaTest = new AMA(15, 5000);
+            AMA amaTest = new AMA(10, 10000);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(15000);
+            System.Threading.Thread.Sleep(20000);
             amaTest.enable(false);
         }
 

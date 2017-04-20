@@ -7,17 +7,39 @@ using MarketClient.PL_BL;
 
 namespace MarketClient.BL
 {
-    public class SimpleBuyCheckStatus : CheckStatus
+
+    //TODO logic that creates a list of sell checks for all your commodities
+    public class SimpleSellListLogic : LogicBlock
+    {
+        private ICommunicator comm;
+        private int price;
+        private int amount;
+
+        public SimpleSellListLogic(int price, int amount, int numOfCommodities, ICommunicator comm)
+        {
+
+        }
+
+        public override object run()
+        {
+            IMarketResponse response = comm.SendQueryUserRequest();
+        }
+    }
+
+
+
+
+    public class SimpleSellCheckStatus : CheckStatus
     {
         private int price;
         private int amount;
 
-        public SimpleBuyCheckStatus(int commodity, int price, int amount, ICommunicator comm, bool repeat)
-            : this (commodity,price,amount, -1,comm, repeat)
+        public SimpleSellCheckStatus(int commodity, int price, int amount, ICommunicator comm, bool repeat)
+            : this(commodity, price, amount, -1, comm, repeat)
         {
         }
 
-        public SimpleBuyCheckStatus(int commodity, int price, int amount, int id, ICommunicator comm, bool repeat)
+        public SimpleSellCheckStatus(int commodity, int price, int amount, int id, ICommunicator comm, bool repeat)
              : base(commodity, id, comm, repeat)
         {
             this.price = price;
@@ -30,22 +52,22 @@ namespace MarketClient.BL
                 return null;
             else
             {
-                LogicBlock newLogic = new SimpleBuyCondition(commodity, price, amount, this, comm);
+                LogicBlock newLogic = new SimpleSellCondition(commodity, price, amount, this, comm);
                 return newLogic;
             }
         }
     }
 
-    public class SimpleBuyCondition : LogicBlock
+    public class SimpleSellCondition : LogicBlock
     {
         private int commodity;
         private int price;
         private int amount;
         private ICommunicator comm;
-        private SimpleBuyCheckStatus parent;
+        private SimpleSellCheckStatus parent;
 
-        public SimpleBuyCondition(int commodity, int price, int amount,
-             SimpleBuyCheckStatus parent, ICommunicator comm)
+        public SimpleSellCondition(int commodity, int price, int amount,
+             SimpleSellCheckStatus parent, ICommunicator comm)
         {
             this.commodity = commodity;
             this.price = price;
@@ -62,9 +84,9 @@ namespace MarketClient.BL
             {
                 MQCommodity commodityInfo = (MQCommodity)response;
 
-                if (commodityInfo.getAsk() <= price) //If the price is right :)
+                if (commodityInfo.getBid() >= price) //If the price is right :)
                 {
-                    LogicBlock newLogic = new SimpleBuyAction(commodity, price, amount, parent, comm);
+                    LogicBlock newLogic = new SimpleSellAction(commodity, price, amount, parent, comm);
                     return newLogic;
                 }
             }
@@ -73,16 +95,16 @@ namespace MarketClient.BL
         }
     }
 
-    public class SimpleBuyAction : LogicBlock
+    public class SimpleSellAction : LogicBlock
     {
         private int commodity;
         private int price;
         private int amount;
         private ICommunicator comm;
-        private SimpleBuyCheckStatus parent;
+        private SimpleSellCheckStatus parent;
 
-        public SimpleBuyAction(int commodity, int price, int amount,
-                 SimpleBuyCheckStatus parent, ICommunicator comm)
+        public SimpleSellAction(int commodity, int price, int amount,
+                 SimpleSellCheckStatus parent, ICommunicator comm)
         {
             this.commodity = commodity;
             this.price = price;
@@ -93,7 +115,7 @@ namespace MarketClient.BL
 
         public override object run()
         {
-            IMarketResponse response = comm.SendBuyRequest(price, commodity, amount);
+            IMarketResponse response = comm.SendSellRequest(price, commodity, amount);
 
             if (response.getType() == ResponseType.buysell)
                 parent.setID(((MBuySell)response).getID());

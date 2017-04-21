@@ -66,6 +66,15 @@ namespace MarketClient.BL
                     LogicBlock newLogic = (LogicBlock)output;
                     blocks.Insert(0, newLogic);
                 }
+
+                if(output is List<LogicBlock>)
+                {
+                    List<LogicBlock> newLogics = (List<LogicBlock>)output;
+                    foreach(LogicBlock logic in newLogics)
+                    {
+                        blocks.Insert(0, logic);
+                    }
+                }
                 count++;
             }
         }

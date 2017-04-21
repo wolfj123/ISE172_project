@@ -8,7 +8,8 @@ namespace MarketClient.PL_BL
 {
     public interface IMarketResponse
     {
-        string toString();
+        ResponseType getType();
 
+        string ToString();
     }
 }

@@ -26,4 +26,4 @@ namespace MarketClient.PL_BL
     }
 
 }
-}
+

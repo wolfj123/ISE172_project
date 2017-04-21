@@ -51,9 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AMA\BasicLogics\AbstractBasicLogic.cs" />
+    <Compile Include="BL\AMA\BasicLogics\BasicLogic.cs" />
     <Compile Include="BL\AMA\LogicBlock.cs" />
     <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\SimpleBuyLogic.cs" />
     <Compile Include="BL\Communicator.cs" />
     <Compile Include="BL\MResponse.cs" />
     <Compile Include="BL\milestone1\Poster.cs" />

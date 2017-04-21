@@ -53,12 +53,12 @@ namespace MarketClient.BL
                 LogicBlock currentLogic = blocks[0];
                 blocks.RemoveAt(0);
 
+                //run the logic block
+                object output = currentLogic.run();
+
                 //if it should be repeated - add it to the end of the list
                 if (currentLogic.isRepeated())
                     blocks.Add(currentLogic);
-
-                //run the logic block
-                object output = currentLogic.run();
 
                 //if the output is another logic block - add it to the top of the list
                 if (output is LogicBlock)

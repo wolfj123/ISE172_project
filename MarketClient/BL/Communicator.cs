@@ -10,7 +10,6 @@ namespace MarketClient.BL
 {
     public interface ICommunicator
     {
-
         /// <summary>
         /// Send a buy request to the market server
         /// </summary>
@@ -175,7 +174,7 @@ namespace MarketClient.BL
         public IMarketResponse SendCancelBuySellRequest(int id)
         {
             CancelRequest cancelReq = new CancelRequest(id); //create cancel requst
-            Mcancel marketResponse = new Mcancel();
+            MCancel marketResponse = new MCancel();
 
             try
             {

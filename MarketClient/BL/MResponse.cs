@@ -55,9 +55,9 @@ namespace MarketClient.BL
 
     }
 
-    public class Mcancel : GenericMarketResponse
+    public class MCancel : GenericMarketResponse
     {
-        public Mcancel()
+        public MCancel()
         {
             rType = ResponseType.cancel;
         }

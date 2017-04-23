@@ -29,7 +29,7 @@ namespace MarketClientTest
 
     public class PrintLogic : LogicBlock
     {
-        public PrintLogic()
+        public PrintLogic() : base(null, true)
         {
             setRepeat(true);
         }

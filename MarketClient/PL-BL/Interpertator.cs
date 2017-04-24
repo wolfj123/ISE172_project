@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MarketClient.PL_BL
 {
-    public interface IMarketResponse
+    interface Interpertator
     {
-        ResponseType getType();
-
-        string ToString();
 
 
     }

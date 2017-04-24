@@ -27,9 +27,37 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            reqWin userInput = new reqWin();
+            buySellReq userInput = new buySellReq("buy");
             userInput.Show();
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            buySellReq userInput = new buySellReq("sell");
+            userInput.Show();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            intReq userInput = new intReq("cancel");
+            userInput.Show();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            intReq userInput = new intReq("buySellQ");
+            userInput.Show();
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            intReq userInput = new intReq("marketQ");
+            userInput.Show();
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

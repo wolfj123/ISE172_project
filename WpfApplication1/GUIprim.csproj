@@ -59,11 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="reqWin.cs">
+    <Compile Include="buySellReq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reqWin.Designer.cs">
-      <DependentUpon>reqWin.cs</DependentUpon>
+    <Compile Include="buySellReq.Designer.cs">
+      <DependentUpon>buySellReq.cs</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +72,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="intReq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="intReq.Designer.cs">
+      <DependentUpon>intReq.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -92,12 +98,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="intReq.resx">
+      <DependentUpon>intReq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="reqWin.resx">
-      <DependentUpon>reqWin.cs</DependentUpon>
+    <EmbeddedResource Include="buySellReq.resx">
+      <DependentUpon>buySellReq.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketClient\MarketClient.csproj">
+      <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
+      <Name>MarketClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

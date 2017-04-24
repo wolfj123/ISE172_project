@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
 using MarketClient.PL_BL;
+using MarketClient.BL;
 
 
 
@@ -38,6 +39,7 @@ namespace MarketClient.BL
 
         public int SendSellRequest(int price, int commodity, int amount)
         {
+
             SellRequest sendReq = new SellRequest(commodity, amount, price); //create and define sell request
             String output = client.SendPostRequest<SellRequest>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), sendReq);
             if (Utils.Shell.isNumeric(output)) //if the request output is numeric then it succeeded 

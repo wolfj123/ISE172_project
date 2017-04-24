@@ -11,9 +11,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Button x:Name="button" Content="Buy" HorizontalAlignment="Left" Margin="34,32,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button_Click"/>
-        <Button x:Name="button1" Content="Sell" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top" Width="100" Height="40"/>
+        <Button x:Name="button1" Content="Sell" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button1_Click"/>
         <Button x:Name="button2" Content="Cancel action" HorizontalAlignment="Left" Margin="34,145,0,0" VerticalAlignment="Top" Width="100" Height="40
-                "/>
+                " Click="button2_Click"/>
+        <Button x:Name="button3" Content="Request status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100
+                " Margin="162,32,0,0" Height="40" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Commodity status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="162,88,0,0" Height="40" Click="button4_Click"/>
+        <Button x:Name="button5" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="162,145,0,0" Height="40" Click="button5_Click"/>
     </Grid>
 </Window> 
     

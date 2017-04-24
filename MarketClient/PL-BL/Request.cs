@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.BL
+namespace MarketClient.PL_BL
 {
     public class Request
     {
-        public String type;
+        public RequestType type;
     }
 
     public class BuySellRequest : Request
@@ -38,7 +38,7 @@ namespace MarketClient.BL
             this.amount = amount;
             this.commodity = commodity;
             this.price = price;
-            this.type = "buy";
+            this.type = RequestType.buy;
 
         }
     }
@@ -55,7 +55,7 @@ namespace MarketClient.BL
             this.amount = amount;
             this.commodity = commodity;
             this.price = price;
-            this.type = "sell";
+            this.type = RequestType.sell;
 
         }
     }
@@ -67,7 +67,7 @@ namespace MarketClient.BL
         public CancelRequest(int id) 
         {
             this.id = id;
-            this.type = "cancelBuySell";
+            this.type = RequestType.cancel;
         }
     }
 
@@ -78,7 +78,7 @@ namespace MarketClient.BL
         public QueryBuySellRequest (int id) 
         {
             this.id = id;
-            this.type = "queryBuySell";
+            this.type = RequestType.buySellQ;
         }
     }
 
@@ -89,7 +89,7 @@ namespace MarketClient.BL
         public QueryMarketRequest(int commodity) 
         {
             this.commodity = commodity;
-            this.type = "queryMarket";
+            this.type = RequestType.marketQ;
         }
     }
 
@@ -97,7 +97,7 @@ namespace MarketClient.BL
     {
         public QueryUserRequest () 
         {
-            this.type = "queryUser";
+            this.type = RequestType.userQ;
         }
     }
 

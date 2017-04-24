@@ -59,7 +59,7 @@
     <Compile Include="BL\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\RealMarketItemQuery.cs" />
     <Compile Include="BL\RealMarketUserData.cs" />
-    <Compile Include="BL\Request.cs" />
+    <Compile Include="PL-BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />
@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BL-DAL\" />
+    <Folder Include="GUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

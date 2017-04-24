@@ -29,7 +29,6 @@ namespace WpfApplication1
         {
             //commidity
         }
-
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
             //amount
@@ -48,7 +47,7 @@ namespace WpfApplication1
             if (this.buySell == "buy")
             {
 
-               BuyRequest buyR = new BuyRequest(com, amount, price);//NOT WORKING
+               BuyRequest buyR = new BuyRequest(com, amount, price);
             }
             if (this.buySell == "sell")
             {
@@ -57,12 +56,10 @@ namespace WpfApplication1
             
         }
 
-        
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 

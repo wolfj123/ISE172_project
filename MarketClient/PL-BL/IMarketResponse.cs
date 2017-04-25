@@ -12,6 +12,5 @@ namespace MarketClient.PL_BL
 
         string ToString();
 
-
     }
 }

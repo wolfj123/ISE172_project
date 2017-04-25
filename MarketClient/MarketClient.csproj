@@ -54,7 +54,8 @@
     <Compile Include="BL\Poster.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
-    <Compile Include="PL-BL\Interpertator.cs" />
+    <Compile Include="PL-BL\InterperatorPB.cs" />
+    <Compile Include="PL-BL\PLBLInter.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="UI\LoginInfo.cs" />
     <Compile Include="BL\RealMarketCommodityOffer.cs" />

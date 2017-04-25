@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MarketClient.PL_BL
 {
-    interface Interpertator
+    interface InterperatorPB
     {
+        Request transReq();
 
-
+        IMarketResponse getRes();
     }
 }

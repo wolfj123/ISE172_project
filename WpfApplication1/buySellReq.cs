@@ -42,26 +42,29 @@ namespace WpfApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int com = Convert.ToInt32(textBox1.Text);
-            int amount = Convert.ToInt32(textBox2.Text);
-            int price = Convert.ToInt32(textBox3.Text);
-            Object[] tocheck = { com, amount, price };
+            Object[] tocheck = { textBox1.Text, textBox2.Text, textBox3.Text };
             bool[] o = checker.intCheck(tocheck);
             bool y = warner.notTrue(o);
-            if !(y)
+            if (!(y))
+            {
                 MessageBox.Show(this, "your input is illegal");
-            else { }
-            MessageBox.Show(this, "your request has been sent");
-            if (this.buySell == "buy")
+            }
+            else
             {
+                int com = Convert.ToInt32(textBox1.Text);
+                int amount = Convert.ToInt32(textBox2.Text);
+                int price = Convert.ToInt32(textBox3.Text);
+                MessageBox.Show(this, "your request has been sent");
+                if (this.buySell == "buy")
+                {
 
-                BuyRequest buyR = new BuyRequest(com, amount, price);
+                    BuyRequest buyR = new BuyRequest(com, amount, price);
+                }
+                if (this.buySell == "sell")
+                {
+                    SellRequest sellR = new SellRequest(com, amount, price);
+                }
             }
-            if (this.buySell == "sell")
-            {
-                SellRequest sellR = new SellRequest(com, amount, price);
-            }
-        }
             
         }
 

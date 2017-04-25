@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MarketClient.PL_BL
 {
-    interface InterperatorPB
+    static class InterperatorPB
     {
-        Request transReq();
-
-        IMarketResponse getRes();
+        public static IMarketResponse sendReq(Request req)
+        {
+            return null;
+        }
     }
 }

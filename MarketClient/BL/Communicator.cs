@@ -220,7 +220,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
     {
         public TestMarketCommunicator()
         {
-            this.url = "http://ise172.ise.bgu.ac.il";
+            this.url = "http://ise172.ise.bgu.ac.il:8008";
             this.user = "user36";
             string privateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk

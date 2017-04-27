@@ -51,9 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\BasicLogics\AbstractBasicLogic.cs" />
-    <Compile Include="BL\AMA\BasicLogics\BasicLogic.cs" />
-    <Compile Include="BL\AMA\BasicLogics\DefaultBasicLogic.cs" />
+    <Compile Include="BL\AMA\Logics\DynamicLogics\BirthLogic.cs" />
+    <Compile Include="BL\AMA\Logics\DynamicLogics\DynamicLogic.cs" />
+    <Compile Include="BL\AMA\Logics\BasicLogics\AbstractBasicLogic.cs" />
+    <Compile Include="BL\AMA\Logics\BasicLogics\BasicLogic.cs" />
+    <Compile Include="BL\AMA\Logics\BasicLogics\DefaultBasicLogic.cs" />
+    <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\LogicBlock.cs" />
     <Compile Include="BL\AMA\AMA.cs" />
     <Compile Include="BL\Communicator.cs" />

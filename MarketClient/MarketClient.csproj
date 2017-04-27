@@ -63,10 +63,11 @@
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
+    <Compile Include="PL-BL\InterperatorPB.cs" />
+    <Compile Include="PL-BL\Request.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="UI\LoginInfo.cs" />
-    <Compile Include="BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />

@@ -7,69 +7,203 @@ using MarketClient.PL_BL;
 
 namespace MarketClient.BL
 {
-    public interface innerLogicMethod
+    public interface InnerLogic
     {
-        bool run(int commodity, int price, int amount, int id);
+        object run(LogicProcess process);
     }
 
-    public class BidCompare : innerLogicMethod
+    public class BidCompare : InnerLogic
     {
-        private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount, int id)
+        public object run(LogicProcess process)
         {
-            IMarketResponse response = comm.SendQueryMarketRequest(commodity);
-            if (response.getType() != ResponseType.qcommodity)
-                return false;
+            bool success = false;
 
-            MQCommodity resp = (MQCommodity)response;
-            return resp.getBid() >= price;
+            IMarketResponse response = process.comm.SendQueryMarketRequest(process.commodity);
+            if (response.getType() == ResponseType.qcommodity)
+            {
+                MQCommodity resp = (MQCommodity)response;
+                success = resp.getBid() >= process.price;
+                next(process, success);
+            }
+            return response;
+        }
+
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.first;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(0);
+            } 
         }
     }
 
 
-    public class AskCompare : innerLogicMethod
+    public class AskCompare : InnerLogic
     {
-        private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount, int id)
+        public object run(LogicProcess process)
         {
-            IMarketResponse response = comm.SendQueryMarketRequest(commodity);
-            if (response.getType() != ResponseType.qcommodity)
-                return false;
+            bool success = false;
 
-            MQCommodity resp = (MQCommodity)response;
-            return resp.getAsk() <= price;
+            IMarketResponse response = process.comm.SendQueryMarketRequest(process.commodity);
+            if (response.getType() == ResponseType.qcommodity)
+            {
+                MQCommodity resp = (MQCommodity)response;
+                success = resp.getAsk() <= process.price;
+                next(process, success);
+            }
+            return response;
+        }
+
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.first;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(0);
+            }
         }
     }
 
 
-    public class hasExistingRequest : innerLogicMethod
+    public class hasExistingRequest : InnerLogic
     {
-        private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount, int id)
+        public object run(LogicProcess process)
         {
-            IMarketResponse response = comm.SendQueryBuySellRequest(id);
-            if (response.getType() != ResponseType.qreq)
-                return false;
+            
+            IMarketResponse response = process.comm.SendQueryBuySellRequest(process.id);
+            bool success = (response.getType() == ResponseType.qreq);
 
-            return true;
+            if (!success)
+                process.id = -1;
+
+            next(process, success);
+            return response;
+
         }
+
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.first;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(0);
+            }
+        }
+
     }
 
-    public class hasCommodity : innerLogicMethod
+    public class hasCommodity : InnerLogic
     {
         private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount, int id)
+        public object run(LogicProcess process)
         {
+            bool success = false;
             IMarketResponse response = comm.SendQueryUserRequest();
             if (response.getType() != ResponseType.quser)
-                return false;
+            {
+                MQUser resp = (MQUser)response;
+                Dictionary<string, int> commodityList = resp.getCommodities();
+                int currAmount = commodityList[process.commodity.ToString()];
+                success = (currAmount > 0);
+            }
+            next(process, success);
+            return response;
+        }
 
-            MQUser resp = (MQUser)response;
-            Dictionary<string, int> commodityList =resp.getCommodities();
-            int currAmount = commodityList[commodity.ToString()];
-            return currAmount > 0;
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.first;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(0);
+            }
         }
     }
 
+    public class BuyAction : InnerLogic
+    {
+        public object run(LogicProcess process)
+        {
+            bool success = false;
+            IMarketResponse response = process.comm.SendBuyRequest(process.price,process.commodity, process.amount);
+            if(response.getType() == ResponseType.buysell)
+            {
+                success = true;
+                MBuySell resp = (MBuySell)response;
+                process.id = resp.getID();
+            }
+            next(process, success);
+            return response;
+            
+        }
+
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.last;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(1);
+            }
+        }
+    }
+
+
+    public class SellAction : InnerLogic
+    {
+        public object run(LogicProcess process)
+        {
+            bool success = false;
+            IMarketResponse response = process.comm.SendSellRequest(process.price, process.commodity, process.amount);
+            if (response.getType() == ResponseType.buysell)
+            {
+                success = true;
+                MBuySell resp = (MBuySell)response;
+                process.id = resp.getID();
+            }
+            next(process, success);
+            return response;
+
+        }
+
+        private void next(LogicProcess process, bool success)
+        {
+            if (success)
+            {
+                process.queue = LogicQueue.last;
+                process.step(1);
+            }
+            else
+            {
+                process.queue = LogicQueue.last;
+                process.step(1);
+            }
+        }
+    }
 
 }

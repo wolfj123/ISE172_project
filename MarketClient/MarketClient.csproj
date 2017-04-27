@@ -59,12 +59,12 @@
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />
+    <Compile Include="PL-BL\Request.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="UI\LoginInfo.cs" />
     <Compile Include="BL\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\RealMarketItemQuery.cs" />
     <Compile Include="BL\RealMarketUserData.cs" />
-    <Compile Include="BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />

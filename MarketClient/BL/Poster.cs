@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
-
+using log4net;
 
 
 namespace MarketClient.BL
 {
+   
+ 
     public class Poster : IMarketClient
     {
+        ILog myLogger = LogManager.GetLogger("fileLogger");
+         
         private LoginInfo loginInfo;
         private SimpleHTTPClient client;
 
@@ -58,6 +62,8 @@ namespace MarketClient.BL
 
         public IMarketUserData SendQueryUserRequest()
         {
+            myLogger.Debug("Hello logger!");
+
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
             return output;

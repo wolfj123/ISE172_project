@@ -53,57 +53,23 @@ namespace MarketClient.BL
 
         public DynamicLogic run()
         {
-            bool success = innerLogic.run(commodity, price, amount);
+            bool success = innerLogic.run(commodity, price, amount, id);
             if (success)
-                return nextLogic.run();
+                return nextLogic.run(commodity, price, amount, id);
             else
-                return prevLogic.run();
+                return prevLogic.run(commodity, price, amount, id);
         }
     }
 
 
     /*Interfaces for methods*/
-    public interface innerLogicMethod
-    {
-        bool run(int commodity, int price, int amount);
-    }
-    public interface birthLogicMethod
+    
+    public interface BirthLogicMethod
     {
         DynamicLogic run();
     }
 
 
-    /*Classes for methods*/
-    public class BidCompare : innerLogicMethod
-    {
-        private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount)
-        {
-            IMarketResponse response = comm.SendQueryMarketRequest(commodity);
-            if (response.getType() != ResponseType.qcommodity)
-                return false;
-
-            MQCommodity resp = (MQCommodity)response;
-            return resp.getBid() >= price;
-        }
-    }
-
-
-    public class AskCompare : innerLogicMethod
-    {
-        private ICommunicator comm = new Communicator();
-        public bool run(int commodity, int price, int amount)
-        {
-            IMarketResponse response = comm.SendQueryMarketRequest(commodity);
-            if (response.getType() != ResponseType.qcommodity)
-                return false;
-
-            MQCommodity resp = (MQCommodity)response;
-            return resp.getAsk() <= price;
-        }
-    }
-
-
-    public class 
+    
 
 }

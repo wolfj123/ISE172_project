@@ -14,13 +14,15 @@ namespace MarketClient.BL
  
     public class Poster : IMarketClient
     {
-        ILog myLogger = LogManager.GetLogger("fileLogger");
+
+        ILog myLogger = LogManager.GetLogger("quser");
          
-        private LoginInfo loginInfo;
+      private LoginInfo loginInfo;
         private SimpleHTTPClient client;
 
         public Poster(LoginInfo loginInfo)
         {
+            log4net.Config.XmlConfigurator.Configure();
             this.loginInfo = loginInfo;
             this.client = new SimpleHTTPClient();
         }
@@ -62,7 +64,7 @@ namespace MarketClient.BL
 
         public IMarketUserData SendQueryUserRequest()
         {
-            myLogger.Debug("Hello logger!");
+            myLogger.Info("Hello logger!");
 
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);

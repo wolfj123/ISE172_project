@@ -10,6 +10,61 @@ using MarketClient.PL_BL;
 
 namespace MarketClientTest
 {
+    public class CommStubStaticReturn : ICommunicator
+    {
+        public IMarketResponse buy;
+        public IMarketResponse sell;
+        public IMarketResponse cancel;
+        public IMarketResponse qbuysell;
+        public IMarketResponse qmarket;
+        public IMarketResponse quser;
+
+        public CommStubStaticReturn(IMarketResponse buy, IMarketResponse sell, IMarketResponse cancel, IMarketResponse qbuysell, IMarketResponse qmarket, IMarketResponse quser)
+        {
+            this.buy = buy;
+            this.sell = sell;
+            this.cancel = cancel;
+            this.qbuysell = qbuysell;
+            this.qmarket = qmarket;
+            this.quser = quser;
+        }
+
+        public IMarketResponse SendBuyRequest(int price, int commodity, int amount)
+        {
+            return buy;
+        }
+
+        public IMarketResponse SendCancelBuySellRequest(int id)
+        {
+            return cancel;
+        }
+
+        public IMarketResponse SendQueryBuySellRequest(int id)
+        {
+            return qbuysell;
+        }
+
+        public IMarketResponse SendQueryMarketRequest(int commodity)
+        {
+            return qmarket;
+        }
+
+        public IMarketResponse SendQueryUserRequest()
+        {
+            return quser;
+        }
+
+        public IMarketResponse SendSellRequest(int price, int commodity, int amount)
+        {
+            return sell;
+        }
+    }
+
+
+
+
+
+
     public class ICommunicatorStub : ICommunicator
     {
 

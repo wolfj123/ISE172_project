@@ -82,7 +82,7 @@ namespace MarketClient.BL
         {
             
             IMarketResponse response = process.comm.SendQueryBuySellRequest(process.id);
-            bool success = (response.getType() == ResponseType.qreq);
+            bool success = (response.getType() != ResponseType.qreq);
 
             if (!success)
                 process.id = -1;

@@ -12,7 +12,7 @@ namespace MarketClient.BL
     {
         public List<InnerLogic> list;
         public LogicQueue queue;
-        private int currIndex;
+        public int currIndex;
         public bool repeat;
 
         public ICommunicator comm;
@@ -24,9 +24,11 @@ namespace MarketClient.BL
         public LogicProcess(bool repeat, ICommunicator comm, int commodity, 
             int price, int amount, int id)
         {
+            list = new List<InnerLogic>();
             this.queue = LogicQueue.first;
             this.currIndex = 0;
             this.repeat = repeat;
+
             this.comm = comm;
             this.commodity = commodity;
             this.price = price;
@@ -34,8 +36,7 @@ namespace MarketClient.BL
             this.id = id;
         }
 
-        public LogicProcess run(ICommunicator comm, int commodity, int price, 
-            int amount, int id)
+        public LogicProcess run()
         {
             list.ElementAt(currIndex).run(this);
             return this;

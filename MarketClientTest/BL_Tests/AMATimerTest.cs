@@ -9,6 +9,7 @@ using MarketClient.BL;
 
 namespace MarketClientTest
 {
+    /*
     [TestClass]
     public class AMATimerTest
     {
@@ -39,5 +40,5 @@ namespace MarketClientTest
             return null;
         }
     }
-
+    */
 }

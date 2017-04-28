@@ -13,7 +13,8 @@ namespace MarketClientTest
     [TestClass]
     public class AMALogicTreeTest
     {
-        [TestMethod]
+        //[TestMethod]
+        /*
         public void BasicBuyLogicTest()
         {
             AMA testAMA = new AMA(10, 10000);
@@ -29,9 +30,10 @@ namespace MarketClientTest
 
             System.Threading.Thread.Sleep(40000);
             testAMA.enable(false);
-        }
+        }*/
     }
 
 
-   
+
+
 }

@@ -15,14 +15,14 @@ namespace MarketClient.BL
      */
     public class AMA
     {
-        private List<LogicBlock> blocks; //The list containing all the LogicBlocks
+        private List<LogicProcess> blocks; //The list containing all the LogicBlocks
         private int maxReq; //The maximum requests allowed per interval
         private System.Timers.Timer aTimer;
 
         public AMA(int maxReq, double interval)
         {
             this.maxReq = maxReq;
-            blocks = new List<LogicBlock>();
+            blocks = new List<LogicProcess>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Interval = interval;
@@ -50,27 +50,27 @@ namespace MarketClient.BL
             while (count < maxReq & blocks.Count > 0)
             {
                 //Take out and remove first logic block
-                LogicBlock currentLogic = blocks[0];
+                LogicProcess currentLogic = blocks[0];
                 blocks.RemoveAt(0);
 
                 //run the logic block
                 object output = currentLogic.run();
 
                 //if it should be repeated - add it to the end of the list
-                if (currentLogic.isRepeated())
+                if (currentLogic.repeat)
                     blocks.Add(currentLogic);
 
                 //if the output is another logic block - add it to the top of the list
-                if (output is LogicBlock)
+                if (output is LogicProcess)
                 {
-                    LogicBlock newLogic = (LogicBlock)output;
+                    LogicProcess newLogic = (LogicProcess)output;
                     blocks.Insert(0, newLogic);
                 }
 
-                if(output is List<LogicBlock>)
+                if(output is List<LogicProcess>)
                 {
-                    List<LogicBlock> newLogics = (List<LogicBlock>)output;
-                    foreach(LogicBlock logic in newLogics)
+                    List<LogicProcess> newLogics = (List<LogicProcess>)output;
+                    foreach(LogicProcess logic in newLogics)
                     {
                         blocks.Insert(0, logic);
                     }
@@ -89,7 +89,7 @@ namespace MarketClient.BL
             aTimer.Enabled = toEnable;
         }
 
-        public void add(LogicBlock block)
+        public void add(LogicProcess block)
         {
             blocks.Add(block);
         }

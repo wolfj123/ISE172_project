@@ -40,7 +40,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, User, Token);
 
             IMarketResponse resp = comm.SendQueryUserRequest();
-            Console.WriteLine(resp.ToString());
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
         }
 
 
@@ -51,7 +52,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, "wrongUser", Token);
 
             IMarketResponse resp = comm.SendQueryUserRequest();
-            Console.WriteLine(resp.ToString());
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
         }
 
         [TestMethod]
@@ -62,10 +64,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             IMarketResponse resp = comm.SendBuyRequest(1, 1, 1);
             string respString = resp.ToString();
-            Console.WriteLine(respString);
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
 
             //if (Shell.isNumeric(respString))
-               // TestCommCancelRequest(Int32.Parse(respString));
+            // TestCommCancelRequest(Int32.Parse(respString));
         }
 
         [TestMethod]
@@ -75,7 +78,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, User, Token);
 
             IMarketResponse resp = comm.SendCancelBuySellRequest(11);
-            Console.WriteLine(resp.ToString());
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
         }
 
 
@@ -86,11 +90,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, User, Token);
 
             IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
-            string respString = resp.ToString();
-            Console.WriteLine(respString);
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
 
-           // if (Shell.isNumeric(respString))
-               // TestCommCancelRequest(Int32.Parse(respString));
+            // if (Shell.isNumeric(respString))
+            // TestCommCancelRequest(Int32.Parse(respString));
         }
 
 
@@ -101,8 +105,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, User, Token);
 
             IMarketResponse resp = comm.SendQueryMarketRequest(1);
-            string respString = resp.ToString();
-            Console.WriteLine(respString);
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
         }
 
 
@@ -113,8 +117,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, User, Token);
 
             IMarketResponse resp = comm.SendQueryMarketRequest(12);
-            string respString = resp.ToString();
-            Console.WriteLine(respString);
+            Assert.IsNotNull(resp);
+            Trace.Write($"Server response is: {resp}");
         }
 
     }

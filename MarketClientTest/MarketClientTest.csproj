@@ -57,6 +57,7 @@
     <Compile Include="BL_Tests\CommunicatorTest.cs" />
     <Compile Include="BL_Tests\ICommunicatorStub.cs" />
     <Compile Include="BL_Tests\BasicBuyClassTest.cs" />
+    <Compile Include="BL_Tests\BuyProcessTest.cs" />
     <Compile Include="EnumTest.cs" />
     <Compile Include="ShellTests.cs" />
     <Compile Include="UnitTest1.cs" />

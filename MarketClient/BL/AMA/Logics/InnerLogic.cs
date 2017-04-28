@@ -110,11 +110,10 @@ namespace MarketClient.BL
 
     public class hasCommodity : InnerLogic
     {
-        private ICommunicator comm = new Communicator();
         public object run(LogicProcess process)
         {
             bool success = false;
-            IMarketResponse response = comm.SendQueryUserRequest();
+            IMarketResponse response = process.comm.SendQueryUserRequest();
             if (response.getType() == ResponseType.quser)
             {
                 MQUser resp = (MQUser)response;

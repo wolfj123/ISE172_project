@@ -38,9 +38,9 @@ namespace MarketClientTest.BL_Tests
         public void SellTestFullProcess()
         {
             //arrange
-            MBuySell buy = new MBuySell(); buy.id = "666";
+            MBuySell sell = new MBuySell(); sell.id = "666";
             MQReq query = new MQReq();
-            MQCommodity market = new MQCommodity(); market.bid = "1";
+            MQCommodity market = new MQCommodity(); market.ask = "1";
             MarketException excp = new MarketException();
             
             //create valid user query response
@@ -48,8 +48,10 @@ namespace MarketClientTest.BL_Tests
             user.commodities = new Dictionary<String, int>();
             user.commodities.Add("1", 3);
 
-            CommStubStaticReturn comm = new CommStubStaticReturn(buy,
-                null, null, excp, market, user);
+            int test = user.commodities["1"];
+
+            CommStubStaticReturn comm = new CommStubStaticReturn(null,
+                sell, null, excp, market, user);
             SellProcess testProcess = new SellProcess(true, comm, 1, 1, 1, 1);
 
             //initial assert
@@ -75,19 +77,19 @@ namespace MarketClientTest.BL_Tests
             output = testProcess.run();
 
             //assert3
-            Assert.AreEqual(testProcess.currIndex, 0);
-            Assert.AreEqual(testProcess.queue, LogicQueue.last);
+            Assert.AreEqual(testProcess.currIndex, 3);
+            Assert.AreEqual(testProcess.queue, LogicQueue.first);
 
             //act4
             output = testProcess.run();
 
             //assert4
-            Assert.AreEqual(testProcess.currIndex, 3);
-            Assert.AreEqual(testProcess.queue, LogicQueue.first);
+            Assert.AreEqual(testProcess.currIndex, 0);
+            Assert.AreEqual(testProcess.queue, LogicQueue.last);
 
             //update communicator stub
-            comm = new CommStubStaticReturn(buy,
-                null, null, query, market, null);
+            comm = new CommStubStaticReturn(null,
+                sell, null, query, market, user);
             testProcess.comm = comm;
 
 

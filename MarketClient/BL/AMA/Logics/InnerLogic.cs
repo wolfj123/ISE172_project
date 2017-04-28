@@ -115,7 +115,7 @@ namespace MarketClient.BL
         {
             bool success = false;
             IMarketResponse response = comm.SendQueryUserRequest();
-            if (response.getType() != ResponseType.quser)
+            if (response.getType() == ResponseType.quser)
             {
                 MQUser resp = (MQUser)response;
                 Dictionary<string, int> commodityList = resp.getCommodities();

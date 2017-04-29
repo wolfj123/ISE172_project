@@ -10,31 +10,27 @@ using System.Windows.Forms;
 
 namespace WpfApplication1.forms
 {
-    public partial class cancelForm : Form
+    public partial class idStatusForm : Form
     {
-        public cancelForm()
+        public idStatusForm()
         {
             InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            //choose request
+            //choose request ID
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //id list
-            int[] idList = formsMethod.listGet();
-            for (int i = 0; i < idList.Length - 1; i++)
-            {
-                comboBox1.Items.Add(idList[i]);
-            }
+            //ID list
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //cancel
+            //show status
+            MessageBox.Show(this, "there isnt");
         }
     }
 }

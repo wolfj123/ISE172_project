@@ -1,6 +1,6 @@
 ﻿namespace WpfApplication1.forms
 {
-    partial class cancelForm
+    partial class idStatusForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,42 +36,42 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 95);
+            this.label1.Location = new System.Drawing.Point(136, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 32);
+            this.label1.Size = new System.Drawing.Size(249, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Choose request";
+            this.label1.Text = "Choose request ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(154, 159);
+            this.comboBox1.Location = new System.Drawing.Point(175, 143);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(239, 39);
+            this.comboBox1.Size = new System.Drawing.Size(183, 39);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 263);
+            this.button1.Location = new System.Drawing.Point(146, 223);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(236, 69);
+            this.button1.Size = new System.Drawing.Size(239, 73);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Cancel";
+            this.button1.Text = "show status";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cancelForm
+            // idStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 431);
+            this.ClientSize = new System.Drawing.Size(571, 353);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Name = "cancelForm";
-            this.Text = "cancelForm";
+            this.Name = "idStatusForm";
+            this.Text = "idStatusForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

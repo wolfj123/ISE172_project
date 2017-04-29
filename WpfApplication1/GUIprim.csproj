@@ -86,6 +86,12 @@
       <DependentUpon>cancelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\formsMethod.cs" />
+    <Compile Include="forms\idStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\idStatusForm.Designer.cs">
+      <DependentUpon>idStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\sellForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\cancelForm.resx">
       <DependentUpon>cancelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\idStatusForm.resx">
+      <DependentUpon>idStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sellForm.resx">
       <DependentUpon>sellForm.cs</DependentUpon>

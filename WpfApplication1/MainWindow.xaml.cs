@@ -40,13 +40,15 @@ namespace WpfApplication1
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            intReq userInput = new intReq("cancel");
+            forms.cancelForm userInput = new forms.cancelForm();
+            //intReq userInput = new intReq("cancel");
             userInput.Show();
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            intReq userInput = new intReq("buySellQ");
+            forms.idStatusForm userInput = new forms.idStatusForm();
+            //intReq userInput = new intReq("buySellQ");
             userInput.Show();
         }
 

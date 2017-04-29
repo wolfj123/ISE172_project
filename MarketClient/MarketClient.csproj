@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
+    <Compile Include="GUI\InputCheck.cs" />
+    <Compile Include="GUI\userWarner.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />

@@ -73,6 +73,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="forms\buyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\buyForm.Designer.cs">
+      <DependentUpon>buyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\formsMethod.cs" />
     <Compile Include="intReq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +105,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="forms\buyForm.resx">
+      <DependentUpon>buyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="intReq.resx">
       <DependentUpon>intReq.cs</DependentUpon>
     </EmbeddedResource>

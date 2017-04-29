@@ -33,7 +33,8 @@ namespace WpfApplication1
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            buySellReq userInput = new buySellReq("sell");
+            forms.sellForm userInput = new forms.sellForm();
+            //buySellReq userInput = new buySellReq("sell");
             userInput.Show();
         }
 

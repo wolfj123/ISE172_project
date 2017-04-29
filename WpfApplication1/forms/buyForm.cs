@@ -46,7 +46,7 @@ namespace WpfApplication1.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //send
         }
 
 
@@ -63,6 +63,11 @@ namespace WpfApplication1.forms
         private void label3_Click(object sender, EventArgs e)
         {
             //price label
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            //total
         }
     }
 }

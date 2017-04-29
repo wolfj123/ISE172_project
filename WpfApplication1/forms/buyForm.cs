@@ -19,33 +19,50 @@ namespace WpfApplication1.forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] toAdd = formsMethod.listGet();//
-            for (int i = 0; i < toAdd.Length - 1; i++) {
-                comboBox1.Items.Add(toAdd[i]);
+
+            int[] commoList = formsMethod.listGet();
+            for (int i = 0; i < commoList.Length - 1; i++) {
+                comboBox1.Items.Add(commoList[i]);
             }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] toAdd = formsMethod.listGet();
-            for (int i = 0; i < toAdd.Length - 1; i++)
+            int[] amountList = formsMethod.listGet();
+            for (int i = 0; i < amountList.Length - 1; i++)
             {
-                comboBox1.Items.Add(toAdd[i]);
+                comboBox1.Items.Add(amountList[i]);
             }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] toAdd = formsMethod.listGet();
-            for (int i = 0; i < toAdd.Length - 1; i++)
+            int[] priceList = formsMethod.listGet();
+            for (int i = 0; i < priceList.Length - 1; i++)
             {
-                comboBox1.Items.Add(toAdd[i]);
+                comboBox1.Items.Add(priceList[i]);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //commodity label
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //amount label
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            //price label
         }
     }
 }

@@ -27,7 +27,7 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            buySellReq userInput = new buySellReq("buy");
+            forms.buyForm userInput = new forms.buyForm();
             userInput.Show();
         }
 

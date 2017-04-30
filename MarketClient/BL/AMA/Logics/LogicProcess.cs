@@ -21,6 +21,8 @@ namespace MarketClient.BL
         public int amount;
         public int id;
 
+        public SpecialAction spec;
+
         public LogicProcess(bool repeat, ICommunicator comm, int commodity, 
             int price, int amount, int id)
         {
@@ -34,14 +36,24 @@ namespace MarketClient.BL
             this.price = price;
             this.amount = amount;
             this.id = id;
+
+            this.spec = null;
         }
 
         public virtual LogicProcess run()
         {
             list.ElementAt(currIndex).run(this);
+            runSpec();
             return this;
         }
 
+        private object runSpec()
+        {
+            if (spec != null)
+                return spec.runSpecial();
+            else
+                return null;
+        }
 
         public void step(int step)
         {
@@ -55,6 +67,13 @@ namespace MarketClient.BL
 
         }
     }
+
+
+    public interface SpecialAction
+    {
+        object runSpecial();
+    }
+
 
     public class BuyProcess : LogicProcess
     {

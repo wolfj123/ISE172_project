@@ -56,21 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\LogicBlock.cs" />
-    <Compile Include="BL\AMA\Logics\BasicLogics\AbstractBasicLogic.cs" />
-    <Compile Include="BL\AMA\Logics\BasicLogics\BasicLogic.cs" />
-    <Compile Include="BL\AMA\Logics\BasicLogics\DefaultBasicLogic.cs" />
-    <Compile Include="BL\AMA\Logics\DynamicLogics\birthLogic.cs" />
-    <Compile Include="BL\AMA\Logics\DynamicLogics\DynamicLogic.cs" />
     <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
-    <Compile Include="BL\AMA\Obsolete\ILogic.cs" />
-    <Compile Include="BL\AMA\Obsolete\MRequest.cs" />
-    <Compile Include="BL\AMA\temp\LogicBlock.cs" />
-    <Compile Include="BL\AMA\temp\MarketAction.cs" />
-    <Compile Include="BL\AMA\temp\PopulateAction.cs" />
-    <Compile Include="BL\AMA\temp\SimpleBuyLogic.cs" />
-    <Compile Include="BL\AMA\temp\SimpleSellLogic.cs" />
     <Compile Include="BL\Communicator.cs" />
     <Compile Include="BL\milestone1\Poster.cs" />
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />

@@ -10,9 +10,6 @@ using log4net;
 
 namespace MarketClient.BL
 {
-
-    
-
     public class Poster : IMarketClient
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");

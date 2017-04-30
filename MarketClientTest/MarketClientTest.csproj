@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="BL-Tests\AMALogicTreeTest.cs" />
     <Compile Include="BL-Tests\AMATimerTest.cs" />
-    <Compile Include="BL-Tests\BasicBuyClassTest.cs" />
     <Compile Include="BL-Tests\BuyProcessTest.cs" />
     <Compile Include="BL-Tests\CommunicatorTest.cs" />
     <Compile Include="BL-Tests\ICommunicatorStub.cs" />

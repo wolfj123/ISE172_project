@@ -56,13 +56,13 @@ namespace MarketClient.BL
                 //run the logic block
                 object output = currentLogic.run();
 
-                //if it should be repeated - add it to the end of the list
+                //decide where to put the logicProcess in the list
                 if (currentLogic.queue == LogicQueue.last)
                     blocks.Add(currentLogic);
                 else if (currentLogic.queue == LogicQueue.first)
                     blocks.Insert(0, currentLogic);
 
-                //if the output is another logic block - add it to the top of the list
+                /*
                 if (output is LogicProcess)
                 {
                     LogicProcess newLogic = (LogicProcess)output;
@@ -76,7 +76,9 @@ namespace MarketClient.BL
                     {
                         blocks.Insert(0, logic);
                     }
-                }
+                }*/
+
+
                 count++;
             }
         }
@@ -89,6 +91,8 @@ namespace MarketClient.BL
         public void enable(bool toEnable)
         {
             aTimer.Enabled = toEnable;
+            if (toEnable)
+                run();
         }
 
         public void add(LogicProcess block)

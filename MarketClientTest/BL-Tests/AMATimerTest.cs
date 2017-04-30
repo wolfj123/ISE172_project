@@ -9,36 +9,45 @@ using MarketClient.BL;
 
 namespace MarketClientTest
 {
-    /*
+    
     [TestClass]
     public class AMATimerTest
     {
         [TestMethod]
         public void TestTimer()
         {
-            LogicBlock testLogic = new PrintLogic();
-            AMA amaTest = new AMA(10, 10000);
+            //setup
+            int maxReq = 10;
+            int interval = 2000;
+
+            PrintLogic testLogic = new PrintLogic();
+            AMA amaTest = new AMA(maxReq, interval);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(20000);
+            System.Threading.Thread.Sleep(interval);
             amaTest.enable(false);
+
+            Assert.AreEqual(maxReq, testLogic.count);
         }
 
     }
 
-
-    public class PrintLogic : LogicBlock
+    //LogicProcess Stub
+    public class PrintLogic : LogicProcess
     {
-        public PrintLogic() : base(null, true)
+        public int count;
+        public PrintLogic() 
+            : base(true, null, 0, 0, 0, 0)
         {
-            setRepeat(true);
+            count = 0;
         }
-        public override object run()
+
+        public new LogicProcess run()
         {
-            Trace.WriteLine(DateTime.Now);
+            count = count + 1;
             return null;
         }
     }
-    */
+
 }

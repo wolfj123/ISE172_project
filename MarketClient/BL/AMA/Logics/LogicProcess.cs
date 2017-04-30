@@ -36,7 +36,7 @@ namespace MarketClient.BL
             this.id = id;
         }
 
-        public LogicProcess run()
+        public virtual LogicProcess run()
         {
             list.ElementAt(currIndex).run(this);
             return this;

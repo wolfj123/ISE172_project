@@ -43,7 +43,7 @@ namespace MarketClientTest
             count = 0;
         }
 
-        public new LogicProcess run()
+        public override LogicProcess run()
         {
             count = count + 1;
             return null;

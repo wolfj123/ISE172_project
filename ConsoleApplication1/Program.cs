@@ -15,6 +15,8 @@ namespace Application
             Interperator interp = new PrimInterperator(new DefaultLoginInfo()); 
             Display.Welcome();
 
+
+
             while (true)
             {
                 String cmd = Console.ReadLine();

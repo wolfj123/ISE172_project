@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="jsone.cs" />
     <Compile Include="log4net.cs" />
     <Compile Include="ShellTests.cs" />
     <Compile Include="UnitTest1.cs" />

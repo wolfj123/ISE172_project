@@ -9,19 +9,19 @@ using log4net;
 namespace MarketClientTest
 {
     [TestClass]
-    class log4net
+     public class log4net
     {
+        private static ILog myLogger = LogManager.GetLogger("testLog");
+
         [TestMethod]
         public void TestlogLevel()
         {
-            ILog myLogger = LogManager.GetLogger("fileLogger");
             myLogger.Fatal("this is a fatal msg");
             myLogger.Info("this is a info msg");
             myLogger.Debug("this is debug");
-            Console.WriteLine("sucssed");
-        }
-        
+            Console.WriteLine("sucssed");  
 
+        }
 
     }
 }

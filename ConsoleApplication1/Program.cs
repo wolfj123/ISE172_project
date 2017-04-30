@@ -10,6 +10,7 @@ namespace Application
 {
     class Program
     {
+        /*
         static void Main()
         {
             Interperator interp = new PrimInterperator(new DefaultLoginInfo()); 
@@ -24,7 +25,13 @@ namespace Application
             }
 
         }
+        */
 
+        static void Main()
+        {
+            Console.WriteLine("We are a'go!");
+
+        }
     }
 
 }

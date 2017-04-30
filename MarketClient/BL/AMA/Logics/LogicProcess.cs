@@ -47,6 +47,13 @@ namespace MarketClient.BL
             return this;
         }
 
+
+        //Used for further enhancing the logicProcess and testing
+        public void addSpecialAction(SpecialAction spec)
+        {
+            this.spec = spec;
+        }
+
         private object runSpec()
         {
             if (spec != null)
@@ -55,6 +62,7 @@ namespace MarketClient.BL
                 return null;
         }
 
+        //Go to the next step in the logic process
         public void step(int step)
         {
             currIndex += step;

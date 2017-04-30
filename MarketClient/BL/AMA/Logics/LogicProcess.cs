@@ -10,6 +10,8 @@ namespace MarketClient.BL
 
     public class LogicProcess
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         public List<InnerLogic> list;
         public LogicQueue queue;
         public int currIndex;
@@ -56,8 +58,12 @@ namespace MarketClient.BL
 
         private object runSpec()
         {
+
             if (spec != null)
+            {
+                myLogger.Info("Logic Action: Special action");
                 return spec.runSpecial();
+            }
             else
                 return null;
         }

@@ -15,6 +15,8 @@ namespace MarketClient.BL
      */
     public class AMA
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         private List<LogicProcess> blocks; //The list containing all the LogicBlocks
         private int maxReq; //The maximum requests allowed per interval
         private System.Timers.Timer aTimer;
@@ -49,18 +51,30 @@ namespace MarketClient.BL
             int count = 0;
             while (count < maxReq & blocks.Count > 0)
             {
+                
                 //Take out and remove first logic block
                 LogicProcess currentLogic = blocks[0];
                 blocks.RemoveAt(0);
 
                 //run the logic block
                 object output = currentLogic.run();
+                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated");
 
                 //decide where to put the logicProcess in the list
                 if (currentLogic.queue == LogicQueue.last)
+                {
                     blocks.Add(currentLogic);
+                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
+                }
                 else if (currentLogic.queue == LogicQueue.first)
+                {
                     blocks.Insert(0, currentLogic);
+                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
+                }
+                else
+                {
+                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
+                }
 
                 /*
                 if (output is LogicProcess)
@@ -85,12 +99,15 @@ namespace MarketClient.BL
 
         public bool isEnabled()
         {
+            
             return aTimer.Enabled;
         }
 
         public void enable(bool toEnable)
         {
             aTimer.Enabled = toEnable;
+            myLogger.Info("AMA enable set to" + toEnable);
+
             if (toEnable)
                 run();
         }

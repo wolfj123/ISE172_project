@@ -17,7 +17,6 @@ namespace MarketClientTest.BL_Tests
         {
             AMA testAMA = new DefaultAMA();
             testAMA.enable(true);
-
         }
     }
 }

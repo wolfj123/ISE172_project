@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.PL_BL;
+using log4net;
 
 namespace MarketClient.BL
 {
@@ -66,6 +67,9 @@ namespace MarketClient.BL
 
     public class Communicator : ICommunicator
     {
+
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         protected SimpleHTTPClient client;
         protected string url;
         protected string user;
@@ -111,11 +115,17 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.id = client.SendPostRequest<BuyRequest>(url, user, token, buyReq);
+                myLogger.Info("Sent Buy Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url);
             }
             catch (Exception e)
             {
+                myLogger.Error("EXCEPTION");
                 if (e is MarketException)
-                    return (MarketException) e;
+                {
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
+                    return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;
@@ -129,11 +139,17 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.id = client.SendPostRequest<SellRequest>(url, user, token, sellReq);
+                myLogger.Info("Sent Sell Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url);
             }
             catch (Exception e)
             {
+                myLogger.Error("EXCEPTION");
                 if (e is MarketException)
+                {
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;
@@ -142,17 +158,24 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryBuySellRequest(int id)
         {
+            
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id); //create buy/sell query request
             MQReq marketResponse = new MQReq();
 
             try
             {
                 marketResponse = client.SendPostRequest<QueryBuySellRequest, MQReq>(url, user, token, queryBS);
+                myLogger.Info("Sent Query Buy/Sell Request{id:" + id + ", url:" + url);
             }
             catch (Exception e)
             {
+                myLogger.Error("EXCEPTION");
                 if (e is MarketException)
+                {
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;
@@ -161,17 +184,24 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryUserRequest()
         {
+            
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             MQUser marketResponse = new MQUser();
 
             try
             {
                 marketResponse = client.SendPostRequest<QueryUserRequest, MQUser>(url, user, token, userReq);
+                myLogger.Info("Sent Query Buy/Sell Request{user:" + user + ", url:" + url);
             }
             catch (Exception e)
             {
+                myLogger.Error("EXCEPTION");
                 if (e is MarketException)
+                {
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;
@@ -185,11 +215,17 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse = client.SendPostRequest<QueryMarketRequest, MQCommodity>(url, user, token, QMReq);
+                myLogger.Info("Sent Query Market Request{commodity:" + commodity + ", url:" + url);
             }
             catch (Exception e)
             {
+                myLogger.Error("EXCEPTION");
                 if (e is MarketException)
+                {
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;
@@ -203,11 +239,16 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.response = client.SendPostRequest<CancelRequest>(url, user, token, cancelReq);
+                myLogger.Info("Sent Cancel Request{id:" + id + ", url:" + url);
             }
             catch (Exception e)
             {
-                if (e is MarketException)
+                myLogger.Error("EXCEPTION");
+                if (e is MarketException) { 
+                    myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
+                }
+                myLogger.Fatal("Unknown exception caught in Communicator");
             }
 
             return marketResponse;

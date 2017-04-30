@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
-
+using log4net;
 
 
 namespace MarketClient.BL
 {
+   
+ 
     public class Poster : IMarketClient
     {
-        private LoginInfo loginInfo;
+        
+      private LoginInfo loginInfo;
         private SimpleHTTPClient client;
 
         public Poster(LoginInfo loginInfo)

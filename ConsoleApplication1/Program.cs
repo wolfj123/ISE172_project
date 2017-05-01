@@ -30,7 +30,11 @@ namespace Application
         static void Main()
         {
             Console.WriteLine("We are a'go!");
+            AMA testAMA = new DefaultAMA();
+            testAMA.enable(true);
 
+            System.Threading.Thread.Sleep(10000 * 3);
+            testAMA.enable(false);
 
 
         }

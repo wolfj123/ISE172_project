@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MarketClient.PL_BL;
+using log4net;
 
 namespace MarketClient.BL
 {
@@ -14,6 +15,7 @@ namespace MarketClient.BL
 
     public class BidCompare : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             bool success = false;
@@ -46,6 +48,7 @@ namespace MarketClient.BL
 
     public class AskCompare : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             bool success = false;
@@ -78,6 +81,7 @@ namespace MarketClient.BL
 
     public class hasExistingRequest : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             
@@ -110,6 +114,7 @@ namespace MarketClient.BL
 
     public class hasCommodity : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             bool success = false;
@@ -142,6 +147,7 @@ namespace MarketClient.BL
 
     public class BuyAction : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             bool success = false;
@@ -175,6 +181,7 @@ namespace MarketClient.BL
 
     public class SellAction : InnerLogic
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public object run(LogicProcess process)
         {
             bool success = false;

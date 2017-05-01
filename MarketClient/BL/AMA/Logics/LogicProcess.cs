@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace MarketClient.BL
 {
@@ -11,7 +12,6 @@ namespace MarketClient.BL
     public class LogicProcess
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
-
         public List<InnerLogic> list;
         public LogicQueue queue;
         public int currIndex;
@@ -91,6 +91,7 @@ namespace MarketClient.BL
 
     public class BuyProcess : LogicProcess
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public BuyProcess(bool repeat, ICommunicator comm, int commodity, 
             int price, int amount, int id) : 
             base(repeat, comm, commodity, price, amount, id)
@@ -98,11 +99,14 @@ namespace MarketClient.BL
             list.Add(new hasExistingRequest());
             list.Add(new BidCompare());
             list.Add(new BuyAction());
+
+            myLogger.Info("Created new BuyProcess");
         }
     }
 
     public class SellProcess : LogicProcess
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         public SellProcess(bool repeat, ICommunicator comm, int commodity,
             int price, int amount, int id) :
             base(repeat, comm, commodity, price, amount, id)
@@ -111,6 +115,8 @@ namespace MarketClient.BL
             list.Add(new hasCommodity());
             list.Add(new AskCompare());
             list.Add(new SellAction());
+
+            myLogger.Info("Created new BuyProcess");
         }
     }
 

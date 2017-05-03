@@ -97,7 +97,8 @@ namespace MarketClient.BL
             base(repeat, comm, commodity, price, amount, id)
         {
             list.Add(new hasExistingRequest());
-            list.Add(new BidCompare());
+            //list.Add(new BidCompare());
+            list.Add(new AskCompare());
             list.Add(new BuyAction());
 
             myLogger.Info("Created new BuyProcess");
@@ -113,7 +114,8 @@ namespace MarketClient.BL
         {
             list.Add(new hasExistingRequest());
             list.Add(new hasCommodity());
-            list.Add(new AskCompare());
+            //list.Add(new AskCompare());
+            list.Add(new BidCompare());
             list.Add(new SellAction());
 
             myLogger.Info("Created new BuyProcess");

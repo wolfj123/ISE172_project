@@ -38,7 +38,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
             Communicator comm = new Communicator(Url, User, Token);
-
+            //Communicator comm = new TestMarketCommunicator();
             IMarketResponse resp = comm.SendQueryUserRequest();
             Assert.IsNotNull(resp);
             Trace.Write($"Server response is: {resp}");

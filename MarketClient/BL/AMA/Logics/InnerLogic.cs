@@ -21,6 +21,8 @@ namespace MarketClient.BL
             bool success = false;
 
             IMarketResponse response = process.comm.SendQueryMarketRequest(process.commodity);
+           // myLogger.Info("BidCompare: Sent query");
+
             if (response.getType() == ResponseType.qcommodity)
             {
                 MQCommodity resp = (MQCommodity)response;

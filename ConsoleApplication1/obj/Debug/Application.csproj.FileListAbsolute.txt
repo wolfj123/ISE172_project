@@ -20,3 +20,4 @@ C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplicati
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\log4net.xml
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\obj\Debug\Application.csprojResolveAssemblyReference.cache
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config

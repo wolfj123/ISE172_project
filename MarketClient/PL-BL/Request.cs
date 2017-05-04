@@ -18,6 +18,9 @@ namespace MarketClient.BL
         public int amount;
         public int price;
 
+
+
+        //Is this obsolete!?!
         public BuySellRequest (int commodity, int amount, int price) 
         {
             this.amount = amount;

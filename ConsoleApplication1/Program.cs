@@ -17,7 +17,7 @@ namespace Application
         {
 
             mainAction action = mainAction.
-                status;
+                normal;
 
 
             if (action == mainAction.normal)

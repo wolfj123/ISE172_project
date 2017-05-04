@@ -10,7 +10,7 @@ namespace MarketClient.PL_BL
     static class InterperatorPB
     {
         static private ICommunicator comm = new Communicator();
-
+        static private AMA ama = new DefaultAMA();
         public static IMarketResponse sendReq(Request req)
         {
             switch (req.type)
@@ -45,6 +45,10 @@ namespace MarketClient.PL_BL
             }
         }
 
+        public static void runAMA(bool enabled)
+        {
+            ama.enable(enabled);
+        }
 
         public static void addLogic(int commodity, int price, int amount)
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarketClient.PL_BL;
 
 namespace WpfApplication1.forms
 {
@@ -19,8 +20,9 @@ namespace WpfApplication1.forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            int[] commoList = formsMethod.listGet();
+            //commodity
+            
+            int[] commoList = formsMethod.listGet(null);
             for (int i = 0; i < commoList.Length - 1; i++) {
                 comboBox1.Items.Add(commoList[i]);
             }
@@ -28,7 +30,8 @@ namespace WpfApplication1.forms
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] amountList = formsMethod.listGet();
+            //amount
+            int[] amountList = formsMethod.listGet(null);
             for (int i = 0; i < amountList.Length - 1; i++)
             {
                 comboBox1.Items.Add(amountList[i]);
@@ -37,7 +40,8 @@ namespace WpfApplication1.forms
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] priceList = formsMethod.listGet();
+            //price
+            int[] priceList = formsMethod.listGet(null);
             for (int i = 0; i < priceList.Length - 1; i++)
             {
                 comboBox1.Items.Add(priceList[i]);

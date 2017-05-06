@@ -7,11 +7,11 @@ using MarketClient.BL;
 
 namespace MarketClient.PL_BL
 {
-    static class InterperatorPB
+    static public class InterperatorPB
     {
         static private ICommunicator comm = new Communicator();
 
-        public static IMarketResponse sendReq(Request req)
+        public static IMarketResponse sendRequest(Request req)
         {
             switch (req.type)
             {

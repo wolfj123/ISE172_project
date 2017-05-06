@@ -23,7 +23,7 @@ namespace MarketClient.BL
             IMarketResponse response = process.comm.SendQueryMarketRequest(process.commodity);
             //myLogger.Info("BidCompare: Sent query");
 
-            if (response.getType() == ResponseType.qcommodity)
+            if (response.getType() == ResponseType.qCommodity)
             {
                 MQCommodity resp = (MQCommodity)response;
                 success = resp.getBid() >= process.price;
@@ -56,7 +56,7 @@ namespace MarketClient.BL
             bool success = false;
 
             IMarketResponse response = process.comm.SendQueryMarketRequest(process.commodity);
-            if (response.getType() == ResponseType.qcommodity)
+            if (response.getType() == ResponseType.qCommodity)
             {
                 MQCommodity resp = (MQCommodity)response;
                 success = resp.getAsk() <= process.price;
@@ -88,7 +88,7 @@ namespace MarketClient.BL
         {
             
             IMarketResponse response = process.comm.SendQueryBuySellRequest(process.id);
-            bool success = (response.getType() != ResponseType.qreq);
+            bool success = (response.getType() != ResponseType.qReq);
 
             if (!success)
                 process.id = -1;
@@ -121,7 +121,7 @@ namespace MarketClient.BL
         {
             bool success = false;
             IMarketResponse response = process.comm.SendQueryUserRequest();
-            if (response.getType() == ResponseType.quser)
+            if (response.getType() == ResponseType.qUser)
             {
                 MQUser resp = (MQUser)response;
                 Dictionary<string, int> commodityList = resp.getCommodities();
@@ -154,7 +154,7 @@ namespace MarketClient.BL
         {
             bool success = false;
             IMarketResponse response = process.comm.SendBuyRequest(process.price,process.commodity, process.amount);
-            if(response.getType() == ResponseType.buysell)
+            if(response.getType() == ResponseType.buySell)
             {
                 success = true;
                 MBuySell resp = (MBuySell)response;
@@ -188,7 +188,7 @@ namespace MarketClient.BL
         {
             bool success = false;
             IMarketResponse response = process.comm.SendSellRequest(process.price, process.commodity, process.amount);
-            if (response.getType() == ResponseType.buysell)
+            if (response.getType() == ResponseType.buySell)
             {
                 success = true;
                 MBuySell resp = (MBuySell)response;

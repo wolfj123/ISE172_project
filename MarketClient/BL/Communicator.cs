@@ -61,6 +61,10 @@ namespace MarketClient.BL
         /// <returns>true iff the request got canceled or error otherwise</returns>
         /// <exception cref="MarketException">error is throw in case of invalid request or invalid parameter.</exception>
         IMarketResponse SendCancelBuySellRequest(int id);
+
+        IMarketResponse SendQueryAllMarketRequest();
+
+        IMarketResponse SendQueryAllUserRequest();
     }
 
 
@@ -252,6 +256,16 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
 
             return marketResponse;
+        }
+
+        public IMarketResponse SendQueryAllMarketRequest()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMarketResponse SendQueryAllUserRequest()
+        {
+            throw new NotImplementedException();
         }
     }
 

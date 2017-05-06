@@ -100,7 +100,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
             this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
-    }
+        }
 
         public Communicator(string url, string user, string token)
         {
@@ -129,7 +129,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -153,7 +154,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -162,7 +164,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryBuySellRequest(int id)
         {
-            
+
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id); //create buy/sell query request
             MQReq marketResponse = new MQReq();
 
@@ -179,7 +181,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -188,7 +191,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryUserRequest()
         {
-            
+
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             MQUser marketResponse = new MQUser();
 
@@ -205,7 +208,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -229,7 +233,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -248,11 +253,13 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             catch (Exception e)
             {
                 myLogger.Error("EXCEPTION");
-                if (e is MarketException) { 
+                if (e is MarketException)
+                {
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator:" + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
             return marketResponse;
@@ -291,8 +298,8 @@ QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
 rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
-        public TestMarketCommunicator() : 
-            base(Url,User, SimpleCtyptoLibrary.CreateToken(User, PrivateKey))
+        public TestMarketCommunicator() :
+            base(Url, User, SimpleCtyptoLibrary.CreateToken(User, PrivateKey))
         {
         }
     }

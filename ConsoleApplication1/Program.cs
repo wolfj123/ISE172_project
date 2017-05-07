@@ -41,12 +41,16 @@ namespace Application
 
                 System.Threading.Thread.Sleep(10000 * 3);
                 testAMA.enable(false);
+                Console.WriteLine("Done");
 
-            }else { 
+            }
+            else {
 
                 /** Comm test**/
-                
-                ICommunicator comm = new TestMarketCommunicator();
+
+                //ICommunicator comm = new TestMarketCommunicator();
+                ICommunicator comm = new Communicator();
+
 
                 IMarketResponse resp = comm.SendQueryUserRequest();
                 Console.WriteLine(resp.ToString());

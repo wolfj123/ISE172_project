@@ -58,6 +58,16 @@ namespace MarketClientTest
         {
             return sell;
         }
+
+        public IMarketResponse SendQueryAllMarketRequest()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMarketResponse SendQueryAllUserRequest()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
@@ -117,6 +127,16 @@ namespace MarketClientTest
             MBuySell output = new MBuySell();
             output.id = "666";
             return output;
+        }
+
+        public IMarketResponse SendQueryAllMarketRequest()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMarketResponse SendQueryAllUserRequest()
+        {
+            throw new NotImplementedException();
         }
     }
 }

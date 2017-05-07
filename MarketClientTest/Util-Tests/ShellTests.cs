@@ -19,8 +19,7 @@ namespace MarketClientTest
             myDict.Add("3", 30);
             myDict.Add("0", 40);
 
-            Console.WriteLine(Shell.DictionaryToString(myDict));
-
+            Assert.AreEqual("{1: 10}, {2: 20}, {3: 30}, {0: 40}", Shell.DictionaryToString(myDict));
         }
 
         [TestMethod]
@@ -33,9 +32,8 @@ namespace MarketClientTest
             myList.Add("1");
             myList.Add("2");
             myList.Add("1243");
-
-
-            Console.WriteLine(Shell.StringListToString(myList));
+            
+            Assert.AreEqual("4, 3, 1, 2, 1243", Shell.StringListToString(myList));
 
         }
 
@@ -53,20 +51,16 @@ namespace MarketClientTest
 
             String[] arr = new String[] { "112312asasas", "222 3", "1" };
 
-            Console.WriteLine(Shell.isNumeric(str1));
-            Console.WriteLine(Shell.isNumeric(str2));
-            Console.WriteLine(Shell.isNumeric(str3));
-            Console.WriteLine(Shell.isNumeric(str4));
-            Console.WriteLine(Shell.isNumeric(str5));
-            Console.WriteLine(Shell.isNumeric(str6));
+            Assert.AreEqual(true, Shell.isNumeric(str1));
+            Assert.AreEqual(false, Shell.isNumeric(str2));
+            Assert.AreEqual(false, Shell.isNumeric(str3));
+            Assert.AreEqual(false, Shell.isNumeric(str4));
+            Assert.AreEqual(false, Shell.isNumeric(str5));
+            Assert.AreEqual(false, Shell.isNumeric(str6));
 
-
-            Console.WriteLine();
-            Console.WriteLine();
-
-            Console.WriteLine(Shell.isNumeric(arr));
-            Console.WriteLine(Shell.isNumeric(arr,1));
-            Console.WriteLine(Shell.isNumeric(arr, 2));
+            Assert.AreEqual(false, Shell.isNumeric(arr));
+            Assert.AreEqual(false, Shell.isNumeric(arr, 1));
+            Assert.AreEqual(true, Shell.isNumeric(arr, 2));
         }
 
     }

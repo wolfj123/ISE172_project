@@ -62,7 +62,6 @@
     <Compile Include="BL-Tests\CommunicatorTest.cs" />
     <Compile Include="BL-Tests\ICommunicatorStub.cs" />
     <Compile Include="BL-Tests\SellProcessTest.cs" />
-    <Compile Include="BL-Tests\AMAgeneralTest.cs" />
     <Compile Include="jsone.cs" />
     <Compile Include="log4net.cs" />
     <Compile Include="UnitTest1.cs" />

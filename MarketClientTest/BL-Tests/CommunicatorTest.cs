@@ -14,7 +14,7 @@ namespace MarketClientTest
     [TestClass]
     public class CommunicatorTest
     {
-        private const string Url = "http://ise172.ise.bgu.ac.il";
+        private const string Url = "http://ise172.ise.bgu.ac.il:8008";
         private const string User = "user36";
         private const string PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk

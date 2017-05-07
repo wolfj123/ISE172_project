@@ -36,7 +36,7 @@ namespace Application
                 /** AMA test **/
 
                 Console.WriteLine("We are a'go!");
-                AMA testAMA = new DefaultAMA();
+                AMA testAMA = new DefaultAMA(new Communicator());
                 testAMA.enable(true);
 
                 System.Threading.Thread.Sleep(10000 * 3);
@@ -48,8 +48,8 @@ namespace Application
 
                 /** Comm test**/
 
-                //ICommunicator comm = new TestMarketCommunicator();
-                ICommunicator comm = new Communicator();
+                ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new Communicator();
 
 
                 IMarketResponse resp = comm.SendQueryUserRequest();

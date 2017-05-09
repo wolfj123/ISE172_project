@@ -10,12 +10,12 @@ using log4net;
 
 namespace MarketClient.BL
 {
-   
+
  
     public class Poster : IMarketClient
     {
-        
-      private LoginInfo loginInfo;
+
+        private LoginInfo loginInfo;
         private SimpleHTTPClient client;
 
         public Poster(LoginInfo loginInfo)

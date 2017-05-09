@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.UI;
 using MarketClient.BL;
+using MarketClient.DataEntries;
 
 namespace Application
 {
     class Program
     {
+ 
         static void Main()
         {
             Interperator interp = new PrimInterperator(new DefaultLoginInfo()); 
             Display.Welcome();
-
             while (true)
             {
                 String cmd = Console.ReadLine();

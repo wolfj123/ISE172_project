@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
     <Compile Include="DataEntries\History.cs" />
+    <Compile Include="DataEntries\HistoryView.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />

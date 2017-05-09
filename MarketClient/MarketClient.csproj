@@ -37,6 +37,10 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>.\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
@@ -51,7 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Poster.cs" />
+    <Compile Include="BL\AMA\AMA.cs" />
+    <Compile Include="BL\AMA\LogicBlock.cs" />
+    <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
+    <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
+    <Compile Include="BL\Communicator.cs" />
+    <Compile Include="BL\milestone1\Poster.cs" />
+    <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
+    <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
+    <Compile Include="BL\milestone1\RealMarketUserData.cs" />
+    <Compile Include="BL\MResponse.cs" />
     <Compile Include="GUI\generalData.cs" />
     <Compile Include="GUI\InputCheck.cs" />
     <Compile Include="GUI\userWarner.cs" />
@@ -60,9 +73,6 @@
     <Compile Include="PL-BL\InterperatorPB.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="UI\LoginInfo.cs" />
-    <Compile Include="BL\RealMarketCommodityOffer.cs" />
-    <Compile Include="BL\RealMarketItemQuery.cs" />
-    <Compile Include="BL\RealMarketUserData.cs" />
     <Compile Include="PL-BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
@@ -83,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BL-DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -77,5 +77,10 @@ namespace WpfApplication1.forms
         {
             //total
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

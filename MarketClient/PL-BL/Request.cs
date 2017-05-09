@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketClient.BL
+namespace MarketClient.PL_BL
 {
     public class Request
     {
@@ -18,6 +18,9 @@ namespace MarketClient.BL
         public int amount;
         public int price;
 
+
+
+        //Is this obsolete!?!
         public BuySellRequest (int commodity, int amount, int price) 
         {
             this.amount = amount;

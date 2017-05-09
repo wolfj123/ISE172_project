@@ -81,8 +81,8 @@ namespace MarketClient.BL
 
         public Communicator()
         {
-            this.url = "http://ise172.ise.bgu.ac.il";
-            this.user = "user36";
+            url = "http://ise172.ise.bgu.ac.il";
+            user = "user36";
             string privateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk
 1gNQrmD9ICjyEOGrKaubCJnrI0Zcjvfml3n9FhJUJeD6XrE6dSY0znUoNc8juBae
@@ -99,7 +99,8 @@ QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
 rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
-            this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            this.client = new SimpleHTTPClient();
         }
 
         public Communicator(string url, string user, string token)

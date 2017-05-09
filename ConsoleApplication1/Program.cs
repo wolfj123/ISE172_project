@@ -15,9 +15,9 @@ namespace Application
 
         static void Main()
         {
-
+        
             mainAction action = mainAction.
-                normal;
+                test;
 
 
             if (action == mainAction.normal)
@@ -37,6 +37,7 @@ namespace Application
 
                 Console.WriteLine("We are a'go!");
                 AMA testAMA = new DefaultAMA(new Communicator());
+                //AMA testAMA = new DefaultAMA(new TestMarketCommunicator());
                 testAMA.enable(true);
 
                 System.Threading.Thread.Sleep(10000 * 3);

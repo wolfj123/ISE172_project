@@ -16,8 +16,10 @@ namespace MarketClient.GUI
             IMarketRes ans = new IMarketRes(s,r);
             return ans;
         }
+        
         public class IMarketRes : IMarketResponse
         {
+
             String type;
             String sstring;
             public String getType()
@@ -31,5 +33,7 @@ namespace MarketClient.GUI
                 this.type = type;
             }
         }
+        
+        
     }
 }

@@ -63,12 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="forms\buySellReq.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\buySellReq.Designer.cs">
-      <DependentUpon>buySellReq.cs</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,7 +89,6 @@
     <Compile Include="forms\comStatForm.Designer.cs">
       <DependentUpon>comStatForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\formsMethod.cs" />
     <Compile Include="forms\idStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,12 +106,6 @@
     </Compile>
     <Compile Include="forms\userStatForm.Designer.cs">
       <DependentUpon>userStatForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="intReq.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="intReq.Designer.cs">
-      <DependentUpon>intReq.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -157,15 +144,9 @@
     <EmbeddedResource Include="forms\userStatForm.resx">
       <DependentUpon>userStatForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="intReq.resx">
-      <DependentUpon>intReq.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\buySellReq.resx">
-      <DependentUpon>buySellReq.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

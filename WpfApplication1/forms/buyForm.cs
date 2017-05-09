@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.PL_BL;
-using MarketClient.GUI;
+
 
 namespace WpfApplication1.forms
 {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarketClient.PL_BL;
 
 namespace WpfApplication1.forms
 {
@@ -16,32 +17,15 @@ namespace WpfApplication1.forms
         {
             InitializeComponent();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            int[] commoList = formsMethod.listGet(null);
-            for (int i = 0; i < commoList.Length - 1; i++)
-            {
-                comboBox1.Items.Add(commoList[i]);
-            }
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int[] amountList = formsMethod.listGet(null);
-            for (int i = 0; i < amountList.Length - 1; i++)
-            {
-                comboBox1.Items.Add(amountList[i]);
-            }
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int[] priceList = formsMethod.listGet(null);
-            for (int i = 0; i < priceList.Length - 1; i++)
-            {
-                comboBox1.Items.Add(priceList[i]);
-            }
+            //send
+            int com = (int)numericUpDown1.Value;
+            int amount = (int)numericUpDown2.Value;
+            int price = (int)numericUpDown3.Value;
+            SellRequest req = new SellRequest(com, amount, price);
+            IMarketResponse res = InterperatorPB.sendRequest(req);
+            MessageBox.Show(this, res.ToString());
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -59,14 +43,26 @@ namespace WpfApplication1.forms
             //price
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //send
-        }
+        
 
         private void label4_Click(object sender, EventArgs e)
         {
             //total
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            //com
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            //amount
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            //price
         }
     }
 }

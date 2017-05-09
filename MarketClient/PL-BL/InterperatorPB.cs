@@ -21,8 +21,9 @@ namespace MarketClient.PL_BL
 
                 case "sell":
                     SellRequest sellReq = (SellRequest)req;
-                    return comm.SendSellRequest(sellReq.price, sellReq.commodity, sellReq.amount);
-
+                    //return comm.SendSellRequest(sellReq.price, sellReq.commodity, sellReq.amount);
+                    IMarketResponse resp = comm.SendSellRequest(sellReq.price, sellReq.commodity, sellReq.amount);
+                    return resp;
                 case "cancelBuySell":
                     CancelRequest cancelReq = (CancelRequest)req;
                     return comm.SendCancelBuySellRequest(cancelReq.id);
@@ -36,8 +37,9 @@ namespace MarketClient.PL_BL
                     return comm.SendQueryMarketRequest(queryMarketReq.commodity);
 
                 case "queryUser":
-                    return comm.SendQueryUserRequest();
-
+                    //return comm.SendQueryUserRequest();
+                    IMarketResponse resp1 = comm.SendQueryUserRequest();
+                    return resp1;
 
                 //ADD case for new request
                 default:

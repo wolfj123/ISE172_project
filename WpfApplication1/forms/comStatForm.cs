@@ -11,35 +11,29 @@ using MarketClient.PL_BL;
 
 namespace WpfApplication1.forms
 {
-    public partial class idStatusForm : Form
+    public partial class comStatForm : Form
     {
-        public idStatusForm()
+        public comStatForm()
         {
             InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            //choose request ID
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //ID list
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //show status
-            int id = (int)numericUpDown1.Value;
-            QueryBuySellRequest req = new QueryBuySellRequest(id);
-            IMarketResponse res = InterperatorPB.sendRequest(req);
-            MessageBox.Show(this, res.ToString());
+            //choose com
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            //com
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int com = (int)numericUpDown1.Value;
+            QueryMarketRequest req = new QueryMarketRequest(com);
+            IMarketResponse res = InterperatorPB.sendRequest(req);
+            MessageBox.Show(this, res.ToString());
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarketClient.PL_BL;
 
 namespace WpfApplication1.forms
 {
@@ -22,19 +23,18 @@ namespace WpfApplication1.forms
             //choose request
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //id list
-            int[] idList = formsMethod.listGet(null);
-            for (int i = 0; i < idList.Length - 1; i++)
-            {
-                comboBox1.Items.Add(idList[i]);
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //cancel
+            int id = (int)numericUpDown1.Value;
+            CancelRequest req = new CancelRequest(id);
+            IMarketResponse res = InterperatorPB.sendRequest(req);
+            MessageBox.Show(this, res.ToString());
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

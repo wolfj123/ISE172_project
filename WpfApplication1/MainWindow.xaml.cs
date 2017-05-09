@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MarketClient.PL_BL;
 
 namespace WpfApplication1
 {
@@ -55,13 +56,15 @@ namespace WpfApplication1
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            intReq userInput = new intReq("marketQ");
+            forms.comStatForm userInput = new forms.comStatForm();
             userInput.Show();
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-
+            QueryUserRequest req = new QueryUserRequest();
+            IMarketResponse res = InterperatorPB.sendRequest(req);
+            MessageBox.Show(this, res.ToString());
         }
     }
 }

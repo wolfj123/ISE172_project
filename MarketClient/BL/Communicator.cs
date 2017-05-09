@@ -96,7 +96,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
             this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
-    }
+            this.client = new SimpleHTTPClient();
+        }
 
         public Communicator(string url, string user, string token)
         {

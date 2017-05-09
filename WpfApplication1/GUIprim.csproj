@@ -89,6 +89,12 @@
     <Compile Include="forms\cancelForm.Designer.cs">
       <DependentUpon>cancelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\comStatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\comStatForm.Designer.cs">
+      <DependentUpon>comStatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\formsMethod.cs" />
     <Compile Include="forms\idStatusForm.cs">
       <SubType>Form</SubType>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="forms\sellForm.Designer.cs">
       <DependentUpon>sellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userStatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\userStatForm.Designer.cs">
+      <DependentUpon>userStatForm.cs</DependentUpon>
     </Compile>
     <Compile Include="intReq.cs">
       <SubType>Form</SubType>
@@ -133,11 +145,17 @@
     <EmbeddedResource Include="forms\cancelForm.resx">
       <DependentUpon>cancelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\comStatForm.resx">
+      <DependentUpon>comStatForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\idStatusForm.resx">
       <DependentUpon>idStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sellForm.resx">
       <DependentUpon>sellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userStatForm.resx">
+      <DependentUpon>userStatForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="intReq.resx">
       <DependentUpon>intReq.cs</DependentUpon>

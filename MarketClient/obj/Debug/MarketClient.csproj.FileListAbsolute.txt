@@ -13,3 +13,4 @@ C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\bin\Debug\log4net.xml
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\obj\Debug\MarketClient.dll
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\obj\Debug\MarketClient.pdb
+C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\obj\Debug\MarketClient.csprojResolveAssemblyReference.cache

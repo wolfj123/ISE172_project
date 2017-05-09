@@ -12,15 +12,35 @@ namespace WpfApplication1.forms
         public static int[] listGet(IMarketResponse res)
         {
             String ans = res.ToString();
-            ResponseType type = res.getType();
+            String type = res.getType();
             return createList(ans, type);
         }
 
-        private static int[] createList(String s, ResponseType t)
+        private static int[] createList(String s, String type)
         {
             ///do the string to array method according to the type
-            int[] a = new int[0];
-            return a;
+            switch (type)
+            {
+                case "comList":
+                    {
+                        int[] a = new int[10];
+                        for(int i =0; i < s.Length; i++)
+                        {
+                            for (int j = 0; j < 10; j++)
+                            {
+                                if (s[i] != ',')
+                                {
+                                    int com = Convert.ToInt32(s[i]);
+                                    a[j] = com;
+                                }
+                            }
+                        }
+                        return a;
+                    }
+            }
+            return null;
         }
+
+
     }
 }

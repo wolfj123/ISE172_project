@@ -10,9 +10,9 @@ namespace MarketClient.PL_BL
     {
         public static IMarketResponse sendReq(Request Request)
         {
-            switch (Request)
+            switch (Request.type)
             {
-                case BuyRequest:
+                
 
             }
 

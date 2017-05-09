@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.PL_BL;
+using MarketClient.GUI;
 
 namespace WpfApplication1.forms
 {
@@ -17,14 +18,17 @@ namespace WpfApplication1.forms
         {
             InitializeComponent();
         }
+        generalData g = new generalData();
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //commodity
-            int[] commoList = formsMethod.listGet(null);
-            for (int i = 0; i < commoList.Length - 1; i++) {
+            comboBox1.Items.Add("h");
+            IMarketResponse getCom = g.getComList();
+            int[] commoList = formsMethod.listGet(getCom);
+            for (int i = 0; i < commoList.Length; i++) {
                 comboBox1.Items.Add(commoList[i]);
             }
+            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

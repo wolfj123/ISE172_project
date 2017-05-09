@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\Poster.cs" />
+    <Compile Include="GUI\generalData.cs" />
     <Compile Include="GUI\InputCheck.cs" />
     <Compile Include="GUI\userWarner.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />

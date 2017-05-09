@@ -8,8 +8,15 @@ namespace MarketClient.PL_BL
 {
     static class InterperatorPB
     {
-        public static IMarketResponse sendReq(Request req)
+        public static IMarketResponse sendReq(Request Request)
         {
+            switch (Request)
+            {
+                case BuyRequest:
+
+            }
+
+
             return null;
         }
     }

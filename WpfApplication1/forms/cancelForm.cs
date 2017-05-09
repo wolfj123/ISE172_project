@@ -25,7 +25,7 @@ namespace WpfApplication1.forms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //id list
-            int[] idList = formsMethod.listGet();
+            int[] idList = formsMethod.listGet(null);
             for (int i = 0; i < idList.Length - 1; i++)
             {
                 comboBox1.Items.Add(idList[i]);

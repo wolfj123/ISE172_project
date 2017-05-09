@@ -24,9 +24,10 @@ namespace WpfApplication1
         {
             InitializeComponent();
         }
-
+        
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //buy
             forms.buyForm userInput = new forms.buyForm();
             userInput.Show();
         }

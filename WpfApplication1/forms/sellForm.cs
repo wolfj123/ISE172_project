@@ -19,7 +19,7 @@ namespace WpfApplication1.forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] commoList = formsMethod.listGet();
+            int[] commoList = formsMethod.listGet(null);
             for (int i = 0; i < commoList.Length - 1; i++)
             {
                 comboBox1.Items.Add(commoList[i]);
@@ -28,7 +28,7 @@ namespace WpfApplication1.forms
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] amountList = formsMethod.listGet();
+            int[] amountList = formsMethod.listGet(null);
             for (int i = 0; i < amountList.Length - 1; i++)
             {
                 comboBox1.Items.Add(amountList[i]);
@@ -37,7 +37,7 @@ namespace WpfApplication1.forms
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] priceList = formsMethod.listGet();
+            int[] priceList = formsMethod.listGet(null);
             for (int i = 0; i < priceList.Length - 1; i++)
             {
                 comboBox1.Items.Add(priceList[i]);

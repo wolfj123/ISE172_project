@@ -64,7 +64,7 @@
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
-    <Compile Include="BL\MResponse.cs" />
+    <Compile Include="PL-BL\MResponse.cs" />
     <Compile Include="GUI\generalData.cs" />
     <Compile Include="GUI\InputCheck.cs" />
     <Compile Include="GUI\userWarner.cs" />

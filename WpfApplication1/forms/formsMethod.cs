@@ -12,8 +12,9 @@ namespace WpfApplication1.forms
         public static int[] listGet(IMarketResponse res)
         {
             String ans = res.ToString();
-            String type = res.getType();
-            return createList(ans, type);
+            //String type = res.getType();
+            //return createList(ans, type);
+            return null;
         }
 
         private static int[] createList(String s, String type)

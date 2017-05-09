@@ -22,9 +22,10 @@ namespace WpfApplication1.forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("h");
-            IMarketResponse getCom = g.getComList();
-            int[] commoList = formsMethod.listGet(getCom);
+            //comboBox1.Items.Add("h");
+            //IMarketResponse getCom = g.getComList();
+            //int[] commoList = formsMethod.listGet(getCom);
+            int[] commoList = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             for (int i = 0; i < commoList.Length; i++) {
                 comboBox1.Items.Add(commoList[i]);
             }

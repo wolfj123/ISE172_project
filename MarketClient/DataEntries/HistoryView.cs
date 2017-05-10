@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketClient.DataEntries
 {
-    public class HistoryView
+    public static class HistoryView
     {
         public static String[] historyByDate(DateTime dateLimit)
         {

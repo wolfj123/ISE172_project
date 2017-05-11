@@ -89,6 +89,10 @@
     <Compile Include="forms\comStatForm.Designer.cs">
       <DependentUpon>comStatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\historyForm.cs" />
+    <Compile Include="forms\historyForm.Designer.cs">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\idStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +117,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="obj\Debug\App.g.i.cs" />
+    <Compile Include="obj\Debug\MainWindow.g.i.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Debug\WpfApplication1_Content.g.i.cs" />
+    <Compile Include="obj\Release\App.g.cs" />
+    <Compile Include="obj\Release\App.g.i.cs" />
+    <Compile Include="obj\Release\MainWindow.g.cs" />
+    <Compile Include="obj\Release\MainWindow.g.i.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -135,6 +152,9 @@
     <EmbeddedResource Include="forms\comStatForm.resx">
       <DependentUpon>comStatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\historyForm.resx">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\idStatusForm.resx">
       <DependentUpon>idStatusForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +168,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="obj\Release\build.force" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\GUIprim.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\WpfApplication1_MarkupCompile.cache" />
+    <None Include="obj\Release\WpfApplication1_MarkupCompile.i.cache" />
+    <None Include="obj\Release\WpfApplication1_MarkupCompile.i.lref" />
+    <None Include="obj\Release\WpfApplication1_MarkupCompile.lref" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,6 +190,15 @@
       <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
       <Name>MarketClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="bin\Debug\MarketClient.dll" />
+    <Content Include="bin\Debug\MarketClient.pdb" />
+    <Content Include="bin\Debug\WpfApplication1.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="obj\Release\GUIprim.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\TempPE\Properties.Resources.Designer.cs.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

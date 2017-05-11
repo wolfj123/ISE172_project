@@ -23,7 +23,7 @@ namespace WpfApplication1
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
         
         private void button_Click(object sender, RoutedEventArgs e)

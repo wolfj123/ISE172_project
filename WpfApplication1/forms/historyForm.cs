@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.DataEntries;
 
-namespace MarketClient.PL_BL
+namespace WpfApplication1.forms
 {
-    public partial class Form1 : Form
+    public partial class historyForm : Form
     {
-        public Form1()
+        public historyForm()
         {
             InitializeComponent();
 
@@ -66,6 +66,11 @@ namespace MarketClient.PL_BL
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

@@ -16,6 +16,7 @@ using MarketClient.BL;
 using MarketClient.PL_BL;
 using log4net;
 using System.Net;
+using System.Threading;
 
 namespace WpfApplication1
 {
@@ -166,21 +167,33 @@ namespace WpfApplication1
 
         private bool testServerResponse(string address)
         {
-            //string address = "http://ise172.ise.bgu.ac.il";
 
             WebRequest request = WebRequest.Create(address);
             HttpWebResponse response = null;
-            try
-            {
-                response = (HttpWebResponse)request.GetResponse();
 
-            }
-            catch(Exception e)
+
+            new Thread(() =>
             {
-                MessageBox.Show(e.Message);
-            }
-            
+                Thread.CurrentThread.IsBackground = true;
+
+                //string address = "http://ise172.ise.bgu.ac.il";
+
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+
+            }).Start();
+
+
             return !(response == null || response.StatusCode != HttpStatusCode.OK);
+
         }
 
         private void enableControls(bool mode)

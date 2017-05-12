@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.BL;
+using log4net;
 
 namespace WpfApplication1.AMA
 {
     public partial class AddLogicForm : Form
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+        private static ILog myHistory = LogManager.GetLogger("HistoryLog");
+
         public UserAMA userAma;
         public ICommunicator comm;
 
@@ -38,7 +42,9 @@ namespace WpfApplication1.AMA
 
             userAma.add(newLogic);
 
-            MessageBox.Show(this, "New Rule added !");
+
+
+            MessageBox.Show(this, "New Rule added!");
         }
     }
 }

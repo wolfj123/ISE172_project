@@ -24,6 +24,8 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private bool runningAMA;
         private ICommunicator comm;
         private DefaultAMA ama;
         private UserAMA userAma;
@@ -34,7 +36,9 @@ namespace WpfApplication1
             comm = new Communicator();
             ama = new DefaultAMA(comm);
             userAma = new UserAMA();
+            runningAMA = false;
         }
+
 
         private void buyButton_Click(object sender, RoutedEventArgs e)
         {
@@ -75,6 +79,64 @@ namespace WpfApplication1
             QueryUserRequest req = new QueryUserRequest();
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
+        }
+
+        private void amaButton_Click(object sender, RoutedEventArgs e)
+        {
+            runningAMA = !runningAMA;       //toggle runningAMA
+            ama.enable(runningAMA);         //toggle ama
+
+            enableControls(!runningAMA);     //enable/disable mainwindow
+            amaButton.IsEnabled = true;
+
+            if (runningAMA)     //update text
+                amaButton.Content = "Stop default AMA";
+            else amaButton.Content = "Run default AMA";
+        }
+
+        private void amaString_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this, ama.ToString());
+        }
+
+        private void userAMAbutton_Click(object sender, RoutedEventArgs e)
+        {
+            runningAMA = !runningAMA;       //toggle runningAMA
+            userAma.enable(runningAMA);         //toggle ama
+
+            enableControls(!runningAMA);     //enable/disable mainwindow
+            userAMAbutton.IsEnabled = true;
+
+            if (runningAMA)     //update text
+                userAMAbutton.Content = "Stop user AMA";
+            else userAMAbutton.Content = "Run user AMA";
+
+        }
+
+        private void userAMAString_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this, userAma.ToString());
+        }
+
+        private void clearLogicButton_Click(object sender, RoutedEventArgs e)
+        {
+            userAma.clearLogic();
+            MessageBox.Show(this, "User AMA has been cleared of all rules!");
+        }
+
+        private void addLogicButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        private void enableControls(bool mode)
+        {
+
+
+
+
         }
     }
 }

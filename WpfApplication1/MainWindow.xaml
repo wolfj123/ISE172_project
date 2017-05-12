@@ -21,8 +21,8 @@
                     <ColumnDefinition Width="67*"/>
                     <ColumnDefinition Width="42*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="amaButton" Content="Run default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="19,19,0,0" Height="33" Grid.ColumnSpan="4"/>
-                <Button x:Name="amaString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="18,67,0,0" Height="33" Grid.ColumnSpan="4"/>
+                <Button x:Name="amaButton" Content="Run default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="19,19,0,0" Height="33" Grid.ColumnSpan="4" Click="amaButton_Click"/>
+                <Button x:Name="amaString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="18,67,0,0" Height="33" Grid.ColumnSpan="4" Click="amaString_Click"/>
             </Grid>
         </GroupBox>
 
@@ -36,10 +36,10 @@
                     <ColumnDefinition Width="147*"/>
                     <ColumnDefinition Width="99*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="userAMAbutton" Content="Run user AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,19,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2"/>
-                <Button x:Name="userAMAString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,65,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2"/>
-                <Button x:Name="addLogicButton" Content="Add Rule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,19,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2"/>
-                <Button x:Name="clearLogicButton" Content="Clear All Rules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,65,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2"/>
+                <Button x:Name="userAMAbutton" Content="Run user AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,19,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2" Click="userAMAbutton_Click"/>
+                <Button x:Name="userAMAString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,65,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2" Click="userAMAString_Click"/>
+                <Button x:Name="addLogicButton" Content="Add Rule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,19,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2" Click="addLogicButton_Click"/>
+                <Button x:Name="clearLogicButton" Content="Clear All Rules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,65,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2" Click="clearLogicButton_Click"/>
             </Grid>
         </GroupBox>
 
@@ -70,6 +70,7 @@
                 <Button x:Name="rquestQueryButton" Content="Request status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,17,0,0" Height="40" Click="rquestQueryButton_Click" Grid.Column="1"/>
                 <Button x:Name="marketQueryButton" Content="Commodity status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,70,0,0" Height="40" Click="marketQueryButton_Click" Grid.Column="1"/>
                 <Button x:Name="userQueryButton" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,124,0,0" Height="40" Click="userQueryButton_Click" Grid.Column="1"/>
+                <Button x:Name="historyButton" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,17,0,0" Height="40" Click="rquestQueryButton_Click" Grid.Column="1"/>
             </Grid>
         </GroupBox>
 

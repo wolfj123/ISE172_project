@@ -18,7 +18,7 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 2000;
+            int interval = 20000;
 
             CountLogic testLogic = new CountLogic();
             AMA amaTest = new AMA(maxReq, interval);
@@ -45,6 +45,7 @@ namespace MarketClientTest
 
         public override LogicProcess run()
         {
+            Trace.WriteLine("Current Count is: "+count + " Time is: " +DateTime.Now);
             count = count + 1;
             return null;
         }

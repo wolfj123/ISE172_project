@@ -56,7 +56,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BL-Tests\AMALogicTreeTest.cs" />
     <Compile Include="BL-Tests\AMATimerTest.cs" />
     <Compile Include="BL-Tests\BuyProcessHasExistingRequestTest.cs" />
     <Compile Include="BL-Tests\CommunicatorTest.cs" />

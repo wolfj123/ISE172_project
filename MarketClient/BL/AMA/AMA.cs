@@ -79,23 +79,6 @@ namespace MarketClient.BL
                     myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
                 }
 
-                /*
-                if (output is LogicProcess)
-                {
-                    LogicProcess newLogic = (LogicProcess)output;
-                    blocks.Insert(0, newLogic);
-                }
-
-                if(output is List<LogicProcess>)
-                {
-                    List<LogicProcess> newLogics = (List<LogicProcess>)output;
-                    foreach(LogicProcess logic in newLogics)
-                    {
-                        blocks.Insert(0, logic);
-                    }
-                }*/
-
-
                 count++;
             }
         }

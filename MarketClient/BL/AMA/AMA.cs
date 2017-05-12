@@ -16,11 +16,13 @@ namespace MarketClient.BL
      */
     public class AMA
     {
+
+
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
-        private List<LogicProcess> blocks; //The list containing all the LogicBlocks
-        private int maxReq; //The maximum requests allowed per interval
-        private System.Timers.Timer aTimer;
+        protected List<LogicProcess> blocks; //The list containing all the LogicBlocks
+        protected int maxReq; //The maximum requests allowed per interval
+        protected System.Timers.Timer aTimer;
 
         public AMA(int maxReq, double interval)
         {
@@ -99,8 +101,7 @@ namespace MarketClient.BL
         }
 
         public bool isEnabled()
-        {
-            
+        {            
             return aTimer.Enabled;
         }
 
@@ -113,7 +114,7 @@ namespace MarketClient.BL
                 run();
         }
 
-        public void add(LogicProcess block)
+        public virtual void add(LogicProcess block)
         {
             blocks.Add(block);
         }
@@ -122,6 +123,18 @@ namespace MarketClient.BL
         {
             blocks.Clear();
         }
+
+        public override string ToString()
+        {
+            string output = "Current rules queue:\n";
+            foreach (LogicProcess logic in blocks)
+            {
+                output += logic.ToString();
+                output+="\n";
+            }
+            return output;
+        }
+
     }
 
 
@@ -140,6 +153,26 @@ namespace MarketClient.BL
                 //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new SellProcess(true, comm, commodity, 9, 10, -1));
             }
+        }
+    }
+
+
+
+    public class UserAMA : AMA
+
+    {
+        private int maxLogics;
+
+        public UserAMA() : base(20, 10000)
+        {
+        }
+
+        public override void add(LogicProcess block)
+        {
+            if (this.blocks.Count >= maxLogics)
+                throw new Exception("Reached maximum logic capacity for User AMA");
+            else
+                blocks.Add(block);
         }
     }
 }

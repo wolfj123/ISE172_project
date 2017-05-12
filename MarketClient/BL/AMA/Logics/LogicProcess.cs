@@ -103,6 +103,12 @@ namespace MarketClient.BL
 
             myLogger.Info("Created new BuyProcess: {Commodity: " + commodity + ", Price: " + price + ", Amount: " + amount + ", Repeat: " + repeat+ "}");
         }
+
+        public override string ToString()
+        {
+            return "Rule: Buy " + amount + "of commodity " + commodity + " when the 'Ask' is equal or below " + price;
+        }
+
     }
 
     public class SellProcess : LogicProcess
@@ -119,6 +125,11 @@ namespace MarketClient.BL
             list.Add(new SellAction());
 
             myLogger.Info("Created new SellProcess: {Commodity: " + commodity + ", Price: " + price + ", Amount: " + amount + ", Repeat: " + repeat + "}");
+        }
+
+        public override string ToString()
+        {
+            return "Rule: Sell " + amount + "of commodity " + commodity + " when the 'Bid' is equal or above " + price;
         }
     }
 

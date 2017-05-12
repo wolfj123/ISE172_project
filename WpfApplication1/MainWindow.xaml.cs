@@ -12,20 +12,41 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MarketClient.BL;
 using MarketClient.PL_BL;
 
 namespace WpfApplication1
 {
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ICommunicator comm;
+        private DefaultAMA ama;
+        private UserAMA userAma;
+
         public MainWindow()
         {
             InitializeComponent();
+            comm = new Communicator();
+            ama = new DefaultAMA(comm);
+            userAma = new UserAMA();
         }
-        
+
+
+        public DefaultAMA getDefaultAMA()
+        {
+            return ama;
+        }
+
+        public UserAMA getUserAMA()
+        {
+            return userAma;
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //buy

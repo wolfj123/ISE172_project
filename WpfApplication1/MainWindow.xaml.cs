@@ -41,7 +41,6 @@ namespace WpfApplication1
             userAma = new UserAMA();
             runningAMA = false;
 
-
             myLogger.Info("\nMainWindow initialized");
         }
 
@@ -150,11 +149,13 @@ namespace WpfApplication1
         private void addLogicButton_Click(object sender, RoutedEventArgs e)
         {
             myLogger.Info("User opened SellForm");
+
             AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm();
             addLogicForm.userAma = this.userAma;
+            addLogicForm.comm = this.comm;
+
+            addLogicForm.Show();
         }
-
-
 
         private void enableControls(bool mode)
         {
@@ -172,8 +173,6 @@ namespace WpfApplication1
             userAMAbutton.IsEnabled = mode;
             addLogicButton.IsEnabled = mode;
             clearLogicButton.IsEnabled = mode;
-
-
         }
     }
 }

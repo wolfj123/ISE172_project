@@ -73,12 +73,6 @@
     <Compile Include="AMA\AddLogicForm.Designer.cs">
       <DependentUpon>AddLogicForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AMA\AMAform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AMA\AMAform.Designer.cs">
-      <DependentUpon>AMAform.cs</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -140,9 +134,6 @@
     </Compile>
     <EmbeddedResource Include="AMA\AddLogicForm.resx">
       <DependentUpon>AddLogicForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AMA\AMAform.resx">
-      <DependentUpon>AMAform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\buyForm.resx">
       <DependentUpon>buyForm.cs</DependentUpon>

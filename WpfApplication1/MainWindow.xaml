@@ -5,19 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="Market Client" Height="382.346" Width="452.843">
+    <Grid Background="#FFD0FFCD">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Buy" HorizontalAlignment="Left" Margin="34,32,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button_Click"/>
-        <Button x:Name="button1" Content="Sell" HorizontalAlignment="Left" Margin="34,88,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Cancel action" HorizontalAlignment="Left" Margin="34,145,0,0" VerticalAlignment="Top" Width="100" Height="40
+        <Button x:Name="button" Content="Buy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button_Click"/>
+        <Button x:Name="button1" Content="Sell" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Cancel action" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="100" Height="40
                 " Click="button2_Click"/>
         <Button x:Name="button3" Content="Request status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100
-                " Margin="162,32,0,0" Height="40" Click="button3_Click"/>
-        <Button x:Name="button4" Content="Commodity status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="162,88,0,0" Height="40" Click="button4_Click"/>
-        <Button x:Name="button5" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="162,145,0,0" Height="40" Click="button5_Click"/>
+                " Margin="123,10,0,0" Height="40" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Commodity status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="123,63,0,0" Height="40" Click="button4_Click"/>
+        <Button x:Name="button5" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="123,120,0,0" Height="40" Click="button5_Click"/>
+
+        <GroupBox x:Name="AMAgroupBox" Header="Default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="253,10,0,0" Height="150" Width="165">
+            <Grid Background="#FFACFFA8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24*"/>
+                    <ColumnDefinition Width="12*"/>
+                    <ColumnDefinition Width="67*"/>
+                    <ColumnDefinition Width="42*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="button6_Copy1" Content="Run default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="18,19,0,0" Height="33" Click="button6_Click" Grid.ColumnSpan="4"/>
+                <Button x:Name="butt26_Copy1" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="18,67,0,0" Height="33" Click="button6_Click" Grid.ColumnSpan="4"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox x:Name="userGroupBox" Header="User AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,183,0,0" Height="150" Width="323" Background="#FFACFFA8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="147*"/>
+                    <ColumnDefinition Width="99*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="userAMAbutton" Content="Run user AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,19,0,0" Height="33" Click="button6_Click" Grid.ColumnSpan="3" Grid.Column="2"/>
+                <Button x:Name="userAMAString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,65,0,0" Height="33" Click="button6_Click" Grid.ColumnSpan="3" Grid.Column="2"/>
+                <Button x:Name="addLogicButton" Content="Add Rule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,19,0,0" Height="33" Click="button6_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
+                <Button x:Name="clearLogicButton" Content="Clear All Rules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,65,0,0" Height="33" Click="button6_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </Window> 
     

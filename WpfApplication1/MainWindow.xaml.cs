@@ -36,7 +36,7 @@ namespace WpfApplication1
             userAma = new UserAMA();
         }
 
-
+/*
         public DefaultAMA getDefaultAMA()
         {
             return ama;
@@ -46,6 +46,7 @@ namespace WpfApplication1
         {
             return userAma;
         }
+        */
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -86,6 +87,11 @@ namespace WpfApplication1
             QueryUserRequest req = new QueryUserRequest();
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
+        }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

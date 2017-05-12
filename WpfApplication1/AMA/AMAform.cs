@@ -36,5 +36,10 @@ namespace WpfApplication1.AMA
         {
 
         }
+
+        private void userAMAbutton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,31 +7,8 @@ using MarketClient.Utils;
 namespace MarketClientTest.BL_Tests
 {
     [TestClass]
-    public class BuyProcessTest
+    public class BuyProcessFullStepsTest
     {
-        [TestMethod]
-        public void BuyTestHasExisitingRequest()
-        {
-            //arrange
-            MQReq query = new MQReq();
-            CommStubStaticReturn comm = new CommStubStaticReturn(null, 
-                null, null, query, null, null);
-            BuyProcess testProcess = new BuyProcess(false, comm, 1, 1, 1, 1);
-
-            //initial assert
-            Assert.AreEqual(testProcess.currIndex, 0);
-            Assert.AreEqual(testProcess.repeat, false);
-            Assert.AreEqual(testProcess.queue, LogicQueue.first);
-
-            //act
-            object output = testProcess.run();
-
-            //assert
-            Assert.AreEqual(testProcess.repeat, false);
-            Assert.AreEqual(testProcess.queue, LogicQueue.last);
-            Assert.IsInstanceOfType(output, typeof(LogicProcess));
-            Assert.AreEqual(testProcess.currIndex, 0);
-        }
 
         [TestMethod]
         public void BuyTestFullProcess()
@@ -39,7 +16,7 @@ namespace MarketClientTest.BL_Tests
             //arrange
             MBuySell buy = new MBuySell(); buy.id = "666";
             MQReq query = new MQReq();
-            MQCommodity market = new MQCommodity(); market.bid = "1";
+            MQCommodity market = new MQCommodity(); market.ask = "1";
             MarketException excp = new MarketException();
 
             CommStubStaticReturn comm = new CommStubStaticReturn(buy,
@@ -75,7 +52,7 @@ namespace MarketClientTest.BL_Tests
             //assert3
             Assert.AreEqual(testProcess.currIndex, 0);
             Assert.AreEqual(testProcess.queue, LogicQueue.last);
-            
+
             //act4
             output = testProcess.run();
 
@@ -83,5 +60,6 @@ namespace MarketClientTest.BL_Tests
             Assert.AreEqual(testProcess.currIndex, 0);
             Assert.AreEqual(testProcess.queue, LogicQueue.last);
         }
+
     }
 }

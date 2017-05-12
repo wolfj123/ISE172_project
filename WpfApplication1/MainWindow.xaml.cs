@@ -66,5 +66,11 @@ namespace WpfApplication1
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
         }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            forms.historyForm userInput = new forms.historyForm();
+            userInput.Show();
+        }
     }
 }

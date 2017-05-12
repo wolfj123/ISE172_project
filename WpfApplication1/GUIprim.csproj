@@ -119,21 +119,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="obj\Debug\App.g.i.cs" />
-    <Compile Include="obj\Debug\MainWindow.g.cs" />
-    <Compile Include="obj\Debug\MainWindow.g.i.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\Debug\WpfApplication1_Content.g.cs" />
-    <Compile Include="obj\Debug\WpfApplication1_Content.g.i.cs" />
-    <Compile Include="obj\Release\App.g.cs" />
-    <Compile Include="obj\Release\App.g.i.cs" />
-    <Compile Include="obj\Release\MainWindow.g.cs" />
-    <Compile Include="obj\Release\MainWindow.g.i.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -168,33 +153,10 @@
     <EmbeddedResource Include="forms\userStatForm.resx">
       <DependentUpon>userStatForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.buyForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.cancelForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.comStatForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.idStatusForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.sellForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.forms.userStatForm.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.g.resources" />
-    <EmbeddedResource Include="obj\Debug\WpfApplication1.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="obj\Debug\build.force" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\GUIprim.csproj.GenerateResource.Cache" />
-    <None Include="obj\Debug\GUIprim.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Debug\WpfApplication1_MarkupCompile.cache" />
-    <None Include="obj\Debug\WpfApplication1_MarkupCompile.i.cache" />
-    <None Include="obj\Debug\WpfApplication1_MarkupCompile.lref" />
-    <None Include="obj\Release\build.force" />
-    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Release\GUIprim.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Release\WpfApplication1_MarkupCompile.cache" />
-    <None Include="obj\Release\WpfApplication1_MarkupCompile.i.cache" />
-    <None Include="obj\Release\WpfApplication1_MarkupCompile.i.lref" />
-    <None Include="obj\Release\WpfApplication1_MarkupCompile.lref" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -203,7 +165,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarketClient\MarketClient.csproj">
@@ -212,16 +176,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="bin\Debug\MarketClient.dll" />
-    <Content Include="bin\Debug\MarketClient.pdb" />
-    <Content Include="bin\Debug\WpfApplication1.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="obj\Release\GUIprim.csproj.FileListAbsolute.txt" />
-    <Resource Include="obj\Debug\GUIprim.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\WpfApplication1.exe" />
-    <Content Include="obj\Debug\WpfApplication1.pdb" />
-    <Content Include="obj\Release\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Properties\buttonPic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\buttonPic2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

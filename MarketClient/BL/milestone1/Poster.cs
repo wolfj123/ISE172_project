@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using MarketClient.Utils;
 using MarketClient.DataEntries;
 using MarketClient.PL_BL;
-using log4net;
 
 
 namespace MarketClient.BL
 {
     public class Poster : IMarketClient
     {
-        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
 
          private LoginInfo loginInfo;
         private SimpleHTTPClient client;
@@ -61,7 +60,7 @@ namespace MarketClient.BL
 
         public IMarketUserData SendQueryUserRequest()
         {
-            myLogger.Fatal("this is a fatal msg hadas");
+
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             IMarketUserData output = client.SendPostRequest<QueryUserRequest, RealMarketUserData>(loginInfo.GetURL(), loginInfo.GetUser(), loginInfo.GetToken(), userReq);
             return output;

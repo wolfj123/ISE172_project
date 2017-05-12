@@ -1,2 +1,2 @@
-        private static readonly ILog historyLog = LogManager.GetLogger("HistoryLog");
-            historyLog.Info("test");
+        private static ILog myLogger = LogManager.GetLogger("logger");
+        private static ILog historyLog = LogManager.GetLogger("HistoryLog");

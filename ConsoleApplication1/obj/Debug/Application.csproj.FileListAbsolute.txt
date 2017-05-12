@@ -20,3 +20,15 @@ C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\bin\Debug\log4net.xml
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\obj\Debug\Application.csprojResolveAssemblyReference.cache
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\log4net.dll
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\MarketClient.dll
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\MarketClient.pdb
+C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\ConsoleApplication1\bin\Debug\log4net.xml

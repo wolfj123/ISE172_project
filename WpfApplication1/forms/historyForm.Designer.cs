@@ -36,6 +36,10 @@
             this.showHistButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.deleteHistoryButton = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.cleanTextButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +70,6 @@
             this.byDayRB.Name = "byDayRB";
             this.byDayRB.Size = new System.Drawing.Size(78, 21);
             this.byDayRB.TabIndex = 10;
-            this.byDayRB.TabStop = true;
             this.byDayRB.Text = "by days";
             this.byDayRB.UseVisualStyleBackColor = true;
             this.byDayRB.CheckedChanged += new System.EventHandler(this.byDayRB_CheckedChanged);
@@ -78,22 +81,32 @@
             this.byDateRB.Name = "byDateRB";
             this.byDateRB.Size = new System.Drawing.Size(76, 21);
             this.byDateRB.TabIndex = 11;
-            this.byDateRB.TabStop = true;
             this.byDateRB.Text = "by date";
             this.byDateRB.UseVisualStyleBackColor = true;
             this.byDateRB.CheckedChanged += new System.EventHandler(this.byDateRB_CheckedChanged);
             // 
             // monthCalendar1
             // 
+            this.monthCalendar1.AnnuallyBoldedDates = new System.DateTime[] {
+        new System.DateTime(((long)(0))),
+        new System.DateTime(((long)(0)))};
+            this.monthCalendar1.BoldedDates = new System.DateTime[] {
+        new System.DateTime(((long)(0))),
+        new System.DateTime(((long)(0)))};
             this.monthCalendar1.Enabled = false;
-            this.monthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Sunday;
-            this.monthCalendar1.Location = new System.Drawing.Point(26, 258);
+            this.monthCalendar1.Location = new System.Drawing.Point(42, 258);
+            this.monthCalendar1.MaxSelectionCount = 40;
+            this.monthCalendar1.MonthlyBoldedDates = new System.DateTime[] {
+        new System.DateTime(((long)(0))),
+        new System.DateTime(((long)(0)))};
             this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.ScrollChange = 2;
             this.monthCalendar1.TabIndex = 12;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // showHistButton
             // 
-            this.showHistButton.Location = new System.Drawing.Point(78, 504);
+            this.showHistButton.Location = new System.Drawing.Point(12, 504);
             this.showHistButton.Name = "showHistButton";
             this.showHistButton.Size = new System.Drawing.Size(127, 27);
             this.showHistButton.TabIndex = 14;
@@ -108,8 +121,9 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(559, 508);
+            this.textBox1.Size = new System.Drawing.Size(559, 468);
             this.textBox1.TabIndex = 15;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // numericUpDown1
             // 
@@ -120,11 +134,50 @@
             this.numericUpDown1.TabIndex = 16;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // Form1
+            // deleteHistoryButton
+            // 
+            this.deleteHistoryButton.Enabled = false;
+            this.deleteHistoryButton.Location = new System.Drawing.Point(145, 504);
+            this.deleteHistoryButton.Name = "deleteHistoryButton";
+            this.deleteHistoryButton.Size = new System.Drawing.Size(130, 27);
+            this.deleteHistoryButton.TabIndex = 17;
+            this.deleteHistoryButton.Text = "delete history";
+            this.deleteHistoryButton.UseVisualStyleBackColor = true;
+            this.deleteHistoryButton.Click += new System.EventHandler(this.deleteHistoryButton_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(281, 504);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(130, 27);
+            this.exitButton.TabIndex = 18;
+            this.exitButton.Text = "exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // cleanTextButton
+            // 
+            this.cleanTextButton.Location = new System.Drawing.Point(746, 504);
+            this.cleanTextButton.Name = "cleanTextButton";
+            this.cleanTextButton.Size = new System.Drawing.Size(146, 41);
+            this.cleanTextButton.TabIndex = 19;
+            this.cleanTextButton.Text = "clean";
+            this.cleanTextButton.UseVisualStyleBackColor = true;
+            this.cleanTextButton.Click += new System.EventHandler(this.cleanTextButton_Click);
+            // 
+            // historyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 627);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1176, 557);
+            this.Controls.Add(this.cleanTextButton);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.deleteHistoryButton);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.showHistButton);
@@ -133,8 +186,8 @@
             this.Controls.Add(this.byDayRB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.title);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "historyForm";
+            this.Text = "exit";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
@@ -152,5 +205,9 @@
         private System.Windows.Forms.Button showHistButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button deleteHistoryButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button cleanTextButton;
     }
 }

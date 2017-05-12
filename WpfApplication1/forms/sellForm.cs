@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.PL_BL;
+using log4net;
 
 namespace WpfApplication1.forms
 {
     public partial class sellForm : Form
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         public sellForm()
         {
             InitializeComponent();
@@ -20,12 +23,15 @@ namespace WpfApplication1.forms
         private void button1_Click(object sender, EventArgs e)
         {
             //send
-            int com = (int)numericUpDown1.Value;
+
+            int commodity = (int)numericUpDown1.Value;
             int amount = (int)numericUpDown2.Value;
             int price = (int)numericUpDown3.Value;
-            SellRequest req = new SellRequest(com, amount, price);
+            SellRequest req = new SellRequest(commodity, amount, price);
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
+
+            myLogger.Info("User clicked SELL: {commodity: " + commodity + ", price: " + price + ", amount: " + amount + "}");
         }
 
         private void label1_Click(object sender, EventArgs e)

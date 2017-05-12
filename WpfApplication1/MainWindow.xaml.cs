@@ -97,7 +97,7 @@ namespace WpfApplication1
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
 
-            //myLogger.Info("User opened SellForm");
+            myLogger.Info("User clicked QUERY USER");
         }
 
         private void amaButton_Click(object sender, RoutedEventArgs e)

@@ -67,8 +67,6 @@ namespace MarketClient.BL
         IMarketResponse SendQueryAllUserRequest();
     }
 
-
-
     public class Communicator : ICommunicator
     {
 

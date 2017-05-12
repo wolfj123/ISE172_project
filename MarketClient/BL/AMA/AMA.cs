@@ -44,16 +44,19 @@ namespace MarketClient.BL
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            if(blocks.Count>0)
-            {
-                Thread t = new Thread(run);
-                t.Start();
-            }
+            if (blocks.Count > 0)
+                run();
+
         }
 
         public void run()
         {
-            int count = 0;
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+
+
+                int count = 0;
             while (count < maxReq & blocks.Count > 0)
             {
                 
@@ -83,6 +86,9 @@ namespace MarketClient.BL
 
                 count=count+1;
             }
+
+
+            }).Start();
         }
 
         public bool isEnabled()
@@ -96,11 +102,7 @@ namespace MarketClient.BL
             myLogger.Info("AMA enable set to" + toEnable);
 
             if (toEnable)
-            {
-                Thread t = new Thread(run);
-                t.Start();
-            }
-                
+                run();
         }
 
         public virtual void add(LogicProcess block)
@@ -161,6 +163,7 @@ namespace MarketClient.BL
 
         public override void add(LogicProcess block)
         {
+
             if (this.blocks.Count >= maxLogics)
                 throw new Exception("Reached maximum logic capacity for User AMA");
             else

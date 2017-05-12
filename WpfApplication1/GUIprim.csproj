@@ -67,6 +67,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AMA\AddLogicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AMA\AddLogicForm.Designer.cs">
+      <DependentUpon>AddLogicForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AMA\AMAform.cs">
       <SubType>Form</SubType>
     </Compile>

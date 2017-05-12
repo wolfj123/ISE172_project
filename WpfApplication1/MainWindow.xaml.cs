@@ -126,7 +126,7 @@ namespace WpfApplication1
 
         private void addLogicButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
 

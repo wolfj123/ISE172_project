@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MarketClient.BL;
 using MarketClient.PL_BL;
 using log4net;
+using System.Net;
 
 namespace WpfApplication1
 {
@@ -40,6 +41,7 @@ namespace WpfApplication1
             runningAMA = false;
 
             myLogger.Info("\nMainWindow initialized");
+
         }
 
 
@@ -153,6 +155,32 @@ namespace WpfApplication1
             addLogicForm.comm = this.comm;
 
             addLogicForm.Show();
+        }
+
+        private void ConnectionTestButton_Click(object sender, RoutedEventArgs e)
+        {
+            string address = "http://ise172.ise.bgu.ac.il";
+            bool hasConnection = testServerResponse(address);
+            if (hasConnection) MessageBox.Show(this, "Valid connection with Market Server established on\n" + address);
+        }
+
+        private bool testServerResponse(string address)
+        {
+            //string address = "http://ise172.ise.bgu.ac.il";
+
+            WebRequest request = WebRequest.Create(address);
+            HttpWebResponse response = null;
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
+            return !(response == null || response.StatusCode != HttpStatusCode.OK);
         }
 
         private void enableControls(bool mode)

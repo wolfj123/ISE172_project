@@ -101,7 +101,7 @@ namespace MarketClient.BL
             list.Add(new AskCompare());
             list.Add(new BuyAction());
 
-            myLogger.Info("Created new BuyProcess");
+            myLogger.Info("Created new BuyProcess: {Commodity: " + commodity + ", Price: " + price + ", Amount: " + amount + ", Repeat: " + repeat+ "}");
         }
     }
 
@@ -118,7 +118,7 @@ namespace MarketClient.BL
             list.Add(new BidCompare());
             list.Add(new SellAction());
 
-            myLogger.Info("Created new BuyProcess");
+            myLogger.Info("Created new SellProcess: {Commodity: " + commodity + ", Price: " + price + ", Amount: " + amount + ", Repeat: " + repeat + "}");
         }
     }
 

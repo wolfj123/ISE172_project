@@ -18,12 +18,14 @@ namespace MarketClient.PL_BL
 
     public enum ResponseType
     {
-        buysell,
+        buySell,
         cancel,
-        quser,
-        qcommodity,
-        qreq,
+        qUser,
+        qCommodity,
+        qReq,
         excp,
+        qAllCommodity,
+        qAllUserReq,
         generic
     }
 

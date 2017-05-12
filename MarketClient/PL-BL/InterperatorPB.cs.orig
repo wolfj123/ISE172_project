@@ -10,8 +10,13 @@ namespace MarketClient.PL_BL
     static public class InterperatorPB
     {
         static private ICommunicator comm = new Communicator();
-        static private AMA ama = new DefaultAMA(comm);
+<<<<<<< HEAD
+
         public static IMarketResponse sendRequest(Request req)
+=======
+        static private AMA ama = new DefaultAMA(comm);
+        public static IMarketResponse sendReq(Request req)
+>>>>>>> JW-AMA3
         {
             switch (req.type)
             {

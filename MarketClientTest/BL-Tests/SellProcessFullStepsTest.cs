@@ -8,41 +8,17 @@ using System.Collections.Generic;
 namespace MarketClientTest.BL_Tests
 {
     [TestClass]
-    public class SellProcessTest
+    public class SellProcessFullStepsTest
     {
-        [TestMethod]
-        public void SellTestHasExisitingRequest()
-        {
-            //arrange
-            MQReq query = new MQReq();
-            CommStubStaticReturn comm = new CommStubStaticReturn(null,
-                null, null, query, null, null);
-            SellProcess testProcess = new SellProcess(false, comm, 1, 1, 1, 1);
-
-            //initial assert
-            Assert.AreEqual(testProcess.currIndex, 0);
-            Assert.AreEqual(testProcess.repeat, false);
-            Assert.AreEqual(testProcess.queue, LogicQueue.first);
-
-            //act
-            object output = testProcess.run();
-
-            //assert
-            Assert.AreEqual(testProcess.repeat, false);
-            Assert.AreEqual(testProcess.queue, LogicQueue.last);
-            Assert.IsInstanceOfType(output, typeof(LogicProcess));
-            Assert.AreEqual(testProcess.currIndex, 0);
-        }
-
         [TestMethod]
         public void SellTestFullProcess()
         {
             //arrange
             MBuySell sell = new MBuySell(); sell.id = "666";
             MQReq query = new MQReq();
-            MQCommodity market = new MQCommodity(); market.ask = "1";
+            MQCommodity market = new MQCommodity(); market.bid = "1";
             MarketException excp = new MarketException();
-            
+
             //create valid user query response
             MQUser user = new MQUser();
             user.commodities = new Dictionary<String, int>();

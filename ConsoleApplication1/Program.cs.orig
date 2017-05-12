@@ -5,39 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.UI;
 using MarketClient.BL;
-<<<<<<< HEAD
-using MarketClient.DataEntries;
-=======
 using MarketClient.PL_BL;
->>>>>>> d44013f4b3edca3b671d30876364cdc66cf76fee
 
 namespace Application
 {
     class Program
     {
-<<<<<<< HEAD
- 
-        static void Main()
-        {
-            Interperator interp = new PrimInterperator(new DefaultLoginInfo()); 
-            Display.Welcome();
-            while (true)
-=======
         enum mainAction { test, status, normal };
 
         static void Main()
         {
-
+        
             mainAction action = mainAction.
+<<<<<<< HEAD
                 normal;
+=======
+                test;
+>>>>>>> JW-AMA3
 
 
             if (action == mainAction.normal)
->>>>>>> d44013f4b3edca3b671d30876364cdc66cf76fee
             {
                 Interperator interp = new PrimInterperator(new DefaultLoginInfo());
                 Display.Welcome();
-
                 while (true)
                 {
                     String cmd = Console.ReadLine();
@@ -49,17 +39,22 @@ namespace Application
                 /** AMA test **/
 
                 Console.WriteLine("We are a'go!");
-                AMA testAMA = new DefaultAMA();
+                AMA testAMA = new DefaultAMA(new Communicator());
+                //AMA testAMA = new DefaultAMA(new TestMarketCommunicator());
                 testAMA.enable(true);
 
                 System.Threading.Thread.Sleep(10000 * 3);
                 testAMA.enable(false);
+                Console.WriteLine("Done");
 
-            }else { 
+            }
+            else {
 
                 /** Comm test**/
-                
+
                 ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new Communicator();
+
 
                 IMarketResponse resp = comm.SendQueryUserRequest();
                 Console.WriteLine(resp.ToString());

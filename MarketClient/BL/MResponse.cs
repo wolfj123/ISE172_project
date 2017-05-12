@@ -37,7 +37,7 @@ namespace MarketClient.BL
 
         public MBuySell()
         {
-            rType = ResponseType.buysell;
+            rType = ResponseType.buySell;
         }
 
         public override string ToString()
@@ -75,7 +75,7 @@ namespace MarketClient.BL
 
         public MQReq()
         {
-            rType = ResponseType.qreq;
+            rType = ResponseType.qReq;
         }
 
         public override string ToString()
@@ -105,7 +105,7 @@ namespace MarketClient.BL
 
         public MQUser()
         {
-            rType = ResponseType.quser;
+            rType = ResponseType.qUser;
         }
 
 
@@ -150,7 +150,7 @@ namespace MarketClient.BL
 
         public MQCommodity()
         {
-            rType = ResponseType.qcommodity;
+            rType = ResponseType.qCommodity;
         }
 
         public override string ToString()
@@ -180,4 +180,15 @@ namespace MarketClient.BL
         }
 
     }
+
+    public class MQAllComoodity : GenericMarketResponse
+    {
+
+    }
+
+    public class MQAllUserReq : GenericMarketResponse
+    {
+
+    }
+
 }

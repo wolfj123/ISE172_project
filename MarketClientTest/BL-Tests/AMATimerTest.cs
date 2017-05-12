@@ -20,7 +20,7 @@ namespace MarketClientTest
             int maxReq = 10;
             int interval = 2000;
 
-            PrintLogic testLogic = new PrintLogic();
+            CountLogic testLogic = new CountLogic();
             AMA amaTest = new AMA(maxReq, interval);
             amaTest.add(testLogic);
             amaTest.enable(true);
@@ -34,10 +34,10 @@ namespace MarketClientTest
     }
 
     //LogicProcess Stub
-    public class PrintLogic : LogicProcess
+    public class CountLogic : LogicProcess
     {
         public int count;
-        public PrintLogic() 
+        public CountLogic()
             : base(true, null, 0, 0, 0, 0)
         {
             count = 0;
@@ -49,5 +49,4 @@ namespace MarketClientTest
             return null;
         }
     }
-
 }

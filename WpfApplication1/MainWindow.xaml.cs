@@ -160,8 +160,18 @@ namespace WpfApplication1
         {
             myLogger.Info("MainWindow controls set to " + mode);
 
-            marketActionsgroup.IsEnabled = false;
+            buyButton.IsEnabled = mode;
+            sellButton.IsEnabled = mode;
+            cancelButton.IsEnabled = mode;
 
+            requestQueryButton.IsEnabled = mode;
+            marketQueryButton.IsEnabled = mode;
+            userQueryButton.IsEnabled = mode;
+
+            amaButton.IsEnabled = mode;
+            userAMAbutton.IsEnabled = mode;
+            addLogicButton.IsEnabled = mode;
+            clearLogicButton.IsEnabled = mode;
 
 
         }

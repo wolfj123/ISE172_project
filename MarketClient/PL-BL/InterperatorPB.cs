@@ -46,15 +46,5 @@ namespace MarketClient.PL_BL
                     return null;
             }
         }
-
-        public static void runAMA(bool enabled)
-        {
-            ama.enable(enabled);
-        }
-
-        public static void addLogic(int commodity, int price, int amount)
-        {
-            //TODO
-        }
     }
 }

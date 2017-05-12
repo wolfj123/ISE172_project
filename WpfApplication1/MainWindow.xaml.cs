@@ -36,62 +36,45 @@ namespace WpfApplication1
             userAma = new UserAMA();
         }
 
-/*
-        public DefaultAMA getDefaultAMA()
-        {
-            return ama;
-        }
-
-        public UserAMA getUserAMA()
-        {
-            return userAma;
-        }
-        */
-
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void buyButton_Click(object sender, RoutedEventArgs e)
         {
             //buy
             forms.buyForm userInput = new forms.buyForm();
             userInput.Show();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void sellButton_Click(object sender, RoutedEventArgs e)
         {
             forms.sellForm userInput = new forms.sellForm();
             //buySellReq userInput = new buySellReq("sell");
             userInput.Show();
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             forms.cancelForm userInput = new forms.cancelForm();
             //intReq userInput = new intReq("cancel");
             userInput.Show();
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void rquestQueryButton_Click(object sender, RoutedEventArgs e)
         {
             forms.idStatusForm userInput = new forms.idStatusForm();
             //intReq userInput = new intReq("buySellQ");
             userInput.Show();
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        private void marketQueryButton_Click(object sender, RoutedEventArgs e)
         {
             forms.comStatForm userInput = new forms.comStatForm();
             userInput.Show();
         }
 
-        private void button5_Click(object sender, RoutedEventArgs e)
+        private void userQueryButton_Click(object sender, RoutedEventArgs e)
         {
             QueryUserRequest req = new QueryUserRequest();
             IMarketResponse res = InterperatorPB.sendRequest(req);
             MessageBox.Show(this, res.ToString());
-        }
-
-        private void button6_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

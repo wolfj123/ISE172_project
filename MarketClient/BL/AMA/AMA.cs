@@ -16,8 +16,6 @@ namespace MarketClient.BL
      */
     public class AMA
     {
-
-
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         protected List<LogicProcess> blocks; //The list containing all the LogicBlocks
@@ -61,7 +59,7 @@ namespace MarketClient.BL
 
                 //run the logic block
                 object output = currentLogic.run();
-                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated");
+                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated" +"\nLogic info: "+output.ToString());
 
                 //decide where to put the logicProcess in the list
                 if (currentLogic.queue == LogicQueue.last)
@@ -79,7 +77,7 @@ namespace MarketClient.BL
                     myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
                 }
 
-                count++;
+                count=count+1;
             }
         }
 
@@ -127,7 +125,7 @@ namespace MarketClient.BL
 
     public class DefaultAMA : AMA
     {
-        public DefaultAMA(ICommunicator comm) : base(20, 10000)
+        public DefaultAMA(ICommunicator comm) : base(20, 1000)
         {
             for (int commodity = 0; commodity <=9; commodity++)
             {
@@ -145,12 +143,12 @@ namespace MarketClient.BL
 
 
     public class UserAMA : AMA
-
     {
         private int maxLogics;
 
-        public UserAMA() : base(20, 10000)
+        public UserAMA() : base(20, 1000)
         {
+            this.maxLogics = 30;
         }
 
         public override void add(LogicProcess block)

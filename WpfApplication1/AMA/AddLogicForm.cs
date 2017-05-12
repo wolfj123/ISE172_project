@@ -20,8 +20,10 @@ namespace WpfApplication1.AMA
         public UserAMA userAma;
         public ICommunicator comm;
 
-        public AddLogicForm()
+        public AddLogicForm(UserAMA userAma, ICommunicator comm)
         {
+            this.userAma = userAma;
+            this.comm = comm;
             InitializeComponent();
         }
 
@@ -35,14 +37,12 @@ namespace WpfApplication1.AMA
 
             LogicProcess newLogic = null;
 
-            if (isBuyLogic)
-                newLogic = new BuyProcess(true, null, commodity, price, amount, -1);
+            if (isBuyLogic) 
+                newLogic = new BuyProcess(true, comm, commodity, price, amount, -1);
             else
-                newLogic = new SellProcess(true, null, commodity, price, amount, -1);
+                newLogic = new SellProcess(true, comm, commodity, price, amount, -1);
 
             userAma.add(newLogic);
-
-
 
             MessageBox.Show(this, "New Rule added!");
         }

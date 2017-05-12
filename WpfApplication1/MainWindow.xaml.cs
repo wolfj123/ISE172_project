@@ -148,7 +148,7 @@ namespace WpfApplication1
         {
             myLogger.Info("User opened SellForm");
 
-            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm();
+            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm(userAma,comm);
             addLogicForm.userAma = this.userAma;
             addLogicForm.comm = this.comm;
 

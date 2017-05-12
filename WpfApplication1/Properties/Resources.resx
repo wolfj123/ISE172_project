@@ -118,10 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>buttonPic.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="274302" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\274302.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="buttonPic2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>buttonPic2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="abstract-background-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abstract-background-24.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>buttonPic.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OvalTxtDk0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalTxtDk0.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="7000603-abstract-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7000603-abstract-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="modern-abstract-background_1048-1003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\modern-abstract-background_1048-1003.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarWarsDa3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StarWarsDa3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="html-page-background-color" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\html-page-background-color.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

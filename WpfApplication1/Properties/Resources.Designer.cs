@@ -63,6 +63,36 @@ namespace WpfApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _274302 {
+            get {
+                object obj = ResourceManager.GetObject("274302", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7000603_abstract_background {
+            get {
+                object obj = ResourceManager.GetObject("7000603-abstract-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap abstract_background_24 {
+            get {
+                object obj = ResourceManager.GetObject("abstract-background-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buttonPic {
             get {
                 object obj = ResourceManager.GetObject("buttonPic", resourceCulture);
@@ -76,6 +106,46 @@ namespace WpfApplication1.Properties {
         internal static System.Drawing.Bitmap buttonPic2 {
             get {
                 object obj = ResourceManager.GetObject("buttonPic2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap html_page_background_color {
+            get {
+                object obj = ResourceManager.GetObject("html-page-background-color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap modern_abstract_background_1048_1003 {
+            get {
+                object obj = ResourceManager.GetObject("modern-abstract-background_1048-1003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OvalTxtDk0 {
+            get {
+                object obj = ResourceManager.GetObject("OvalTxtDk0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StarWarsDa3 {
+            get {
+                object obj = ResourceManager.GetObject("StarWarsDa3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

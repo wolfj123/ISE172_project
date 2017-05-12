@@ -14,9 +14,15 @@ namespace MarketClientTest
     public class AMALogicTreeTest
     {
         //[TestMethod]
-        /*
+        
         public void BasicBuyLogicTest()
         {
+            AMA testAMA = new AMA(10, 10000);
+            ICommunicator commStub = new ICommunicatorStub();
+            testAMA.add(new BuyProcess(true, commStub, 1, 1, 1, 1));
+
+
+            /*
             AMA testAMA = new AMA(10, 10000);
             ICommunicator commStub = new ICommunicatorStub();
 
@@ -30,7 +36,27 @@ namespace MarketClientTest
 
             System.Threading.Thread.Sleep(40000);
             testAMA.enable(false);
-        }*/
+            */
+        }
+
+
+        public class PrintLogic : LogicProcess
+        {
+            public int count;
+            public PrintLogic()
+                : base(true, null, 0, 0, 0, 0)
+            {
+                count = 0;
+            }
+
+            public override LogicProcess run()
+            {
+                count = count + 1;
+                return null;
+            }
+        }
+
+
     }
 
 

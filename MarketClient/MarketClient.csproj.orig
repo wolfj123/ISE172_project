@@ -66,7 +66,10 @@
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
+<<<<<<< HEAD
     <Compile Include="PL-BL\MResponse.cs" />
+=======
+    <Compile Include="BL\MResponse.cs" />
     <Compile Include="DataEntries\HistoryView.cs" />
     <Compile Include="PL-BL\Form1.cs">
       <SubType>Form</SubType>
@@ -74,6 +77,7 @@
     <Compile Include="PL-BL\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+>>>>>>> master
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />
@@ -98,9 +102,13 @@
     <Content Include="Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="BL-DAL\" />
+=======
     <EmbeddedResource Include="PL-BL\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

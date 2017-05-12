@@ -103,9 +103,13 @@ namespace MarketClient.PL_BL
             this.type = "queryUser";
         }
     }
+<<<<<<< HEAD
+=======
 
 
 
+
+>>>>>>> master
 }
 
 

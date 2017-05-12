@@ -15,16 +15,19 @@ namespace Application
 
         static void Main()
         {
-
+        
             mainAction action = mainAction.
+<<<<<<< HEAD
                 normal;
+=======
+                test;
+>>>>>>> JW-AMA3
 
 
             if (action == mainAction.normal)
             {
                 Interperator interp = new PrimInterperator(new DefaultLoginInfo());
                 Display.Welcome();
-
                 while (true)
                 {
                     String cmd = Console.ReadLine();
@@ -44,7 +47,8 @@ namespace Application
                 testAMA.enable(false);
                 Console.WriteLine("Done");
 
-            }else { 
+            }
+            else {
 
                 /** Comm test**/
 

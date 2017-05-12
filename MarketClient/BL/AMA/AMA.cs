@@ -128,16 +128,16 @@ namespace MarketClient.BL
 
     public class DefaultAMA : AMA
     {
-        public DefaultAMA() : base(20, 10000)
+        public DefaultAMA(ICommunicator comm) : base(20, 10000)
         {
             for (int commodity = 0; commodity <=9; commodity++)
             {
-                ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new BuyProcess(true, comm, commodity, 3, 10, -1));
             }
             for (int commodity = 0; commodity <= 9; commodity++)
             {
-                ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new SellProcess(true, comm, commodity, 9, 10, -1));
             }
         }

@@ -160,6 +160,8 @@ namespace WpfApplication1
         {
             myLogger.Info("MainWindow controls set to " + mode);
 
+            marketActionsgroup.IsEnabled = false;
+
 
 
         }

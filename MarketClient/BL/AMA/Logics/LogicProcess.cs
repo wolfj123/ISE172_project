@@ -106,7 +106,7 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            return "Rule: Buy " + amount + "of commodity " + commodity + " when the 'Ask' is equal or below " + price;
+            return "Buy " + amount + " of commodity " + commodity + " when the 'Ask' is equal or below " + price;
         }
 
     }
@@ -129,7 +129,7 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            return "Rule: Sell " + amount + "of commodity " + commodity + " when the 'Bid' is equal or above " + price;
+            return "Sell " + amount + " of commodity " + commodity + " when the 'Bid' is equal or above " + price;
         }
     }
 

@@ -126,11 +126,14 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            string output = "Current rules queue:\n";
+            string output = "Current rules queue:\n\n";
+            int count = 0;
             foreach (LogicProcess logic in blocks)
             {
+                count++;
+                output += "Rule #" + count+": ";
                 output += logic.ToString();
-                output+="\n";
+                output +="\n\n";
             }
             return output;
         }

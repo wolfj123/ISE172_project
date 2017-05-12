@@ -35,14 +35,12 @@ namespace WpfApplication1
 
         public MainWindow()
         {
+            myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
             comm = new Communicator();
             ama = new DefaultAMA(comm);
             userAma = new UserAMA();
             runningAMA = false;
-
-            myLogger.Info("\nMainWindow initialized");
-
         }
 
 
@@ -160,9 +158,15 @@ namespace WpfApplication1
 
         private void ConnectionTestButton_Click(object sender, RoutedEventArgs e)
         {
+            myLogger.Info("User clicked ConnectionTest");
+
             string address = "http://ise172.ise.bgu.ac.il";
             bool hasConnection = testServerResponse(address);
-            if (hasConnection) MessageBox.Show(this, "Valid connection with Market Server established on\n" + address);
+            if (hasConnection)
+            {
+                MessageBox.Show(this, "Valid connection with Market Server established on\n" + address);
+                myLogger.Info("Connection verified");
+            }
         }
 
         private bool testServerResponse(string address)
@@ -181,17 +185,16 @@ namespace WpfApplication1
                 try
                 {
                     response = (HttpWebResponse)request.GetResponse();
-
                 }
                 catch (Exception e)
                 {
+                    myLogger.Error("Error on connection test:\n"+ e.Message);
                     MessageBox.Show(e.Message);
                 }
 
 
             }).Start();
-
-
+            
             return !(response == null || response.StatusCode != HttpStatusCode.OK);
 
         }

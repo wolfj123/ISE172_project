@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using log4net;
+using System.Threading;
 
 namespace MarketClient.BL
 {
@@ -44,7 +45,10 @@ namespace MarketClient.BL
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             if(blocks.Count>0)
-                run();
+            {
+                Thread t = new Thread(run);
+                t.Start();
+            }
         }
 
         public void run()
@@ -92,7 +96,11 @@ namespace MarketClient.BL
             myLogger.Info("AMA enable set to" + toEnable);
 
             if (toEnable)
-                run();
+            {
+                Thread t = new Thread(run);
+                t.Start();
+            }
+                
         }
 
         public virtual void add(LogicProcess block)

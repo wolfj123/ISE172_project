@@ -138,6 +138,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="AMA\AddLogicForm.resx">
+      <DependentUpon>AddLogicForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AMA\AMAform.resx">
       <DependentUpon>AMAform.cs</DependentUpon>
     </EmbeddedResource>

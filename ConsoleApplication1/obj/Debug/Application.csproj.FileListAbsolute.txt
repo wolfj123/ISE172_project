@@ -1,13 +1,3 @@
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\MarketClient.dll
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\bin\Debug\MarketClient.pdb
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\obj\Debug\Application.csprojResolveAssemblyReference.cache
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-C:\Users\user\Documents\ISE-Projects\Algo-Trading\ISE172_project\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\obj\Debug\Application.csprojResolveAssemblyReference.cache
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe

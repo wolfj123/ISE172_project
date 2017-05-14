@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using log4net;
 using System.Threading;
+using System.Diagnostics;
 
 namespace MarketClient.BL
 {
@@ -44,40 +45,56 @@ namespace MarketClient.BL
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
+
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+
+
+            Trace.WriteLine("Timer elapsed");
             for (int count = 0; count < maxReq; count++)
+            {
+                Trace.WriteLine("Run from elapsed");
                 run(count);
+            }
 
-            //if (blocks.Count > 0)
-            //    run();
 
-            //int count = 0;
-            //while (count < maxReq & blocks.Count > 0)
-            //{
-            //    run();
-            //    count = count + 1;
-            //}
-
+            }).Start();
 
         }
 
 
         public void enable(bool toEnable)
         {
+            Trace.WriteLine("Timer enable set to" + toEnable);
             aTimer.Enabled = toEnable;
             myLogger.Info("AMA enable set to" + toEnable);
 
-            //if (toEnable)
-            //    OnTimedEvent(null, null);
+            OnTimedEvent(null, null);
 
-            for (int count = 0; count < maxReq; count++)
-                run(count);
+            //double originalInterval = aTimer.Interval;
+
+            //aTimer.Interval = 0.1;
+            //aTimer.Interval = originalInterval;
+
+
+
+            //if (toEnable)
+            //{
+            //    for (int count = 0; count < maxReq; count++)
+            //    {
+            //        //Trace.WriteLine("Run from enable");
+            //        // run(count);
+            //        OnTimedEvent(null, null);
+            //    }
+            //}
         }
 
         public void run(int count)
         {
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
+            //new Thread(() =>
+            //{
+            //    Thread.CurrentThread.IsBackground = true;
 
                 //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
                 if (blocks.Count > 0)
@@ -112,7 +129,7 @@ namespace MarketClient.BL
             //}
 
 
-            }).Start();
+            //}).Start();
         }
 
         public bool isEnabled()

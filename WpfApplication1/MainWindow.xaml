@@ -70,7 +70,7 @@
                 <Button x:Name="requestQueryButton" Content="Request status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,17,0,0" Height="40" Click="requestQueryButton_Click" Grid.Column="1"/>
                 <Button x:Name="marketQueryButton" Content="Commodity status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,70,0,0" Height="40" Click="marketQueryButton_Click" Grid.Column="1"/>
                 <Button x:Name="userQueryButton" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,124,0,0" Height="40" Click="userQueryButton_Click" Grid.Column="1"/>
-                <Button x:Name="historyButton" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,17,0,0" Height="40" Grid.Column="1"/>
+                <Button x:Name="historyButton" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,17,0,0" Height="40" Grid.Column="1" Click="historyButton_Click"/>
                 <Button x:Name="ConnectionTestButton" Content="Test Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,70,0,0" Height="40" Grid.Column="1" Click="ConnectionTestButton_Click"/>
             </Grid>
         </GroupBox>

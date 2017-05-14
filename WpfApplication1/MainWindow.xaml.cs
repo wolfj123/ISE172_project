@@ -216,5 +216,11 @@ namespace WpfApplication1
             addLogicButton.IsEnabled = mode;
             clearLogicButton.IsEnabled = mode;
         }
+
+        private void historyButton_Click(object sender, RoutedEventArgs e)
+        {
+            forms.historyForm userInput = new forms.historyForm();
+            userInput.Show();
+        }
     }
 }

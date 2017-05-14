@@ -17,7 +17,7 @@ namespace MarketClient.DataEntries
 
         public static String[] historyByDate(String path, DateTime minDate, DateTime maxDate)
         {
-            string[] lines = System.IO.File.ReadAllLines(path);
+            string[] lines = System .IO.File.ReadAllLines(path);
             if (lines.Length > 0)
             {
                 //if there are history in the text return the cuurect history

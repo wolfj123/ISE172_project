@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,14 +65,14 @@
     <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
     <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
+    <Compile Include="PL-BL\MResponse.cs" />
     <Compile Include="DataEntries\HistoryView.cs" />
     <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />
-    <Compile Include="PL-BL\MResponse.cs" />
-    <Compile Include="PL-BL\Request.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="UI\LoginInfo.cs" />
+    <Compile Include="PL-BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="UI\Display.cs" />
     <Compile Include="UI\Interperator.cs" />
@@ -88,7 +90,6 @@
     <Content Include="BouncyCastle.Crypto.dll" />
     <Content Include="Newtonsoft.Json.dll" />
   </ItemGroup>
-<<<<<<<<< Temporary merge branch 1
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

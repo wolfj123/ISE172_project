@@ -44,48 +44,72 @@ namespace MarketClient.BL
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            if (blocks.Count > 0)
-                run();
+            for (int count = 0; count < maxReq; count++)
+                run(count);
+
+            //if (blocks.Count > 0)
+            //    run();
+
+            //int count = 0;
+            //while (count < maxReq & blocks.Count > 0)
+            //{
+            //    run();
+            //    count = count + 1;
+            //}
+
 
         }
 
-        public void run()
+
+        public void enable(bool toEnable)
+        {
+            aTimer.Enabled = toEnable;
+            myLogger.Info("AMA enable set to" + toEnable);
+
+            //if (toEnable)
+            //    OnTimedEvent(null, null);
+
+            for (int count = 0; count < maxReq; count++)
+                run(count);
+        }
+
+        public void run(int count)
         {
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
 
-
-                int count = 0;
-            while (count < maxReq & blocks.Count > 0)
-            {
-                
-                //Take out and remove first logic block
-                LogicProcess currentLogic = blocks[0];
-                blocks.RemoveAt(0);
-
-                //run the logic block
-                object output = currentLogic.run();
-                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated" +"\nLogic info: "+output.ToString());
-
-                //decide where to put the logicProcess in the list
-                if (currentLogic.queue == LogicQueue.last)
+                //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
+                if (blocks.Count > 0)
                 {
-                    blocks.Add(currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
-                }
-                else if (currentLogic.queue == LogicQueue.first)
-                {
-                    blocks.Insert(0, currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
-                }
-                else
-                {
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
-                }
+                    //Take out and remove first logic block
+                    LogicProcess currentLogic = blocks[0];
+                    blocks.RemoveAt(0);
 
-                count=count+1;
-            }
+                    //run the logic block
+                    object output = currentLogic.run();
+                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated" + "\nLogic info: " + currentLogic.ToString());
+                    //blocks.Add(currentLogic);
+
+
+                    //decide where to put the logicProcess in the list
+                    if (currentLogic.queue == LogicQueue.last)
+                    {
+                        blocks.Add(currentLogic);
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
+                    }
+                    else if (currentLogic.queue == LogicQueue.first)
+                    {
+                        blocks.Insert(0, currentLogic);
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
+                    }
+                    else
+                    {
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
+                    }
+                }
+   
+            //}
 
 
             }).Start();
@@ -96,14 +120,6 @@ namespace MarketClient.BL
             return aTimer.Enabled;
         }
 
-        public void enable(bool toEnable)
-        {
-            aTimer.Enabled = toEnable;
-            myLogger.Info("AMA enable set to" + toEnable);
-
-            if (toEnable)
-                run();
-        }
 
         public virtual void add(LogicProcess block)
         {
@@ -142,11 +158,13 @@ namespace MarketClient.BL
                 //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new BuyProcess(true, comm, commodity, 3, 10, -1));
             }
+            
             for (int commodity = 0; commodity <= 9; commodity++)
             {
                 //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new SellProcess(true, comm, commodity, 9, 10, -1));
             }
+            
         }
     }
 

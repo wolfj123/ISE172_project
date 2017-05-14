@@ -25,7 +25,7 @@ namespace MarketClient.BL
 
             if (response.getType() == ResponseType.qCommodity)
             {
-                MQCommodity resp = (MQCommodity)response;
+                MQCommodity resp = (MQCommodity)response;              
                 success = resp.getBid() >= process.price;
                 next(process, success);
             }

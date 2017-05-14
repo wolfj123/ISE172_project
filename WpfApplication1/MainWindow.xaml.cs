@@ -160,43 +160,36 @@ namespace WpfApplication1
         {
             myLogger.Info("User clicked ConnectionTest");
 
-            string address = "http://ise172.ise.bgu.ac.il";
-            bool hasConnection = testServerResponse(address);
-            if (hasConnection)
-            {
-                MessageBox.Show(this, "Valid connection with Market Server established on\n" + address);
-                myLogger.Info("Connection verified");
-            }
-        }
-
-        private bool testServerResponse(string address)
-        {
-
-            WebRequest request = WebRequest.Create(address);
-            HttpWebResponse response = null;
+            string url = "http://ise172.ise.bgu.ac.il";
 
 
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
 
-                //string address = "http://ise172.ise.bgu.ac.il";
-
                 try
                 {
-                    response = (HttpWebResponse)request.GetResponse();
-                }
-                catch (Exception e)
-                {
-                    myLogger.Error("Error on connection test:\n"+ e.Message);
-                    MessageBox.Show(e.Message);
-                }
+                    // Creates an HttpWebRequest for the specified URL. 
+                    HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                    // Sends the HttpWebRequest and waits for a response.
+                    HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+                    if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
+                        MessageBox.Show("\r\nResponse Status Code is OK and StatusDescription is: " +
+                                             myHttpWebResponse.StatusDescription);
+                    // Releases the resources of the response.
+                    myHttpWebResponse.Close();
 
+                }
+                catch (WebException webE)
+                {
+                    MessageBox.Show("\r\nWebException Raised. The following error occured : " + webE.Status);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("\nThe following Exception was raised : " + ex.Message);
+                }
 
             }).Start();
-            
-            return !(response == null || response.StatusCode != HttpStatusCode.OK);
-
         }
 
         private void enableControls(bool mode)

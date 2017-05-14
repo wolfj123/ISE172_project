@@ -18,17 +18,18 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 20000;
+            int interval = 2000;
+            int multiplier = 2;
 
             CountLogic testLogic = new CountLogic();
             AMA amaTest = new AMA(maxReq, interval);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(interval);
+            System.Threading.Thread.Sleep(interval * multiplier);
             amaTest.enable(false);
 
-            Assert.AreEqual(maxReq, testLogic.count);
+            Assert.AreEqual(maxReq * multiplier, testLogic.count);
         }
 
     }

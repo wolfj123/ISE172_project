@@ -18,7 +18,7 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 2000;
+            int interval = 6000;
             int multiplier = 2;
 
             CountLogic testLogic = new CountLogic();

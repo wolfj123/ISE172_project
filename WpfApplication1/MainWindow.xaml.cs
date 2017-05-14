@@ -160,7 +160,7 @@ namespace WpfApplication1
         {
             myLogger.Info("User clicked ConnectionTest");
 
-            string url = "http://ise172.ise.bgu.ac.il:8008";
+            string url = "http://ise172.ise.bgu.ac.il";
 
 
             new Thread(() =>

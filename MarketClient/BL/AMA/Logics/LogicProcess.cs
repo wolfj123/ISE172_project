@@ -7,8 +7,14 @@ using log4net;
 
 namespace MarketClient.BL
 {
-    public enum LogicQueue {first, last, none}
+    //Enum for the repositioning of the Logic Process in the AMA queue
+    public enum LogicQueue { first, last, none }
 
+    /// <summary>
+    /// A logic process list that is inserted to a queue in the AMA.
+    /// each logic process lists all the steps necessary before buying or selling a commodity.
+    /// Currently there are 2 types of LogicProcess: BuyProcess/SellProcess
+    /// </summary>
     public class LogicProcess
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
@@ -50,6 +56,7 @@ namespace MarketClient.BL
         }
 
 
+        //OBSOLETE
         //Used for further enhancing the logicProcess and testing
         public void addSpecialAction(SpecialAction spec)
         {
@@ -68,7 +75,7 @@ namespace MarketClient.BL
                 return null;
         }
 
-        //Go to the next step in the logic process
+        //Go to the next step in the logic process based on the success of the previous step
         public void step(int step)
         {
             currIndex += step;
@@ -89,6 +96,13 @@ namespace MarketClient.BL
     }
 
 
+
+    /// <summary>
+    /// A logic process that has the following steps:
+    /// 1. Verify that there is no existing request from this process
+    /// 2. Verify that the commodity's ask price is larger or equal than the specificed price for this process
+    /// 3. Send buy request
+    /// </summary>
     public class BuyProcess : LogicProcess
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
@@ -97,7 +111,6 @@ namespace MarketClient.BL
             base(repeat, comm, commodity, price, amount, id)
         {
             list.Add(new hasExistingRequest());
-            //list.Add(new BidCompare());
             list.Add(new AskCompare());
             list.Add(new BuyAction());
 
@@ -111,6 +124,13 @@ namespace MarketClient.BL
 
     }
 
+    /// <summary>
+    /// A logic process that has the following steps:
+    /// 1. Verify that there is no existing request from this process
+    /// 2. Verify that the commodity is currently in supply by the user for sale
+    /// 3. Verify that the commodity's bid price is smaller or equal than the specificed price for this process
+    /// 4. Send sell request
+    /// </summary>
     public class SellProcess : LogicProcess
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
@@ -120,7 +140,6 @@ namespace MarketClient.BL
         {
             list.Add(new hasExistingRequest());
             list.Add(new hasCommodity());
-            //list.Add(new AskCompare());
             list.Add(new BidCompare());
             list.Add(new SellAction());
 

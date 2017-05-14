@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketClient", "MarketClien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketClientTest", "MarketClientTest\MarketClientTest.csproj", "{A8C39E49-DE50-4EFD-A248-FE168DD031A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "ConsoleApplication1\Application.csproj", "{31EF31A4-3596-405F-95C3-04AD1C8B22CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "ConsoleApplication1\CLI.csproj", "{31EF31A4-3596-405F-95C3-04AD1C8B22CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIprim", "WpfApplication1\GUIprim.csproj", "{41FBD9F2-4606-4102-BE1C-9EF0B5BB6AFC}"
 EndProject

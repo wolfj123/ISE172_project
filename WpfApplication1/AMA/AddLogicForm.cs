@@ -15,7 +15,6 @@ namespace WpfApplication1.AMA
     public partial class AddLogicForm : Form
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
-        private static ILog myHistory = LogManager.GetLogger("HistoryLog");
 
         public UserAMA userAma;
         public ICommunicator comm;
@@ -42,9 +41,42 @@ namespace WpfApplication1.AMA
             else
                 newLogic = new SellProcess(true, comm, commodity, price, amount, -1);
 
-            userAma.add(newLogic);
+            bool succes = false;
+            try
+            {
+                myLogger.Info("User attempted to add Logic: " + newLogic);
+                userAma.add(newLogic);
+                succes = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            MessageBox.Show(this, "New Rule added!");
+            if(succes)
+                MessageBox.Show(this, "New Rule added!");
+
+
         }
+
+        private void buyRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (buyRadioButton.Checked)
+            {
+                bidAsk.Text = "ASK";
+                belowAbove.Text = "below";
+            }
+        }
+
+        private void SellRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SellRadioButton.Checked)
+            {
+                bidAsk.Text = "BID";
+                belowAbove.Text = "above";
+            }
+        }
+
+
     }
 }

@@ -61,7 +61,6 @@
     <Compile Include="BL-Tests\BuyProcessFullStepsTest.cs" />
     <Compile Include="BL-Tests\BuyProcessHasExistingRequestTest.cs" />
     <Compile Include="BL-Tests\CommunicatorTest.cs" />
-    <Compile Include="BL-Tests\log4net.cs" />
     <Compile Include="BL-Tests\SellProcessFullStepsTest.cs" />
     <Compile Include="BL-Tests\SellProcessHasExistingRequestTest.cs" />
     <Compile Include="UnitTest1.cs" />

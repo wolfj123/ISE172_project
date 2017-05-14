@@ -8,6 +8,12 @@ using log4net;
 
 namespace MarketClient.BL
 {
+
+    /// <summary>
+    /// The inner steps within the LogicProcess
+    /// these inner logics have access to their parent LogicProcess for intelligently deciding 
+    /// which step is the next in the process (in case of success or failure of the previous steps)
+    /// </summary>
     public interface InnerLogic
     {
         object run(LogicProcess process);

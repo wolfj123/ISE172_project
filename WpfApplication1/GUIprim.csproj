@@ -95,6 +95,12 @@
     <Compile Include="forms\comStatForm.Designer.cs">
       <DependentUpon>comStatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\historyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\historyForm.Designer.cs">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\idStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     <EmbeddedResource Include="forms\comStatForm.resx">
       <DependentUpon>comStatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\historyForm.resx">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\idStatusForm.resx">
       <DependentUpon>idStatusForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,13 +174,42 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarketClient\MarketClient.csproj">
       <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
       <Name>MarketClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\buttonPic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\buttonPic2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OvalTxtDk0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarWarsDa3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\274302.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-abstract-background_1048-1003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-background-24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7000603-abstract-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\html-page-background-color.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -141,7 +141,7 @@ namespace MarketClient.BL
 
     public class DefaultAMA : AMA
     {
-        public DefaultAMA(ICommunicator comm) : base(20, 1000)
+        public DefaultAMA(ICommunicator comm) : base(20, 10000)
         {
             for (int commodity = 0; commodity <=9; commodity++)
             {
@@ -164,7 +164,7 @@ namespace MarketClient.BL
     {
         private int maxLogics;
 
-        public UserAMA() : base(20, 1000)
+        public UserAMA() : base(20, 10000)
         {
             this.maxLogics = 30;
         }

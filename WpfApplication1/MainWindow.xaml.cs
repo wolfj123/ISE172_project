@@ -91,10 +91,12 @@ namespace WpfApplication1
 
         private void userQueryButton_Click(object sender, RoutedEventArgs e)
         {
-            QueryUserRequest req = new QueryUserRequest();
-            IMarketResponse res = InterperatorPB.sendRequest(req);
-            MessageBox.Show(this, res.ToString());
+            //QueryUserRequest req = new QueryUserRequest();
+            //IMarketResponse res = InterperatorPB.sendRequest(req);
+            //MessageBox.Show(this, res.ToString());
 
+            forms.userStatForm userInput = new forms.userStatForm();
+            userInput.Show();
             myLogger.Info("User clicked QUERY USER");
         }
 

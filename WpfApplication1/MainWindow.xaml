@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Market Client" Height="418.839" Width="539.929">
+    <Window.Background>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/html-page-background-color.jpg"/>
+    </Window.Background>
     <Grid Background="#FFD0FFCD" Margin="0,0,2,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

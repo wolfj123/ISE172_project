@@ -8,18 +8,14 @@ namespace MarketClient.DataEntries
 {
     public static class HistoryView
     {
-        public static String[] historyByDate(DateTime minDate, DateTime maxDate)
-        {
-            String defultPath = "../../../History/history.log";
-            return historyByDate(defultPath, minDate, maxDate);
 
-        }
-
-        public static String[] historyByDate(String path, DateTime minDate, DateTime maxDate)
+        public static String[] historyByDate( DateTime minDate, DateTime maxDate)
         {
-            string[] lines = System .IO.File.ReadAllLines(path);
-            if (lines.Length > 0)
-            {
+            System.IO.File.Copy("../../../History/history.log", "../../../History/history2.log");
+            string[] lines = System.IO.File.ReadAllLines("../../../History/history2.log");
+            System.IO.File.Delete("../../../ History / history2.log");
+
+            if (lines.Length > 0){
                 //if there are history in the text return the cuurect history
                 //run over the txt lines
                 int startIndex = 0;
@@ -28,7 +24,7 @@ namespace MarketClient.DataEntries
                 int month = int.Parse(splitLine[1]);
                 int year = int.Parse(splitLine[2]);
                 DateTime Historydate = new DateTime(year, month, day);
-                while(startIndex < lines.Length && Historydate < minDate ){
+                while (startIndex < lines.Length && Historydate < minDate){
                     //look for the first line that in the given range
                     splitLine = lines[startIndex].Split(' ');
                     day = int.Parse(splitLine[0]);
@@ -37,19 +33,17 @@ namespace MarketClient.DataEntries
                     Historydate = new DateTime(year, month, day);
                     startIndex++;
                 }
-                if (startIndex == lines.Length)
-                {
+                if (startIndex == lines.Length){
                     //No history in requested range
                     return new String[0];
                 }
                 int endIndex;
                 int outputLenght;
-                if (minDate.Equals(maxDate))
-                {
+                if (minDate.Equals(maxDate)){
                     //if there is only one date given then its only minimum limit
-                    endIndex = lines.Length ;
+                    endIndex = lines.Length;
                 }
-              else
+                else
                 {
                     endIndex = startIndex;
                     day = int.Parse(splitLine[0]);
@@ -70,38 +64,28 @@ namespace MarketClient.DataEntries
                 outputLenght = endIndex - startIndex;
                 String[] output = new String[outputLenght];
                 //copy the history in the range into output array
-                    for (int i =startIndex , j = 0; i < endIndex; i++ , j++)
-                    {
-                        output[j] = lines[i];
-                    }
-                
+                for (int i = startIndex, j = 0; i < endIndex; i++, j++)
+                {
+                    output[j] = lines[i];
+                }
+
                 return output;
             }
             return null;
         }
 
-        public static String[] historyBydays(int daysNumber)
-        {
-            String defultPath = "../../../History/history.log";
-            return historyBydays(defultPath,daysNumber);
-        }
+        
 
-        public static String[] historyBydays(String path,int daysNumber)
+        public static String[] historyBydays(int daysNumber)
         {
             DateTime currentDate = DateTime.Now;
             DateTime dateLimit = currentDate.AddDays(-daysNumber);
-            return historyByDate(path, dateLimit, dateLimit);
+            return historyByDate(dateLimit, dateLimit);
         }
 
         public static void deleteHistory()
         {
-            String defultPath = "../../../History/history.log";
-            deleteHistory(defultPath);
-        }
-
-        public static void deleteHistory(String path)
-        {
-            System.IO.File.WriteAllText(path, string.Empty);
+            System.IO.File.WriteAllText("../../../ History/history2.log", string.Empty);
         }
     }
 }

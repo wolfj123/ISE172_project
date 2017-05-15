@@ -46,7 +46,9 @@
             // title
             // 
             this.title.AutoSize = true;
+            this.title.BackColor = System.Drawing.Color.Transparent;
             this.title.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.title.ForeColor = System.Drawing.Color.Black;
             this.title.Location = new System.Drawing.Point(20, 7);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(141, 47);
@@ -57,6 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(10, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(667, 47);

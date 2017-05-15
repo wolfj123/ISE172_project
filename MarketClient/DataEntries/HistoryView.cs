@@ -34,7 +34,7 @@ namespace MarketClient.DataEntries
                     }
                     catch
                     {
-                        line = null;
+                        line = sr.ReadLine();
                     }
                 }
                 //if there is two limit on the date
@@ -51,7 +51,7 @@ namespace MarketClient.DataEntries
                         }
                         catch
                         {
-                            line = null;
+                            line = sr.ReadLine();
                         }
                     }
                 }

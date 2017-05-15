@@ -35,8 +35,8 @@ namespace WpfApplication1
 
         public MainWindow()
         {
-            myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
+            myLogger.Info("\nMainWindow initialized");
             comm = new Communicator();
             ama = new DefaultAMA(comm);
             userAma = new UserAMA();

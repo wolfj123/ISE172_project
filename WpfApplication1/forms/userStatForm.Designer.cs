@@ -1,4 +1,16 @@
-﻿namespace WpfApplication1.forms
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MarketClient.PL_BL;
+using log4net;
+
+namespace WpfApplication1.forms
 {
     partial class userStatForm
     {
@@ -58,6 +70,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
             this.ClientSize = new System.Drawing.Size(768, 312);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.textBox1);

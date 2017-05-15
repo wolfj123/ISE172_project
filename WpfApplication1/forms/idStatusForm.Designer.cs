@@ -37,33 +37,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 57);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(220, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 32);
+            this.label1.Size = new System.Drawing.Size(214, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Choose request ID";
+            this.label1.Text = "Type request ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(146, 223);
+            this.button1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button1.Location = new System.Drawing.Point(220, 330);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 73);
+            this.button1.Size = new System.Drawing.Size(206, 77);
             this.button1.TabIndex = 2;
-            this.button1.Text = "show status";
+            this.button1.Text = "Show Status";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(199, 131);
+            this.numericUpDown1.Location = new System.Drawing.Point(220, 200);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -1530494976,
             232830,
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 38);
+            this.numericUpDown1.Size = new System.Drawing.Size(206, 38);
             this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -71,7 +75,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 353);
+            this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(648, 512);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

@@ -54,7 +54,7 @@ namespace MarketClient.BL
         protected String token;
         public DefaultLoginInfo()
         {
-            this.url = "http://ise172.ise.bgu.ac.il:8008";
+            this.url = "http://ise172.ise.bgu.ac.il";
             this.username = "user36";
             String PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk

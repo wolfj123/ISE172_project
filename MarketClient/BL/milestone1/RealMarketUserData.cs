@@ -16,9 +16,9 @@ namespace MarketClient.BL
         public List<int> requests;
 
 
-        public String ToString()
+        public override string ToString()
         {
-            String output = "Unassigned";
+            string output = "Unassigned";
 
             try
             {

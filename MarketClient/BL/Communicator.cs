@@ -61,14 +61,17 @@ namespace MarketClient.BL
         /// <returns>true iff the request got canceled or error otherwise</returns>
         /// <exception cref="MarketException">error is throw in case of invalid request or invalid parameter.</exception>
         IMarketResponse SendCancelBuySellRequest(int id);
+
+        IMarketResponse SendQueryAllMarketRequest();
+
+        IMarketResponse SendQueryAllUserRequest();
     }
-
-
 
     public class Communicator : ICommunicator
     {
 
-        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+        private static ILog myLogger = LogManager.GetLogger("Communicator");
+        private static ILog myHistory = LogManager.GetLogger("HistoryLog");
 
         protected SimpleHTTPClient client;
         protected string url;
@@ -96,7 +99,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
             this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
-    }
+            this.client = new SimpleHTTPClient();
+        }
 
         public Communicator(string url, string user, string token)
         {
@@ -115,7 +119,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.id = client.SendPostRequest<BuyRequest>(url, user, token, buyReq);
-                myLogger.Info("Sent Buy Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url);
+                myLogger.Info("Sent Buy Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url + "}");
             }
             catch (Exception e)
             {
@@ -125,8 +129,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
+
+            myHistory.Info("Sent Buy Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", Response:" + marketResponse.ToString() + "}");
 
             return marketResponse;
         }
@@ -139,7 +146,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.id = client.SendPostRequest<SellRequest>(url, user, token, sellReq);
-                myLogger.Info("Sent Sell Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url);
+                myLogger.Info("Sent Sell Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url + "}");
             }
             catch (Exception e)
             {
@@ -149,8 +156,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
+
+            myHistory.Info("Sent Sell Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", Response" + marketResponse.ToString() + "}");
 
             return marketResponse;
 
@@ -158,14 +168,14 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryBuySellRequest(int id)
         {
-            
+
             QueryBuySellRequest queryBS = new QueryBuySellRequest(id); //create buy/sell query request
             MQReq marketResponse = new MQReq();
 
             try
             {
                 marketResponse = client.SendPostRequest<QueryBuySellRequest, MQReq>(url, user, token, queryBS);
-                myLogger.Info("Sent Query Buy/Sell Request{id:" + id + ", url:" + url);
+                myLogger.Info("Sent Query Buy/Sell Request{id:" + id + ", Response" + marketResponse.ToString() + "}");
             }
             catch (Exception e)
             {
@@ -175,8 +185,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
+
+            myHistory.Info("Sent Query Buy/Sell Request{id:" + id + ", Response" + marketResponse.ToString() + "}");
 
             return marketResponse;
 
@@ -184,7 +197,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryUserRequest()
         {
-            
+
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             MQUser marketResponse = new MQUser();
 
@@ -201,8 +214,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
+
+            myHistory.Info("Sent Query Buy/Sell Request{user:" + user + ", Response" + marketResponse.ToString() + "}");
 
             return marketResponse;
         }
@@ -215,7 +231,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse = client.SendPostRequest<QueryMarketRequest, MQCommodity>(url, user, token, QMReq);
-                myLogger.Info("Sent Query Market Request{commodity:" + commodity + ", url:" + url);
+                myLogger.Info("Sent Query Market Request{commodity:" + commodity + ", url:" + url + "}");
             }
             catch (Exception e)
             {
@@ -225,8 +241,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
+
+            myHistory.Info("Sent Query Market Request{commodity:" + commodity + ", Response" + marketResponse.ToString()+"}");
 
             return marketResponse;
         }
@@ -239,19 +258,33 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             try
             {
                 marketResponse.response = client.SendPostRequest<CancelRequest>(url, user, token, cancelReq);
-                myLogger.Info("Sent Cancel Request{id:" + id + ", url:" + url);
+                myLogger.Info("Sent Cancel Request{id:" + id + ", url:" + url + "}");
             }
             catch (Exception e)
             {
                 myLogger.Error("EXCEPTION");
-                if (e is MarketException) { 
+                if (e is MarketException)
+                {
                     myLogger.Debug("Recieved Market Exception" + e.Message);
                     return (MarketException)e;
                 }
-                myLogger.Fatal("Unknown exception caught in Communicator");
+                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
+            myHistory.Info("Sent Cancel Request{id:" + id + ", Response" + marketResponse.ToString() + "}");
+
             return marketResponse;
+        }
+
+        public IMarketResponse SendQueryAllMarketRequest()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMarketResponse SendQueryAllUserRequest()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -277,30 +310,9 @@ QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
 rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
-        public TestMarketCommunicator() : base(Url,User, SimpleCtyptoLibrary.CreateToken(User, PrivateKey))
+        public TestMarketCommunicator() :
+            base(Url, User, SimpleCtyptoLibrary.CreateToken(User, PrivateKey))
         {
-            /*
-                         this.url = "http://ise172.ise.bgu.ac.il:8008";
-            this.user = "user36";
-            string privateKey = @"-----BEGIN RSA PRIVATE KEY-----
-MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk
-1gNQrmD9ICjyEOGrKaubCJnrI0Zcjvfml3n9FhJUJeD6XrE6dSY0znUoNc8juBae
-e1dy/29plyXuQOft1fL0MsckfcSWZzJ/64Cpdh515oGeUqQjiZdI6Y/vmQIDAQAB
-AoGARiHipgG0suogKERMz7MfvaGayFov1seX3VbE6hIDr6Rue38KaJRNgZK9PzpV
-RC3Iukpu9mTgm/f5wA9XjWw3lzGOt0qt08dK/63ESA6e1Bbe2+S3zIqn1JM8SJ6J
-ZGys1YCvezEadh00Ia16dZhixVrvtaHERsUHi5dzGP0EYoECQQDHWaJRYEo10lbz
-57ajQvTp/oDHGJNjd5l9L1EAQO4+VHc1fIpgYye9g/msPIX6bqpWaTSAMoR7phl5
-TuVy9LxPAkEA35NfWoEDbSYw1yjezMwVm2EORYOd18EjGTRYQHSkQbXiyp2NMNKy
-DHzSZao7iw38CwYVejo6VNYoyxkQJVUTlwJABjYawqJXbZniL7NWk3uwmeHeLVXs
-sbq2Q5pH0dQ0GCkVlcsNnLc6M8N68gzot8be89ZPVnc8fYXNYWQ97fkGLQJAPUT9
-1KeWcMsOh2hD5ovnP/WRG6u+Dep32+hkZwWQHhHiXPRgRQj4kkOCxSmpt6nVcI/y
-QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
-rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
------END RSA PRIVATE KEY-----";
-
-            this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
-
-    */
         }
     }
 }

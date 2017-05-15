@@ -18,26 +18,27 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 2000;
+            int interval = 6000;
+            int multiplier = 2;
 
-            PrintLogic testLogic = new PrintLogic();
+            CountLogic testLogic = new CountLogic();
             AMA amaTest = new AMA(maxReq, interval);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(interval);
+            System.Threading.Thread.Sleep(interval * multiplier);
             amaTest.enable(false);
 
-            Assert.AreEqual(maxReq, testLogic.count);
+            Assert.AreEqual(maxReq * multiplier, testLogic.count);
         }
 
     }
 
     //LogicProcess Stub
-    public class PrintLogic : LogicProcess
+    public class CountLogic : LogicProcess
     {
         public int count;
-        public PrintLogic() 
+        public CountLogic()
             : base(true, null, 0, 0, 0, 0)
         {
             count = 0;
@@ -45,9 +46,9 @@ namespace MarketClientTest
 
         public override LogicProcess run()
         {
+            Trace.WriteLine("Current Count is: "+count + " Time is: " +DateTime.Now);
             count = count + 1;
             return null;
         }
     }
-
 }

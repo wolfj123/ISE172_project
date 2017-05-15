@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using log4net;
+using System.Threading;
+using System.Diagnostics;
 
 namespace MarketClient.BL
 {
@@ -16,16 +18,16 @@ namespace MarketClient.BL
      */
     public class AMA
     {
-        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+        private static ILog myLogger = LogManager.GetLogger("AMA");
 
-        private List<LogicProcess> blocks; //The list containing all the LogicBlocks
-        private int maxReq; //The maximum requests allowed per interval
-        private System.Timers.Timer aTimer;
+        protected List<LogicProcess> queue; //The list containing all the LogicBlocks
+        protected int maxReq; //The maximum requests allowed per interval
+        protected System.Timers.Timer aTimer;
 
         public AMA(int maxReq, double interval)
         {
             this.maxReq = maxReq;
-            blocks = new List<LogicProcess>();
+            queue = new List<LogicProcess>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Interval = interval;
@@ -43,103 +45,137 @@ namespace MarketClient.BL
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            if(blocks.Count>0)
-                run();
-        }
-
-        public void run()
-        {
-            int count = 0;
-            while (count < maxReq & blocks.Count > 0)
+            //create new thread to keep GUI responsive
+            new Thread(() =>
             {
-                
-                //Take out and remove first logic block
-                LogicProcess currentLogic = blocks[0];
-                blocks.RemoveAt(0);
+                Thread.CurrentThread.IsBackground = true;
 
-                //run the logic block
-                object output = currentLogic.run();
-                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated");
+                Trace.WriteLine("Timer elapsed");
 
-                //decide where to put the logicProcess in the list
-                if (currentLogic.queue == LogicQueue.last)
+                //run the max amount of requests
+                for (int count = 0; count < maxReq; count++)
                 {
-                    blocks.Add(currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
-                }
-                else if (currentLogic.queue == LogicQueue.first)
-                {
-                    blocks.Insert(0, currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
-                }
-                else
-                {
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
+                    run(count);
                 }
 
-                /*
-                if (output is LogicProcess)
-                {
-                    LogicProcess newLogic = (LogicProcess)output;
-                    blocks.Insert(0, newLogic);
-                }
+            }).Start();
 
-                if(output is List<LogicProcess>)
-                {
-                    List<LogicProcess> newLogics = (List<LogicProcess>)output;
-                    foreach(LogicProcess logic in newLogics)
-                    {
-                        blocks.Insert(0, logic);
-                    }
-                }*/
-
-
-                count++;
-            }
         }
 
-        public bool isEnabled()
-        {
-            
-            return aTimer.Enabled;
-        }
 
         public void enable(bool toEnable)
         {
             aTimer.Enabled = toEnable;
             myLogger.Info("AMA enable set to" + toEnable);
 
-            if (toEnable)
-                run();
+            OnTimedEvent(null, null);
         }
 
-        public void add(LogicProcess block)
+        public void run(int count)
         {
-            blocks.Add(block);
+                //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
+                if (queue.Count > 0)
+                {
+                    //Take out and remove first logic block
+                    LogicProcess currentLogic = queue[0];
+                    queue.RemoveAt(0);
+
+                    //run the logic block
+                    object output = currentLogic.run();
+                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
+                    //blocks.Add(currentLogic);
+
+
+                    //decide where to put the logicProcess in the list
+                    if (currentLogic.queue == LogicQueue.last)
+                    {
+                        queue.Add(currentLogic);
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
+                    }
+                    else if (currentLogic.queue == LogicQueue.first)
+                    {
+                        queue.Insert(0, currentLogic);
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
+                    }
+                    else
+                    {
+                        myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
+                    }
+                }
+
+        }
+
+        public bool isEnabled()
+        {            
+            return aTimer.Enabled;
+        }
+
+
+        public virtual void add(LogicProcess block)
+        {
+            queue.Add(block);
         }
 
         public void clearLogic()
         {
-            blocks.Clear();
+            queue.Clear();
         }
+
+        public override string ToString()
+        {
+            string output = "Current rules queue:\n\n";
+            int count = 0;
+            foreach (LogicProcess logic in queue)
+            {
+                count++;
+                output += "Rule #" + count+": ";
+                output += logic.ToString();
+                output +="\n\n";
+            }
+            return output;
+        }
+
     }
 
 
 
     public class DefaultAMA : AMA
     {
-        public DefaultAMA() : base(20, 10000)
+        public DefaultAMA(ICommunicator comm) : base(20, 1000)
         {
             for (int commodity = 0; commodity <=9; commodity++)
             {
-                ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new BuyProcess(true, comm, commodity, 3, 10, -1));
             }
+            
             for (int commodity = 0; commodity <= 9; commodity++)
             {
-                ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new TestMarketCommunicator();
                 this.add(new SellProcess(true, comm, commodity, 9, 10, -1));
             }
+            
+        }
+    }
+
+
+
+    public class UserAMA : AMA
+    {
+        private int maxLogics;
+
+        public UserAMA() : base(20, 1000)
+        {
+            this.maxLogics = 30;
+        }
+
+        public override void add(LogicProcess block)
+        {
+
+            if (this.queue.Count >= maxLogics)
+                throw new Exception("Reached maximum logic capacity for User AMA");
+            else
+                queue.Add(block);
         }
     }
 }

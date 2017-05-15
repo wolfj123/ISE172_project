@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -59,21 +63,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="buySellReq.cs" />
-    <Compile Include="buySellReq.Designer.cs">
-      <DependentUpon>buySellReq.cs</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AMA\AddLogicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AMA\AddLogicForm.Designer.cs">
+      <DependentUpon>AddLogicForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="intReq.cs" />
-    <Compile Include="intReq.Designer.cs">
-      <DependentUpon>intReq.cs</DependentUpon>
+    <Compile Include="forms\buyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\buyForm.Designer.cs">
+      <DependentUpon>buyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cancelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\cancelForm.Designer.cs">
+      <DependentUpon>cancelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\comStatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\comStatForm.Designer.cs">
+      <DependentUpon>comStatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\historyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\historyForm.Designer.cs">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\idStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\idStatusForm.Designer.cs">
+      <DependentUpon>idStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sellForm.Designer.cs">
+      <DependentUpon>sellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userStatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\userStatForm.Designer.cs">
+      <DependentUpon>userStatForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -94,16 +138,35 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="intReq.resx">
-      <DependentUpon>intReq.cs</DependentUpon>
+    <EmbeddedResource Include="AMA\AddLogicForm.resx">
+      <DependentUpon>AddLogicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\buyForm.resx">
+      <DependentUpon>buyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\cancelForm.resx">
+      <DependentUpon>cancelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\comStatForm.resx">
+      <DependentUpon>comStatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\historyForm.resx">
+      <DependentUpon>historyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\idStatusForm.resx">
+      <DependentUpon>idStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sellForm.resx">
+      <DependentUpon>sellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userStatForm.resx">
+      <DependentUpon>userStatForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="buySellReq.resx">
-      <DependentUpon>buySellReq.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,13 +174,42 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarketClient\MarketClient.csproj">
       <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
       <Name>MarketClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\buttonPic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\buttonPic2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OvalTxtDk0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarWarsDa3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\274302.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-abstract-background_1048-1003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-background-24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7000603-abstract-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\html-page-background-color.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

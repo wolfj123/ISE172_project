@@ -24,6 +24,7 @@ namespace Application
             {
                 Interperator interp = new PrimInterperator(new DefaultLoginInfo());
                 Display.Welcome();
+
                 while (true)
                 {
                     String cmd = Console.ReadLine();
@@ -35,17 +36,21 @@ namespace Application
                 /** AMA test **/
 
                 Console.WriteLine("We are a'go!");
-                AMA testAMA = new DefaultAMA();
+                AMA testAMA = new DefaultAMA(new Communicator());
+                //AMA testAMA = new DefaultAMA(new TestMarketCommunicator());
                 testAMA.enable(true);
 
                 System.Threading.Thread.Sleep(10000 * 3);
                 testAMA.enable(false);
+                Console.WriteLine("Done");
 
             }else { 
 
                 /** Comm test**/
-                
+
                 ICommunicator comm = new TestMarketCommunicator();
+                //ICommunicator comm = new Communicator();
+
 
                 IMarketResponse resp = comm.SendQueryUserRequest();
                 Console.WriteLine(resp.ToString());

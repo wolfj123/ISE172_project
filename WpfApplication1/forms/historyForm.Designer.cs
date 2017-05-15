@@ -40,6 +40,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.exitButton = new System.Windows.Forms.Button();
             this.cleanTextButton = new System.Windows.Forms.Button();
+            this.deletecheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(702, 34);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(131, 46);
+            this.title.Size = new System.Drawing.Size(65, 23);
             this.title.TabIndex = 0;
             this.title.Text = "History";
             this.title.Click += new System.EventHandler(this.label1_Click);
@@ -65,7 +66,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(20, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(644, 46);
+            this.label1.Size = new System.Drawing.Size(326, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Choose to view history by date or by day";
             // 
@@ -78,7 +79,7 @@
             this.byDayRB.Location = new System.Drawing.Point(21, 200);
             this.byDayRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDayRB.Name = "byDayRB";
-            this.byDayRB.Size = new System.Drawing.Size(173, 50);
+            this.byDayRB.Size = new System.Drawing.Size(90, 27);
             this.byDayRB.TabIndex = 10;
             this.byDayRB.Text = "by days";
             this.byDayRB.UseVisualStyleBackColor = false;
@@ -93,7 +94,7 @@
             this.byDateRB.Location = new System.Drawing.Point(18, 370);
             this.byDateRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDateRB.Name = "byDateRB";
-            this.byDateRB.Size = new System.Drawing.Size(171, 50);
+            this.byDateRB.Size = new System.Drawing.Size(89, 27);
             this.byDateRB.TabIndex = 11;
             this.byDateRB.Text = "by date";
             this.byDateRB.UseVisualStyleBackColor = false;
@@ -153,7 +154,7 @@
             this.numericUpDown1.Location = new System.Drawing.Point(18, 280);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 55);
+            this.numericUpDown1.Size = new System.Drawing.Size(180, 31);
             this.numericUpDown1.TabIndex = 16;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -162,7 +163,7 @@
             this.deleteHistoryButton.BackColor = System.Drawing.Color.CadetBlue;
             this.deleteHistoryButton.Enabled = false;
             this.deleteHistoryButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteHistoryButton.Location = new System.Drawing.Point(196, 900);
+            this.deleteHistoryButton.Location = new System.Drawing.Point(193, 900);
             this.deleteHistoryButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deleteHistoryButton.Name = "deleteHistoryButton";
             this.deleteHistoryButton.Size = new System.Drawing.Size(144, 48);
@@ -204,14 +205,28 @@
             this.cleanTextButton.UseVisualStyleBackColor = false;
             this.cleanTextButton.Click += new System.EventHandler(this.cleanTextButton_Click);
             // 
+            // deletecheckBox
+            // 
+            this.deletecheckBox.AutoSize = true;
+            this.deletecheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.deletecheckBox.ForeColor = System.Drawing.Color.White;
+            this.deletecheckBox.Location = new System.Drawing.Point(152, 980);
+            this.deletecheckBox.Name = "deletecheckBox";
+            this.deletecheckBox.Size = new System.Drawing.Size(277, 28);
+            this.deletecheckBox.TabIndex = 20;
+            this.deletecheckBox.Text = "i want to delet the history file";
+            this.deletecheckBox.UseVisualStyleBackColor = false;
+            this.deletecheckBox.CheckedChanged += new System.EventHandler(this.deletecheckBox_CheckedChanged);
+            // 
             // historyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 47F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1656, 1053);
+            this.ClientSize = new System.Drawing.Size(1656, 1041);
+            this.Controls.Add(this.deletecheckBox);
             this.Controls.Add(this.cleanTextButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteHistoryButton);
@@ -250,5 +265,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button cleanTextButton;
+        private System.Windows.Forms.CheckBox deletecheckBox;
     }
 }

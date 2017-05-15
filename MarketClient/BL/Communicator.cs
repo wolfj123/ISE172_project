@@ -70,7 +70,7 @@ namespace MarketClient.BL
     public class Communicator : ICommunicator
     {
 
-        private static ILog myLogger = LogManager.GetLogger("Communicator");
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         private static ILog myHistory = LogManager.GetLogger("HistoryLog");
 
         protected SimpleHTTPClient client;

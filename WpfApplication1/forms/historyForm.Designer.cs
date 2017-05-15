@@ -63,7 +63,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(20, 110);
+            this.label1.Location = new System.Drawing.Point(67, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(644, 46);
             this.label1.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.byDayRB.BackColor = System.Drawing.Color.Transparent;
             this.byDayRB.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.byDayRB.ForeColor = System.Drawing.Color.White;
-            this.byDayRB.Location = new System.Drawing.Point(21, 200);
+            this.byDayRB.Location = new System.Drawing.Point(274, 179);
             this.byDayRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDayRB.Name = "byDayRB";
             this.byDayRB.Size = new System.Drawing.Size(173, 50);
@@ -90,7 +90,7 @@
             this.byDateRB.BackColor = System.Drawing.Color.Transparent;
             this.byDateRB.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.byDateRB.ForeColor = System.Drawing.Color.White;
-            this.byDateRB.Location = new System.Drawing.Point(18, 370);
+            this.byDateRB.Location = new System.Drawing.Point(274, 339);
             this.byDateRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDateRB.Name = "byDateRB";
             this.byDateRB.Size = new System.Drawing.Size(171, 50);
@@ -109,7 +109,7 @@
         new System.DateTime(((long)(0)))};
             this.monthCalendar1.Enabled = false;
             this.monthCalendar1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(21, 464);
+            this.monthCalendar1.Location = new System.Drawing.Point(110, 418);
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 13, 12, 13);
             this.monthCalendar1.MaxSelectionCount = 40;
             this.monthCalendar1.MonthlyBoldedDates = new System.DateTime[] {
@@ -124,10 +124,10 @@
             // 
             this.showHistButton.BackColor = System.Drawing.Color.CadetBlue;
             this.showHistButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showHistButton.Location = new System.Drawing.Point(28, 900);
+            this.showHistButton.Location = new System.Drawing.Point(75, 900);
             this.showHistButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.showHistButton.Name = "showHistButton";
-            this.showHistButton.Size = new System.Drawing.Size(144, 48);
+            this.showHistButton.Size = new System.Drawing.Size(229, 60);
             this.showHistButton.TabIndex = 14;
             this.showHistButton.Text = "show history";
             this.showHistButton.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(18, 280);
+            this.numericUpDown1.Location = new System.Drawing.Point(265, 258);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(180, 55);
@@ -162,10 +162,10 @@
             this.deleteHistoryButton.BackColor = System.Drawing.Color.CadetBlue;
             this.deleteHistoryButton.Enabled = false;
             this.deleteHistoryButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteHistoryButton.Location = new System.Drawing.Point(196, 900);
+            this.deleteHistoryButton.Location = new System.Drawing.Point(333, 900);
             this.deleteHistoryButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deleteHistoryButton.Name = "deleteHistoryButton";
-            this.deleteHistoryButton.Size = new System.Drawing.Size(144, 48);
+            this.deleteHistoryButton.Size = new System.Drawing.Size(144, 60);
             this.deleteHistoryButton.TabIndex = 17;
             this.deleteHistoryButton.Text = "delete history";
             this.deleteHistoryButton.UseVisualStyleBackColor = false;
@@ -183,7 +183,7 @@
             this.exitButton.Location = new System.Drawing.Point(1490, 900);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(120, 74);
+            this.exitButton.Size = new System.Drawing.Size(120, 60);
             this.exitButton.TabIndex = 18;
             this.exitButton.Text = "exit";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -195,10 +195,10 @@
             this.cleanTextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cleanTextButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cleanTextButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cleanTextButton.Location = new System.Drawing.Point(364, 900);
+            this.cleanTextButton.Location = new System.Drawing.Point(511, 900);
             this.cleanTextButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cleanTextButton.Name = "cleanTextButton";
-            this.cleanTextButton.Size = new System.Drawing.Size(144, 48);
+            this.cleanTextButton.Size = new System.Drawing.Size(144, 60);
             this.cleanTextButton.TabIndex = 19;
             this.cleanTextButton.Text = "clean";
             this.cleanTextButton.UseVisualStyleBackColor = false;

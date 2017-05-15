@@ -211,6 +211,11 @@
   <ItemGroup>
     <None Include="Resources\html-page-background-color.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\internet_abstract_planet_numbers_information_76331_1280x1024.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

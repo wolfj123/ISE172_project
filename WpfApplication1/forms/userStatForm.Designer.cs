@@ -55,7 +55,7 @@ namespace WpfApplication1.forms
             // 
             // Update
             // 
-            this.Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Update.BackColor = System.Drawing.Color.CadetBlue;
             this.Update.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Update.Location = new System.Drawing.Point(12, 26);
             this.Update.Name = "Update";

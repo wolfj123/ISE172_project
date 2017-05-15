@@ -59,7 +59,7 @@ namespace WpfApplication1
             myLogger.Info("User opened SellForm");
 
             forms.sellForm userInput = new forms.sellForm();
-            //buySellReq userInput = new buySellReq("sell");
+            
             userInput.Show();
         }
 
@@ -68,7 +68,7 @@ namespace WpfApplication1
             myLogger.Info("User opened CancelForm");
 
             forms.cancelForm userInput = new forms.cancelForm();
-            //intReq userInput = new intReq("cancel");
+            
             userInput.Show();
         }
 
@@ -77,7 +77,7 @@ namespace WpfApplication1
             myLogger.Info("User opened idStatusForm");
 
             forms.idStatusForm userInput = new forms.idStatusForm();
-            //intReq userInput = new intReq("buySellQ");
+            
             userInput.Show();
         }
 
@@ -91,9 +91,7 @@ namespace WpfApplication1
 
         private void userQueryButton_Click(object sender, RoutedEventArgs e)
         {
-            //QueryUserRequest req = new QueryUserRequest();
-            //IMarketResponse res = InterperatorPB.sendRequest(req);
-            //MessageBox.Show(this, res.ToString());
+            
 
             forms.userStatForm userInput = new forms.userStatForm();
             userInput.Show();
@@ -176,7 +174,7 @@ namespace WpfApplication1
                     // Sends the HttpWebRequest and waits for a response.
                     HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
                     if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
-                        MessageBox.Show("\r\nResponse Status Code is OK and StatusDescription is: " +
+                        MessageBox.Show("\r\nResponse Status Code is: OK"+"\n"+"StatusDescription is: " +
                                              myHttpWebResponse.StatusDescription);
                     // Releases the resources of the response.
                     myHttpWebResponse.Close();

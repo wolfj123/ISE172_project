@@ -124,5 +124,13 @@ namespace WpfApplication1.forms
         {
             textBox1.Text = "";
         }
+
+        private void deletecheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (deletecheckBox.Checked)
+                deleteHistoryButton.Enabled = true;
+            else
+                deleteHistoryButton.Enabled = false;
+        }
     }
 }

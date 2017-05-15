@@ -70,5 +70,20 @@ namespace WpfApplication1.forms
         {
             //price
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            //totalshow
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //refresh
+            textBox1.Text = "";
+            int sum = (int)numericUpDown2.Value *
+                (int)numericUpDown3.Value;
+            String sumS = "" + sum;
+            textBox1.Text = sumS;
+        }
     }
 }

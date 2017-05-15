@@ -51,7 +51,7 @@
             this.title.ForeColor = System.Drawing.Color.Black;
             this.title.Location = new System.Drawing.Point(20, 7);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(70, 24);
+            this.title.Size = new System.Drawing.Size(141, 47);
             this.title.TabIndex = 0;
             this.title.Text = "History";
             this.title.Click += new System.EventHandler(this.label1_Click);
@@ -62,7 +62,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(10, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 24);
+            this.label1.Size = new System.Drawing.Size(667, 47);
             this.label1.TabIndex = 1;
             this.label1.Text = "Choose to view history by date or by day";
             // 
@@ -72,7 +72,7 @@
             this.byDayRB.Location = new System.Drawing.Point(32, 82);
             this.byDayRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDayRB.Name = "byDayRB";
-            this.byDayRB.Size = new System.Drawing.Size(91, 28);
+            this.byDayRB.Size = new System.Drawing.Size(177, 51);
             this.byDayRB.TabIndex = 10;
             this.byDayRB.Text = "by days";
             this.byDayRB.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             this.byDateRB.Location = new System.Drawing.Point(32, 165);
             this.byDateRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDateRB.Name = "byDateRB";
-            this.byDateRB.Size = new System.Drawing.Size(92, 28);
+            this.byDateRB.Size = new System.Drawing.Size(177, 51);
             this.byDateRB.TabIndex = 11;
             this.byDateRB.Text = "by date";
             this.byDateRB.UseVisualStyleBackColor = true;
@@ -144,7 +144,7 @@
             this.numericUpDown1.Location = new System.Drawing.Point(15, 118);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 31);
+            this.numericUpDown1.Size = new System.Drawing.Size(150, 55);
             this.numericUpDown1.TabIndex = 16;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -197,12 +197,12 @@
             // 
             // historyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 47F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(970, 541);
+            this.ClientSize = new System.Drawing.Size(1656, 808);
             this.Controls.Add(this.cleanTextButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteHistoryButton);

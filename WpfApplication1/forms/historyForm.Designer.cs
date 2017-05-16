@@ -52,7 +52,7 @@
             this.title.ForeColor = System.Drawing.Color.White;
             this.title.Location = new System.Drawing.Point(702, 34);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(131, 46);
+            this.title.Size = new System.Drawing.Size(54, 19);
             this.title.TabIndex = 0;
             this.title.Text = "History";
             this.title.Click += new System.EventHandler(this.label1_Click);
@@ -63,9 +63,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 113);
+            this.label1.Location = new System.Drawing.Point(12, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(644, 46);
+            this.label1.Size = new System.Drawing.Size(264, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Choose to view history by date or by day";
             // 
@@ -75,10 +75,10 @@
             this.byDayRB.BackColor = System.Drawing.Color.Transparent;
             this.byDayRB.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.byDayRB.ForeColor = System.Drawing.Color.White;
-            this.byDayRB.Location = new System.Drawing.Point(274, 179);
+            this.byDayRB.Location = new System.Drawing.Point(16, 67);
             this.byDayRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDayRB.Name = "byDayRB";
-            this.byDayRB.Size = new System.Drawing.Size(173, 50);
+            this.byDayRB.Size = new System.Drawing.Size(74, 23);
             this.byDayRB.TabIndex = 10;
             this.byDayRB.Text = "by days";
             this.byDayRB.UseVisualStyleBackColor = false;
@@ -90,10 +90,10 @@
             this.byDateRB.BackColor = System.Drawing.Color.Transparent;
             this.byDateRB.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.byDateRB.ForeColor = System.Drawing.Color.White;
-            this.byDateRB.Location = new System.Drawing.Point(274, 339);
+            this.byDateRB.Location = new System.Drawing.Point(17, 151);
             this.byDateRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDateRB.Name = "byDateRB";
-            this.byDateRB.Size = new System.Drawing.Size(171, 50);
+            this.byDateRB.Size = new System.Drawing.Size(73, 23);
             this.byDateRB.TabIndex = 11;
             this.byDateRB.Text = "by date";
             this.byDateRB.UseVisualStyleBackColor = false;
@@ -109,7 +109,7 @@
         new System.DateTime(((long)(0)))};
             this.monthCalendar1.Enabled = false;
             this.monthCalendar1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(110, 418);
+            this.monthCalendar1.Location = new System.Drawing.Point(16, 179);
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 13, 12, 13);
             this.monthCalendar1.MaxSelectionCount = 40;
             this.monthCalendar1.MonthlyBoldedDates = new System.DateTime[] {
@@ -137,23 +137,23 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.LightCyan;
             this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(857, 110);
+            this.textBox1.Location = new System.Drawing.Point(300, 22);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(753, 750);
+            this.textBox1.Size = new System.Drawing.Size(344, 348);
             this.textBox1.TabIndex = 15;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(265, 258);
+            this.numericUpDown1.Location = new System.Drawing.Point(16, 98);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(180, 55);
+            this.numericUpDown1.Size = new System.Drawing.Size(180, 26);
             this.numericUpDown1.TabIndex = 16;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -206,12 +206,12 @@
             // 
             // historyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 47F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1656, 1053);
+            this.ClientSize = new System.Drawing.Size(656, 399);
             this.Controls.Add(this.cleanTextButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteHistoryButton);

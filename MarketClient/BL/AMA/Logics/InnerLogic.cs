@@ -38,7 +38,7 @@ namespace MarketClient.BL
             return response;
         }
 
-        public virtual next(LogicProcess process, bool success)
+        public virtual void next(LogicProcess process, bool success)
         {
             if (success)
             {
@@ -71,7 +71,7 @@ namespace MarketClient.BL
             return response;
         }
 
-        public virtual next(LogicProcess process, bool success)
+        public virtual void next(LogicProcess process, bool success)
         {
             if (success)
             {
@@ -104,7 +104,7 @@ namespace MarketClient.BL
 
         }
 
-        public virtual next(LogicProcess process, bool success)
+        public virtual void next(LogicProcess process, bool success)
         {
             if (success)
             {
@@ -138,7 +138,7 @@ namespace MarketClient.BL
             return response;
         }
 
-        public virtual next(LogicProcess process, bool success)
+        public virtual void next(LogicProcess process, bool success)
         {
             if (success)
             {
@@ -171,7 +171,7 @@ namespace MarketClient.BL
             
         }
 
-        public virtual next(LogicProcess process, bool success)
+        public virtual void next(LogicProcess process, bool success)
         {
             if (success)
             {

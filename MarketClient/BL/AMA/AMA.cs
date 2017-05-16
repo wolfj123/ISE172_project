@@ -152,7 +152,7 @@ namespace MarketClient.BL
             for (int commodity = 0; commodity <= 9; commodity++)
             {
                 //ICommunicator comm = new TestMarketCommunicator();
-                this.add(new SellProcess(true, comm, commodity, 9, 10, -1));
+                this.add(new SellProcess(true, comm, commodity, 20, 10, -1));
             }
             
         }

@@ -14,7 +14,9 @@ namespace MarketClient.DataEntries
         {
             // if the file didnt delete pervious time delete him
             if (System.IO.File.Exists("../../../History/history2.log"))
+            {
                 System.IO.File.Delete("../../../History/history2.log");
+            }
             System.IO.File.Copy("../../../History/history.log","../../../History/history2.log");        
             List<String> output = new List<String>();
             using (StreamReader sr = new StreamReader("../../../History/history2.log"))
@@ -23,7 +25,7 @@ namespace MarketClient.DataEntries
                 //check that the file isnt empty
                 if (line == null)
                     return null;
-                DateTime historyDate = getDate(line); 
+                DateTime historyDate = getDate(line);
                 //look for the history with the first date that in the range
                 while (line != null && historyDate < minDate)
                 {
@@ -37,35 +39,31 @@ namespace MarketClient.DataEntries
                         line = sr.ReadLine();
                     }
                 }
-                //if there is two limit on the date
-                if (!minDate.Equals(maxDate))
+
+                //copy all the history in range into output
+                while (line != null && historyDate <= maxDate)
                 {
-                    //copy all the history in range into output
-                    while (line != null && historyDate < maxDate)
+                    output.Add(line);
+                    line = sr.ReadLine();
+                    try
+                    {
+                        historyDate = getDate(line);
+                    }
+                    catch
                     {
                         output.Add(line);
                         line = sr.ReadLine();
-                        try
-                        {
-                            historyDate = getDate(line);
-                        }
-                        catch
-                        {
-                            output.Add(line);
-                            line = sr.ReadLine();
-                        }
                     }
-                    sr.Close();
                 }
+
                 //if there is only one limit on the date
-                else
-                {
+
                     while (line != null)
                     {
                         output.Add(line);
                         line = sr.ReadLine();
                     }
-                }
+                
             }
             System.IO.File.Delete("../../../History/history2.log");
             String[] historyInRange = new String[output.Count];

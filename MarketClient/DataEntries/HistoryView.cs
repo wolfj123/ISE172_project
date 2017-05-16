@@ -55,6 +55,7 @@ namespace MarketClient.DataEntries
                             line = sr.ReadLine();
                         }
                     }
+                    sr.Close();
                 }
                 //if there is only one limit on the date
                 else

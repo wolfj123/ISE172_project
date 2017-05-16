@@ -57,7 +57,6 @@ namespace WpfApplication1.forms
                 textBox1.Text = "";
                 DateTime startDate = Convert.ToDateTime(monthCalendar1.SelectionStart);
                 DateTime endDate = Convert.ToDateTime(monthCalendar1.SelectionEnd);
-                textBox1.Text = startDate + "  + " + endDate;
                 String[] historyLines = HistoryView.historyByDate(startDate, endDate);
                 textBox1.Lines = historyLines;
                 historyError(historyLines);

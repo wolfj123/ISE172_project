@@ -57,18 +57,32 @@ namespace WpfApplication1.forms
                 textBox1.Text = "";
                 DateTime startDate = Convert.ToDateTime(monthCalendar1.SelectionStart);
                 DateTime endDate = Convert.ToDateTime(monthCalendar1.SelectionEnd);
-                textBox1.Text = startDate + "  + " + endDate;
-                String[] historyLines = HistoryView.historyByDate(startDate, endDate);
-                textBox1.Lines = historyLines;
-                historyError(historyLines);
+                try
+                {
+                    String[] historyLines = HistoryView.historyByDate(startDate, endDate);
+                    textBox1.Lines = historyLines;
+                    historyError(historyLines);
+                }
+                catch
+                {
+                    textBox1.Text = "right now file is busy , pleas try again later";
+                }
+                
             }
             if (byDayRB.Checked)
             {
                 textBox1.Text = "";
                 int dayNum =(int)numericUpDown1.Value;
-                String[] historyLines = HistoryView.historyBydays(dayNum);
-                textBox1.Lines = historyLines;
-                historyError(historyLines);
+                try
+                {
+                    String[] historyLines = HistoryView.historyBydays(dayNum);
+                    textBox1.Lines = historyLines;
+                    historyError(historyLines);
+                }
+                catch
+                {
+                    textBox1.Text = "right now file is busy , pleas try again later";
+                }
             }
         }
 
@@ -123,6 +137,14 @@ namespace WpfApplication1.forms
         private void cleanTextButton_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+        }
+
+        private void deletecheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (deletecheckBox.Checked)
+                deleteHistoryButton.Enabled = true;
+            else
+                deleteHistoryButton.Enabled = false;
         }
     }
 }

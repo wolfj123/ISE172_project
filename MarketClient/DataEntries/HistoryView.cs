@@ -51,6 +51,7 @@ namespace MarketClient.DataEntries
                         }
                         catch
                         {
+                            output.Add(line);
                             line = sr.ReadLine();
                         }
                     }

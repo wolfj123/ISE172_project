@@ -75,7 +75,7 @@ namespace MarketClient.BL
                 return null;
         }
 
-        //Go to the next step in the logic process based on the success of the previous step
+        //Go to the next step with the privided increment in the logic process based on the success of the previous step
         public void step(int step)
         {
             currIndex += step;

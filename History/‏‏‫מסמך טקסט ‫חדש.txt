@@ -1,2 +1,0 @@
-        private static ILog myLogger = LogManager.GetLogger("logger");
-        private static ILog historyLog = LogManager.GetLogger("HistoryLog");

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AMA\AMA.cs" />
+    <Compile Include="BL\AMA\Logics\AskBidDiffProcess.cs" />
     <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
     <Compile Include="BL\Communicator.cs" />

@@ -38,6 +38,7 @@ namespace WpfApplication1
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
             comm = new Communicator();
+            //comm = new TestMarketCommunicator();
             ama = new DefaultAMA(comm);
             userAma = new UserAMA();
             runningAMA = false;

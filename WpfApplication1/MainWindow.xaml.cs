@@ -41,6 +41,7 @@ namespace WpfApplication1
             ama = new DefaultAMA(comm);
             userAma = new UserAMA();
             runningAMA = false;
+            
         }
 
 

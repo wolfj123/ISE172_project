@@ -51,7 +51,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(82, 84);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(1);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             9,
             0,
@@ -66,7 +66,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button1.Location = new System.Drawing.Point(82, 138);
-            this.button1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 32);
             this.button1.TabIndex = 2;
@@ -84,9 +84,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "comStatForm";
-            this.Text = "comStatForm";
+            this.Text = "Commodity Status Form";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,7 +17,11 @@
 
 
 
-        <GroupBox x:Name="AMAgroupBox" Header="Default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,222,0,0" Height="150" Width="173" FontWeight="Bold">
+        <GroupBox x:Name="AMAgroupBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,222,0,0" Height="150" Width="173" FontWeight="Bold">
+            <GroupBox.Header>
+                <TextBlock Text="Default AMA" Foreground="Yellow"/>
+            </GroupBox.Header>
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="24*"/>
@@ -30,24 +34,32 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox x:Name="userGroupBox" Header="User AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,222,0,0" Height="150" Width="314" Grid.ColumnSpan="2" FontWeight="Bold">
+        <GroupBox x:Name="userGroupBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,222,0,0" Height="150" Width="314" Grid.ColumnSpan="2" FontWeight="Bold">
+            <GroupBox.Header>
+                <TextBlock Text="User AMA" Foreground="Tomato"/>
+            </GroupBox.Header>
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="14*"/>
+                    <ColumnDefinition Width="24*"/>
                     <ColumnDefinition Width="0*"/>
-                    <ColumnDefinition Width="147*"/>
-                    <ColumnDefinition Width="99*"/>
+                    <ColumnDefinition Width="151*"/>
+                    <ColumnDefinition Width="102*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="userAMAbutton" Content="Run user AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,19,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2" Click="userAMAbutton_Click" Background="Black" Foreground="White"/>
-                <Button x:Name="userAMAString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,65,0,0" Height="33"  Grid.ColumnSpan="3" Grid.Column="2" Click="userAMAString_Click" Foreground="White" Background="Black"/>
-                <Button x:Name="addLogicButton" Content="Add Rule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,19,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2" Click="addLogicButton_Click" Background="Black" Foreground="White"/>
-                <Button x:Name="clearLogicButton" Content="Clear All Rules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,65,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="2" Click="clearLogicButton_Click" Foreground="White" Background="Black"/>
+                <Button x:Name="userAMAbutton" Content="Run user AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,19,0,0" Height="33"  Grid.ColumnSpan="4" Grid.Column="2" Click="userAMAbutton_Click" Background="Black" Foreground="White"/>
+                <Button x:Name="userAMAString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="6,65,0,0" Height="33"  Grid.ColumnSpan="4" Grid.Column="2" Click="userAMAString_Click" Foreground="White" Background="Black"/>
+                <Button x:Name="addLogicButton" Content="Add Rule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,19,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="3" Click="addLogicButton_Click" Background="Black" Foreground="White"/>
+                <Button x:Name="clearLogicButton" Content="Clear All Rules" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="116,65,0,0" Height="33"  Grid.Column="4" Grid.ColumnSpan="3" Click="clearLogicButton_Click" Foreground="White" Background="Black"/>
             </Grid>
         </GroupBox>
 
-        <GroupBox x:Name="marketActionsgroup" Header="Market Actions" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0" Height="196" Width="173" FontWeight="Bold">
+        <GroupBox x:Name="marketActionsgroup" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,9,0,0" Height="196" Width="173" FontWeight="Bold">
+            <GroupBox.Header>
+                <TextBlock Text="Market Actions" Foreground="White"/>
+            </GroupBox.Header>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0*"/>
@@ -64,7 +76,10 @@
         </GroupBox>
 
 
-        <GroupBox x:Name="infoGroupBox" Header="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Height="196" Width="314" Margin="202,9,0,0" Grid.ColumnSpan="2" FontWeight="Bold">
+        <GroupBox x:Name="infoGroupBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="196" Width="314" Margin="202,9,0,0" Grid.ColumnSpan="2" FontWeight="Bold">
+            <GroupBox.Header>
+                <TextBlock Text="Info" Foreground="LightGreen"/>
+            </GroupBox.Header>
             <Grid HorizontalAlignment="Left" Width="304" Margin="0,0,-2,0" Opacity="0.99">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="21*"/>

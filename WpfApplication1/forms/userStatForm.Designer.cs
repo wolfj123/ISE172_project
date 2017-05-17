@@ -46,10 +46,11 @@ namespace WpfApplication1.forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 107);
+            this.textBox1.Location = new System.Drawing.Point(4, 45);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(744, 182);
+            this.textBox1.Size = new System.Drawing.Size(282, 79);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -57,9 +58,10 @@ namespace WpfApplication1.forms
             // 
             this.Update.BackColor = System.Drawing.Color.CadetBlue;
             this.Update.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Update.Location = new System.Drawing.Point(12, 26);
+            this.Update.Location = new System.Drawing.Point(4, 11);
+            this.Update.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(204, 64);
+            this.Update.Size = new System.Drawing.Size(76, 27);
             this.Update.TabIndex = 1;
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = false;
@@ -67,15 +69,16 @@ namespace WpfApplication1.forms
             // 
             // userStatForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
-            this.ClientSize = new System.Drawing.Size(768, 312);
+            this.ClientSize = new System.Drawing.Size(288, 131);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "userStatForm";
-            this.Text = "userStatForm";
+            this.Text = "User Status Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 

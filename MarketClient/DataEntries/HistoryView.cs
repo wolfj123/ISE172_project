@@ -17,6 +17,7 @@ namespace MarketClient.DataEntries
             {
                 System.IO.File.Delete("../../../History/history2.log");
             }
+            //copy the history file, read from the copy and at the end delete it 
             System.IO.File.Copy("../../../History/history.log","../../../History/history2.log");        
             List<String> output = new List<String>();
             using (StreamReader sr = new StreamReader("../../../History/history2.log"))
@@ -55,14 +56,6 @@ namespace MarketClient.DataEntries
                         line = sr.ReadLine();
                     }
                 }
-
-                //if there is only one limit on the date
-
-                    while (line != null)
-                    {
-                        output.Add(line);
-                        line = sr.ReadLine();
-                    }
                 
             }
             System.IO.File.Delete("../../../History/history2.log");

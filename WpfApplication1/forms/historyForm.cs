@@ -146,5 +146,13 @@ namespace WpfApplication1.forms
             else
                 deleteHistoryButton.Enabled = false;
         }
+
+        private void deletecheckBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (deletecheckBox.Checked)
+                deleteHistoryButton.Enabled = true;
+            else
+                deleteHistoryButton.Enabled = false;
+        }
     }
 }

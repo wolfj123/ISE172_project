@@ -216,6 +216,7 @@
             this.deletecheckBox.TabIndex = 20;
             this.deletecheckBox.Text = "i want to clean history file";
             this.deletecheckBox.UseVisualStyleBackColor = false;
+            this.deletecheckBox.CheckedChanged += new System.EventHandler(this.deletecheckBox_CheckedChanged_1);
             // 
             // historyForm
             // 

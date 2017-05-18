@@ -46,22 +46,24 @@ namespace WpfApplication1.forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(4, 45);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.Location = new System.Drawing.Point(0, 52);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 79);
+            this.textBox1.Size = new System.Drawing.Size(288, 79);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Update
             // 
             this.Update.BackColor = System.Drawing.Color.CadetBlue;
+            this.Update.Dock = System.Windows.Forms.DockStyle.Left;
             this.Update.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Update.Location = new System.Drawing.Point(4, 11);
-            this.Update.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Update.Location = new System.Drawing.Point(0, 0);
+            this.Update.Margin = new System.Windows.Forms.Padding(1);
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(76, 27);
+            this.Update.Size = new System.Drawing.Size(76, 52);
             this.Update.TabIndex = 1;
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = false;
@@ -76,7 +78,7 @@ namespace WpfApplication1.forms
             this.ClientSize = new System.Drawing.Size(288, 131);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "userStatForm";
             this.Text = "User Status Form";
             this.ResumeLayout(false);

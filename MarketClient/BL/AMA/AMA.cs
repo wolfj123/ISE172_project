@@ -145,7 +145,7 @@ namespace MarketClient.BL
         {
             for (int commodity = 0; commodity <=9; commodity++)
             {
-                this.add(new BuyProcess(true, comm, commodity, 3, 10, -1));
+                this.add(new BuyProcess(true, comm, commodity, 7, 10, -1));
             }
             
             for (int commodity = 0; commodity <= 9; commodity++)

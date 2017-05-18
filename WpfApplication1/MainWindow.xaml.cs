@@ -17,6 +17,7 @@ using MarketClient.PL_BL;
 using log4net;
 using System.Net;
 using System.Threading;
+using System.Collections;
 
 namespace WpfApplication1
 {
@@ -106,6 +107,12 @@ namespace WpfApplication1
             myLogger.Info("User set Default AMA enabled to " + runningAMA);
             ama.enable(runningAMA);         //toggle ama
 
+            if (!runningAMA)
+            {
+                MessageBox.Show("please wait 10 seconds before re-using the GUI");
+                System.Threading.Thread.Sleep(10000);
+            }
+
             enableControls(!runningAMA);     //enable/disable mainwindow
             amaButton.IsEnabled = true;
 
@@ -128,6 +135,12 @@ namespace WpfApplication1
 
             enableControls(!runningAMA);     //enable/disable mainwindow
             userAMAbutton.IsEnabled = true;
+
+            if (!runningAMA)
+            {
+                MessageBox.Show("please wait 10 seconds before re-using the GUI");
+                System.Threading.Thread.Sleep(10000);
+            }
 
             if (runningAMA)     //update text
                 userAMAbutton.Content = "Stop user AMA";
@@ -210,6 +223,13 @@ namespace WpfApplication1
             userAMAbutton.IsEnabled = mode;
             addLogicButton.IsEnabled = mode;
             clearLogicButton.IsEnabled = mode;
+
+            //set enable mode to all forms
+            IEnumerator en = System.Windows.Forms.Application.OpenForms.GetEnumerator();
+            while (en.MoveNext()) {
+                System.Windows.Forms.Form form = (System.Windows.Forms.Form)en.Current;
+                form.Enabled = mode;
+            }
         }
 
         private void historyButton_Click(object sender, RoutedEventArgs e)

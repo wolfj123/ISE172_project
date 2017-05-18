@@ -109,7 +109,7 @@ namespace WpfApplication1
 
             if (!runningAMA)
             {
-                MessageBox.Show("please wait 10 seconds before re-using the GUI");
+                MessageBox.Show("The GUI will be locked 10 before you can continue working.");
                 System.Threading.Thread.Sleep(10000);
             }
 
@@ -138,7 +138,7 @@ namespace WpfApplication1
 
             if (!runningAMA)
             {
-                MessageBox.Show("please wait 10 seconds before re-using the GUI");
+                MessageBox.Show("The GUI will be locked 10 before you can continue working.");
                 System.Threading.Thread.Sleep(10000);
             }
 

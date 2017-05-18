@@ -30,7 +30,7 @@ namespace WpfApplication1.forms
         {
             QueryUserRequest req = new QueryUserRequest();
             IMarketResponse res = InterperatorPB.sendRequest(req);
-            textBox1.Text = res.ToString();
+            textBox1.Text = res.ToString().Replace("\n", "\r\n");
             myLogger.Info("User clicked UPDATE STATUS");
         }
     }

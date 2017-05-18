@@ -91,7 +91,7 @@ namespace MarketClient.DataEntries
         {
             DateTime currentDate = DateTime.Now;
             DateTime dateLimit = currentDate.AddDays(-daysNumber);
-            return historyByDate(dateLimit, dateLimit);
+            return historyByDate(dateLimit, currentDate);
         }
 
         public static void deleteHistory()

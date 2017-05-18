@@ -115,7 +115,7 @@ namespace MarketClient.BL
 
             try
             {
-                output = "Commodities: " + Shell.DictionaryToString(commodities) + "\nFunds: " + this.funds.ToString() + "\nRequests: {" + Shell.intListToString(requests) + "}";
+                output = "Commodities: " + Shell.DictionaryToString(commodities) + " \nFunds: " + this.funds.ToString() + " \nRequests: {" + Shell.intListToString(requests) + "}";
             }
             catch (Exception e)
             {

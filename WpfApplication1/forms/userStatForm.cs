@@ -33,5 +33,10 @@ namespace WpfApplication1.forms
             textBox1.Text = res.ToString().Replace("\n", "\r\n");
             myLogger.Info("User clicked UPDATE STATUS");
         }
+
+        private void userStatForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

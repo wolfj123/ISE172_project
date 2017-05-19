@@ -81,6 +81,7 @@ namespace WpfApplication1.forms
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "userStatForm";
             this.Text = "User Status Form";
+            this.Load += new System.EventHandler(this.userStatForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

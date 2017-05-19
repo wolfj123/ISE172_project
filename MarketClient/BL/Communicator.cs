@@ -133,7 +133,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Buy Request {commodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString() + "}");
+            myHistory.Info("Sent Buy Request-\r\ncommodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString());
 
             return marketResponse;
         }
@@ -160,7 +160,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Sell Request {commodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString() + "}");
+            myHistory.Info("Sent Sell Request-\r\ncommodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString());
 
             return marketResponse;
 
@@ -189,7 +189,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Query Buy/Sell Request {id:" + id + "\nResponse: " + marketResponse.ToString() + "}");
+            myHistory.Info("Sent Query Buy/Sell Request-\r\nid:" + id + "\nResponse: " + marketResponse.ToString());
 
             return marketResponse;
 
@@ -218,7 +218,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Query Buy/Sell Request {user:" + user + "\n Response: " + marketResponse.ToString() + "}");
+            myHistory.Info("Sent Query Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
 
             return marketResponse;
         }
@@ -245,7 +245,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Query Market Request {commodity:" + commodity + "\nResponse: " + marketResponse.ToString()+"}");
+            myHistory.Info("Sent Query Market Request-\r\ncommodity:" + commodity + "\nResponse: " + marketResponse.ToString());
 
             return marketResponse;
         }
@@ -272,7 +272,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
                 return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
             }
 
-            myHistory.Info("Sent Cancel Request {id:" + id + "\nResponse: " + marketResponse.ToString() + "}");
+            myHistory.Info("Sent Cancel Request-\r\nid:" + id + "\nResponse: " + marketResponse.ToString());
 
             return marketResponse;
         }

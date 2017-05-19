@@ -143,14 +143,14 @@ namespace MarketClient.BL
     {
         public DefaultAMA(ICommunicator comm) : base(10, 10000)
         {
-            for (int commodity = 0; commodity <=6; commodity++)
+            for (int commodity = 0; commodity <=9; commodity++)
             {
-                this.add(new BuyProcess(true, comm, commodity, 8, 40, -1));
+                this.add(new BuyProcess(true, comm, commodity, 7, 40, -1));
             }
             
-            for (int commodity = 0; commodity <= 6; commodity++)
+            for (int commodity = 0; commodity <= 9; commodity++)
             {
-                this.add(new SellProcess(true, comm, commodity, 17, 40, -1));
+                this.add(new SellProcess(true, comm, commodity, 16, 40, -1));
             }
             
         }

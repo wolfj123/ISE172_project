@@ -68,7 +68,6 @@
     <Compile Include="BL\milestone1\RealMarketUserData.cs" />
     <Compile Include="PL-BL\MResponse.cs" />
     <Compile Include="DataEntries\HistoryView.cs" />
-    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />
     <Compile Include="PL-BL\Rtype.cs" />

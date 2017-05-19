@@ -152,7 +152,6 @@ namespace MarketClient.BL
             {
                 this.add(new SellProcess(true, comm, commodity, 16, 40, -1));
             }
-            
         }
     }
 

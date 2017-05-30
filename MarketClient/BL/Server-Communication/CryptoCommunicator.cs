@@ -9,6 +9,8 @@ namespace MarketClient.BL
 {
 
     //TODO: build CryptoComm
+
+    //Maybe use dateDate.Ticks ?
     public class CryptoCommunicator : ICommunicator
     {
         public IMarketResponse SendBuyRequest(int price, int commodity, int amount)

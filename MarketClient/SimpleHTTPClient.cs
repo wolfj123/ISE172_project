@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MarketClient
 {
+    //TODO: add decryption here (probably add decrypt() to the string overload
     public class SimpleHTTPClient
     {
         /// <summary>

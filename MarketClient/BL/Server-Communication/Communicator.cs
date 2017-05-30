@@ -9,6 +9,8 @@ using log4net;
 
 namespace MarketClient.BL
 {
+
+    //// TODO: Refactor Communicator
     public class Communicator : ICommunicator
     {
 

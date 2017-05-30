@@ -62,6 +62,7 @@
     <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
     <Compile Include="BL\Server-Communication\Communicator.cs" />
+    <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
     <Compile Include="BL\Server-Communication\ICommunicator.cs" />
     <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />

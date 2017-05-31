@@ -59,12 +59,12 @@ namespace MarketClientTest
             return sell;
         }
 
-        public IMarketResponse SendQueryAllMarketRequest()
+        public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
             throw new NotImplementedException();
         }
 
-        public IMarketResponse SendQueryAllUserRequest()
+        public List<MQReqWrapper> SendQueryAllUserRequest()
         {
             throw new NotImplementedException();
         }
@@ -129,12 +129,12 @@ namespace MarketClientTest
             return output;
         }
 
-        public IMarketResponse SendQueryAllMarketRequest()
+        public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
             throw new NotImplementedException();
         }
 
-        public IMarketResponse SendQueryAllUserRequest()
+        public List<MQReqWrapper> SendQueryAllUserRequest()
         {
             throw new NotImplementedException();
         }

@@ -57,10 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\Logics\AskBidDiffProcess.cs" />
-    <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
-    <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AlgoAction.cs" />
+    <Compile Include="BL\AMA\AlgoAnalysis.cs" />
+    <Compile Include="BL\AMA\AlgoProcessList.cs" />
+    <Compile Include="BL\AMA\AMA.old\AMA.cs" />
+    <Compile Include="BL\AMA\AMA.old\Logics\AskBidDiffProcess.cs" />
+    <Compile Include="BL\AMA\AMA.old\Logics\InnerLogic.cs" />
+    <Compile Include="BL\AMA\AMA.old\Logics\LogicProcess.cs" />
     <Compile Include="BL\Communicator.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />

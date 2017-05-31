@@ -18,9 +18,7 @@ namespace MarketClient.BL
         protected int maxReq; //The maximum requests allowed per interval
         protected System.Timers.Timer aTimer;
 
-        //Info gathered from the server
         public MQUser userData;
-        //TODO: add new ALL queries
 
         public AdvancedAMA(int maxReq, double interval)
         {
@@ -79,7 +77,7 @@ namespace MarketClient.BL
                 queue.RemoveAt(0);
 
                 //run the logic block
-                bool success = currentLogic.runProcess();
+                bool success = currentLogic.run();
                 //TODO: update logger for AdvancedAMA
                 //myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
 
@@ -93,17 +91,6 @@ namespace MarketClient.BL
                     queue.Add(currentLogic);
                 }
             }
-        }
-
-
-        //TODO: send ALL queries and update the fields
-        //TODO: calcualte request cost fof gatherInfo() and reduce the maxReq allowed in the loop
-        public void gatherInfo()
-        {
-
-            throw new NotImplementedException();
-
-
         }
 
         public bool isEnabled()

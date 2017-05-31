@@ -57,16 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AMA\Actions\AlgoAction.cs" />
+    <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
     <Compile Include="BL\AMA\AdvancedAMA.cs" />
-    <Compile Include="BL\AMA\AlgoActions\AlgoAction.cs" />
-    <Compile Include="BL\AMA\AlgoActions\AlgoSellAction.cs" />
-    <Compile Include="BL\AMA\AlgoActions\AlgoBuyAction.cs" />
-    <Compile Include="BL\AMA\AlgoAnalysis\AlgoAnalysis.cs" />
-    <Compile Include="BL\AMA\AlgoProcessList.cs" />
-    <Compile Include="BL\AMA\AMA.old\AMA.cs" />
-    <Compile Include="BL\AMA\AMA.old\Logics\AskBidDiffProcess.cs" />
-    <Compile Include="BL\AMA\AMA.old\Logics\InnerLogic.cs" />
-    <Compile Include="BL\AMA\AMA.old\Logics\LogicProcess.cs" />
+    <Compile Include="BL\AMA\AlgoProcess.cs" />
+    <Compile Include="BL\AMA\Conditions\AlgoCondition.cs" />
+    <Compile Include="BL\AMA\Conditions\AskCompare.cs" />
+    <Compile Include="BL\AMA\Conditions\BidCompare.cs" />
+    <Compile Include="BL\AMA\Conditions\HasActiveRequest.cs" />
+    <Compile Include="BL\AMA\Conditions\HasSupply.cs" />
+    <Compile Include="BL\AMA\Conditions\MomentumIncrease.cs" />
+    <Compile Include="BL\AMA\Conditions\MomentumDecrease.cs" />
     <Compile Include="BL\Communicator.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />

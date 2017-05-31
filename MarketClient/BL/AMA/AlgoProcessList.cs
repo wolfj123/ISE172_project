@@ -29,7 +29,8 @@ namespace MarketClient.BL
             this.commodity = -1;
             this.buyPrice = -1;
             this.sellPrice = -1;
-            this.amount = -1;
+            this.buyAmount = -1;
+            this.sellAmount = -1;
 
             this.buyRequestID = -1;
             this.sellRequestID = -1;

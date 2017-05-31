@@ -11,7 +11,6 @@ namespace MarketClient.BL
 {
     public interface ICommunicator
     {
-
         IMarketResponse SendBuyRequest(int price, int commodity, int amount);
 
         IMarketResponse SendSellRequest(int price, int commodity, int amount);
@@ -24,8 +23,8 @@ namespace MarketClient.BL
 
         IMarketResponse SendCancelBuySellRequest(int id);
 
-        IMarketResponse SendQueryAllMarketRequest();
+        List<MQCommodityWrapper> SendQueryAllMarketRequest();
 
-        IMarketResponse SendQueryAllUserRequest();
+        List<MQReqWrapper> SendQueryAllUserRequest();
     }
 }

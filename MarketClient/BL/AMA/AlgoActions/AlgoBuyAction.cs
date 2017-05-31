@@ -12,9 +12,13 @@ namespace MarketClient.BL
     {
         public override bool runAction(AlgoProcessList list)
         {
+
+            //Attempt to buy the commodity
             bool success = false;
             IMarketResponse response = list.comm.SendBuyRequest(list.buyPrice,
                 list.commodity, list.amount);
+
+            //If buy request is succssful - update the buyRequestID of the list
             if (response.getType() == ResponseType.buySell)
             {
                 success = true;

@@ -13,9 +13,9 @@ namespace MarketClient.BL
         public int commodity;
         public int buyPrice;
         public int sellPrice;
-        public int amount;
+        public int buyAmount;
+        public int sellAmount;
         public List<AlgoProcess> algoList;
-        //public List<int> requestIDs;
 
         public int buyRequestID;
         public int sellRequestID;

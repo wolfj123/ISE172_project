@@ -12,19 +12,24 @@ namespace MarketClient.BL
     {
         public override bool runAction(AlgoProcessList list)
         {
-            
 
+            if (list.buyRequestID == -1)
+            {
 
-            bool success = false;
-            IMarketResponse response = list.comm.SendSellRequest(list.buyPrice,
+            }
+
+            IMarketResponse response = list.comm.SendSellRequest(list.sellPrice,
                 list.commodity, list.amount);
+
+            //Currently not in use, but might be useful
             if (response.getType() == ResponseType.buySell)
             {
-                success = true;
                 MBuySell resp = (MBuySell)response;
                 list.sellRequestID = resp.getID();
             }
-            return success;
+
+
+
         }
     }
 }

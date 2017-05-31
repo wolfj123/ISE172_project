@@ -58,8 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AMA\AdvancedAMA.cs" />
-    <Compile Include="BL\AMA\AlgoAction.cs" />
-    <Compile Include="BL\AMA\AlgoAnalysis.cs" />
+    <Compile Include="BL\AMA\AlgoActions\AlgoAction.cs" />
+    <Compile Include="BL\AMA\AlgoActions\AlgoSellAction.cs" />
+    <Compile Include="BL\AMA\AlgoActions\AlgoBuyAction.cs" />
+    <Compile Include="BL\AMA\AlgoAnalysis\AlgoAnalysis.cs" />
     <Compile Include="BL\AMA\AlgoProcessList.cs" />
     <Compile Include="BL\AMA\AMA.old\AMA.cs" />
     <Compile Include="BL\AMA\AMA.old\Logics\AskBidDiffProcess.cs" />

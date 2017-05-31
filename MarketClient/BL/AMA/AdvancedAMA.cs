@@ -73,32 +73,24 @@ namespace MarketClient.BL
             if (queue.Count > 0)
             {
                 //Take out and remove first logic block
-                LogicProcess currentLogic = queue[0];
+                AlgoProcessList currentLogic = queue[0];
                 queue.RemoveAt(0);
 
                 //run the logic block
-                object output = currentLogic.run();
-                myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
-                //blocks.Add(currentLogic);
-
+                bool success = currentLogic.run();
+                //TODO: update logger for AdvancedAMA
+                //myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
 
                 //decide where to put the logicProcess in the list
-                if (currentLogic.queue == LogicQueue.last)
-                {
-                    queue.Add(currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to end of queue");
-                }
-                else if (currentLogic.queue == LogicQueue.first)
+                if (success)
                 {
                     queue.Insert(0, currentLogic);
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Moved to start of queue");
                 }
                 else
                 {
-                    myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Discarded");
+                    queue.Add(currentLogic);
                 }
             }
-
         }
 
         public bool isEnabled()
@@ -107,9 +99,9 @@ namespace MarketClient.BL
         }
 
 
-        public virtual void add(LogicProcess block)
+        public virtual void add(AlgoProcessList processList)
         {
-            queue.Add(block);
+            queue.Add(processList);
         }
 
         public void clearLogic()
@@ -119,10 +111,9 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            /*
             string output = "Current rules queue:\n\n";
             int count = 0;
-            foreach (LogicProcess logic in queue)
+            foreach (AlgoProcessList logic in queue)
             {
                 count++;
                 output += "Rule #" + count + ": ";
@@ -130,16 +121,7 @@ namespace MarketClient.BL
                 output += "\n\n";
             }
             return output;
-            */
-            return "";
         }
 
     }
-
-
-
-
-
-
-}
 }

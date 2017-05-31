@@ -14,7 +14,11 @@ namespace MarketClient.BL
         public int buyPrice;
         public int sellPrice;
         public int amount;
-        public List<AlgoProcess> list;
+        public List<AlgoProcess> algoList;
+        //public List<int> requestIDs;
+
+        public int buyRequestID;
+        public int sellRequestID;
 
         public IEnumerator<AlgoProcess> enumerator;
 
@@ -26,9 +30,12 @@ namespace MarketClient.BL
             this.buyPrice = -1;
             this.sellPrice = -1;
             this.amount = -1;
-            this.enumerator = list.GetEnumerator();
-        }
 
+            this.buyRequestID = -1;
+            this.sellRequestID = -1;
+
+            this.enumerator = algoList.GetEnumerator();
+        }
 
         public bool run()
         {
@@ -41,10 +48,9 @@ namespace MarketClient.BL
             return success;
         }
 
-
         public void addAlgoProcess(AlgoProcess process)
         {
-            list.Add(process);
+            algoList.Add(process);
         }
         
         public void goToNextProcess(bool next)
@@ -53,12 +59,13 @@ namespace MarketClient.BL
             {
                 if (!enumerator.MoveNext())
                 {
-                    enumerator = list.GetEnumerator();
+                    enumerator = algoList.GetEnumerator();
                 }
             }
         }
-
     }
+
+
 
     public interface AlgoProcess
     {

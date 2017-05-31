@@ -10,7 +10,7 @@ namespace MarketClient.BL
 {
     public class AlgoSellAction : AlgoAction
     {
-        public override bool runAction(AlgoProcessList list)
+        public override bool runAction(AlgoProcess list)
         {
 
             if (list.buyRequestID == -1)

@@ -6,53 +6,48 @@ using System.Threading.Tasks;
 
 namespace MarketClient.BL
 {
-    public class AlgoProcessList
+    public class AlgoProcess
     {
         public AdvancedAMA ama;
         public ICommunicator comm;
         public int commodity;
-        public int buyPrice;
-        public int sellPrice;
-        public int buyAmount;
-        public int sellAmount;
-        public List<AlgoProcess> algoList;
+        public int algoPrice;
+        public int algoAmount;
+        public List<AlgoStep> algoList;
 
-        public int buyRequestID;
-        public int sellRequestID;
+        public int RequestID;
 
-        public IEnumerator<AlgoProcess> enumerator;
+        public IEnumerator<AlgoStep> enumerator;
 
-        public AlgoProcessList(AdvancedAMA ama, ICommunicator comm)
+        public AlgoProcess(AdvancedAMA ama, ICommunicator comm)
         {
             this.ama = ama;
             this.comm = comm;
             this.commodity = -1;
-            this.buyPrice = -1;
-            this.sellPrice = -1;
-            this.buyAmount = -1;
-            this.sellAmount = -1;
-
-            this.buyRequestID = -1;
-            this.sellRequestID = -1;
-
+            this.algoPrice = -1;
+            this.algoAmount = -1;
+            this.RequestID = -1;
             this.enumerator = algoList.GetEnumerator();
         }
 
         public bool run()
         {
-            AlgoProcess current = enumerator.Current;
+            AlgoStep current = enumerator.Current;
             if (current == null) return false;
 
-            bool success = current.runProcess(this);
+            bool success = current.runStep(this);
             goToNextProcess(success);
 
             return success;
         }
 
-        public void addAlgoProcess(AlgoProcess process)
+
+
+        public void addAlgoStep(AlgoStep step)
         {
-            algoList.Add(process);
+            algoList.Add(step);
         }
+        
         
         public void goToNextProcess(bool next)
         {
@@ -66,10 +61,8 @@ namespace MarketClient.BL
         }
     }
 
-
-
-    public interface AlgoProcess
+    public interface AlgoStep
     {
-        bool runProcess(AlgoProcessList list);
+        bool runStep(AlgoProcess list);
     }
 }

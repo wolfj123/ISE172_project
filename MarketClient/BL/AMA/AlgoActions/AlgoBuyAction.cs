@@ -10,7 +10,7 @@ namespace MarketClient.BL
 {
     public class AlgoBuyAction : AlgoAction
     {
-        public override bool runAction(AlgoProcessList list)
+        public override bool runAction(AlgoProcess list)
         {
 
             //Attempt to buy the commodity

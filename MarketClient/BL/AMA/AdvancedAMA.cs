@@ -14,7 +14,7 @@ namespace MarketClient.BL
     {
         private static ILog myLogger = LogManager.GetLogger("AMA");
 
-        protected List<AlgoProcessList> queue; //The list containing all the LogicBlocks
+        protected List<AlgoProcess> queue; //The list containing all the LogicBlocks
         protected int maxReq; //The maximum requests allowed per interval
         protected System.Timers.Timer aTimer;
 
@@ -23,7 +23,7 @@ namespace MarketClient.BL
         public AdvancedAMA(int maxReq, double interval)
         {
             this.maxReq = maxReq;
-            queue = new List<AlgoProcessList>();
+            queue = new List<AlgoProcess>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Interval = interval;
@@ -73,7 +73,7 @@ namespace MarketClient.BL
             if (queue.Count > 0)
             {
                 //Take out and remove first logic block
-                AlgoProcessList currentLogic = queue[0];
+                AlgoProcess currentLogic = queue[0];
                 queue.RemoveAt(0);
 
                 //run the logic block
@@ -99,7 +99,7 @@ namespace MarketClient.BL
         }
 
 
-        public virtual void add(AlgoProcessList processList)
+        public virtual void add(AlgoProcess processList)
         {
             queue.Add(processList);
         }
@@ -113,7 +113,7 @@ namespace MarketClient.BL
         {
             string output = "Current rules queue:\n\n";
             int count = 0;
-            foreach (AlgoProcessList logic in queue)
+            foreach (AlgoProcess logic in queue)
             {
                 count++;
                 output += "Rule #" + count + ": ";

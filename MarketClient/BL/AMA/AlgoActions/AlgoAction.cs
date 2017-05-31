@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MarketClient.BL
 {
-    public abstract class AlgoAction : AlgoProcess
+    public abstract class AlgoAction : AlgoStep
     {
-        public bool runProcess(AlgoProcessList list)
+        public bool runStep(AlgoProcess list)
         {
             return runAction(list);
         }
-        public abstract bool runAction(AlgoProcessList list);
+        public abstract bool runAction(AlgoProcess list);
     }
 }

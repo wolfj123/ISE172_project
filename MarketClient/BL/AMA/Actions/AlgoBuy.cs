@@ -20,11 +20,29 @@ namespace MarketClient.BL
             double funds = process.agent.userData.funds;
             int availableFunds = (int)((fundsPercentage / 100) * funds);
 
-            //TODO: get current bid of commodity and add +1
-            int price = -1;
 
+            //Calculate the buy price:
+            //currentAsk + priceBuffer
+            int priceBuffer = 1;
+            int currentAsk = 0;
+
+            //Find currentAsk by using the data from the AMA
+            bool foundPrice = false;
+            for (int i = 0; i<=9 & !foundPrice; i++)
+            {
+                MQCommodityWrapper current = process.agent.commoditiesInfo[i];
+                if (current.id == process.commodity)
+                {
+                    foundPrice = true;
+                    currentAsk = current.getAsk();
+                }
+            }
+
+            //calculate price and amount
+            int price = currentAsk + priceBuffer;
             int amount = price / availableFunds;
 
+            //Send request
             bool success = false;
             IMarketResponse response = process.comm.SendBuyRequest(price, process.commodity,amount);
             if (response.getType() == ResponseType.buySell)

@@ -7,26 +7,21 @@ using System.Threading.Tasks;
 
 namespace MarketClient.BL
 {
-    public class AlgoBuy : AlgoAction
+    public class AlgoSell : AlgoAction
     {
-        int fundsPercentage;
-
-        public AlgoBuy(int fundsPercentage)
-        {
-            this.fundsPercentage = fundsPercentage;
-        }
         public bool runAction(AlgoProcess process)
         {
-            double funds = process.agent.userData.funds;
-            int availableFunds = (int)((fundsPercentage / 100) * funds);
-
-            //TODO: get current bid of commodity and add +1
+            //TODO: get current ask of commodity and add -1
             int price = -1;
 
-            int amount = price / availableFunds;
+            //Get data from process
+            IDictionary<string, int> userCommodities = process.agent.userData.getCommodities();
+            string commodity = process.commodity.ToString();
+
+            int commoditySupply = userCommodities[commodity];
 
             bool success = false;
-            IMarketResponse response = process.comm.SendBuyRequest(price, process.commodity,amount);
+            IMarketResponse response = process.comm.SendSellRequest(price, process.commodity, commoditySupply);
             if (response.getType() == ResponseType.buySell)
             {
                 success = true;

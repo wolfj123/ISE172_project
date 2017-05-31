@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MarketClient.BL
 {
     //verifies whetehr the process has an existing request in the market
-    public class HasActiveRequest : AlgoCondition
+    public class HasNoActiveRequest : AlgoCondition
     {
         //Returns true if there is no active request false otherwise
         public bool conditionIsMet(AlgoProcess process)

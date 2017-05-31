@@ -61,7 +61,8 @@ namespace MarketClient.BL
             if (action == null) return false;
             if (conditionsMet)
             {
-                return action.runAction(this);
+                action.runAction(this);
+                return true;
             }
             else return false;
         }

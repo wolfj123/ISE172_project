@@ -14,7 +14,7 @@ namespace MarketClient.BL
     {
         private static ILog myLogger = LogManager.GetLogger("AMA");
 
-        protected List<AlgoProcess> queue; //The list containing all the LogicBlocks
+        protected Queue<AlgoProcess> queue; //The list containing all the LogicBlocks
         protected int maxReq; //The maximum requests allowed per interval
         protected System.Timers.Timer aTimer;
 
@@ -25,7 +25,7 @@ namespace MarketClient.BL
         public AdvancedAMA(int maxReq, double interval)
         {
             this.maxReq = maxReq;
-            queue = new List<AlgoProcess>();
+            queue = new Queue<AlgoProcess>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Interval = interval;
@@ -51,15 +51,54 @@ namespace MarketClient.BL
                 Trace.WriteLine("Timer elapsed");
 
                 //run the max amount of requests
-                for (int count = 0; count < maxReq; count++)
+                int count = gatherInfo();
+                while (count < maxReq)
                 {
-                    run(count);
+                    bool sentRequest = run();
+                    if (sentRequest) count = count + 1;
                 }
+
 
             }).Start();
 
         }
 
+        //TODO: send ALL queries and update the fields
+        //TODO: calcualte request cost fof gatherInfo() and reduce the maxReq allowed in the loop
+        public int gatherInfo()
+        {
+            throw new NotImplementedException();
+
+            int numOfReqeusts = 0;
+
+            numOfReqeusts++;
+            numOfReqeusts++;
+            numOfReqeusts++;
+
+            //return number of requests in this method
+            return numOfReqeusts;
+        }
+
+        public bool run()
+        {
+            //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
+            if (queue.Count > 0)
+            {
+                //Take out next AlgoProcess from Queue
+                AlgoProcess currentLogic = queue.Dequeue();
+
+                //run the process
+                bool success = currentLogic.runProcess();
+                //TODO: update logger for AdvancedAMA
+                //myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
+
+                //Add the AlgoProcess to the end of the queue
+                queue.Enqueue(currentLogic);
+
+                return success;
+            }
+            return false;
+        }
 
         public void enable(bool toEnable)
         {
@@ -67,43 +106,6 @@ namespace MarketClient.BL
             myLogger.Info("AMA enable set to" + toEnable);
 
             OnTimedEvent(null, null);
-        }
-
-        public void run(int count)
-        {
-            //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
-            if (queue.Count > 0)
-            {
-                //Take out and remove first logic block
-                AlgoProcess currentLogic = queue[0];
-                queue.RemoveAt(0);
-
-                //run the logic block
-                bool success = currentLogic.runProcess();
-                //TODO: update logger for AdvancedAMA
-                //myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
-
-                //decide where to put the logicProcess in the list
-                if (success)
-                {
-                    queue.Insert(0, currentLogic);
-                }
-                else
-                {
-                    queue.Add(currentLogic);
-                }
-            }
-        }
-
-
-        //TODO: send ALL queries and update the fields
-        //TODO: calcualte request cost fof gatherInfo() and reduce the maxReq allowed in the loop
-        public void gatherInfo()
-        {
-
-            throw new NotImplementedException();
-
-
         }
 
         public bool isEnabled()
@@ -114,7 +116,7 @@ namespace MarketClient.BL
 
         public virtual void add(AlgoProcess processList)
         {
-            queue.Add(processList);
+            queue.Enqueue(processList);
         }
 
         public void clearLogic()
@@ -135,6 +137,5 @@ namespace MarketClient.BL
             }
             return output;
         }
-
     }
 }

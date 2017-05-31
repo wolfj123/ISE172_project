@@ -61,6 +61,10 @@
     <Compile Include="BL\AMA\Actions\AlgoSell.cs" />
     <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
     <Compile Include="BL\AMA\AdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\AMA.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\Logics\AskBidDiffProcess.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\Logics\InnerLogic.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\Logics\LogicProcess.cs" />
     <Compile Include="BL\Server-Communication\Communicator.cs" />
     <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
     <Compile Include="BL\Server-Communication\ICommunicator.cs" />

@@ -14,14 +14,16 @@ namespace MarketClient.BL
     {
         private static ILog myLogger = LogManager.GetLogger("AMA");
 
-        protected List<LogicProcess> queue; //The list containing all the LogicBlocks
+        protected List<AlgoProcessList> queue; //The list containing all the LogicBlocks
         protected int maxReq; //The maximum requests allowed per interval
         protected System.Timers.Timer aTimer;
+
+        public MQUser userData;
 
         public AdvancedAMA(int maxReq, double interval)
         {
             this.maxReq = maxReq;
-            queue = new List<LogicProcess>();
+            queue = new List<AlgoProcessList>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Interval = interval;

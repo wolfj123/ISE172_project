@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketClient.BL
 {
-    public abstract class AlgoAnalysis : AlgoActionProcess
+    public abstract class AlgoAnalysis : AlgoProcess
     {
         public bool runProcess(AlgoProcessList list)
         {

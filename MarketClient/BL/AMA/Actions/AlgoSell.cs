@@ -11,17 +11,33 @@ namespace MarketClient.BL
     {
         public bool runAction(AlgoProcess process)
         {
-            //TODO: get current ask of commodity and add -1
-            int price = -1;
-
-            //Get data from process
+            //Get available amount from process
             IDictionary<string, int> userCommodities = process.agent.userData.getCommodities();
             string commodity = process.commodity.ToString();
+            int amount = userCommodities[commodity];
 
-            int commoditySupply = userCommodities[commodity];
+            //Calculate the buy price:
+            //currentAsk + priceBuffer
+            int priceBuffer = -1;
+            int currentBid = 0;
 
+            //Find currentBid by using the data from the AMA
+            bool foundPrice = false;
+            for (int i = 0; i <= 9 & !foundPrice; i++)
+            {
+                MQCommodityWrapper current = process.agent.commoditiesInfo[i];
+                if (current.id == process.commodity)
+                {
+                    foundPrice = true;
+                    currentBid = current.getBid();
+                }
+            }
+
+            int price = currentBid + priceBuffer;
+
+            //Send request
             bool success = false;
-            IMarketResponse response = process.comm.SendSellRequest(price, process.commodity, commoditySupply);
+            IMarketResponse response = process.comm.SendSellRequest(price, process.commodity, amount);
             if (response.getType() == ResponseType.buySell)
             {
                 success = true;

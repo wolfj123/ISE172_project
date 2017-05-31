@@ -17,10 +17,6 @@ namespace MarketClient.BL
         }
         public bool runAction(AlgoProcess process)
         {
-            double funds = process.agent.userData.funds;
-            int availableFunds = (int)((fundsPercentage / 100) * funds);
-
-
             //Calculate the buy price:
             //currentAsk + priceBuffer
             int priceBuffer = 1;
@@ -39,6 +35,8 @@ namespace MarketClient.BL
             }
 
             //calculate price and amount
+            double funds = process.agent.userData.funds;
+            int availableFunds = (int)((fundsPercentage / 100) * funds);
             int price = currentAsk + priceBuffer;
             int amount = price / availableFunds;
 

@@ -18,10 +18,20 @@ namespace MarketClient.BL
 
         public bool conditionIsMet(AlgoProcess process)
         {
-            //TODO: get specific commodity bid from ama and compare to desiredBid
+            int currentBid = 0;
 
-            int placeHolderBid = 0;
-            return (requiredBid > placeHolderBid);
+            //Find currentBid by using the data from the AMA
+            bool foundPrice = false;
+            for (int i = 0; i <= 9 & !foundPrice; i++)
+            {
+                MQCommodityWrapper current = process.agent.commoditiesInfo[i];
+                if (current.id == process.commodity)
+                {
+                    foundPrice = true;
+                    currentBid = current.getAsk();
+                }
+            }
+            return (requiredBid > currentBid);
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace MarketClient.BL
 {
     //Returns true if the Ask of a commodity is lower than required
-    public class AskCompare
+    public class AlgoAskCompare
     {
         public int requiredAsk;
 
-        public AskCompare(int requiredAsk)
+        public AlgoAskCompare(int requiredAsk)
         {
             this.requiredAsk = requiredAsk;
         }

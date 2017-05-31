@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace MarketClient.BL
 {
     //Returns true if the Bid of a commodity is higher than required
-    public class BidCompare : AlgoCondition
+    public class AlgoBidCompare : AlgoCondition
     {
         public int requiredBid;
 
-        public BidCompare(int requiredBid)
+        public AlgoBidCompare(int requiredBid)
         {
             this.requiredBid = requiredBid;
         }

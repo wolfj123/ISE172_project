@@ -23,12 +23,12 @@ namespace MarketClient.BL
             throw new NotImplementedException();
         }
 
-        public IMarketResponse SendQueryAllMarketRequest()
+        public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
             throw new NotImplementedException();
         }
 
-        public IMarketResponse SendQueryAllUserRequest()
+        public List<MQReqWrapper> SendQueryAllUserRequest()
         {
             throw new NotImplementedException();
         }

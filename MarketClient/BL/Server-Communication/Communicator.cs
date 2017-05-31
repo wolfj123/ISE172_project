@@ -221,12 +221,12 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             return marketResponse;
         }
 
-        public IMarketResponse SendQueryAllMarketRequest()
+        public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
             throw new NotImplementedException();
         }
 
-        public IMarketResponse SendQueryAllUserRequest()
+        public List<MQReqWrapper> SendQueryAllUserRequest()
         {
             throw new NotImplementedException();
         }

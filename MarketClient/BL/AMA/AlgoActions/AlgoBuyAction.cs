@@ -19,7 +19,7 @@ namespace MarketClient.BL
             {
                 success = true;
                 MBuySell resp = (MBuySell)response;
-                list.requestIDs.Add(resp.getID());
+                list.buyRequestID = resp.getID();
             }
             return success;
         }

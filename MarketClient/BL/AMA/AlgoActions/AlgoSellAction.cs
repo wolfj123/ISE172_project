@@ -12,7 +12,7 @@ namespace MarketClient.BL
     {
         public override bool runAction(AlgoProcessList list)
         {
-
+            
 
 
             bool success = false;
@@ -22,7 +22,7 @@ namespace MarketClient.BL
             {
                 success = true;
                 MBuySell resp = (MBuySell)response;
-                list.requestIDs.Add(resp.getID());
+                list.sellRequestID = resp.getID();
             }
             return success;
         }

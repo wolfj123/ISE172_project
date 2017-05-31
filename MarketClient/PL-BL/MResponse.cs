@@ -61,8 +61,6 @@ namespace MarketClient.BL
         {
             rType = ResponseType.cancel;
         }
-
-
     }
 
     public class MQReq : GenericMarketResponse
@@ -121,8 +119,6 @@ namespace MarketClient.BL
             {
                 output = "\n\n" + e.Message;
             }
-
-
             return output;
         }
 
@@ -169,26 +165,48 @@ namespace MarketClient.BL
             return output;
         }
 
-        public int getAsk()
+        public virtual int getAsk()
         {
             return Int32.Parse(this.ask);
         }
 
-        public int getBid()
+        public virtual int getBid()
         {
             return Int32.Parse(this.bid);
         }
 
     }
 
-    public class MQAllComoodity : GenericMarketResponse
-    {
 
+    public class MQCommodityWrapper : MQCommodity
+    {
+        public MQCommodity info;
+        public int id;
+
+        public MQCommodityWrapper()
+        {
+            rType = ResponseType.qAllCommodity;
+        }
+
+        public override int getAsk()
+        {
+            return info.getAsk();
+        }
+
+        public override int getBid()
+        {
+            return info.getBid();
+        }
     }
 
-    public class MQAllUserReq : GenericMarketResponse
+    public class MQReqWrapper : MQReq
     {
+        public MQReq request;
+        public int id;
 
+        public MQReqWrapper()
+        {
+            rType = ResponseType.qAllUserReq;
+        }
     }
-
 }

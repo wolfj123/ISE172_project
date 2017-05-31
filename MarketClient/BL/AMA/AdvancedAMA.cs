@@ -17,12 +17,14 @@ namespace MarketClient.BL
         protected Queue<AlgoProcess> queue; //The list containing all the LogicBlocks
         protected int maxReq; //The maximum requests allowed per interval
         protected System.Timers.Timer aTimer;
+        protected ICommunicator comm;
 
         //Info gathered from the server
         public MQUser userData;
-        //TODO: add new ALL queries
+        public List<MQCommodityWrapper> commoditiesInfo;
+        public List<MQReqWrapper> requestsInfo;
 
-        public AdvancedAMA(int maxReq, double interval)
+        public AdvancedAMA(int maxReq, double interval, ICommunicator comm)
         {
             this.maxReq = maxReq;
             queue = new Queue<AlgoProcess>();
@@ -38,7 +40,6 @@ namespace MarketClient.BL
 
             // Do not initiate the timer
             aTimer.Enabled = false;
-
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
@@ -63,17 +64,14 @@ namespace MarketClient.BL
 
         }
 
-        //TODO: send ALL queries and update the fields
-        //TODO: calcualte request cost fof gatherInfo() and reduce the maxReq allowed in the loop
         public int gatherInfo()
         {
-            throw new NotImplementedException();
-
             int numOfReqeusts = 0;
 
-            numOfReqeusts++;
-            numOfReqeusts++;
-            numOfReqeusts++;
+            //Gather data from the server
+            userData = (MQUser)comm.SendQueryUserRequest();         numOfReqeusts++;
+            commoditiesInfo = comm.SendQueryAllMarketRequest();     numOfReqeusts++;
+            requestsInfo = comm.SendQueryAllUserRequest();          numOfReqeusts++;
 
             //return number of requests in this method
             return numOfReqeusts;

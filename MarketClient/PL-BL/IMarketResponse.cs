@@ -9,9 +9,6 @@ namespace MarketClient.PL_BL
     public interface IMarketResponse
     {
         ResponseType getType();
-
         string ToString();
     }
-
-
 }

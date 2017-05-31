@@ -61,6 +61,10 @@
     <Compile Include="BL\AMA\Actions\AlgoSell.cs" />
     <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
     <Compile Include="BL\AMA\AdvancedAMA.cs" />
+    <Compile Include="BL\Server-Communication\Communicator.cs" />
+    <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
+    <Compile Include="BL\Server-Communication\ICommunicator.cs" />
+    <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
     <Compile Include="BL\AMA\AlgoMomentumProcess.cs" />
     <Compile Include="BL\AMA\AlgoProcess.cs" />
     <Compile Include="BL\AMA\Conditions\AlgoCondition.cs" />
@@ -71,7 +75,6 @@
     <Compile Include="BL\AMA\Conditions\MomentumIncrease.cs" />
     <Compile Include="BL\AMA\Conditions\MomentumDecrease.cs" />
     <Compile Include="BL\AMA\DefaultAdvancedAMA.cs" />
-    <Compile Include="BL\Communicator.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
     <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />

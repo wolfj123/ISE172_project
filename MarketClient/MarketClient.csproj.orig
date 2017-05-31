@@ -57,58 +57,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="BL\AMA\Actions\AlgoAction.cs" />
+    <Compile Include="BL\AMA\Actions\AlgoSell.cs" />
+    <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AlgoMomentumProcess.cs" />
+    <Compile Include="BL\AMA\AlgoProcess.cs" />
+    <Compile Include="BL\AMA\Conditions\AlgoCondition.cs" />
+    <Compile Include="BL\AMA\Conditions\AskCompare.cs" />
+    <Compile Include="BL\AMA\Conditions\BidCompare.cs" />
+    <Compile Include="BL\AMA\Conditions\HasNoActiveRequest.cs" />
+    <Compile Include="BL\AMA\Conditions\HasSupply.cs" />
+    <Compile Include="BL\AMA\Conditions\MomentumIncrease.cs" />
+    <Compile Include="BL\AMA\Conditions\MomentumDecrease.cs" />
+    <Compile Include="BL\AMA\DefaultAdvancedAMA.cs" />
+    <Compile Include="BL\Communicator.cs" />
+=======
     <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\LogicBlock.cs" />
+    <Compile Include="BL\AMA\Logics\AskBidDiffProcess.cs" />
     <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
-    <Compile Include="BL\Communicator.cs" />
-    <Compile Include="BL\milestone1\Poster.cs" />
-    <Compile Include="BL\milestone1\RealMarketCommodityOffer.cs" />
-    <Compile Include="BL\milestone1\RealMarketItemQuery.cs" />
-    <Compile Include="BL\milestone1\RealMarketUserData.cs" />
-<<<<<<< HEAD
+    <Compile Include="BL\Server-Communication\Communicator.cs" />
+    <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
+    <Compile Include="BL\Server-Communication\ICommunicator.cs" />
+    <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
+>>>>>>> origin/JW-CryptoComm
+    <Compile Include="milestone1\BL\Poster.cs" />
+    <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
+    <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />
+    <Compile Include="milestone1\BL\RealMarketUserData.cs" />
     <Compile Include="PL-BL\MResponse.cs" />
-=======
-    <Compile Include="BL\MResponse.cs" />
     <Compile Include="DataEntries\HistoryView.cs" />
-    <Compile Include="PL-BL\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL-BL\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
->>>>>>> master
-    <Compile Include="PL-BL\IMarketRequest.cs" />
     <Compile Include="PL-BL\IMarketResponse.cs" />
     <Compile Include="PL-BL\InterperatorPB.cs" />
     <Compile Include="PL-BL\Rtype.cs" />
-    <Compile Include="UI\LoginInfo.cs" />
+    <Compile Include="milestone1\UI\LoginInfo.cs" />
     <Compile Include="PL-BL\Request.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
-    <Compile Include="UI\Display.cs" />
-    <Compile Include="UI\Interperator.cs" />
-    <Compile Include="UI\PrimInterperator.cs" />
+    <Compile Include="milestone1\UI\Display.cs" />
+    <Compile Include="milestone1\UI\Interperator.cs" />
+    <Compile Include="milestone1\UI\PrimInterperator.cs" />
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
-    <Compile Include="DataEntries\IMarketCommodityOffer.cs" />
+    <Compile Include="milestone1\DAL\IMarketCommodityOffer.cs" />
     <Compile Include="IMarketClient.cs" />
-    <Compile Include="DataEntries\IMarketItemQuery.cs" />
-    <Compile Include="DataEntries\IMarketUserData.cs" />
+    <Compile Include="milestone1\DAL\IMarketItemQuery.cs" />
+    <Compile Include="milestone1\DAL\IMarketUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\SimpleCtyptoLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BouncyCastle.Crypto.dll" />
     <Content Include="Newtonsoft.Json.dll" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="BL-DAL\" />
-=======
-    <EmbeddedResource Include="PL-BL\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
->>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -8,10 +8,8 @@ namespace MarketClient.BL
 {
     public class DefaultAdvancedAMA : AdvancedAMA
     {
-        public DefaultAdvancedAMA() : base(20,10000)
+        public DefaultAdvancedAMA() : base(20,10000, new Communicator())
         {
-            ICommunicator comm = new Communicator();
-
             for(int commodity=9; commodity>=0; commodity--)
             {
                 add(new AlgoMomentumBuyProcess(this, comm, commodity));

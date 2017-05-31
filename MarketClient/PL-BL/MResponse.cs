@@ -197,6 +197,11 @@ namespace MarketClient.BL
         {
             return info.getBid();
         }
+
+        public override string ToString()
+        {
+            return info.ToString();
+        }
     }
 
     public class MQReqWrapper : MQReq
@@ -207,6 +212,11 @@ namespace MarketClient.BL
         public MQReqWrapper()
         {
             rType = ResponseType.qAllUserReq;
+        }
+
+        public override string ToString()
+        {
+            return request.ToString();
         }
     }
 }

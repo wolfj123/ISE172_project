@@ -35,7 +35,21 @@ namespace MarketClient.BL
 
         private void updateRequestStatus()
         {
-            //TODO: Verify whether the request exists in the requests list
+            List<MQReqWrapper> list = agent.requestsInfo;
+
+            bool containsRequest = false;
+            for (int i=0; i<list.Count & !containsRequest; i++)
+            {
+                MQReqWrapper current = list[i];
+                if (current.id == this.reqeustID)
+                    containsRequest = true;
+            }
+
+            if (!containsRequest)
+            {
+                reqeustID = -1;
+            }
+            
         }
 
 

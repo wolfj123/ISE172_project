@@ -234,13 +234,17 @@ namespace WpfApplication1
 
         private void historyButton_Click(object sender, RoutedEventArgs e)
         {
+            myLogger.Info("User clicked historyButton");
             forms.historyForm userInput = new forms.historyForm();
             userInput.Show();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            //stat Form
+            myLogger.Info("User clicked statButton");
+            forms.statForm userInput = new forms.statForm();
+            userInput.Show();
         }
     }
 }

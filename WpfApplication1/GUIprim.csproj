@@ -113,6 +113,12 @@
     <Compile Include="forms\sellForm.Designer.cs">
       <DependentUpon>sellForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\statForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\statForm.Designer.cs">
+      <DependentUpon>statForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\userStatForm.cs">
       <SubType>Form</SubType>
     </Compile>

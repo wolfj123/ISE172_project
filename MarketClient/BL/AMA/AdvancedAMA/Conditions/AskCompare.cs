@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MarketClient.BL
 {
     //Returns true if the Ask of a commodity is lower than required
-    public class AlgoAskCompare
+    public class AlgoAskCompare : AlgoCondition
     {
         public int requiredAsk;
 
@@ -31,7 +31,6 @@ namespace MarketClient.BL
                     currentAsk = current.getAsk();
                 }
             }
-
             return (requiredAsk < currentAsk);
         }
     }

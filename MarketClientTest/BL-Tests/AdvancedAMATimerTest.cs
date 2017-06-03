@@ -21,7 +21,7 @@ namespace MarketClientTest
             int interval = 6000;
             int multiplier = 2;
 
-            AlgoCountLogic testLogic = new AlgoCountLogic();
+            AlgoCountProcess testLogic = new AlgoCountProcess();
             AdvancedAMA amaTest = new AdvancedAMA(maxReq, interval, new CommStubStaticReturn());
             amaTest.add(testLogic);
             amaTest.enable(true);
@@ -30,23 +30,6 @@ namespace MarketClientTest
             amaTest.enable(false);
 
             Assert.AreEqual(maxReq * multiplier, testLogic.count);
-        }
-    }
-
-    //LogicProcess Stub
-    public class AlgoCountLogic : AlgoProcess
-    {
-        public int count;
-
-        public AlgoCountLogic() :base(null,null,0)
-        {
-        }
-
-        public override bool runProcess()
-        {
-            Trace.WriteLine("Process activation #"+count);
-            count += 1;
-            return true;
         }
     }
 }

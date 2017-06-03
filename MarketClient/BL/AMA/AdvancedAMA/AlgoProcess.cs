@@ -55,7 +55,15 @@ namespace MarketClient.BL
 
         public virtual bool runProcess()
         {
-            updateRequestStatus();
+            try
+            {
+                updateRequestStatus();
+            }
+            catch(Exception e)
+            {
+                //TODO: log exception
+            }
+            
 
             //Verify that all conditions are met
             bool conditionsMet = true;
@@ -85,6 +93,21 @@ namespace MarketClient.BL
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        public void addCondition(AlgoCondition condition)
+        {
+            conditions.Add(condition);
+        }
+
+        public void setAction(AlgoAction action)
+        {
+            this.action = action;
+        }
+
+        public void clearConditions()
+        {
+            conditions.Clear();
         }
     }
 }

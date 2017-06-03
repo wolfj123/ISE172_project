@@ -73,8 +73,24 @@ namespace MarketClient.BL
             try
             {
                 userData = (MQUser)comm.SendQueryUserRequest();         numOfReqeusts++;
-                commoditiesInfo = comm.SendQueryAllMarketRequest();     numOfReqeusts++;
-                requestsInfo = comm.SendQueryAllUserRequest();          numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                //TODO: log exception
+            }
+
+            try
+            {
+                commoditiesInfo = comm.SendQueryAllMarketRequest(); numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                //TODO: log exception
+            }
+
+            try
+            {
+                requestsInfo = comm.SendQueryAllUserRequest(); numOfReqeusts++;
             }
             catch (Exception e)
             {

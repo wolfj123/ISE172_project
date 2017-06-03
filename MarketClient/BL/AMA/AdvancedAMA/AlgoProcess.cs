@@ -53,7 +53,7 @@ namespace MarketClient.BL
         }
 
 
-        public bool runProcess()
+        public virtual bool runProcess()
         {
             updateRequestStatus();
 

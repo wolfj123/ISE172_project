@@ -69,10 +69,17 @@ namespace MarketClient.BL
             int numOfReqeusts = 0;
 
             //Gather data from the server
-            userData = (MQUser)comm.SendQueryUserRequest();         numOfReqeusts++;
-            commoditiesInfo = comm.SendQueryAllMarketRequest();     numOfReqeusts++;
-            requestsInfo = comm.SendQueryAllUserRequest();          numOfReqeusts++;
 
+            try
+            {
+                userData = (MQUser)comm.SendQueryUserRequest();         numOfReqeusts++;
+                commoditiesInfo = comm.SendQueryAllMarketRequest();     numOfReqeusts++;
+                requestsInfo = comm.SendQueryAllUserRequest();          numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                //TODO: log exception
+            }
             //return number of requests in this method
             return numOfReqeusts;
         }

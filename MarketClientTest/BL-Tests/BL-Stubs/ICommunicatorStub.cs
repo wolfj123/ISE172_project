@@ -19,6 +19,16 @@ namespace MarketClientTest
         public IMarketResponse qmarket;
         public IMarketResponse quser;
 
+        public CommStubStaticReturn()
+        {
+            this.buy = null;
+            this.sell = null;
+            this.cancel = null;
+            this.qbuysell = null;
+            this.qmarket = null;
+            this.quser = null;
+        }
+
         public CommStubStaticReturn(IMarketResponse buy, IMarketResponse sell, IMarketResponse cancel, IMarketResponse qbuysell, IMarketResponse qmarket, IMarketResponse quser)
         {
             this.buy = buy;

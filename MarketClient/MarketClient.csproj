@@ -60,7 +60,7 @@
     <Compile Include="BL\AMA\Actions\AlgoAction.cs" />
     <Compile Include="BL\AMA\Actions\AlgoSell.cs" />
     <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
-    <Compile Include="BL\AMA\AdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AdvancedAMA.cs" />
     <Compile Include="BL\AMA\AMA-milestone2\AMA.cs" />
     <Compile Include="BL\AMA\AMA-milestone2\Logics\InnerLogic.cs" />
     <Compile Include="BL\AMA\AMA-milestone2\Logics\LogicProcess.cs" />
@@ -68,8 +68,8 @@
     <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
     <Compile Include="BL\Server-Communication\ICommunicator.cs" />
     <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
-    <Compile Include="BL\AMA\AlgoMomentumProcess.cs" />
-    <Compile Include="BL\AMA\AlgoProcess.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AlgoMomentumProcess.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AlgoProcess.cs" />
     <Compile Include="BL\AMA\Conditions\AlgoCondition.cs" />
     <Compile Include="BL\AMA\Conditions\AskCompare.cs" />
     <Compile Include="BL\AMA\Conditions\BidCompare.cs" />
@@ -77,7 +77,7 @@
     <Compile Include="BL\AMA\Conditions\HasSupply.cs" />
     <Compile Include="BL\AMA\Conditions\MomentumIncrease.cs" />
     <Compile Include="BL\AMA\Conditions\MomentumDecrease.cs" />
-    <Compile Include="BL\AMA\DefaultAdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\DefaultAdvancedAMA.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
     <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />

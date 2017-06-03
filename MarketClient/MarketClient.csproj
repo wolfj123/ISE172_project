@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\Actions\AlgoAction.cs" />
-    <Compile Include="BL\AMA\Actions\AlgoSell.cs" />
-    <Compile Include="BL\AMA\Actions\AlgoBuy.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoAction.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoSell.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoBuy.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AdvancedAMA.cs" />
     <Compile Include="BL\AMA\AMA-milestone2\AMA.cs" />
     <Compile Include="BL\AMA\AMA-milestone2\Logics\InnerLogic.cs" />
@@ -70,13 +70,13 @@
     <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AlgoMomentumProcess.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AlgoProcess.cs" />
-    <Compile Include="BL\AMA\Conditions\AlgoCondition.cs" />
-    <Compile Include="BL\AMA\Conditions\AskCompare.cs" />
-    <Compile Include="BL\AMA\Conditions\BidCompare.cs" />
-    <Compile Include="BL\AMA\Conditions\HasNoActiveRequest.cs" />
-    <Compile Include="BL\AMA\Conditions\HasSupply.cs" />
-    <Compile Include="BL\AMA\Conditions\MomentumIncrease.cs" />
-    <Compile Include="BL\AMA\Conditions\MomentumDecrease.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\AlgoCondition.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\AskCompare.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\BidCompare.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\HasNoActiveRequest.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\HasSupply.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\MomentumIncrease.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\MomentumDecrease.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\DefaultAdvancedAMA.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />

@@ -38,7 +38,7 @@ namespace MarketClientTest
             this.qmarket = qmarket;
             this.quser = quser;
         }
-
+        //TODO: return new queris for the advancedAMA fields!
         public IMarketResponse SendBuyRequest(int price, int commodity, int amount)
         {
             return buy;

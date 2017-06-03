@@ -18,6 +18,8 @@ namespace MarketClientTest
         public IMarketResponse qbuysell;
         public IMarketResponse qmarket;
         public IMarketResponse quser;
+        public List<MQCommodityWrapper> qAllmarket;
+        public List<MQReqWrapper> qAllrequests;
 
         public CommStubStaticReturn()
         {
@@ -27,9 +29,14 @@ namespace MarketClientTest
             this.qbuysell = null;
             this.qmarket = null;
             this.quser = null;
+            this.qAllmarket = null;
+            this.qAllrequests = null;
         }
 
-        public CommStubStaticReturn(IMarketResponse buy, IMarketResponse sell, IMarketResponse cancel, IMarketResponse qbuysell, IMarketResponse qmarket, IMarketResponse quser)
+        public CommStubStaticReturn(IMarketResponse buy, IMarketResponse sell, 
+            IMarketResponse cancel, IMarketResponse qbuysell, 
+            IMarketResponse qmarket, IMarketResponse quser,
+            List<MQCommodityWrapper> qAllmarket, List<MQReqWrapper> qAllrequests)
         {
             this.buy = buy;
             this.sell = sell;
@@ -37,8 +44,9 @@ namespace MarketClientTest
             this.qbuysell = qbuysell;
             this.qmarket = qmarket;
             this.quser = quser;
+            this.qAllmarket = qAllmarket;
+            this.qAllrequests = qAllrequests;
         }
-        //TODO: return new queris for the advancedAMA fields!
         public IMarketResponse SendBuyRequest(int price, int commodity, int amount)
         {
             return buy;
@@ -71,18 +79,14 @@ namespace MarketClientTest
 
         public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
-            throw new NotImplementedException();
+            return qAllmarket;
         }
 
         public List<MQReqWrapper> SendQueryAllUserRequest()
         {
-            throw new NotImplementedException();
+            return qAllrequests;
         }
     }
-
-
-
-
 
 
     public class ICommunicatorStub : ICommunicator

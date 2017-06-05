@@ -17,6 +17,9 @@ namespace MarketClient.Utils
             FileStream fs = new FileStream("Chapter1_Example1.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
             Document doc = new Document();
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            doc.Open();
+            doc.Add(new Paragraph("Hello World"));
+            doc.Close();
         }
     }
 }

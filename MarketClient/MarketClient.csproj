@@ -66,7 +66,6 @@
     <Compile Include="BL\AMA\AMA-milestone2\Logics\LogicProcess.cs" />
     <Compile Include="BL\Server-Communication\Communicator.cs" />
     <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
-    <Compile Include="BL\Server-Communication\HTTPDelegetor.cs" />
     <Compile Include="BL\Server-Communication\ICommunicator.cs" />
     <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AlgoMomentumProcess.cs" />
@@ -90,6 +89,7 @@
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="milestone1\UI\LoginInfo.cs" />
     <Compile Include="PL-BL\Request.cs" />
+    <Compile Include="SimpleCryptoHTTPClient.cs" />
     <Compile Include="SimpleHTTPClient.cs" />
     <Compile Include="milestone1\UI\Display.cs" />
     <Compile Include="milestone1\UI\Interperator.cs" />

@@ -49,6 +49,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             this.url = url;
             this.user = user;
             //this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            this.privateKey = privateKey;
             this.client = new SimpleHTTPClient();
         }
 

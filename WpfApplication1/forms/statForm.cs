@@ -16,5 +16,10 @@ namespace WpfApplication1.forms
         {
             InitializeComponent();
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

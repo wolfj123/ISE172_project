@@ -30,7 +30,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
         public TestMarketCommunicator() :
-            base(Url, User, SimpleCtyptoLibrary.CreateToken(User, PrivateKey))
+            base(Url, User, PrivateKey)
         {
         }
     }

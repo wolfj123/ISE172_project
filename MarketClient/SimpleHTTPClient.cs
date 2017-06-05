@@ -21,7 +21,7 @@ namespace MarketClient
         /// <param name="token">token for authentication data</param>
         /// <param name="item">the data item to send in the reuqest</param>
         /// <returns>the server response parsed as T2 object in json format</returns>
-        public T2 SendPostRequest<T1,T2>(string url, string user, string privateKey, T1 item) where T2 : class 
+        public virtual T2 SendPostRequest<T1,T2>(string url, string user, string privateKey, T1 item) where T2 : class 
         {
             //string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             var response = SendPostRequest(url, user, privateKey, item);
@@ -42,7 +42,7 @@ namespace MarketClient
         /// <param name="token">token for authentication data</param>
         /// <param name="item">the data item to send in the reuqest</param>
         /// <returns>the server response</returns>
-        public string SendPostRequest<T1>(string url, string user, string privateKey, T1 item)
+        public virtual string SendPostRequest<T1>(string url, string user, string privateKey, T1 item)
         {
             string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             var auth = new { user, token };
@@ -54,41 +54,6 @@ namespace MarketClient
                 var result = client.PostAsync(url, content).Result;
                 var responseContent = result?.Content?.ReadAsStringAsync().Result;
                 return responseContent;
-            }
-        }
-
-        //TODO: SendPostRequest crypto
-
-        public T2 SendCryptoPostRequest<T1, T2>(string url, string user, string privateKey, T1 item) where T2 : class
-        {
-            var response = SendCryptoPostRequest(url, user, privateKey, item);
-            return response == null ? null : FromJson<T2>(response);
-        }
-
-
-        public string SendCryptoPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
-        {
-            string nonce = SimpleCtyptoLibrary.createNonce();
-            string user = user_base + nonce;
-            string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
-
-            var auth = new { user, token , nonce };
-            JObject jsonItem = JObject.FromObject(item);
-            jsonItem.Add("auth", JObject.FromObject(auth));
-            StringContent content = new StringContent(jsonItem.ToString());
-            using (var client = new HttpClient())
-            {
-                var result = client.PostAsync(url, content).Result;
-                var responseContent = result?.Content?.ReadAsStringAsync().Result;
-
-                try
-                {
-                    string decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
-                    responseContent = decryptedContent;
-                }
-                finally { }
-                return responseContent;
-
             }
         }
 

@@ -66,6 +66,7 @@
     <Compile Include="BL\AMA\AMA-milestone2\Logics\LogicProcess.cs" />
     <Compile Include="BL\Server-Communication\Communicator.cs" />
     <Compile Include="BL\Server-Communication\CryptoCommunicator.cs" />
+    <Compile Include="BL\Server-Communication\HTTPDelegetor.cs" />
     <Compile Include="BL\Server-Communication\ICommunicator.cs" />
     <Compile Include="BL\Server-Communication\TestMarketCommunicator.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AlgoMomentumProcess.cs" />

@@ -52,7 +52,9 @@ namespace MarketClient.BL
         {
             throw new NotImplementedException();
         }
+        
 
+        /*
         private MarketException catchMethod(Exception e)
         {
             myLogger.Error("EXCEPTION");
@@ -64,5 +66,7 @@ namespace MarketClient.BL
             myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
             return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
         }
+
+    */
     }
 }

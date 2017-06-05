@@ -18,13 +18,13 @@ namespace MarketClient.BL
         protected SimpleHTTPClient client;
         protected string url;
         protected string user;
-        protected string token;
+        protected string privateKey;
 
         public Communicator()
         {
             this.url = "http://ise172.ise.bgu.ac.il";
             this.user = "user36";
-            string privateKey = @"-----BEGIN RSA PRIVATE KEY-----
+            this.privateKey = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCuGdcd1NEIrVWC/bjTAWQUfjhC6yJMQF/udGKvO7Yp+Dlnxbhk
 1gNQrmD9ICjyEOGrKaubCJnrI0Zcjvfml3n9FhJUJeD6XrE6dSY0znUoNc8juBae
 e1dy/29plyXuQOft1fL0MsckfcSWZzJ/64Cpdh515oGeUqQjiZdI6Y/vmQIDAQAB
@@ -40,7 +40,7 @@ QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
 rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
-            this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            //this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             this.client = new SimpleHTTPClient();
         }
 
@@ -48,7 +48,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         {
             this.url = url;
             this.user = user;
-            this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            //this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             this.client = new SimpleHTTPClient();
         }
 
@@ -60,7 +60,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse.id = client.SendPostRequest<BuyRequest>(url, user, token, buyReq);
+                marketResponse.id = client.SendPostRequest<BuyRequest>(url, user, privateKey, buyReq);
                 myLogger.Info("Sent Buy Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url + "}");
             }
             catch (Exception e)
@@ -80,7 +80,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse.id = client.SendPostRequest<SellRequest>(url, user, token, sellReq);
+                marketResponse.id = client.SendPostRequest<SellRequest>(url, user, privateKey, sellReq);
                 myLogger.Info("Sent Sell Request{commodity:" + commodity + ", price:" + price + ", amount:" + amount + ", url:" + url + "}");
             }
             catch (Exception e)
@@ -102,7 +102,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse = client.SendPostRequest<QueryBuySellRequest, MQReq>(url, user, token, queryBS);
+                marketResponse = client.SendPostRequest<QueryBuySellRequest, MQReq>(url, user, privateKey, queryBS);
                 myLogger.Info("Sent Query Buy/Sell Request{id:" + id + ", Response: " + marketResponse.ToString() + "}");
             }
             catch (Exception e)
@@ -124,7 +124,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse = client.SendPostRequest<QueryUserRequest, MQUser>(url, user, token, userReq);
+                marketResponse = client.SendPostRequest<QueryUserRequest, MQUser>(url, user, privateKey, userReq);
                 myLogger.Info("Sent Query Buy/Sell Request{user:" + user + ", url:" + url);
             }
             catch (Exception e)
@@ -144,7 +144,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse = client.SendPostRequest<QueryMarketRequest, MQCommodity>(url, user, token, QMReq);
+                marketResponse = client.SendPostRequest<QueryMarketRequest, MQCommodity>(url, user, privateKey, QMReq);
                 myLogger.Info("Sent Query Market Request{commodity:" + commodity + ", url:" + url + "}");
             }
             catch (Exception e)
@@ -164,7 +164,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             try
             {
-                marketResponse.response = client.SendPostRequest<CancelRequest>(url, user, token, cancelReq);
+                marketResponse.response = client.SendPostRequest<CancelRequest>(url, user, privateKey, cancelReq);
                 myLogger.Info("Sent Cancel Request{id:" + id + ", url:" + url + "}");
             }
             catch (Exception e)

@@ -77,6 +77,7 @@
     <Compile Include="milestone1\UI\Display.cs" />
     <Compile Include="milestone1\UI\Interperator.cs" />
     <Compile Include="milestone1\UI\PrimInterperator.cs" />
+    <Compile Include="Utils\GeneratePDF.cs" />
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="milestone1\DAL\IMarketCommodityOffer.cs" />

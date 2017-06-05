@@ -67,14 +67,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Buy Request-\r\ncommodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString());
@@ -94,14 +87,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Sell Request-\r\ncommodity:" + commodity + ", price:" + price + ", amount:" + amount + "\nResponse: " + marketResponse.ToString());
@@ -123,14 +109,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Query Buy/Sell Request-\r\nid:" + id + "\nResponse: " + marketResponse.ToString());
@@ -152,14 +131,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Query Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
@@ -179,14 +151,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Query Market Request-\r\ncommodity:" + commodity + "\nResponse: " + marketResponse.ToString());
@@ -206,14 +171,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             }
             catch (Exception e)
             {
-                myLogger.Error("EXCEPTION");
-                if (e is MarketException)
-                {
-                    myLogger.Debug("Recieved Market Exception" + e.Message);
-                    return (MarketException)e;
-                }
-                myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
-                return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
+                return catchMethod(e);
             }
 
             myHistory.Info("Sent Cancel Request-\r\nid:" + id + "\nResponse: " + marketResponse.ToString());
@@ -229,6 +187,19 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         public List<MQReqWrapper> SendQueryAllUserRequest()
         {
             throw new NotImplementedException();
+        }
+
+
+        private MarketException catchMethod(Exception e)
+        {
+            myLogger.Error("EXCEPTION");
+            if (e is MarketException)
+            {
+                myLogger.Debug("Recieved Market Exception" + e.Message);
+                return (MarketException)e;
+            }
+            myLogger.Fatal("Unknown exception caught in Communicator: " + e.Message);
+            return new MarketException("Illegal response from server. Possible faulty connection.\nError message:\n" + e.Message);
         }
     }
 }

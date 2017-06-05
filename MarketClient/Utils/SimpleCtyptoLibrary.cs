@@ -53,6 +53,13 @@ namespace MarketClient.Utils
 
 
         //TODO: probably the decryption goes here...
+        public static string createNonce()
+        {
+            return Guid.NewGuid().ToString("N");
+        }
+
+
+
         public static string decrypt(string message, string privateKey)
         {
             RSACryptoServiceProvider rsaAlgo = new RSACryptoServiceProvider();

@@ -27,6 +27,8 @@ namespace MarketClient
             return response == null ? null : FromJson<T2>(response);
         }
 
+
+
         /// <summary>
         /// Send an object of type T1, @item, parsed as json string embedded with the 
         /// authentication token, that is build using @user and @token, 
@@ -52,6 +54,42 @@ namespace MarketClient
                 return responseContent;
             }
         }
+
+        //TODO: SendPostRequest crypto
+
+        public T2 SendCryptoPostRequest<T1, T2>(string url, string user, string privateKey, T1 item) where T2 : class
+        {
+            var response = SendCryptoPostRequest(url, user, privateKey, item);
+            return response == null ? null : FromJson<T2>(response);
+        }
+
+
+        public string SendCryptoPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
+        {
+            string nonce = SimpleCtyptoLibrary.createNonce();
+            string user = user_base + nonce;
+            string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+
+            var auth = new { user, token , nonce };
+            JObject jsonItem = JObject.FromObject(item);
+            jsonItem.Add("auth", JObject.FromObject(auth));
+            StringContent content = new StringContent(jsonItem.ToString());
+            using (var client = new HttpClient())
+            {
+                var result = client.PostAsync(url, content).Result;
+                var responseContent = result?.Content?.ReadAsStringAsync().Result;
+
+                try
+                {
+                    string decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
+                    responseContent = decryptedContent;
+                }
+                finally { }
+                return responseContent;
+
+            }
+        }
+
 
         protected static T FromJson<T>(string response) where T : class 
         {

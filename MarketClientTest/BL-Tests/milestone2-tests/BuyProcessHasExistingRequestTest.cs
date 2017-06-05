@@ -15,7 +15,7 @@ namespace MarketClientTest.BL_Tests
             //arrange
             MQReq query = new MQReq();
             CommStubStaticReturn comm = new CommStubStaticReturn(null, 
-                null, null, query, null, null);
+                null, null, query, null, null,null,null);
             BuyProcess testProcess = new BuyProcess(false, comm, 1, 1, 1, 1);
 
             //initial assert

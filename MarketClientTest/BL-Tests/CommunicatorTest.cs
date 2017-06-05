@@ -49,19 +49,21 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommWrongUser()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, "wrongUser", Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendQueryUserRequest();
             Assert.IsNotNull(resp);
             Trace.Write($"Server response is: {resp}");
         }
 
+
+        //TODO: not sure this test works...
         [TestMethod]
         public void TestCommBuyRequestAndCancel()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendBuyRequest(1, 1, 1);
             string respString = resp.ToString();
@@ -75,8 +77,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommCancelRequest()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendCancelBuySellRequest(11);
             Assert.IsNotNull(resp);
@@ -87,8 +89,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommSellRequestAndQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
             Assert.IsNotNull(resp);
@@ -102,8 +104,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommCommodityQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendQueryMarketRequest(1);
             Assert.IsNotNull(resp);
@@ -114,8 +116,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommWrongCommodityQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendQueryMarketRequest(12);
             Assert.IsNotNull(resp);

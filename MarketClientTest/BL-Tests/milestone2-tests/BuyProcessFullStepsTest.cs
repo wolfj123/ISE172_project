@@ -20,7 +20,7 @@ namespace MarketClientTest.BL_Tests
             MarketException excp = new MarketException();
 
             CommStubStaticReturn comm = new CommStubStaticReturn(buy,
-                null, null, excp, market, null);
+                null, null, excp, market, null, null, null);
             BuyProcess testProcess = new BuyProcess(true, comm, 1, 1, 1, 1);
 
             //initial assert
@@ -43,7 +43,7 @@ namespace MarketClientTest.BL_Tests
 
             //update communicator stub
             comm = new CommStubStaticReturn(buy,
-                null, null, query, market, null);
+                null, null, query, market, null,null, null);
             testProcess.comm = comm;
 
             //act3

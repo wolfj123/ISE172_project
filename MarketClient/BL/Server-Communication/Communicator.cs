@@ -44,11 +44,11 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             this.client = new SimpleHTTPClient();
         }
 
-        public Communicator(string url, string user, string token)
+        public Communicator(string url, string user, string privateKey)
         {
             this.url = url;
             this.user = user;
-            this.token = token;
+            this.token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             this.client = new SimpleHTTPClient();
         }
 

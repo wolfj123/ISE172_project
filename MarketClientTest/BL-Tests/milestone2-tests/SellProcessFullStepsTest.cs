@@ -27,7 +27,7 @@ namespace MarketClientTest.BL_Tests
             int test = user.commodities["1"];
 
             CommStubStaticReturn comm = new CommStubStaticReturn(null,
-                sell, null, excp, market, user);
+                sell, null, excp, market, user, null, null);
             SellProcess testProcess = new SellProcess(true, comm, 1, 1, 1, 1);
 
             //initial assert
@@ -65,7 +65,7 @@ namespace MarketClientTest.BL_Tests
 
             //update communicator stub
             comm = new CommStubStaticReturn(null,
-                sell, null, query, market, user);
+                sell, null, query, market, user, null, null);
             testProcess.comm = comm;
 
 

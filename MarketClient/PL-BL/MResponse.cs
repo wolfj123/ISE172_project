@@ -82,7 +82,7 @@ namespace MarketClient.BL
 
             try
             {
-                output = "User: " + this.user + "\nType: " + this.type + "\nCommodity: " + this.commodity.ToString() + "\nPrice:" + this.price.ToString() + "\nAmount:" + this.amount.ToString();
+                output = "User: " + this.user + ", Type: " + this.type + ", Commodity: " + this.commodity.ToString() + ", Price:" + this.price.ToString() + ", Amount:" + this.amount.ToString();
             }
             catch (Exception e)
             {
@@ -155,7 +155,7 @@ namespace MarketClient.BL
 
             try
             {
-                output = "Ask: " + this.ask + "\nBid: " + this.bid;
+                output = "Ask: " + this.ask + ", Bid: " + this.bid;
             }
             catch (Exception e)
             {
@@ -200,29 +200,11 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            return info.ToString();
+            return "ID: " +id.ToString() + ", " +  info.ToString();
         }
     }
 
-    //TODO: Oblsolete
-    /*
-    public class ListMQCommodityWrapper : GenericMarketResponse
-    {
-        public List<MQCommodityWrapper> list;
-
-        public ListMQCommodityWrapper()
-        {
-            rType = ResponseType.qAllCommodityList;
-        }
-
-        public override string ToString()
-        {
-            //TODO: make string for list
-            return list.ToString();
-        }
-    }
-    */
-
+    
     public class MQReqWrapper : MQReq
     {
         public MQReq request;
@@ -235,7 +217,7 @@ namespace MarketClient.BL
 
         public override string ToString()
         {
-            return request.ToString();
+            return "ID " + id.ToString() + ", " + request.ToString();
         }
     }
 

@@ -29,7 +29,6 @@ namespace MarketClientTest
             List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);
 
             CommStubStaticReturn comm = new CommStubStaticReturn();
-
             comm.qAllmarket = stubResponse;
             AdvancedAMA agent = new AdvancedAMA(1, 1000, comm);
 

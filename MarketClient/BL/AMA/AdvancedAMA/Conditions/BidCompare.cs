@@ -28,10 +28,10 @@ namespace MarketClient.BL
                 if (current.id == process.commodity)
                 {
                     foundPrice = true;
-                    currentBid = current.getAsk();
+                    currentBid = current.getBid();
                 }
             }
-            return (requiredBid > currentBid);
+            return (requiredBid >= currentBid);
         }
     }
 }

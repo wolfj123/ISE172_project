@@ -66,10 +66,10 @@
     <Compile Include="BL-Tests\CommunicatorTest.cs" />
     <Compile Include="BL-Tests\milestone2-tests\SellProcessFullStepsTest.cs" />
     <Compile Include="BL-Tests\milestone2-tests\SellProcessHasExistingRequestTest.cs" />
-    <Compile Include="BL-Tests\HasNoActiveRequestTest.cs" />
-    <Compile Include="BL-Tests\AskCompareTest.cs" />
-    <Compile Include="BL-Tests\BidCompareTest.cs" />
-    <Compile Include="BL-Tests\MomentumIncreaseTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\HasNoActiveRequestTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\AskCompareTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\BidCompareTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumIncreaseTest.cs" />
     <Compile Include="BL-Tests\CryptoTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BL-Tests\AlgoProcessTests\ActionsTest\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

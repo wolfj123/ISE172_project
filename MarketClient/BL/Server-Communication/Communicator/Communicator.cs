@@ -119,7 +119,6 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public IMarketResponse SendQueryUserRequest()
         {
-
             QueryUserRequest userReq = new QueryUserRequest(); //create query user requset
             MQUser marketResponse = new MQUser();
 
@@ -180,12 +179,54 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
-            throw new NotImplementedException();
+            //TODO:  List<MQCommodityWrapper>    List<MQReqWrapper>
+            QueryAllMarketRequest userReq = new QueryAllMarketRequest(); //create query user requset
+            List<MQCommodityWrapper> marketResponse = new List<MQCommodityWrapper>();
+
+            try
+            {
+                marketResponse = client.SendPostRequest<QueryAllMarketRequest, List<MQCommodityWrapper>> (url, user, privateKey, userReq);
+                //TODO: update log
+                myLogger.Info("Sent Query Buy/Sell Request{user:" + user + ", url:" + url);
+
+
+                //TODO: update log
+                myHistory.Info("Sent Query Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
+
+                return marketResponse;
+
+            }
+            catch (Exception e)
+            {
+                catchMethod(e);
+            }
+
+            return null;
         }
 
         public List<MQReqWrapper> SendQueryAllUserRequest()
         {
-            throw new NotImplementedException();
+            //TODO:  List<MQCommodityWrapper>    List<MQReqWrapper>
+            QueryAllBuySellRequest userReq = new QueryAllBuySellRequest(); //create query user requset
+            List<MQReqWrapper> marketResponse = new List<MQReqWrapper>();
+
+            try
+            {
+                marketResponse = client.SendPostRequest<QueryAllBuySellRequest, List<MQReqWrapper>>(url, user, privateKey, userReq);
+                //TODO: update log
+                myLogger.Info("Sent Query Buy/Sell Request{user:" + user + ", url:" + url);
+
+
+                //TODO: update log
+                myHistory.Info("Sent Query Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
+
+                return marketResponse;
+            }
+            catch (Exception e)
+            {
+                catchMethod(e);
+            }
+            return null;
         }
 
 

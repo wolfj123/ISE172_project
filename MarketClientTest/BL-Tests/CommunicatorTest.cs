@@ -87,6 +87,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
             Assert.IsNotNull(resp);
+            
             Trace.Write($"Server response is: {resp}");
         }
 

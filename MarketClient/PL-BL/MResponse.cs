@@ -204,6 +204,25 @@ namespace MarketClient.BL
         }
     }
 
+    //TODO: Oblsolete
+    /*
+    public class ListMQCommodityWrapper : GenericMarketResponse
+    {
+        public List<MQCommodityWrapper> list;
+
+        public ListMQCommodityWrapper()
+        {
+            rType = ResponseType.qAllCommodityList;
+        }
+
+        public override string ToString()
+        {
+            //TODO: make string for list
+            return list.ToString();
+        }
+    }
+    */
+
     public class MQReqWrapper : MQReq
     {
         public MQReq request;
@@ -219,4 +238,5 @@ namespace MarketClient.BL
             return request.ToString();
         }
     }
+
 }

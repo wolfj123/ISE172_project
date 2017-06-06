@@ -8,7 +8,7 @@ namespace MarketClient.PL_BL
 {
     public class Request
     {
-        public String type;
+        public string type;
     }
 
     public class BuySellRequest : Request
@@ -20,7 +20,7 @@ namespace MarketClient.PL_BL
 
 
 
-        //Is this obsolete!?!
+        //TODO: Is this obsolete!?!
         public BuySellRequest (int commodity, int amount, int price) 
         {
             this.amount = amount;
@@ -104,6 +104,21 @@ namespace MarketClient.PL_BL
         }
     }
 
+    public class QueryAllMarketRequest : Request
+    {
+        public QueryAllMarketRequest()
+        {
+            this.type = "queryAllMarket";
+        }
+    }
+
+    public class QueryAllBuySellRequest : Request
+    {
+        public QueryAllBuySellRequest()
+        {
+            this.type = "queryUserRequests";
+        }
+    }
 
 
 }

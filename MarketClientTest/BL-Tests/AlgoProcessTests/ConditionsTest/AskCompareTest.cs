@@ -30,16 +30,19 @@ namespace MarketClientTest
 
             CommStubStaticReturn comm = new CommStubStaticReturn();
             comm.qAllmarket = stubResponse;
-            AdvancedAMA agent = new AdvancedAMA(4, 1000, comm);
+            AdvancedAMA agent = new AdvancedAMA(3+1, 1000, comm);
 
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
             testProcess.addCondition(new AlgoAskCompare(11));
+            agent.add(testProcess);
 
             //Run AMA once
-            agent.enable(true); //agent.enable(false);
+            agent.enable(true); 
+            System.Threading.Thread.Sleep(999);
+            agent.enable(false);
 
-            System.Threading.Thread.Sleep(1000);
+
             //AMA ran once - count should be "1"
             Assert.AreEqual(1, testProcess.count);
         }

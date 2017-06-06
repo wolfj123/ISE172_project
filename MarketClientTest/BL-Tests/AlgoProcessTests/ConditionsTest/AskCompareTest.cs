@@ -9,15 +9,6 @@ namespace MarketClientTest
     [TestClass]
     public class AskCompareTest
     {
-
-        [TestInitialize()]
-        public void Initialize()
-        {
-            //  TODO: Add test initialization code
-        }
-
-
-        //TODO: AskCompareTest
         [TestMethod]
         public void AskCompareTestMethod()
         {
@@ -41,7 +32,6 @@ namespace MarketClientTest
             agent.enable(true); 
             System.Threading.Thread.Sleep(999);
             agent.enable(false);
-
 
             //AMA ran once - count should be "1"
             Assert.AreEqual(1, testProcess.count);

@@ -30,7 +30,7 @@ namespace MarketClientTest
 
             CommStubStaticReturn comm = new CommStubStaticReturn();
             comm.qAllmarket = stubResponse;
-            AdvancedAMA agent = new AdvancedAMA(1, 1000, comm);
+            AdvancedAMA agent = new AdvancedAMA(4, 1000, comm);
 
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);

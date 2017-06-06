@@ -33,6 +33,9 @@ namespace MarketClientTest
 
 
             //Verify if AMA has collected the info from the communicator stub
+            Assert.IsNotNull(agent.commoditiesInfo);
+            Assert.IsNotNull(agent.requestsInfo);
+            Assert.IsNotNull(agent.userData);
             Assert.AreEqual(mqCommodityWrapper, agent.commoditiesInfo);
             Assert.AreEqual(mqReqyWrapper, agent.requestsInfo);
             Assert.AreEqual(mqUser, agent.userData);

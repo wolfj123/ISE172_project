@@ -13,7 +13,15 @@ namespace MarketClientTest
     {
         public int count;
 
-        public AlgoCountProcess() : base(null, null, 0)
+        public AlgoCountProcess() : this(null, null, 0)
+        {
+        }
+
+        public AlgoCountProcess(int commodity) : this(null, null, commodity)
+        {
+        }
+
+        public AlgoCountProcess(AdvancedAMA agent, ICommunicator comm, int commodity) : base(agent,comm, commodity)
         {
             this.setAction(new AlgoCountAction());
         }

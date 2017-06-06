@@ -26,6 +26,7 @@ namespace MarketClient.BL
 
         public AdvancedAMA(int maxReq, double interval, ICommunicator comm)
         {
+            this.comm = comm;
             this.maxReq = maxReq;
             queue = new Queue<AlgoProcess>();
 
@@ -68,14 +69,19 @@ namespace MarketClient.BL
         {
             int numOfReqeusts = 0;
 
+            //backup
+            MQUser oldUserData = userData;
+            List<MQCommodityWrapper> oldCommoditiesInfo = commoditiesInfo;
+            List<MQReqWrapper> oldRequestsInfo = requestsInfo;
             //Gather data from the server
 
             try
             {
-                userData = (MQUser)comm.SendQueryUserRequest();         numOfReqeusts++;
+                userData = (MQUser)comm.SendQueryUserRequest();    numOfReqeusts++;
             }
             catch (Exception e)
             {
+                userData = oldUserData;
                 //TODO: log exception
             }
 
@@ -85,6 +91,7 @@ namespace MarketClient.BL
             }
             catch (Exception e)
             {
+                commoditiesInfo = oldCommoditiesInfo;
                 //TODO: log exception
             }
 
@@ -94,6 +101,7 @@ namespace MarketClient.BL
             }
             catch (Exception e)
             {
+                requestsInfo = oldRequestsInfo;
                 //TODO: log exception
             }
             //return number of requests in this method

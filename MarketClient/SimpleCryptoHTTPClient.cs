@@ -23,7 +23,7 @@ namespace MarketClient
         public override string SendPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
         {
             string nonce = SimpleCtyptoLibrary.createNonce();
-            string user = user_base + nonce;
+            string user = user_base +"_"+ nonce;
             string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
 
             var auth = new { user, token, nonce };

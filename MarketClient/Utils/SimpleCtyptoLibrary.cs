@@ -56,6 +56,14 @@ namespace MarketClient.Utils
         public static string createNonce()
         {
             return Guid.NewGuid().ToString("N");
+
+            string hexNonce = Guid.NewGuid().ToString("N");
+            
+            //Int64 decimalInt = Int64.Parse(hexNonce, System.Globalization.NumberStyles.HexNumber);
+            Decimal decimalParse = Decimal.Parse(hexNonce);
+            return decimalParse.ToString();
+
+
         }
 
 

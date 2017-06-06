@@ -11,6 +11,7 @@ using MarketClient.PL_BL;
 
 namespace MarketClientTest
 {
+    //TODO: make CryptoCommunicator pass tests
     [TestClass]
     public class CryptoCommunicatorTest
     {

@@ -9,10 +9,11 @@ namespace MarketClient.BL
 {
     public class SimpleCryptoHTTPClient : SimpleHTTPClient
     {
+        //SIngleton design pattern
+        private static readonly SimpleCryptoHTTPClient instance = new SimpleCryptoHTTPClient();
         private Int64 nonceInt;
 
-        //TODO: have only 1 instance
-        public SimpleCryptoHTTPClient(){
+        private SimpleCryptoHTTPClient(){
             string concat = "";
             concat += (DateTime.Today.Year - 2016).ToString();
             concat += DateTime.Today.ToString("MM");
@@ -27,9 +28,15 @@ namespace MarketClient.BL
             Trace.WriteLine(nonceInt);
         }
 
+        public static SimpleCryptoHTTPClient getSimpleCryptoHTTPClient()
+        {
+            return instance;
+        }
+
 
         public override string SendPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
         {
+            nonceInt += 1;
             string nonce = nonceInt.ToString();
             string user = user_base +"_"+ nonce;
             string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
@@ -52,6 +59,11 @@ namespace MarketClient.BL
                 return responseContent;
             }
         }
+
+        public string getNonce()
+        {
+            return nonceInt.ToString();
+        } 
 
     }
 }

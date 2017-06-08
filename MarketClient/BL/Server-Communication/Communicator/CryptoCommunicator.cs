@@ -13,13 +13,13 @@ namespace MarketClient.BL
     {
         public CryptoCommunicator() : base()
         {
-            this.client = new SimpleCryptoHTTPClient();
+            this.client = SimpleCryptoHTTPClient.getSimpleCryptoHTTPClient();
         }
 
         public CryptoCommunicator(string url, string user, string privateKey)
             : base(url,user,privateKey)
         {
-            this.client = new SimpleCryptoHTTPClient();
+            this.client = SimpleCryptoHTTPClient.getSimpleCryptoHTTPClient();
         }
     }
 }

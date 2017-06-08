@@ -51,41 +51,6 @@ namespace MarketClient.Utils
             return Convert.ToBase64String(rsaAlgo.SignData(Encoding.UTF8.GetBytes(message), "SHA256"));
         }
 
-
-        //TODO: probably the decryption goes here...
-        public static string createNonce()
-        {
-            /*
-            return Guid.NewGuid().ToString("N");
-
-            string hexNonce = Guid.NewGuid().ToString("N");
-            
-            //Int64 decimalInt = Int64.Parse(hexNonce, System.Globalization.NumberStyles.HexNumber);
-            Decimal decimalParse = Decimal.Parse(hexNonce);
-            return decimalParse.ToString();
-            */
-
-            /*
-            long ticks = DateTime.Now.Ticks;
-            return ticks.ToString();
-            */
-
-            //return Guid.NewGuid().GetHashCode().ToString();
-
-            /*
-            int tickss = (int)DateTime.Now.Ticks;
-            return ticks.ToString();
-            */
-
-
-            //return DateTime.Now.Millisecond.ToString();
-
-            Int64 output = DateTime.Now.Ticks;
-            return output.ToString();
-        }
-
-
-
         public static string decrypt(string message, string privateKey)
         {
             RSACryptoServiceProvider rsaAlgo = new RSACryptoServiceProvider();

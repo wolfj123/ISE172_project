@@ -14,22 +14,6 @@ namespace MarketClientTest.BL_Tests
         [TestMethod]
         public void NonceGenerationTestMethod()
         {
-            /*
-            List<String> output = new List<String>();
-            for (int i = 0; i<10; i++)
-            {
-                output.Add(SimpleCtyptoLibrary.createNonce() + "\n");
-            }
-
-            foreach(String s in output)
-            {
-                Trace.Write(s);
-            }
-            */
-
-            
-            SimpleCryptoHTTPClient client = new SimpleCryptoHTTPClient();
-            //Trace.Write(client.nonceInt);
             
         }
     }

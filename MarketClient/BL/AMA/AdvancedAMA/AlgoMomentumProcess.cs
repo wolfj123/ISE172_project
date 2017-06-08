@@ -12,10 +12,10 @@ namespace MarketClient.BL
             : base(agent,comm,commodity)
         {
             //TODO: momentum increase integers making any sense
-            this.conditions.Add(new HasNoActiveRequest());
-            this.conditions.Add(new MomentumIncrease(5,20));
+            addCondition(new HasNoActiveRequest());
+            addCondition(new MomentumIncrease(5,20));
 
-            this.action = new AlgoBuy(15);
+            setAction(new AlgoBuy(15));
         }
     }
 
@@ -26,10 +26,10 @@ namespace MarketClient.BL
             : base(agent, comm, commodity)
         {
             //TODO: momentum increase integers making any sense
-            this.conditions.Add(new HasSupply());
-            this.conditions.Add(new MomentumDecrease(5, 20));
+            addCondition(new HasSupply());
+            addCondition(new MomentumDecrease(5, 20));
 
-            this.action = new AlgoSell();
+            setAction(new AlgoSell());
         }
     }
 }

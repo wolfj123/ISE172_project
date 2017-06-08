@@ -21,5 +21,10 @@ namespace MarketClient.BL
             // TODO: Sell x shares of a stock when its 50-day moving average goes below the 200-day moving average
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return ("verify if the " + shortTime + "-moving average is below the " + longTime + "-moving average");
+        }
     }
 }

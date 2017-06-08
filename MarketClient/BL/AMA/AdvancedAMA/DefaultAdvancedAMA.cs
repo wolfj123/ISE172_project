@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MarketClient.BL
 {
-    public class DefaultAdvancedAMA : AdvancedAMA
+    public class DefaultMomentumAMA : AdvancedAMA
     {
-        public DefaultAdvancedAMA() : base(20,10000, new Communicator())
+        public DefaultMomentumAMA() : base(20,10000, new Communicator())
         {
             for(int commodity=9; commodity>=0; commodity--)
             {
@@ -18,6 +18,23 @@ namespace MarketClient.BL
             for (int commodity = 9; commodity >= 0; commodity--)
             {
                 add(new AlgoMomentumSellProcess(this, comm, commodity));
+            }
+        }
+    }
+
+    //TODO: test this ama
+    public class DefaultCompareAMA : AdvancedAMA
+    {
+        public DefaultCompareAMA() : base(20, 10000, new Communicator())
+        {
+            for (int commodity = 9; commodity >= 0; commodity--)
+            {
+                add(new AlgoCompareBuyProcess(this, comm, commodity));
+            }
+
+            for (int commodity = 9; commodity >= 0; commodity--)
+            {
+                add(new AlgoCompareSellProcess(this, comm, commodity));
             }
         }
     }

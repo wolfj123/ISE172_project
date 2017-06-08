@@ -23,5 +23,10 @@ namespace MarketClient.BL
 
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return ("verify if the " + shortTime + "-moving average is above the " + longTime + "-moving average");
+        }
     }
 }

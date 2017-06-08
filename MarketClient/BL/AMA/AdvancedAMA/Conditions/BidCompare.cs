@@ -35,5 +35,11 @@ namespace MarketClient.BL
             }
             return (requiredBid >= currentBid);
         }
+
+        public override string ToString()
+        {
+            return ("verify if bid is equal or above " + requiredBid.ToString());
+        }
     }
+
 }

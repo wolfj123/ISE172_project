@@ -119,8 +119,7 @@ namespace MarketClient.BL
 
                 //run the process
                 bool success = currentLogic.runProcess();
-                //TODO: update logger for AdvancedAMA
-                //myLogger.Info("AMA logic " + (count + 1) + "/" + maxReq + ": Activated - Logic info: " + currentLogic.ToString());
+                myLogger.Info("AMA running logic: "+ currentLogic.ToString());
 
                 //Add the AlgoProcess to the end of the queue
                 queue.Enqueue(currentLogic);

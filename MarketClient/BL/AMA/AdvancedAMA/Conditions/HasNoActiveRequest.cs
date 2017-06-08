@@ -14,5 +14,11 @@ namespace MarketClient.BL
         {
             return process.requestID == -1;
         }
+
+
+        public override string ToString()
+        {
+            return ("verify if that there are no pending requests");
+        }
     }
 }

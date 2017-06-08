@@ -36,5 +36,10 @@ namespace MarketClient.BL
             }
             return (requiredAsk <= currentAsk);
         }
+
+        public override string ToString()
+        {
+            return ("verify if ask is equal or below " + requiredAsk.ToString());
+        }
     }
 }

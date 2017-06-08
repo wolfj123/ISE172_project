@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace MarketClient.BL
 {
@@ -10,13 +11,16 @@ namespace MarketClient.BL
     //If all the conditions are met than the action is initiated
     public class AlgoProcess
     {
+
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         public AdvancedAMA agent;
         public ICommunicator comm;
         public int commodity;
         public List<AlgoCondition> conditions;
         public AlgoAction action;
         public int requestID;
-        string name = "AlgoProcess"
+        string name = "AlgoProcess";
 
         public AlgoProcess(AdvancedAMA agent, ICommunicator comm, int commodity) 
             : this(agent,comm,commodity,new List<AlgoCondition>(), null)
@@ -58,15 +62,7 @@ namespace MarketClient.BL
 
         public virtual bool runProcess()
         {
-            try
-            {
-                updateRequestStatus();
-            }
-            catch(Exception e)
-            {
-                //TODO: log exception
-            }
-            
+            updateRequestStatus();       
 
             //Verify that all conditions are met
             bool conditionsMet = true;
@@ -86,19 +82,25 @@ namespace MarketClient.BL
             if (action == null) return false;
             if (conditionsMet)
             {
+                myLogger.Info(name + " conditions are met");
                 action.runAction(this);
+                myLogger.Info(name + " has activated the action");
                 return true;
             }
-            else return false;
+            else
+            {
+                myLogger.Info(name + " conditions are not met");
+                return false;
+            }
         }
 
         public override string ToString()
         {
-            string output = name + " info:\nCommodity ID: "+commodity+"\nConditions:\n";
+            string output = name + " info:\nCommodity ID: "+commodity+"\nConditions: ";
             foreach(AlgoCondition c in conditions)
             {
                 output += c.ToString();
-                output += "\n";
+                output += ", ";
             }
             output += "Action: " + action.ToString();
             return output;

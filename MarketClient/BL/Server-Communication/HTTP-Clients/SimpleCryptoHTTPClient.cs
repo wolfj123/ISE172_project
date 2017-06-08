@@ -25,7 +25,7 @@ namespace MarketClient.BL
             concat += "00000";
 
             nonceInt = Convert.ToInt64(concat);
-            Trace.WriteLine(nonceInt);
+            //Trace.WriteLine(nonceInt);
         }
 
         public static SimpleCryptoHTTPClient getSimpleCryptoHTTPClient()

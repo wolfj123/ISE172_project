@@ -42,7 +42,7 @@ namespace MarketClient.BL
             {
                 success = true;
                 MBuySell resp = (MBuySell)response;
-                process.reqeustID = resp.getID();
+                process.requestID = resp.getID();
             }
             return success;
         }

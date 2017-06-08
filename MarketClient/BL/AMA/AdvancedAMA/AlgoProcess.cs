@@ -15,7 +15,7 @@ namespace MarketClient.BL
         public int commodity;
         public List<AlgoCondition> conditions;
         public AlgoAction action;
-        public int reqeustID;
+        public int requestID;
 
         public AlgoProcess(AdvancedAMA agent, ICommunicator comm, int commodity) 
             : this(agent,comm,commodity,new List<AlgoCondition>(), null)
@@ -43,13 +43,13 @@ namespace MarketClient.BL
             for (int i=0; i<list.Count & !containsRequest; i++)
             {
                 MQReqWrapper current = list[i];
-                if (current.id == this.reqeustID)
+                if (current.id == this.requestID)
                     containsRequest = true;
             }
 
             if (!containsRequest)
             {
-                reqeustID = -1;
+                requestID = -1;
             }
             
         }

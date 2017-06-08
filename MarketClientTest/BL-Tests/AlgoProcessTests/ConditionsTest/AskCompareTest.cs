@@ -29,7 +29,7 @@ namespace MarketClientTest
         }
 
         [TestMethod]
-        public void AskCompareTestMethodTrue()
+        public void AskCompareTestTrue()
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
@@ -46,7 +46,7 @@ namespace MarketClientTest
         }
 
         [TestMethod]
-        public void AskCompareTestMethodFalse()
+        public void AskCompareTestFalse()
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);

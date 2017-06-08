@@ -12,7 +12,7 @@ namespace MarketClient.BL
         //Returns true if there is no active request false otherwise
         public bool conditionIsMet(AlgoProcess process)
         {
-            return process.reqeustID == -1;
+            return process.requestID == -1;
         }
     }
 }

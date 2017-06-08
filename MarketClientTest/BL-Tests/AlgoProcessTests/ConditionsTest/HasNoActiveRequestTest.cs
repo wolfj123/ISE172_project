@@ -10,23 +10,52 @@ namespace MarketClientTest.BL_Tests
     public class HasNoActiveRequestTest
     {
         //TODO: HasNoActiveRequestTest
-        [TestMethod]
-        public void HasNoActiveRequestTestMethod()
+        int commodity;
+        CommStubStaticReturn comm;
+        MQReqWrapper qmarketWrapper;
+        AdvancedAMA agent;
+
+        [TestInitialize]
+        public void TestInitialize()
         {
             //Create stub communicator and pass it to the AMA
-            int commodity = 0;
-            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "10";
-            MQCommodityWrapper qmarketWrapper = new MQCommodityWrapper();
-            qmarketWrapper.info = qmarket; qmarketWrapper.id = commodity;
-            List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);
+            commodity = 0;
+            
+            MQReq qmarket = new MQReq();
+            qmarketWrapper = new MQReqWrapper(); qmarketWrapper.id = 123456;
+            qmarketWrapper.request = qmarket; 
+            List<MQReqWrapper> stubResponse = new List<MQReqWrapper>(); stubResponse.Add(qmarketWrapper);
 
-            CommStubStaticReturn comm = new CommStubStaticReturn();
-            comm.qAllmarket = stubResponse;
-            AdvancedAMA agent = new AdvancedAMA(3 + 1, 1000, comm);
+            comm = new CommStubStaticReturn();
+            comm.qAllrequests = stubResponse;
+            agent = new AdvancedAMA(3 + 1, 1000, comm);
+        }
 
+        [TestMethod]
+        public void HasNoActiveRequestTestTrue()
+        {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoAskCompare(11));
+            testProcess.addCondition(new HasNoActiveRequest());
+            testProcess.requestID = -1;
+            agent.add(testProcess);
+
+            //Run AMA once
+            agent.enable(true);
+            System.Threading.Thread.Sleep(999);
+            agent.enable(false);
+
+            //AMA ran once but condition is not met - count should be "0"
+            Assert.AreEqual(1, testProcess.count);
+        }
+
+        [TestMethod]
+        public void HasNoActiveRequestTestFalse()
+        {
+            //Create process that will count each time the AlgoAskCompare condition is "true"
+            AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
+            testProcess.addCondition(new HasNoActiveRequest());
+            testProcess.requestID = qmarketWrapper.id;
             agent.add(testProcess);
 
             //Run AMA once
@@ -35,9 +64,7 @@ namespace MarketClientTest.BL_Tests
             agent.enable(false);
 
             //AMA ran once - count should be "1"
-            Assert.AreEqual(1, testProcess.count);
-
-
+            Assert.AreEqual(0, testProcess.count);
         }
     }
 }

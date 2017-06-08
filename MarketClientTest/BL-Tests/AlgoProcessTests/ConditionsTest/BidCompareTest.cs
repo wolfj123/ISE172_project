@@ -9,7 +9,6 @@ namespace MarketClientTest.BL_Tests
     [TestClass]
     public class BidCompareTest
     {
-        //TODO: Bid compare
         int commodity;
         CommStubStaticReturn comm;
         AdvancedAMA agent;
@@ -30,7 +29,7 @@ namespace MarketClientTest.BL_Tests
         }
 
         [TestMethod]
-        public void BidCompareTestMethodTrue()
+        public void BidCompareTestTrue()
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
@@ -47,7 +46,7 @@ namespace MarketClientTest.BL_Tests
         }
 
         [TestMethod]
-        public void BidCompareTestMethodFalse()
+        public void BidCompareTestFalse()
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);

@@ -19,7 +19,7 @@ namespace MarketClientTest.BL_Tests
         {
             //Create stub communicator and pass it to the AMA
             commodity = 0;
-            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "10";
+            MQCommodity qmarket = new MQCommodity(); qmarket.bid = "10";
             MQCommodityWrapper qmarketWrapper = new MQCommodityWrapper();
             qmarketWrapper.info = qmarket; qmarketWrapper.id = commodity;
             List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);

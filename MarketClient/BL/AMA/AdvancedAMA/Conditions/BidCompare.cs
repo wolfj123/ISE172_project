@@ -18,7 +18,7 @@ namespace MarketClient.BL
 
         public bool conditionIsMet(AlgoProcess process)
         {
-            if (process.agent.commoditiesInfo == null) return false;
+            //if (process.agent.commoditiesInfo == null) return false;
             int currentBid = 0;
 
             //Find currentBid by using the data from the AMA

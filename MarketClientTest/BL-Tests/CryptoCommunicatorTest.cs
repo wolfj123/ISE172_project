@@ -54,8 +54,6 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Trace.Write($"Server response is: {resp}");
         }
 
-
-        //TODO: not sure this test works...
         [TestMethod]
         public void TestCryptoCommBuyRequestAndCancel()
         {

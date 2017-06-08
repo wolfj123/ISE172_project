@@ -9,7 +9,6 @@ namespace MarketClientTest.BL_Tests
     [TestClass]
     public class HasNoActiveRequestTest
     {
-        //TODO: HasNoActiveRequestTest
         int commodity;
         CommStubStaticReturn comm;
         MQReqWrapper qmarketWrapper;

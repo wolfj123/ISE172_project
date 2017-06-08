@@ -179,7 +179,6 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public List<MQCommodityWrapper> SendQueryAllMarketRequest()
         {
-            //TODO:  List<MQCommodityWrapper>    List<MQReqWrapper>
             QueryAllMarketRequest userReq = new QueryAllMarketRequest(); //create query user requset
             List<MQCommodityWrapper> marketResponse = new List<MQCommodityWrapper>();
 
@@ -206,7 +205,6 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
         public List<MQReqWrapper> SendQueryAllUserRequest()
         {
-            //TODO:  List<MQCommodityWrapper>    List<MQReqWrapper>
             QueryAllBuySellRequest userReq = new QueryAllBuySellRequest(); //create query user requset
             List<MQReqWrapper> marketResponse = new List<MQReqWrapper>();
 

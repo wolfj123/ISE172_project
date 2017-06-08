@@ -4,16 +4,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MarketClientTest.BL_Tests
 {
     [TestClass]
-    public class MomentumIncreaseTest
+    public class MomentumDecreaseTest
     {
         //TODO: MomentumIncreaseTest
         [TestMethod]
-        public void MomentumIncreaseTrue()
+        public void MomentumDecreaseTrue()
         {
         }
 
         [TestMethod]
-        public void MomentumIncreaseFalse()
+        public void MomentumDecreaseFalse()
         {
         }
     }

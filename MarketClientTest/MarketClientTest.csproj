@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BL-Tests\AdvancedAMAgatherInfoTest.cs" />
     <Compile Include="BL-Tests\AdvancedAMATimerTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
     <Compile Include="BL-Tests\CommunicatorNewRequestsTest.cs" />
     <Compile Include="BL-Tests\CryptoCommunicatorTest.cs" />

@@ -10,7 +10,7 @@ namespace MarketClient.BL
     public class SimpleCryptoHTTPClient : SimpleHTTPClient
     {
 
-        string nonceInt;
+        Int64 nonceInt;
 
 
         public SimpleCryptoHTTPClient(){
@@ -45,16 +45,16 @@ namespace MarketClient.BL
 
 
             string concat = "";
-            concat += (DateTime.Today.Year - 2017).ToString();
+            concat += (DateTime.Today.Year - 2016).ToString();
             concat += DateTime.Today.ToString("MM");
             concat += DateTime.Today.ToString("dd");
             concat += DateTime.Now.ToString("HH");
             concat += DateTime.Now.ToString("mm");
             concat += DateTime.Now.ToString("ss");
             concat += DateTime.Now.ToString("fff");
+            concat += "00000";
 
-
-            nonceInt = concat;
+            nonceInt = Convert.ToInt64(concat);
             Trace.WriteLine(nonceInt);
         }
 

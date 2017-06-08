@@ -11,6 +11,7 @@ namespace MarketClient.BL
     {
         public bool conditionIsMet(AlgoProcess process)
         {
+            if (process.agent.userData == null) return false;
             //Get data from process
             IDictionary<string,int> userCommodities = process.agent.userData.getCommodities();
             string commodity = process.commodity.ToString();

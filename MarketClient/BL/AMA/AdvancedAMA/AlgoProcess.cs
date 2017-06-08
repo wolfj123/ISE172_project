@@ -35,6 +35,8 @@ namespace MarketClient.BL
 
         private void updateRequestStatus()
         {
+            if (agent.requestsInfo == null) return;
+
             List<MQReqWrapper> list = agent.requestsInfo;
 
             bool containsRequest = false;
@@ -67,7 +69,7 @@ namespace MarketClient.BL
 
             //Verify that all conditions are met
             bool conditionsMet = true;
-            if (conditions.Count == 0)
+            if (conditions.Count > 0)
             {
                 foreach (AlgoCondition condition in conditions)
                 {

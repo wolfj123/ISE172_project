@@ -18,11 +18,19 @@ namespace MarketClient.BL
 
         public bool conditionIsMet(AlgoProcess process)
         {
+            /*
+            if (process.agent.commoditiesInfo == null)
+            {
+                bool test = true;
+                return false;
+            }
+            */
             int currentAsk = 999999;
 
             //Find currentAsk by using the data from the AMA
             bool foundPrice = false;
-            for (int i = 0; i <= 9 & !foundPrice; i++)
+
+            for (int i = 0; i < process.agent.commoditiesInfo.Count & !foundPrice; i++)
             {
                 MQCommodityWrapper current = process.agent.commoditiesInfo[i];
                 if (current.id == process.commodity)

@@ -9,13 +9,13 @@ namespace MarketClientTest.BL_Tests
     [TestClass]
     public class BidCompareTest
     {
-        //TODO: BidCompareTest
+        //TODO: Bid compare
         [TestMethod]
         public void BidCompareTestMethod()
         {
             //Create stub communicator and pass it to the AMA
             int commodity = 0;
-            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "10";
+            MQCommodity qmarket = new MQCommodity(); qmarket.bid = "10";
             MQCommodityWrapper qmarketWrapper = new MQCommodityWrapper();
             qmarketWrapper.info = qmarket; qmarketWrapper.id = commodity;
             List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);
@@ -26,7 +26,7 @@ namespace MarketClientTest.BL_Tests
 
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoAskCompare(11));
+            testProcess.addCondition(new AlgoBidCompare(11));
             agent.add(testProcess);
 
             //Run AMA once

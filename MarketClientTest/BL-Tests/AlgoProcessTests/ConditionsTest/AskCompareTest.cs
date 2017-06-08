@@ -9,28 +9,31 @@ namespace MarketClientTest
     [TestClass]
     public class AskCompareTest
     {
+        int commodity;
+        CommStubStaticReturn comm;
+        AdvancedAMA agent;
 
-
-
-
-
-        [TestMethod]
-        public void AskCompareTestMethodTrue()
+        [TestInitialize]
+        public void TestInitialize()
         {
             //Create stub communicator and pass it to the AMA
-            int commodity = 0;
-            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "2";
+            commodity = 0;
+            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "10";
             MQCommodityWrapper qmarketWrapper = new MQCommodityWrapper();
             qmarketWrapper.info = qmarket; qmarketWrapper.id = commodity;
             List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);
 
-            CommStubStaticReturn comm = new CommStubStaticReturn();
+            comm = new CommStubStaticReturn();
             comm.qAllmarket = stubResponse;
-            AdvancedAMA agent = new AdvancedAMA(3 + 1, 1000, comm);
+            agent = new AdvancedAMA(3 + 1, 1000, comm);
+        }
 
+        [TestMethod]
+        public void AskCompareTestMethodTrue()
+        {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoAskCompare(2));
+            testProcess.addCondition(new AlgoAskCompare(10-1));
             agent.add(testProcess);
 
             //Run AMA once
@@ -45,6 +48,18 @@ namespace MarketClientTest
         [TestMethod]
         public void AskCompareTestMethodFalse()
         {
+            //Create process that will count each time the AlgoAskCompare condition is "true"
+            AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
+            testProcess.addCondition(new AlgoAskCompare(10 + 1));
+            agent.add(testProcess);
+
+            //Run AMA once
+            agent.enable(true);
+            System.Threading.Thread.Sleep(999);
+            agent.enable(false);
+
+            //AMA ran once but condition is not met - count should be "0"
+            Assert.AreEqual(0, testProcess.count);
         }
 
     }

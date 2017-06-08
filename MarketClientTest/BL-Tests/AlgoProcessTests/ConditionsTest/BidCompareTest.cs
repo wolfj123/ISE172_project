@@ -10,23 +10,31 @@ namespace MarketClientTest.BL_Tests
     public class BidCompareTest
     {
         //TODO: Bid compare
-        [TestMethod]
-        public void BidCompareTestMethod()
+        int commodity;
+        CommStubStaticReturn comm;
+        AdvancedAMA agent;
+
+        [TestInitialize]
+        public void TestInitialize()
         {
             //Create stub communicator and pass it to the AMA
-            int commodity = 0;
-            MQCommodity qmarket = new MQCommodity(); qmarket.bid = "10";
+            commodity = 0;
+            MQCommodity qmarket = new MQCommodity(); qmarket.ask = "10";
             MQCommodityWrapper qmarketWrapper = new MQCommodityWrapper();
             qmarketWrapper.info = qmarket; qmarketWrapper.id = commodity;
             List<MQCommodityWrapper> stubResponse = new List<MQCommodityWrapper>(); stubResponse.Add(qmarketWrapper);
 
-            CommStubStaticReturn comm = new CommStubStaticReturn();
+            comm = new CommStubStaticReturn();
             comm.qAllmarket = stubResponse;
-            AdvancedAMA agent = new AdvancedAMA(3 + 1, 1000, comm);
+            agent = new AdvancedAMA(3 + 1, 1000, comm);
+        }
 
+        [TestMethod]
+        public void BidCompareTestMethodTrue()
+        {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoBidCompare(11));
+            testProcess.addCondition(new AlgoBidCompare(10 + 1));
             agent.add(testProcess);
 
             //Run AMA once
@@ -36,6 +44,23 @@ namespace MarketClientTest.BL_Tests
 
             //AMA ran once - count should be "1"
             Assert.AreEqual(1, testProcess.count);
+        }
+
+        [TestMethod]
+        public void BidCompareTestMethodFalse()
+        {
+            //Create process that will count each time the AlgoAskCompare condition is "true"
+            AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
+            testProcess.addCondition(new AlgoBidCompare(10 - 1));
+            agent.add(testProcess);
+
+            //Run AMA once
+            agent.enable(true);
+            System.Threading.Thread.Sleep(999);
+            agent.enable(false);
+
+            //AMA ran once but condition is not met - count should be "0"
+            Assert.AreEqual(0, testProcess.count);
         }
     }
 }

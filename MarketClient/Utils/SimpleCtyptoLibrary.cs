@@ -55,6 +55,7 @@ namespace MarketClient.Utils
         //TODO: probably the decryption goes here...
         public static string createNonce()
         {
+            /*
             return Guid.NewGuid().ToString("N");
 
             string hexNonce = Guid.NewGuid().ToString("N");
@@ -62,6 +63,21 @@ namespace MarketClient.Utils
             //Int64 decimalInt = Int64.Parse(hexNonce, System.Globalization.NumberStyles.HexNumber);
             Decimal decimalParse = Decimal.Parse(hexNonce);
             return decimalParse.ToString();
+            */
+
+
+            
+            long ticks = DateTime.Now.Ticks;
+            return ticks.ToString();
+            
+
+
+            //return Guid.NewGuid().GetHashCode().ToString();
+
+
+            
+            int tickss = (int)DateTime.Now.Ticks;
+            return ticks.ToString();
 
 
         }

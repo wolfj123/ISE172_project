@@ -11,23 +11,6 @@ namespace MarketClient.PL_BL
         public string type;
     }
 
-    public class BuySellRequest : Request
-    {
-       
-        public int commodity;
-        public int amount;
-        public int price;
-
-
-
-        //TODO: Is this obsolete!?!
-        public BuySellRequest (int commodity, int amount, int price) 
-        {
-            this.amount = amount;
-            this.commodity = commodity;
-            this.price = price;
-        }
-    }
 
     public class BuyRequest : Request
     {

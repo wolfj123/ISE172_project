@@ -5,7 +5,6 @@ using Newtonsoft.Json.Linq;
 
 namespace MarketClient.BL
 {
-    //TODO: add decryption here (probably add decrypt() to the string overload
     public class SimpleHTTPClient
     {
         /// <summary>
@@ -27,8 +26,6 @@ namespace MarketClient.BL
             var response = SendPostRequest(url, user, privateKey, item);
             return response == null ? null : FromJson<T2>(response);
         }
-
-
 
         /// <summary>
         /// Send an object of type T1, @item, parsed as json string embedded with the 

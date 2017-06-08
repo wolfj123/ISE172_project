@@ -12,7 +12,7 @@ namespace MarketClient.BL
 {
     public class AdvancedAMA
     {
-        private static ILog myLogger = LogManager.GetLogger("AMA");
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         protected Queue<AlgoProcess> queue; //The list containing all the LogicBlocks
         protected int maxReq; //The maximum requests allowed per interval
@@ -73,8 +73,9 @@ namespace MarketClient.BL
             MQUser oldUserData = userData;
             List<MQCommodityWrapper> oldCommoditiesInfo = commoditiesInfo;
             List<MQReqWrapper> oldRequestsInfo = requestsInfo;
-            //Gather data from the server
 
+
+            //Gather data from the server
             try
             {
                 userData = (MQUser)comm.SendQueryUserRequest();    numOfReqeusts++;
@@ -82,7 +83,7 @@ namespace MarketClient.BL
             catch (Exception e)
             {
                 userData = oldUserData;
-                //TODO: log exception
+                myLogger.Error("AMA failed to acquire userData: "+e.Message);
             }
 
             try
@@ -92,7 +93,7 @@ namespace MarketClient.BL
             catch (Exception e)
             {
                 commoditiesInfo = oldCommoditiesInfo;
-                //TODO: log exception
+                myLogger.Error("AMA failed to acquire commoditiesInfo: " + e.Message);
             }
 
             try
@@ -102,7 +103,7 @@ namespace MarketClient.BL
             catch (Exception e)
             {
                 requestsInfo = oldRequestsInfo;
-                //TODO: log exception
+                myLogger.Error("AMA failed to acquire requestsInfo: " + e.Message);
             }
             //return number of requests in this method
             return numOfReqeusts;

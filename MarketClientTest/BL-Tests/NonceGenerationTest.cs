@@ -10,7 +10,6 @@ namespace MarketClientTest.BL_Tests
     [TestClass]
     public class NonceGenerationTest
     {
-        //TODO: CryptoTest
         [TestMethod]
         public void NonceGenerationTestMethod()
         {

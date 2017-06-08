@@ -73,6 +73,7 @@
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\AskCompareTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\BidCompareTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumIncreaseTest.cs" />
+    <Compile Include="BL-Tests\NonceFailTest.cs" />
     <Compile Include="BL-Tests\NonceGenerationTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

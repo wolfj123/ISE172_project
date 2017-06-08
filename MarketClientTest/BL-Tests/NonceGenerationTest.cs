@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using MarketClient.Utils;
 using System.Collections.Generic;
+using MarketClient.BL;
 
 namespace MarketClientTest.BL_Tests
 {
@@ -13,6 +14,7 @@ namespace MarketClientTest.BL_Tests
         [TestMethod]
         public void NonceGenerationTestMethod()
         {
+            /*
             List<String> output = new List<String>();
             for (int i = 0; i<10; i++)
             {
@@ -23,6 +25,12 @@ namespace MarketClientTest.BL_Tests
             {
                 Trace.Write(s);
             }
+            */
+
+            
+            SimpleCryptoHTTPClient client = new SimpleCryptoHTTPClient();
+            //Trace.Write(client.nonceInt);
+            
         }
     }
 }

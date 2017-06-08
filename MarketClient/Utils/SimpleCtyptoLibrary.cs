@@ -65,21 +65,23 @@ namespace MarketClient.Utils
             return decimalParse.ToString();
             */
 
-
-            
+            /*
             long ticks = DateTime.Now.Ticks;
             return ticks.ToString();
-            
-
+            */
 
             //return Guid.NewGuid().GetHashCode().ToString();
 
-
-            
+            /*
             int tickss = (int)DateTime.Now.Ticks;
             return ticks.ToString();
+            */
 
 
+            //return DateTime.Now.Millisecond.ToString();
+
+            Int64 output = DateTime.Now.Ticks;
+            return output.ToString();
         }
 
 

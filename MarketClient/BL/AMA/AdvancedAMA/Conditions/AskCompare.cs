@@ -18,13 +18,8 @@ namespace MarketClient.BL
 
         public bool conditionIsMet(AlgoProcess process)
         {
-            /*
-            if (process.agent.commoditiesInfo == null)
-            {
-                bool test = true;
-                return false;
-            }
-            */
+            if (process.agent.commoditiesInfo == null) return false;
+         
             int currentAsk = 999999;
 
             //Find currentAsk by using the data from the AMA

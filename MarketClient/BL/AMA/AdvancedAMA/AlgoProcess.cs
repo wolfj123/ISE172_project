@@ -16,6 +16,7 @@ namespace MarketClient.BL
         public List<AlgoCondition> conditions;
         public AlgoAction action;
         public int requestID;
+        string name = "AlgoProcess"
 
         public AlgoProcess(AdvancedAMA agent, ICommunicator comm, int commodity) 
             : this(agent,comm,commodity,new List<AlgoCondition>(), null)
@@ -91,10 +92,16 @@ namespace MarketClient.BL
             else return false;
         }
 
-        //TODO: update ToString for AlgoProcess
         public override string ToString()
         {
-            return base.ToString();
+            string output = name + " info:\nCommodity ID: "+commodity+"\nConditions:\n";
+            foreach(AlgoCondition c in conditions)
+            {
+                output += c.ToString();
+                output += "\n";
+            }
+            output += "Action: " + action.ToString();
+            return output;
         }
 
         public void addCondition(AlgoCondition condition)

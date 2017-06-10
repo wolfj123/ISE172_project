@@ -12,15 +12,18 @@ namespace MarketClient.DataEntries
 
         public static String[] historyByDate(DateTime minDate, DateTime maxDate)
         {
+            DateTime today = DateTime.Now;
+            int todayYear = today.Year;
+            int todayMonth = today.Month;
             // if the file didnt delete pervious time delete him
-            if (System.IO.File.Exists("../../../History/history2.log"))
+            if (System.IO.File.Exists("../../../History/" + todayYear + todayMonth +"history2.log"))
             {
-                System.IO.File.Delete("../../../History/history2.log");
+                System.IO.File.Delete("../../../History/" + todayYear + todayMonth + "history2.log");
             }
             //copy the history file, read from the copy and at the end delete it 
-            System.IO.File.Copy("../../../History/history.log","../../../History/history2.log");        
+            System.IO.File.Copy("../../../History/" + todayYear + todayMonth + "history.log", "../../../History/" + todayYear + todayMonth + "history2.log");        
             List<String> output = new List<String>();
-            using (StreamReader sr = new StreamReader("../../../History/history2.log"))
+            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + todayMonth + "History/history2.log"))
             {
                 string line = sr.ReadLine();
                 //check that the file isnt empty

@@ -10,15 +10,17 @@ using iTextSharp.text.pdf;
 
 namespace MarketClient.Utils
 {
-    static class GeneratePDF
+    class GeneratePDF
     {
-        public static void ceate()
+        public GeneratePDF() { }
+        
+        public void ceate(String fileName, String substance)
         {
-            FileStream fs = new FileStream("Chapter1_Example1.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             Document doc = new Document();
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
             doc.Open();
-            doc.Add(new Paragraph("Hello World"));
+            doc.Add(new Paragraph(substance));
             doc.Close();
         }
     }

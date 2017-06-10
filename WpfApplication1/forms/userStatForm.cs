@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketClient.PL_BL;
 using log4net;
+using MarketClient.Utils;
 
 namespace WpfApplication1.forms
 {
     public partial class userStatForm : Form
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
+        private GeneratePDF generatePDF = new GeneratePDF();
 
         public userStatForm()
         {
@@ -37,6 +39,13 @@ namespace WpfApplication1.forms
         private void userStatForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            generatePDF.create("test1", "hey you!");
+            String message = "";
+            MessageBox.Show(this, message);
         }
     }
 }

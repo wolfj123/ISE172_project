@@ -14,7 +14,7 @@ namespace MarketClient.Utils
     {
         public GeneratePDF() { }
         
-        public void ceate(String fileName, String substance)
+        public void create(String fileName, String substance)
         {
             FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             Document doc = new Document();

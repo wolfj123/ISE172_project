@@ -63,16 +63,51 @@ namespace MarketClient.DataEntries
             }
             System.IO.File.Delete("../../../History/history2.log");
             String[] historyInRange = new String[output.Count];
-            int index = 0;
+            int index = output.Count-1;
             //copy the output into an array
             foreach (String e in output)
             {
                 historyInRange[index] = e;
-                index++;
+                index--;
             }
             return historyInRange;
         }
-            
+
+        public String[] historyByLines(int numRows)
+        {
+            //the variabels for the history file name
+            DateTime today = DateTime.Now;
+            int todayYear = today.Year;
+            int todayMonth = today.Month;
+            // if the file didnt delete pervious time delete him
+            if (System.IO.File.Exists("../../../History/" + todayYear + todayMonth + "history2.log"))
+            {
+                System.IO.File.Delete("../../../History/" + todayYear + todayMonth + "history2.log");
+            }
+            //copy the history file, read from the copy and at the end delete it 
+            System.IO.File.Copy("../../../History/" + todayYear + todayMonth + "history.log", "../../../History/" + todayYear + todayMonth + "history2.log");
+            List<String> output = new List<String>();
+            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + todayMonth + "History/history2.log"))
+            {
+                string line = sr.ReadLine();
+                //check that the file isnt empty
+                if (line == null)
+                    return null;
+                if (output.Count < numRows)
+                {
+                    output.Add(line);
+                }
+            }
+            //copy the list into an array
+            String[] historyLines = new string[output.Count];
+            int index = output.Count - 1;
+            foreach (String e in output)
+            {
+                historyLines[index] = e;
+                index--;
+            }
+            return historyLines;
+        }
 
         private static DateTime getDate(String str)
         {

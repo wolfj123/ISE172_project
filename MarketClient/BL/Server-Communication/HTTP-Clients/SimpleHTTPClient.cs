@@ -3,7 +3,7 @@ using MarketClient.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MarketClient
+namespace MarketClient.BL
 {
     public class SimpleHTTPClient
     {
@@ -20,9 +20,10 @@ namespace MarketClient
         /// <param name="token">token for authentication data</param>
         /// <param name="item">the data item to send in the reuqest</param>
         /// <returns>the server response parsed as T2 object in json format</returns>
-        public T2 SendPostRequest<T1,T2>(string url, string user, string token, T1 item) where T2 : class 
+        public virtual T2 SendPostRequest<T1,T2>(string url, string user, string privateKey, T1 item) where T2 : class 
         {
-            var response = SendPostRequest(url, user, token, item);
+            //string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            var response = SendPostRequest(url, user, privateKey, item);
             return response == null ? null : FromJson<T2>(response);
         }
 
@@ -38,8 +39,9 @@ namespace MarketClient
         /// <param name="token">token for authentication data</param>
         /// <param name="item">the data item to send in the reuqest</param>
         /// <returns>the server response</returns>
-        public string SendPostRequest<T1>(string url, string user, string token, T1 item)
+        public virtual string SendPostRequest<T1>(string url, string user, string privateKey, T1 item)
         {
+            string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
             var auth = new { user, token };
             JObject jsonItem = JObject.FromObject(item);
             jsonItem.Add("auth", JObject.FromObject(auth));
@@ -52,7 +54,8 @@ namespace MarketClient
             }
         }
 
-        private static T FromJson<T>(string response) where T : class 
+
+        protected static T FromJson<T>(string response) where T : class 
         {
             if (response == null)
             {

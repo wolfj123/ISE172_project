@@ -50,5 +50,23 @@ namespace MarketClient.Utils
             rsaAlgo.ImportParameters(ExtractRSAPrivateKey(privateKey));
             return Convert.ToBase64String(rsaAlgo.SignData(Encoding.UTF8.GetBytes(message), "SHA256"));
         }
+
+        public static string decrypt(string message, string privateKey)
+        {
+            RSACryptoServiceProvider rsaAlgo = new RSACryptoServiceProvider();
+            rsaAlgo.ImportParameters(ExtractRSAPrivateKey(privateKey));
+            byte[] encrypted = Convert.FromBase64String(message);
+            StringBuilder decrypted = new StringBuilder();
+
+            for (int i = 0; i < encrypted.Length; i += 128)
+            {
+                byte[] block = new byte[128];
+                Array.Copy(encrypted, i, block, 0, Math.Min(encrypted.Length - i, 128));
+                String decblock = Encoding.ASCII.GetString(rsaAlgo.Decrypt(block, false));
+                decrypted.Append(decblock);
+            }
+
+            return decrypted.ToString();
+        }
     }
 }

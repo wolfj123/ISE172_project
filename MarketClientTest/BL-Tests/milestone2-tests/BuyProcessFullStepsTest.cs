@@ -3,32 +3,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MarketClient.BL;
 using MarketClient.PL_BL;
 using MarketClient.Utils;
-using System.Collections.Generic;
 
 namespace MarketClientTest.BL_Tests
 {
     [TestClass]
-    public class SellProcessFullStepsTest
+    public class BuyProcessFullStepsTest
     {
+
         [TestMethod]
-        public void SellTestFullProcess()
+        public void BuyTestFullProcess()
         {
             //arrange
-            MBuySell sell = new MBuySell(); sell.id = "666";
+            MBuySell buy = new MBuySell(); buy.id = "666";
             MQReq query = new MQReq();
-            MQCommodity market = new MQCommodity(); market.bid = "1";
+            MQCommodity market = new MQCommodity(); market.ask = "1";
             MarketException excp = new MarketException();
 
-            //create valid user query response
-            MQUser user = new MQUser();
-            user.commodities = new Dictionary<String, int>();
-            user.commodities.Add("1", 3);
-
-            int test = user.commodities["1"];
-
-            CommStubStaticReturn comm = new CommStubStaticReturn(null,
-                sell, null, excp, market, user);
-            SellProcess testProcess = new SellProcess(true, comm, 1, 1, 1, 1);
+            CommStubStaticReturn comm = new CommStubStaticReturn(buy,
+                null, null, excp, market, null, null, null);
+            BuyProcess testProcess = new BuyProcess(true, comm, 1, 1, 1, 1);
 
             //initial assert
             Assert.AreEqual(testProcess.currIndex, 0);
@@ -41,7 +34,6 @@ namespace MarketClientTest.BL_Tests
             Assert.AreEqual(testProcess.currIndex, 1);
             Assert.AreEqual(testProcess.queue, LogicQueue.first);
 
-
             //act2
             output = testProcess.run();
 
@@ -49,12 +41,17 @@ namespace MarketClientTest.BL_Tests
             Assert.AreEqual(testProcess.currIndex, 2);
             Assert.AreEqual(testProcess.queue, LogicQueue.first);
 
+            //update communicator stub
+            comm = new CommStubStaticReturn(buy,
+                null, null, query, market, null,null, null);
+            testProcess.comm = comm;
+
             //act3
             output = testProcess.run();
 
             //assert3
-            Assert.AreEqual(testProcess.currIndex, 3);
-            Assert.AreEqual(testProcess.queue, LogicQueue.first);
+            Assert.AreEqual(testProcess.currIndex, 0);
+            Assert.AreEqual(testProcess.queue, LogicQueue.last);
 
             //act4
             output = testProcess.run();
@@ -62,19 +59,7 @@ namespace MarketClientTest.BL_Tests
             //assert4
             Assert.AreEqual(testProcess.currIndex, 0);
             Assert.AreEqual(testProcess.queue, LogicQueue.last);
-
-            //update communicator stub
-            comm = new CommStubStaticReturn(null,
-                sell, null, query, market, user);
-            testProcess.comm = comm;
-
-
-            //act5
-            output = testProcess.run();
-
-            //assert5
-            Assert.AreEqual(testProcess.currIndex, 0);
-            Assert.AreEqual(testProcess.queue, LogicQueue.last);
         }
+
     }
 }

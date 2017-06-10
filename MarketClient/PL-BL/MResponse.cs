@@ -61,8 +61,6 @@ namespace MarketClient.BL
         {
             rType = ResponseType.cancel;
         }
-
-
     }
 
     public class MQReq : GenericMarketResponse
@@ -84,7 +82,7 @@ namespace MarketClient.BL
 
             try
             {
-                output = "User: " + this.user + "\nType: " + this.type + "\nCommodity: " + this.commodity.ToString() + "\nPrice:" + this.price.ToString() + "\nAmount:" + this.amount.ToString();
+                output = "User: " + this.user + ", Type: " + this.type + ", Commodity: " + this.commodity.ToString() + ", Price:" + this.price.ToString() + ", Amount:" + this.amount.ToString();
             }
             catch (Exception e)
             {
@@ -121,8 +119,6 @@ namespace MarketClient.BL
             {
                 output = "\n\n" + e.Message;
             }
-
-
             return output;
         }
 
@@ -159,7 +155,7 @@ namespace MarketClient.BL
 
             try
             {
-                output = "Ask: " + this.ask + "\nBid: " + this.bid;
+                output = "Ask: " + this.ask + ", Bid: " + this.bid;
             }
             catch (Exception e)
             {
@@ -169,26 +165,60 @@ namespace MarketClient.BL
             return output;
         }
 
-        public int getAsk()
+        public virtual int getAsk()
         {
             return Int32.Parse(this.ask);
         }
 
-        public int getBid()
+        public virtual int getBid()
         {
             return Int32.Parse(this.bid);
         }
 
     }
 
-    public class MQAllComoodity : GenericMarketResponse
-    {
 
+    public class MQCommodityWrapper : MQCommodity
+    {
+        public MQCommodity info;
+        public int id;
+
+        public MQCommodityWrapper()
+        {
+            rType = ResponseType.qAllCommodity;
+        }
+
+        public override int getAsk()
+        {
+            return info.getAsk();
+        }
+
+        public override int getBid()
+        {
+            return info.getBid();
+        }
+
+        public override string ToString()
+        {
+            return "ID: " +id.ToString() + ", " +  info.ToString();
+        }
     }
 
-    public class MQAllUserReq : GenericMarketResponse
+    
+    public class MQReqWrapper : MQReq
     {
+        public MQReq request;
+        public int id;
 
+        public MQReqWrapper()
+        {
+            rType = ResponseType.qAllUserReq;
+        }
+
+        public override string ToString()
+        {
+            return "ID " + id.ToString() + ", " + request.ToString();
+        }
     }
 
 }

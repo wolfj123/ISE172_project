@@ -32,14 +32,11 @@ QtTCN42ZEE+GBTUTcQJBAMafJ6ike5spiGCkx2ZzHh9IUu9H9TJ4u5KNxJiP1BIS
 rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 -----END RSA PRIVATE KEY-----";
 
+
         [TestMethod]
         public void TestCommUserQuery()
         {
-
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            //Communicator comm = new Communicator(Url, User, Token);
             ICommunicator comm = new Communicator();
-            //Communicator comm = new TestMarketCommunicator();
             IMarketResponse resp = comm.SendQueryUserRequest();
             Assert.IsNotNull(resp);
             Trace.Write($"Server response is: {resp}");
@@ -49,8 +46,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommWrongUser()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, "wrongUser", Token);
+            Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendQueryUserRequest();
             Assert.IsNotNull(resp);
@@ -60,23 +56,20 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommBuyRequestAndCancel()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
+            Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendBuyRequest(1, 1, 1);
             string respString = resp.ToString();
             Assert.IsNotNull(resp);
             Trace.Write($"Server response is: {resp}");
-
-            //if (Shell.isNumeric(respString))
-            // TestCommCancelRequest(Int32.Parse(respString));
         }
 
         [TestMethod]
         public void TestCommCancelRequest()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
+            Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendCancelBuySellRequest(11);
             Assert.IsNotNull(resp);
@@ -87,23 +80,21 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommSellRequestAndQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
+            Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
             Assert.IsNotNull(resp);
+            
             Trace.Write($"Server response is: {resp}");
-
-            // if (Shell.isNumeric(respString))
-            // TestCommCancelRequest(Int32.Parse(respString));
         }
 
 
         [TestMethod]
         public void TestCommCommodityQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
+            Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendQueryMarketRequest(1);
             Assert.IsNotNull(resp);
@@ -114,8 +105,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         [TestMethod]
         public void TestCommWrongCommodityQuery()
         {
-            string Token = SimpleCtyptoLibrary.CreateToken(User, PrivateKey);
-            Communicator comm = new Communicator(Url, User, Token);
+            //Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
+            Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendQueryMarketRequest(12);
             Assert.IsNotNull(resp);

@@ -43,7 +43,7 @@ namespace MarketClient.Utils
         }
         
         //combine the values in the dictionary into string
-        static public String DictionaryToString(Dictionary<String,int> dict)
+        static public string DictionaryToString(Dictionary<String,int> dict)
         {
             bool first = true;
             string output = "";
@@ -67,7 +67,7 @@ namespace MarketClient.Utils
         }
 
         //combine the values in the list into string
-        static public String StringListToString(List<String> list)
+        static public string StringListToString(List<String> list)
         {
             bool first = true;
             string output = "";
@@ -90,7 +90,7 @@ namespace MarketClient.Utils
         }
 
         //combine the values in the int list into string
-        static public String intListToString(List<int> list)
+        static public string intListToString(List<int> list)
         {
             bool first = true;
             String output = "";
@@ -112,5 +112,15 @@ namespace MarketClient.Utils
 
         }
 
+
+        static public string listToString<T1>(List<T1> list)
+        {
+            string output = "";
+            foreach(T1 o in list)
+            {
+                output += o.ToString() + "\n";
+            }
+            return output;
+        }
     }
 }

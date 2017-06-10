@@ -57,11 +57,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\AMA\AMA.cs" />
-    <Compile Include="BL\AMA\Logics\AskBidDiffProcess.cs" />
-    <Compile Include="BL\AMA\Logics\InnerLogic.cs" />
-    <Compile Include="BL\AMA\Logics\LogicProcess.cs" />
-    <Compile Include="BL\Communicator.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoAction.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoSell.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Actions\AlgoBuy.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AdvancedAMA.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AlgoCompareProcess.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\AMA.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\Logics\InnerLogic.cs" />
+    <Compile Include="BL\AMA\AMA-milestone2\Logics\LogicProcess.cs" />
+    <Compile Include="BL\Server-Communication\Communicator\Communicator.cs" />
+    <Compile Include="BL\Server-Communication\Communicator\CryptoCommunicator.cs" />
+    <Compile Include="BL\Server-Communication\Communicator\ICommunicator.cs" />
+    <Compile Include="BL\Server-Communication\Communicator\TestMarketCommunicator.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AlgoMomentumProcess.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\AlgoProcess.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\AlgoCondition.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\AskCompare.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\BidCompare.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\HasNoActiveRequest.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\HasSupply.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\MomentumIncrease.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\Conditions\MomentumDecrease.cs" />
+    <Compile Include="BL\AMA\AdvancedAMA\DefaultAdvancedAMA.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
     <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />
@@ -73,7 +90,8 @@
     <Compile Include="PL-BL\Rtype.cs" />
     <Compile Include="milestone1\UI\LoginInfo.cs" />
     <Compile Include="PL-BL\Request.cs" />
-    <Compile Include="SimpleHTTPClient.cs" />
+    <Compile Include="BL\Server-Communication\HTTP-Clients\SimpleCryptoHTTPClient.cs" />
+    <Compile Include="BL\Server-Communication\HTTP-Clients\SimpleHTTPClient.cs" />
     <Compile Include="milestone1\UI\Display.cs" />
     <Compile Include="milestone1\UI\Interperator.cs" />
     <Compile Include="milestone1\UI\PrimInterperator.cs" />

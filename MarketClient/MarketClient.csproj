@@ -102,6 +102,11 @@
     <Compile Include="milestone1\UI\Display.cs" />
     <Compile Include="milestone1\UI\Interperator.cs" />
     <Compile Include="milestone1\UI\PrimInterperator.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="milestone1\DAL\IMarketCommodityOffer.cs" />
@@ -116,6 +121,8 @@
     <Content Include="Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataEntries\desktop.ini" />
     <None Include="DataEntries\History.cs.orig" />
     <None Include="DataEntries\history.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -123,14 +130,18 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataEntries\history.dbml.layout">
       <DependentUpon>history.dbml</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -73,22 +73,27 @@ namespace MarketClient.DataEntries
             return historyInRange;
         }
 
-        public String[] historyByLines(int numRows)
+        public static String[] historyByLines(int numRows)
         {
             //the variabels for the history file name
             DateTime today = DateTime.Now;
             int todayYear = today.Year;
             int todayMonth = today.Month;
+            String[] t = new string[3];
+            System.IO.File.Create("../../../History/HA.txt");
+            t[0]="1: " + todayYear + " , " + todayMonth;
+
             // if the file didnt delete pervious time delete him
-            if (System.IO.File.Exists("../../../History/" + todayYear + todayMonth + "history2.log"))
+            if (System.IO.File.Exists("../../../History/" + todayYear + "."+ todayMonth + "history2.log"))
             {
-                System.IO.File.Delete("../../../History/" + todayYear + todayMonth + "history2.log");
+                System.IO.File.Delete("../../../History/" + todayYear + "." + todayMonth + "history2.log");
             }
             //copy the history file, read from the copy and at the end delete it 
-            System.IO.File.Copy("../../../History/" + todayYear + todayMonth + "history.log", "../../../History/" + todayYear + todayMonth + "history2.log");
+            System.IO.File.Copy("../../../History/" + todayYear + "." + todayMonth + "history.log", "../../../History/" + todayYear + "." + todayMonth + "history2.log");
             List<String> output = new List<String>();
-            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + todayMonth + "History/history2.log"))
+            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + "." + todayMonth + "History/history2.log"))
             {
+                t[1]="2: "+todayYear + " , " + todayMonth;
                 string line = sr.ReadLine();
                 //check that the file isnt empty
                 if (line == null)
@@ -99,6 +104,8 @@ namespace MarketClient.DataEntries
                 }
             }
             //copy the list into an array
+
+            System.IO.File.WriteAllLines("../../../History/HA.txt",t);
             String[] historyLines = new string[output.Count];
             int index = output.Count - 1;
             foreach (String e in output)

@@ -33,7 +33,7 @@ namespace MarketClient.DataEntries
     #endregion
 		
 		public historyDataContext() : 
-				base(global::MarketClient.Properties.Settings.Default.historyConnectionString1, mappingSource)
+				base(global::MarketClient.Properties.Settings.Default.historyConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

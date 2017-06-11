@@ -237,5 +237,11 @@ namespace WpfApplication1
             forms.historyForm userInput = new forms.historyForm();
             userInput.Show();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            forms.Form1 u = new forms.Form1();
+            u.Show();
+        }
     }
 }

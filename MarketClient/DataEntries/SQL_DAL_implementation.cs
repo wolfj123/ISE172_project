@@ -38,7 +38,8 @@ namespace MarketClient.DataEntries
         public item highestSell(DateTime start, DateTime end, int commodity)
         {//return the highst price in the asked days
             IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
-            item highestPrice = itemsInRange.OrderBy(db => db.price).Last();
+            float max = itemsInRange.Max(q => q.price);
+            item highestPrice = itemsInRange.Where(q => q.price == max).First();
             return highestPrice;
         }
 
@@ -54,6 +55,7 @@ namespace MarketClient.DataEntries
         public item lowestSell(DateTime start, DateTime end, int commodity)
         {
             IQueryable<item> itemsInRange = itemsByNumDays(start,end).Where(db => db.commodity == commodity);
+            float min = itemsInRange.Min(q => q.price);
             item lowest = itemsInRange.OrderBy(db => db.price).First();
             return lowest;
         }
@@ -66,15 +68,15 @@ namespace MarketClient.DataEntries
             return amount;
         }
 
-        public float[] avgPerDay(DateTime start, DateTime end, int commodity)
+        public float[] avgPerhour(DateTime start, DateTime end, int commodity)
         {//return each day the avg price of the commodity
             IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
-            int arraySize = end.Day-start.Day;
+            int arraySize = end.Hour-start.Hour;
             float[] output = new float[arraySize];
             for (int i = 0; i<arraySize; i++)
             {
-                int day = start.Day + i;
-                float avg = itemsInRange.Where(db => db.timestamp.Day == day).Average(db => db.price);
+                int hour = start.Day + i;
+                float avg = itemsInRange.Where(db => db.timestamp.Day == hour).Average(db => db.price);
                 output[i] = avg;
             }
             return output;

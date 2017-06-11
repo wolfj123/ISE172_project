@@ -34,12 +34,12 @@ namespace MarketClient.BL
         }
 
 
-        public override string SendPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
+        public override string SendPostRequest<T1>(string url, string user, string privateKey, T1 item)
         {
             nonceInt += 1;
             string nonce = nonceInt.ToString();
-            string user = user_base +"_"+ nonce;
-            string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            string userNonce = user + "_"+ nonce;
+            string token = SimpleCtyptoLibrary.CreateToken(userNonce, privateKey);
 
             var auth = new { user, token, nonce };
             JObject jsonItem = JObject.FromObject(item);

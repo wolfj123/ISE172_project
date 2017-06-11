@@ -186,7 +186,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             {
                 marketResponse = client.SendPostRequest<QueryAllMarketRequest, List<MQCommodityWrapper>> (url, user, privateKey, userReq);
                 myLogger.Info("Sent Query ALL Query Market{user:" + user + ", url:" + url);
-
+                //TODO: fix response string of list of responses
                 myHistory.Info("Sent Query ALL Query Market-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
 
                 return marketResponse;
@@ -209,7 +209,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             {
                 marketResponse = client.SendPostRequest<QueryAllBuySellRequest, List<MQReqWrapper>>(url, user, privateKey, userReq);
                 myLogger.Info("Sent Query ALL Buy/Sell Request{user:" + user + ", url:" + url);
-
+                //TODO: fix response string of list of responses
                 myHistory.Info("Sent Query ALL Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
 
                 return marketResponse;

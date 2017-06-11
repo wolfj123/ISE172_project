@@ -8,7 +8,7 @@ namespace MarketClient.BL
 {
     public class DefaultMomentumAMA : AdvancedAMA
     {
-        public DefaultMomentumAMA() : base(20,10000, new Communicator())
+        public DefaultMomentumAMA() : base(20,10000, new CryptoCommunicator())
         {
             for(int commodity=9; commodity>=0; commodity--)
             {
@@ -25,7 +25,7 @@ namespace MarketClient.BL
     //TODO: test this ama
     public class DefaultCompareAMA : AdvancedAMA
     {
-        public DefaultCompareAMA() : base(20, 10000, new Communicator())
+        public DefaultCompareAMA() : base(20, 10000, new CryptoCommunicator())
         {
             for (int commodity = 9; commodity >= 0; commodity--)
             {

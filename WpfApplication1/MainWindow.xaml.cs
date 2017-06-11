@@ -31,7 +31,8 @@ namespace WpfApplication1
 
         private bool runningAMA;
         private ICommunicator comm;
-        private DefaultAMA ama;
+        //private DefaultAMA ama;
+        private DefaultCompareAMA ama;
         private UserAMA userAma;
 
         public MainWindow()
@@ -39,8 +40,8 @@ namespace WpfApplication1
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
             comm = new Communicator();
-            //comm = new TestMarketCommunicator();
-            ama = new DefaultAMA(comm);
+            //ama = new DefaultAMA(comm);
+            ama = new DefaultCompareAMA();
             userAma = new UserAMA();
             runningAMA = false;
             

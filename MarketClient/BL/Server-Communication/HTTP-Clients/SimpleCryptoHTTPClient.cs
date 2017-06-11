@@ -50,13 +50,20 @@ namespace MarketClient.BL
                 var result = client.PostAsync(url, content).Result;
                 var responseContent = result?.Content?.ReadAsStringAsync().Result;
 
+                bool failed = false;
+                string decryptedContent = "";
                 try
                 {
-                    string decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
-                    responseContent = decryptedContent;
+                    decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
+                    //responseContent = decryptedContent;
                 }
-                finally { }
-                return responseContent;
+                catch(Exception e)
+                {
+                    //TODO: log exception
+                    failed = true;
+                }
+                if(!failed) return decryptedContent;
+                else return responseContent;
             }
         }
 

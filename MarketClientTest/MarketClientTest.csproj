@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="BL-Tests\AdvancedAMAgatherInfoTest.cs" />
     <Compile Include="BL-Tests\AdvancedAMATimerTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ActionsTest\AlgoSellTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ActionsTest\AlgoBuyTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
     <Compile Include="BL-Tests\CommunicatorNewRequestsTest.cs" />
@@ -88,9 +90,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL-Tests\AlgoProcessTests\ActionsTest\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

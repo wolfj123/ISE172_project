@@ -27,6 +27,7 @@ namespace MarketClient.BL
     {
         public DefaultCompareAMA() : base(20, 10000, new CryptoCommunicator())
         {
+            /*
             for (int commodity = 9; commodity >= 0; commodity--)
             {
                 add(new AlgoCompareBuyProcess(this, comm, commodity));
@@ -36,6 +37,10 @@ namespace MarketClient.BL
             {
                 add(new AlgoCompareSellProcess(this, comm, commodity));
             }
+            */
+            add(new AlgoCompareBuyProcess(this, comm, 9));
+            add(new AlgoCompareSellProcess(this, comm, 9));
+
         }
     }
 }

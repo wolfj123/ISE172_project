@@ -42,7 +42,7 @@ namespace MarketClient.BL
             int price = currentAsk + priceBuffer;
 
             //TODO: divide by zero?
-            int amount = (int)(price / availableFunds);
+            int amount = (int)(availableFunds/price);
 
             //Send request
             bool success = false;

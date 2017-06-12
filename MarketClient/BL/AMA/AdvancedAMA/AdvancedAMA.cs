@@ -112,28 +112,31 @@ namespace MarketClient.BL
         public bool run()
         {
             //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
-            if (queue.Count > 0)
+            lock (queue)
             {
-                bool success = false;
-                try
+                if (queue.Count > 0)
                 {
-                    //TODO: exception here - empy queue?
-                    //Take out next AlgoProcess from Queue
-                    AlgoProcess currentLogic = queue.Dequeue();
+                    bool success = false;
+                    try
+                    {
+                        //TODO: exception here - empy queue?
+                        //Take out next AlgoProcess from Queue
+                        AlgoProcess currentLogic = queue.Dequeue();
 
-                    success = currentLogic.runProcess();
+                        success = currentLogic.runProcess();
 
-                    myLogger.Info("AMA running logic: " + currentLogic.ToString());
+                        myLogger.Info("AMA running logic: " + currentLogic.ToString());
 
-                    //Add the AlgoProcess to the end of the queue
-                    queue.Enqueue(currentLogic);
+                        //Add the AlgoProcess to the end of the queue
+                        queue.Enqueue(currentLogic);
+                    }
+                    catch (Exception e) { };
+
+
+                    return success;
                 }
-                catch (Exception e) { };
-
-
-                return success;
+                return false;
             }
-            return false;
         }
 
         public void enable(bool toEnable)

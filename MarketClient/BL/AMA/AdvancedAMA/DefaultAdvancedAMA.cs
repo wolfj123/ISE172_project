@@ -38,8 +38,8 @@ namespace MarketClient.BL
                 add(new AlgoCompareSellProcess(this, comm, commodity));
             }
             */
-            add(new AlgoCompareBuyProcess(this, comm, 9));
-            add(new AlgoCompareSellProcess(this, comm, 4));
+            add(new AlgoCompareBuyProcess(this, comm, 9, 8));
+            add(new AlgoCompareSellProcess(this, comm, 2, 1));
 
         }
     }

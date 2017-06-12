@@ -8,11 +8,11 @@ namespace MarketClient.BL
 {
     public class AlgoCompareBuyProcess : AlgoProcess
     {
-        public AlgoCompareBuyProcess(AdvancedAMA agent, ICommunicator comm, int commodity)
+        public AlgoCompareBuyProcess(AdvancedAMA agent, ICommunicator comm, int commodity, int maxAsk)
             : base(agent, comm, commodity)
         {
             addCondition(new HasNoActiveRequest());
-            addCondition(new AlgoAskCompare(8));
+            addCondition(new AlgoAskCompare(maxAsk));
 
             setAction(new AlgoBuy(10));
         }
@@ -21,11 +21,11 @@ namespace MarketClient.BL
 
     public class AlgoCompareSellProcess : AlgoProcess
     {
-        public AlgoCompareSellProcess(AdvancedAMA agent, ICommunicator comm, int commodity)
+        public AlgoCompareSellProcess(AdvancedAMA agent, ICommunicator comm, int commodity, int minBid)
             : base(agent, comm, commodity)
         {
             addCondition(new HasSupply());
-            addCondition(new AlgoBidCompare(15));
+            addCondition(new AlgoBidCompare(minBid));
 
             setAction(new AlgoSell());
         }

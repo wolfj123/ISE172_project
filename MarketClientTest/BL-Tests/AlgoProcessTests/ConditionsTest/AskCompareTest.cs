@@ -33,7 +33,7 @@ namespace MarketClientTest
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoAskCompare(10-1));
+            testProcess.addCondition(new AlgoAskCompare(10 + 1));
             agent.add(testProcess);
 
             //Run AMA once
@@ -50,7 +50,7 @@ namespace MarketClientTest
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoAskCompare(10 + 1));
+            testProcess.addCondition(new AlgoAskCompare(10 - 1));
             agent.add(testProcess);
 
             //Run AMA once

@@ -39,7 +39,7 @@ namespace MarketClient.BL
             }
             */
             add(new AlgoCompareBuyProcess(this, comm, 9));
-            add(new AlgoCompareSellProcess(this, comm, 9));
+            add(new AlgoCompareSellProcess(this, comm, 4));
 
         }
     }

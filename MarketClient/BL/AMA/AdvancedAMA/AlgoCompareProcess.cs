@@ -25,7 +25,7 @@ namespace MarketClient.BL
             : base(agent, comm, commodity)
         {
             addCondition(new HasSupply());
-            addCondition(new AlgoBidCompare(14));
+            addCondition(new AlgoBidCompare(15));
 
             setAction(new AlgoSell());
         }

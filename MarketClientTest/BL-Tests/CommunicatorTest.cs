@@ -38,7 +38,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
         {
             ICommunicator comm = new Communicator();
             IMarketResponse resp = comm.SendQueryUserRequest();
-            Assert.IsNotNull(resp);
+            Assert.IsInstanceOfType(resp, typeof(MQUser));
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -49,7 +49,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator(Url, "wrongUser", PrivateKey);
 
             IMarketResponse resp = comm.SendQueryUserRequest();
-            Assert.IsNotNull(resp);
+            Assert.AreEqual("Bad user",resp.ToString());
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -61,7 +61,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
 
             IMarketResponse resp = comm.SendBuyRequest(1, 1, 1);
             string respString = resp.ToString();
-            Assert.IsNotNull(resp);
+            Assert.IsInstanceOfType(resp, typeof(MBuySell));
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -72,7 +72,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendCancelBuySellRequest(11);
-            Assert.IsNotNull(resp);
+            Assert.AreEqual("Id not found", resp.ToString());
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -84,8 +84,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendSellRequest(1, 1, 1);
-            Assert.IsNotNull(resp);
-            
+            Assert.IsInstanceOfType(resp, typeof(MBuySell));
+
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -97,7 +97,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendQueryMarketRequest(1);
-            Assert.IsNotNull(resp);
+            Assert.IsInstanceOfType(resp, typeof(MQCommodity));
             Trace.Write($"Server response is: {resp}");
         }
 
@@ -109,7 +109,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             Communicator comm = new Communicator();
 
             IMarketResponse resp = comm.SendQueryMarketRequest(12);
-            Assert.IsNotNull(resp);
+            Assert.AreEqual("Bad commodity", resp.ToString());
             Trace.Write($"Server response is: {resp}");
         }
 

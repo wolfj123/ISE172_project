@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace MarketClientTest
 {
 
-    //TODO: sell test
+    //TODO: sell test or delete
     [TestClass]
     public class AlgoSellTest
     {

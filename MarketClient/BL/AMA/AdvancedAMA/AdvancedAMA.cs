@@ -60,55 +60,9 @@ namespace MarketClient.BL
                     if (sentRequest) count = count + 1;
                 }
 
-
             }).Start();
-
         }
-
-        public int gatherInfo()
-        {
-            int numOfReqeusts = 0;
-
-            //backup
-            MQUser oldUserData = userData;
-            List<MQCommodityWrapper> oldCommoditiesInfo = commoditiesInfo;
-            List<MQReqWrapper> oldRequestsInfo = requestsInfo;
-
-
-            //Gather data from the server
-            try
-            {
-                userData = (MQUser)comm.SendQueryUserRequest();    numOfReqeusts++;
-            }
-            catch (Exception e)
-            {
-                userData = oldUserData;
-                myLogger.Error("AMA failed to acquire userData: "+e.Message);
-            }
-
-            try
-            {
-                commoditiesInfo = comm.SendQueryAllMarketRequest(); numOfReqeusts++;
-            }
-            catch (Exception e)
-            {
-                commoditiesInfo = oldCommoditiesInfo;
-                myLogger.Error("AMA failed to acquire commoditiesInfo: " + e.Message);
-            }
-
-            try
-            {
-                requestsInfo = comm.SendQueryAllUserRequest(); numOfReqeusts++;
-            }
-            catch (Exception e)
-            {
-                requestsInfo = oldRequestsInfo;
-                myLogger.Error("AMA failed to acquire requestsInfo: " + e.Message);
-            }
-            //return number of requests in this method
-            return numOfReqeusts;
-        }
-
+       
         public bool run()
         {
             //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
@@ -137,6 +91,51 @@ namespace MarketClient.BL
                 return false;
             }
         }
+
+        public int gatherInfo()
+        {
+            int numOfReqeusts = 0;
+
+            //backup
+            MQUser oldUserData = userData;
+            List<MQCommodityWrapper> oldCommoditiesInfo = commoditiesInfo;
+            List<MQReqWrapper> oldRequestsInfo = requestsInfo;
+
+
+            //Gather data from the server
+            try
+            {
+                userData = (MQUser)comm.SendQueryUserRequest(); numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                userData = oldUserData;
+                myLogger.Error("AMA failed to acquire userData: " + e.Message);
+            }
+
+            try
+            {
+                commoditiesInfo = comm.SendQueryAllMarketRequest(); numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                commoditiesInfo = oldCommoditiesInfo;
+                myLogger.Error("AMA failed to acquire commoditiesInfo: " + e.Message);
+            }
+
+            try
+            {
+                requestsInfo = comm.SendQueryAllUserRequest(); numOfReqeusts++;
+            }
+            catch (Exception e)
+            {
+                requestsInfo = oldRequestsInfo;
+                myLogger.Error("AMA failed to acquire requestsInfo: " + e.Message);
+            }
+            //return number of requests in this method
+            return numOfReqeusts;
+        }
+
 
         public void enable(bool toEnable)
         {

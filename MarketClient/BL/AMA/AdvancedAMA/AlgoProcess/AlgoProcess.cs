@@ -102,7 +102,7 @@ namespace MarketClient.BL
                 output += c.ToString();
                 output += ", ";
             }
-            output += "Action: " + action.ToString();
+            output += "\nAction: " + action.ToString();
             return output;
         }
 

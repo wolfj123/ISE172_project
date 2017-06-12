@@ -46,5 +46,10 @@ namespace MarketClient.BL
             }
             return success;
         }
+
+        public override string ToString()
+        {
+            return ("Sell all the supplies of the commodity"); 
+        }
     }
 }

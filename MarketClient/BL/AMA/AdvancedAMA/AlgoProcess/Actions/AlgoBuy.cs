@@ -52,5 +52,10 @@ namespace MarketClient.BL
             }
             return success;
         }
+
+        public override string ToString()
+        {
+            return ("Buy the commodity using " + fundsPercentage +"% of funds");
+        }
     }
 }

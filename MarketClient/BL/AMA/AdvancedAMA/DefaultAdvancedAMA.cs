@@ -22,25 +22,22 @@ namespace MarketClient.BL
         }
     }
 
-    //TODO: test this ama
     public class DefaultCompareAMA : AdvancedAMA
     {
         public DefaultCompareAMA() : base(20, 10000, new CryptoCommunicator())
         {
-            /*
+            int maxAsk = 8;
+            int minBid = 15;
+
             for (int commodity = 9; commodity >= 0; commodity--)
             {
-                add(new AlgoCompareBuyProcess(this, comm, commodity));
+                //add(new AlgoCompareBuyProcess(this, comm, commodity, maxAsk));
             }
 
             for (int commodity = 9; commodity >= 0; commodity--)
             {
-                add(new AlgoCompareSellProcess(this, comm, commodity));
+                //add(new AlgoCompareSellProcess(this, comm, commodity, minBid));
             }
-            */
-            add(new AlgoCompareBuyProcess(this, comm, 9, 8));
-            add(new AlgoCompareSellProcess(this, comm, 2, 1));
-
         }
     }
 }

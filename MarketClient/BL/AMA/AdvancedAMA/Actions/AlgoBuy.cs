@@ -34,14 +34,11 @@ namespace MarketClient.BL
                 }
             }
 
-
-            
             //calculate price and amount
             double funds = process.agent.userData.funds; 
             double availableFunds = (int)((funds / 100) * fundsPercentage);
             int price = currentAsk + priceBuffer;
 
-            //TODO: divide by zero?
             int amount = (int)(availableFunds/price);
 
             //Send request

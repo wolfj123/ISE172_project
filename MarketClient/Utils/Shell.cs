@@ -118,7 +118,7 @@ namespace MarketClient.Utils
             string output = "";
             foreach(T1 o in list)
             {
-                output += o.ToString() + "\n";
+                output += o.ToString() + " \n";
             }
             return output;
         }

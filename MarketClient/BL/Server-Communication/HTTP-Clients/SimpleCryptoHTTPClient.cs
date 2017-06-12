@@ -4,14 +4,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
+using log4net;
 
 namespace MarketClient.BL
 {
     public class SimpleCryptoHTTPClient : SimpleHTTPClient
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         //SIngleton design pattern
         private static readonly SimpleCryptoHTTPClient instance = new SimpleCryptoHTTPClient();
         private Int64 nonceInt;
+
 
         private SimpleCryptoHTTPClient(){
             string concat = "";
@@ -59,7 +63,7 @@ namespace MarketClient.BL
                 }
                 catch(Exception e)
                 {
-                    //TODO: log exception
+                    myLogger.Error("Failed decryption of market response. Error: " + e.Message);
                     failed = true;
                 }
                 if(!failed) return decryptedContent;

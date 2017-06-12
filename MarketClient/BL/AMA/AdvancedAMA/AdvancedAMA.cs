@@ -119,7 +119,6 @@ namespace MarketClient.BL
                     bool success = false;
                     try
                     {
-                        //TODO: exception here - empy queue?
                         //Take out next AlgoProcess from Queue
                         AlgoProcess currentLogic = queue.Dequeue();
 

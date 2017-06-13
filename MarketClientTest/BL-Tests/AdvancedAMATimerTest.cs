@@ -18,7 +18,7 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 6000;
+            int interval = 2000;
             int multiplier = 2;
 
             AlgoCountProcess testLogic = new AlgoCountProcess();
@@ -26,9 +26,12 @@ namespace MarketClientTest
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(interval * multiplier);
+            //multiplier+1 because the ama waits the interval once enabled 
+            //to run the first time
+            System.Threading.Thread.Sleep(interval * (multiplier+1));
             amaTest.enable(false);
 
+            Task.WaitAll();
             Assert.AreEqual(maxReq * multiplier, testLogic.count);
         }
     }

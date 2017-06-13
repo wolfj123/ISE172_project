@@ -62,6 +62,7 @@
     <Compile Include="BL-Tests\AlgoProcessTests\ActionsTest\AlgoBuyTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
+    <Compile Include="BL-Tests\BL-Stubs\SQLserverStub.cs" />
     <Compile Include="BL-Tests\CommunicatorNewRequestsTest.cs" />
     <Compile Include="BL-Tests\CryptoCommunicatorTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\ICommunicatorStub.cs" />

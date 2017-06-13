@@ -9,10 +9,10 @@ namespace MarketClient.BL
 {
     public class MomentumIncrease : AlgoCondition
     {
-        int minTime;
-        int medTime;
-        int maxTime;
-        SQL_DAL_implementation sql;
+        public int minTime;
+        public int medTime;
+        public int maxTime;
+        public SQL_DAL_implementation sql;
  
         public MomentumIncrease(int minTime, int medTime, int maxTime)
         {

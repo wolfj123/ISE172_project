@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MarketClient.DataEntries;
 
-namespace MarketClientTest.BL_Tests.BL_Stubs
+namespace MarketClientTest.BL_Tests
 {
     public class SQLserverMomentumStub : SQL_DAL_implementation
     {

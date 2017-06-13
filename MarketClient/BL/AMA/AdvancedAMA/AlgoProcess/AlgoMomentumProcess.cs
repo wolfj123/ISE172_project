@@ -13,7 +13,7 @@ namespace MarketClient.BL
         {
             //TODO: momentum increase integers making any sense
             addCondition(new HasNoActiveRequest());
-            addCondition(new MomentumIncrease(5,20));
+            addCondition(new MomentumIncrease(5,10,20));
 
             setAction(new AlgoBuy(15));
         }
@@ -27,7 +27,7 @@ namespace MarketClient.BL
         {
             //TODO: momentum increase integers making any sense
             addCondition(new HasSupply());
-            addCondition(new MomentumDecrease(5, 20));
+            addCondition(new MomentumDecrease(5, 10, 20));
 
             setAction(new AlgoSell());
         }

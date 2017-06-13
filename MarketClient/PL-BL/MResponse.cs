@@ -206,7 +206,23 @@ namespace MarketClient.BL
         }
     }
 
-    
+    public class MQCommodityWrapperList : GenericMarketResponse
+    {
+        List<MQCommodityWrapper> list;
+
+        public MQCommodityWrapperList()
+        {
+            rType = ResponseType.qAllCommodityList;
+        }
+
+        public override string ToString()
+        {
+            return Shell.listToString<MQCommodityWrapper>(list);
+        }
+    }
+
+
+
     public class MQReqWrapper : MQReq
     {
         public MQReq request;
@@ -220,6 +236,21 @@ namespace MarketClient.BL
         public override string ToString()
         {
             return "ID " + id.ToString() + ", " + request.ToString();
+        }
+    }
+
+    public class MQReqWrapperList : GenericMarketResponse
+    {
+        List<MQReqWrapper> list;
+
+        public MQReqWrapperList()
+        {
+            rType = ResponseType.qAllUserReqList;
+        }
+
+        public override string ToString()
+        {
+            return Shell.listToString<MQReqWrapper>(list);
         }
     }
 

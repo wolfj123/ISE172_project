@@ -206,6 +206,7 @@ namespace MarketClient.BL
         }
     }
 
+    /*
     public class MQCommodityWrapperList : GenericMarketResponse
     {
         List<MQCommodityWrapper> list;
@@ -221,7 +222,7 @@ namespace MarketClient.BL
         }
     }
 
-
+    */
 
     public class MQReqWrapper : MQReq
     {
@@ -239,6 +240,7 @@ namespace MarketClient.BL
         }
     }
 
+    /*
     public class MQReqWrapperList : GenericMarketResponse
     {
         List<MQReqWrapper> list;
@@ -253,5 +255,6 @@ namespace MarketClient.BL
             return Shell.listToString<MQReqWrapper>(list);
         }
     }
+    */
 
 }

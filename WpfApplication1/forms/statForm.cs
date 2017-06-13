@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUIprim.Utils;
 
 namespace WpfApplication1.forms
 {
@@ -15,11 +16,12 @@ namespace WpfApplication1.forms
         public statForm()
         {
             InitializeComponent();
+            
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

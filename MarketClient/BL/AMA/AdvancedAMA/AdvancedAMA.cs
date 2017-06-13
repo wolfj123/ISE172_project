@@ -142,7 +142,7 @@ namespace MarketClient.BL
             aTimer.Enabled = toEnable;
             myLogger.Info("AMA enable set to" + toEnable);
 
-            OnTimedEvent(null, null);
+           // OnTimedEvent(null, null);
         }
 
         public bool isEnabled()

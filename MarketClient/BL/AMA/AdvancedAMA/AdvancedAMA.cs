@@ -91,7 +91,7 @@ namespace MarketClient.BL
                 return false;
             }
         }
-
+        //TODO: update try catch when lists are responses
         public int gatherInfo()
         {
             int numOfReqeusts = 0;

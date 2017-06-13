@@ -14,7 +14,7 @@ namespace MarketClient.BL
             addCondition(new HasNoActiveRequest());
             addCondition(new MomentumIncrease(5,10,20));
 
-            setAction(new AlgoBuy(15));
+            setAction(new AlgoBuy(3));
         }
     }
 

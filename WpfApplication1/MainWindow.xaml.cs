@@ -26,13 +26,12 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         private bool runningAMA;
         private ICommunicator comm;
         //private DefaultAMA ama;
-        private DefaultCompareAMA ama;
+        private DefaultAdvancedAMA ama;
         //private UserAMA userAma;
         private DefaultAdvancedAMA userAma;
 
@@ -42,11 +41,12 @@ namespace WpfApplication1
             InitializeComponent();
             //comm = new CryptoCommunicator();
             //ama = new DefaultAMA(comm);
-            ama = new DefaultCompareAMA();
             //userAma = new UserAMA();
+
+            //ama = new DefaultCompareAMA();
+            ama = new DefaultMomentumAMA();
             userAma = new DefaultAdvancedAMA();
             runningAMA = false;
-            
         }
 
 

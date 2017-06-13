@@ -38,7 +38,6 @@ namespace WpfApplication1
 
         public MainWindow()
         {
-            //TODO: change to advanced ama
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
             //comm = new CryptoCommunicator();

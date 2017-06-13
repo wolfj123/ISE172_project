@@ -11,7 +11,6 @@ namespace MarketClient.BL
         public AlgoMomentumBuyProcess(AdvancedAMA agent, ICommunicator comm, int commodity) 
             : base(agent,comm,commodity)
         {
-            //TODO: momentum increase integers making any sense
             addCondition(new HasNoActiveRequest());
             addCondition(new MomentumIncrease(5,10,20));
 
@@ -25,7 +24,6 @@ namespace MarketClient.BL
         public AlgoMomentumSellProcess(AdvancedAMA agent, ICommunicator comm, int commodity)
             : base(agent, comm, commodity)
         {
-            //TODO: momentum increase integers making any sense
             addCondition(new HasSupply());
             addCondition(new MomentumDecrease(5, 10, 20));
 

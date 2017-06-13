@@ -238,10 +238,6 @@ namespace WpfApplication1
             userInput.Show();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            forms.Form1 u = new forms.Form1();
-            u.Show();
-        }
+
     }
 }

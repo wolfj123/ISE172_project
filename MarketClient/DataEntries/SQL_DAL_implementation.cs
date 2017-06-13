@@ -8,7 +8,7 @@ using System.Data.Linq.Mapping;
 
 namespace MarketClient.DataEntries
 {
-    public class SQL_DAL_implementation 
+    public class SQL_DAL_implementation
     {
         private historyDataContext db;
 
@@ -23,13 +23,13 @@ namespace MarketClient.DataEntries
             end.AddHours(-3);
             IQueryable<item> itemsInRange =
                 from item in db.items
-                where item.timestamp > start && item.timestamp <end
+                where item.timestamp > start && item.timestamp < end
                 select item
                 ;
             return itemsInRange;
         }
 
-        public float PriceAverage(DateTime start,DateTime end ,int commodity)
+        public float PriceAverage(DateTime start, DateTime end, int commodity)
         {//return the average price in the asked days
             try
             {
@@ -38,17 +38,17 @@ namespace MarketClient.DataEntries
                 float avg = itemsInRange.Average(db => db.price);
                 return avg;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return -1;
             }
         }
 
         public float PriceAverage(int commodity)
-        {//return the avarege price in the last 10 houers
-                DateTime end = DateTime.Now;
-                DateTime start = end.AddHours(-10);
-                return PriceAverage(start, end, commodity);
+        {//return the avarege price in the last 15 houers
+            DateTime end = DateTime.Now;
+            DateTime start = end.AddHours(-15);
+            return PriceAverage(start, end, commodity);
         }
 
         public item highestSell(DateTime start, DateTime end, int commodity)
@@ -67,9 +67,9 @@ namespace MarketClient.DataEntries
         }
 
         public item highestSell(int commodity)
-        {//return the highst price in the last 10 houres
+        {//return the highst price in the last 15 houres
             DateTime end = DateTime.Now;
-            DateTime start = end.AddHours(-10);
+            DateTime start = end.AddHours(-15);
             return highestSell(start, end, commodity);
         }
 
@@ -90,9 +90,9 @@ namespace MarketClient.DataEntries
         }
 
         public int numOfHighest(int commodity)
-        {//return the number time of the highest price bought in the last 10 houers
+        {//return the number time of the highest price bought in the last 15 houers
             DateTime end = DateTime.Now;
-            DateTime start = end.AddHours(-10);
+            DateTime start = end.AddHours(-15);
             return numOfHighest(start, end, commodity);
         }
 
@@ -112,9 +112,9 @@ namespace MarketClient.DataEntries
         }
 
         public item lowestSell(int commodity)
-        {//return the lowest sell of the commidity in the last 10 houers
+        {//return the lowest sell of the commidity in the last 15 houers
             DateTime end = DateTime.Now;
-            DateTime start = end.AddHours(-10);
+            DateTime start = end.AddHours(-15);
             return lowestSell(start, end, commodity);
         }
 
@@ -127,39 +127,53 @@ namespace MarketClient.DataEntries
                 int amount = itemsInRange.Count(db => db.price == lowestPrice);
                 return amount;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return -1;
             }
         }
 
         public int numOfLowest(int commodity)
-        {//return the number time of the lowest price bought in the last 10 houers
+        {//return the number time of the lowest price bought in the last 15 houers
             DateTime end = DateTime.Now;
-            DateTime start = end.AddHours(-10);
+            DateTime start = end.AddHours(-15);
             return numOfLowest(start, end, commodity);
         }
 
-        public float[] avgPerhour(DateTime start, DateTime end, int commodity)
+        public float[] avgPerday(DateTime start, DateTime end, int commodity)
         {//return each day the avg price of the commodity
-            try { 
-            IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
-            int arraySize = end.Hour-start.Hour;
-            float[] output = new float[arraySize];
-            for (int i = 0; i<arraySize; i++)
+            try
             {
-                int hour = start.Hour + i;
-                float avg = itemsInRange.Where(db => db.timestamp.Day == hour).Average(db => db.price);
-                output[i] = avg;
-            }
-            return output;
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                int arraySize = end.Day - start.Day;
+                float[] output = new float[arraySize];
+                for (int i = 0; i < arraySize; i++)
+                {
+                    try
+                    {
+                        int hour = start.Day + i;
+                        float avg = itemsInRange.Where(db => db.timestamp.Day == hour).Average(db => db.price);
+                        output[i] = avg;
+                    }
+                    catch(Exception e)
+                    {
+                        output[i] = -1;
+                    }
+                }
+                return output;
             }
             catch (Exception e)
             {
                 return null;
             }
         }
-    }
+        public float[] avgPerday(int commodity)
+        {
+            DateTime end = DateTime.Now;
+            DateTime start = end.AddDays(-7);
+            return avgPerday(start, end, commodity);
+        }
 
     }
+
 }

@@ -16,3 +16,7 @@ C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\MarketClient\bin
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\MarketClient\bin\Debug\Newtonsoft.Json.dll
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\MarketClient\bin\Debug\log4net.xml
 C:\Users\מחשב\Documents\semester_2\milestone\ISE172_project\MarketClient\obj\Debug\MarketClient.csprojResolveAssemblyReference.cache
+C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketClient.csprojResolveAssemblyReference.cache
+C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketClient.dll
+C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketClient.pdb
+C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\bin\Debug\MarketClient.dll.config

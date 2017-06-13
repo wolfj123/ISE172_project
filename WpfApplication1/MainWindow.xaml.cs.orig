@@ -31,21 +31,17 @@ namespace WpfApplication1
 
         private bool runningAMA;
         private ICommunicator comm;
-        //private DefaultAMA ama;
-        private DefaultCompareAMA ama;
-        //private UserAMA userAma;
-        private DefaultAdvancedAMA userAma;
+        private DefaultAMA ama;
+        private UserAMA userAma;
 
         public MainWindow()
         {
-            //TODO: change to advanced ama
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
-            //comm = new CryptoCommunicator();
-            //ama = new DefaultAMA(comm);
-            ama = new DefaultCompareAMA();
-            //userAma = new UserAMA();
-            userAma = new DefaultAdvancedAMA();
+            comm = new Communicator();
+            //comm = new TestMarketCommunicator();
+            ama = new DefaultAMA(comm);
+            userAma = new UserAMA();
             runningAMA = false;
             
         }

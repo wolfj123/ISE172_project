@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -79,6 +80,12 @@
     <Compile Include="BL\AMA\AdvancedAMA\AlgoProcess\Conditions\MomentumIncrease.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\AlgoProcess\Conditions\MomentumDecrease.cs" />
     <Compile Include="BL\AMA\AdvancedAMA\DefaultAdvancedAMA.cs" />
+    <Compile Include="DataEntries\history.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>history.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\SQL_DAL_implementation.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
     <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />
@@ -95,6 +102,11 @@
     <Compile Include="milestone1\UI\Display.cs" />
     <Compile Include="milestone1\UI\Interperator.cs" />
     <Compile Include="milestone1\UI\PrimInterperator.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Shell.cs" />
     <Compile Include="Utils\MarketException.cs" />
     <Compile Include="milestone1\DAL\IMarketCommodityOffer.cs" />
@@ -109,7 +121,27 @@
     <Content Include="Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataEntries\desktop.ini" />
+    <None Include="DataEntries\History.cs.orig" />
+    <None Include="DataEntries\history.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>history.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataEntries\history.dbml.layout">
+      <DependentUpon>history.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,7 +31,7 @@ namespace MarketClientTest
         }
 
         [TestMethod]
-        public void AlgoSellMethod()
+        public void AlgoSellTestMethod()
         {
 
         }

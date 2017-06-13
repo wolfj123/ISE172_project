@@ -32,7 +32,7 @@ namespace MarketClientTest.BL_Tests
                 return 100;
             else if (differenceInt == 10)
                 return 10;
-            else if (differenceInt == 100)
+            else if (differenceInt == 20)
                 return 1;
             else
                 return -1;
@@ -46,7 +46,7 @@ namespace MarketClientTest.BL_Tests
                 return 1;
             else if (differenceInt == 10)
                 return 10;
-            else if (differenceInt == 100)
+            else if (differenceInt == 20)
                 return 100;
             else
                 return -1;

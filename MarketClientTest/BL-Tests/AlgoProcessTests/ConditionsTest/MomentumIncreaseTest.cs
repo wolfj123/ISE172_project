@@ -23,15 +23,13 @@ namespace MarketClientTest.BL_Tests
             agent = new AdvancedAMA(3 + 1, 1000, comm);
         }
 
-
-        //TODO: MomentumIncreaseTest
         [TestMethod]
         public void MomentumIncreaseTrue()
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
             SQL_DAL_implementation sqlStub = new SQLserverMomentumStub(true);
-            MomentumIncrease momentumIncreaseCond = new MomentumIncrease(1, 10, 100); momentumIncreaseCond.sql = sqlStub;
+            MomentumIncrease momentumIncreaseCond = new MomentumIncrease(1, 10, 20); momentumIncreaseCond.sql = sqlStub;
             testProcess.addCondition(momentumIncreaseCond);
             agent.add(testProcess);
 
@@ -49,7 +47,9 @@ namespace MarketClientTest.BL_Tests
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            testProcess.addCondition(new AlgoBidCompare(10 + 1));
+            SQL_DAL_implementation sqlStub = new SQLserverMomentumStub(true);
+            MomentumIncrease momentumIncreaseCond = new MomentumIncrease(20, 10, 1); momentumIncreaseCond.sql = sqlStub;
+            testProcess.addCondition(momentumIncreaseCond);
             agent.add(testProcess);
 
             //Run AMA once
@@ -57,7 +57,7 @@ namespace MarketClientTest.BL_Tests
             System.Threading.Thread.Sleep(1500);
             agent.enable(false);
 
-            //AMA ran once but condition is not met - count should be "0"
+            //AMA ran once - count should be "1"
             Assert.AreEqual(0, testProcess.count);
         }
     }

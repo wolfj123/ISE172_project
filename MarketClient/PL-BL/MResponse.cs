@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MarketClient.PL_BL;
 using MarketClient.Utils;
 
+//TODO: make lists be responses
+
 namespace MarketClient.BL
 {
     public class GenericMarketResponse : IMarketResponse

@@ -62,7 +62,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 699);
+            this.ClientSize = new System.Drawing.Size(1823, 984);
             this.Controls.Add(this.chart1);
             this.Name = "statForm";
             this.Text = "statForm";

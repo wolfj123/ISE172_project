@@ -39,11 +39,6 @@ namespace WpfApplication1
         {
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
-            //comm = new CryptoCommunicator();
-            //ama = new DefaultAMA(comm);
-            //userAma = new UserAMA();
-
-            //ama = new DefaultCompareAMA();
             ama = new DefaultMomentumAMA();
             userAma = new DefaultAdvancedAMA();
             runningAMA = false;

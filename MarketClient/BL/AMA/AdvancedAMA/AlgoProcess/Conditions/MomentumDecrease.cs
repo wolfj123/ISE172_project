@@ -24,7 +24,7 @@ namespace MarketClient.BL
 
         public bool conditionIsMet(AlgoProcess process)
         {
-            // TODO: Buy x shares of a stock when its 50-day moving average goes above the 200-day moving average
+            //Return true if the short-moving-average < mid-moving-average < long-moving-average
             DateTime minTimeRange = DateTime.Now.AddHours(-minTime);
             float minAverage = sql.PriceAverage(minTimeRange, DateTime.Now, process.commodity);
 
@@ -36,7 +36,7 @@ namespace MarketClient.BL
 
             if (minAverage < 0 | medAverage < 0 | maxAverage < 0) return false;
 
-            return (minAverage < medAverage) & (medAverage < maxAverage);
+            return (minAverage <= medAverage) & (medAverage < maxAverage);
         }
 
         public override string ToString()

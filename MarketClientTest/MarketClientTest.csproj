@@ -58,8 +58,6 @@
   <ItemGroup>
     <Compile Include="BL-Tests\AdvancedAMAgatherInfoTest.cs" />
     <Compile Include="BL-Tests\AdvancedAMATimerTest.cs" />
-    <Compile Include="UnofficialTests\ActionsTest\AlgoSellTest.cs" />
-    <Compile Include="UnofficialTests\ActionsTest\AlgoBuyTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
     <Compile Include="BL-Tests\BL-Stubs\SQLserverStub.cs" />

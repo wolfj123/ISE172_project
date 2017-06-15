@@ -237,10 +237,11 @@ namespace WpfApplication1
             userInput.Show();
         }
 
-
+        /* TODO: WHAT IS THIS???
             //stat Form
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
+        */
     }
 }

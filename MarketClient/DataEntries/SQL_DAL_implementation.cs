@@ -29,7 +29,7 @@ namespace MarketClient.DataEntries
             return itemsInRange;
         }
 
-        public virtual float PriceAverage(DateTime start,DateTime end ,int commodity)
+        public virtual float PriceAverage(DateTime start, DateTime end, int commodity)
         {//return the average price in the asked days
             try
             {
@@ -155,7 +155,7 @@ namespace MarketClient.DataEntries
                         float avg = itemsInRange.Where(db => db.timestamp.Day == hour).Average(db => db.price);
                         output[i] = avg;
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         output[i] = -1;
                     }
@@ -174,5 +174,6 @@ namespace MarketClient.DataEntries
             return avgPerday(start, end, commodity);
         }
 
+    }
 }
 

@@ -58,17 +58,16 @@
   <ItemGroup>
     <Compile Include="BL-Tests\AdvancedAMAgatherInfoTest.cs" />
     <Compile Include="BL-Tests\AdvancedAMATimerTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ActionsTest\AlgoSellTest.cs" />
+    <Compile Include="BL-Tests\AlgoProcessTests\ActionsTest\AlgoBuyTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
+    <Compile Include="BL-Tests\BL-Stubs\SQLserverStub.cs" />
     <Compile Include="BL-Tests\CommunicatorNewRequestsTest.cs" />
     <Compile Include="BL-Tests\CryptoCommunicatorTest.cs" />
     <Compile Include="BL-Tests\milestone2-tests\AMATimerTest.cs" />
     <Compile Include="BL-Tests\BL-Stubs\ICommunicatorStub.cs" />
-    <Compile Include="BL-Tests\milestone2-tests\BuyProcessFullStepsTest.cs" />
-    <Compile Include="BL-Tests\milestone2-tests\BuyProcessHasExistingRequestTest.cs" />
     <Compile Include="BL-Tests\CommunicatorTest.cs" />
-    <Compile Include="BL-Tests\milestone2-tests\SellProcessFullStepsTest.cs" />
-    <Compile Include="BL-Tests\milestone2-tests\SellProcessHasExistingRequestTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\HasNoActiveRequestTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\AskCompareTest.cs" />
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\BidCompareTest.cs" />
@@ -89,6 +88,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Folder Include="BL-Tests\AlgoProcessTests\ActionsTest\" />
   </ItemGroup>

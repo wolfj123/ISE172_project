@@ -34,7 +34,7 @@ namespace MarketClient.BL
                     currentAsk = current.getAsk();
                 }
             }
-            return (requiredAsk <= currentAsk);
+            return (requiredAsk >= currentAsk);
         }
 
         public override string ToString()

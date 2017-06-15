@@ -33,7 +33,7 @@ namespace MarketClient.BL
                     currentBid = current.getBid();
                 }
             }
-            return (requiredBid >= currentBid);
+            return (requiredBid <= currentBid);
         }
 
         public override string ToString()

@@ -41,10 +41,19 @@ namespace MarketClient.PL_BL
                     IMarketResponse resp1 = comm.SendQueryUserRequest();
                     return resp1;
 
-                //ADD case for new request
                 default:
                     return null;
             }
+        }
+
+        public static List<MQCommodityWrapper> sendAllCommodityRequest()
+        {
+             return comm.SendQueryAllMarketRequest();
+        }
+
+        public static List<MQReqWrapper> sendAllUserRequest()
+        {
+            return comm.SendQueryAllUserRequest();
         }
     }
 }

@@ -16,10 +16,10 @@ namespace WpfApplication1.AMA
     {
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
-        public UserAMA userAma;
+        public DefaultAdvancedAMA userAma;
         public ICommunicator comm;
 
-        public AddLogicForm(UserAMA userAma, ICommunicator comm)
+        public AddLogicForm(DefaultAdvancedAMA userAma, ICommunicator comm)
         {
             this.userAma = userAma;
             this.comm = comm;
@@ -29,17 +29,26 @@ namespace WpfApplication1.AMA
         private void addButton_Click(object sender, EventArgs e)
         {
             int commodity = (int)commodityNumeric.Value;
-            int amount = (int)amountNumeric.Value;
+            //int amount = (int)amountNumeric.Value;
             int price = (int)priceNumeric.Value;
 
             bool isBuyLogic = buyRadioButton.Checked;
-
+            /*
             LogicProcess newLogic = null;
-
+            
             if (isBuyLogic) 
                 newLogic = new BuyProcess(true, comm, commodity, price, amount, -1);
             else
                 newLogic = new SellProcess(true, comm, commodity, price, amount, -1);
+            */
+
+            AlgoProcess newLogic = null;
+            if (isBuyLogic)
+                newLogic = new AlgoCompareBuyProcess(userAma, comm, commodity, price);
+            else
+                newLogic = new AlgoCompareSellProcess(userAma, comm, commodity, price);
+
+
 
             bool succes = false;
             try
@@ -55,8 +64,6 @@ namespace WpfApplication1.AMA
 
             if(succes)
                 MessageBox.Show(this, "New Rule added!");
-
-
         }
 
         private void buyRadioButton_CheckedChanged(object sender, EventArgs e)

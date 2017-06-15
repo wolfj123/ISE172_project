@@ -41,7 +41,7 @@ namespace MarketClientTest.BL_Tests
 
             //Run AMA once
             agent.enable(true);
-            System.Threading.Thread.Sleep(999);
+            System.Threading.Thread.Sleep(1500);
             agent.enable(false);
 
             //AMA ran once but condition is not met - count should be "0"
@@ -59,7 +59,7 @@ namespace MarketClientTest.BL_Tests
 
             //Run AMA once
             agent.enable(true);
-            System.Threading.Thread.Sleep(999);
+            System.Threading.Thread.Sleep(1500);
             agent.enable(false);
 
             //AMA ran once - count should be "1"

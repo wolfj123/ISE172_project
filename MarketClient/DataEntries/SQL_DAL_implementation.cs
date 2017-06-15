@@ -17,7 +17,7 @@ namespace MarketClient.DataEntries
             db = new historyDataContext();
         }
 
-        private IQueryable<item> itemsByNumDays(DateTime start, DateTime end)
+        protected IQueryable<item> itemsByNumDays(DateTime start, DateTime end)
         {//return the prices in the asked dates 
             start.AddHours(-3);
             end.AddHours(-3);
@@ -29,7 +29,7 @@ namespace MarketClient.DataEntries
             return itemsInRange;
         }
 
-        public float PriceAverage(DateTime start, DateTime end, int commodity)
+        public virtual float PriceAverage(DateTime start,DateTime end ,int commodity)
         {//return the average price in the asked days
             try
             {
@@ -174,6 +174,5 @@ namespace MarketClient.DataEntries
             return avgPerday(start, end, commodity);
         }
 
-    }
-
 }
+

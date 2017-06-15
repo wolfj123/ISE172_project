@@ -60,9 +60,36 @@ namespace MarketClient.BL
                     if (sentRequest) count = count + 1;
                 }
 
-
             }).Start();
+        }
+       
+        public bool run()
+        {
+            //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
+            lock (queue)
+            {
+                if (queue.Count > 0)
+                {
+                    bool success = false;
+                    try
+                    {
+                        //Take out next AlgoProcess from Queue
+                        AlgoProcess currentLogic = queue.Dequeue();
 
+                        success = currentLogic.runProcess();
+
+                        myLogger.Info("AMA running logic: " + currentLogic.ToString());
+
+                        //Add the AlgoProcess to the end of the queue
+                        queue.Enqueue(currentLogic);
+                    }
+                    catch (Exception e) { };
+
+
+                    return success;
+                }
+                return false;
+            }
         }
 
         public int gatherInfo()
@@ -78,12 +105,12 @@ namespace MarketClient.BL
             //Gather data from the server
             try
             {
-                userData = (MQUser)comm.SendQueryUserRequest();    numOfReqeusts++;
+                userData = (MQUser)comm.SendQueryUserRequest(); numOfReqeusts++;
             }
             catch (Exception e)
             {
                 userData = oldUserData;
-                myLogger.Error("AMA failed to acquire userData: "+e.Message);
+                myLogger.Error("AMA failed to acquire userData: " + e.Message);
             }
 
             try
@@ -109,32 +136,13 @@ namespace MarketClient.BL
             return numOfReqeusts;
         }
 
-        public bool run()
-        {
-            //for (int count=0; count < maxReq & blocks.Count>0; count++) { 
-            if (queue.Count > 0)
-            {
-                //Take out next AlgoProcess from Queue
-                AlgoProcess currentLogic = queue.Dequeue();
-
-                //run the process
-                bool success = currentLogic.runProcess();
-                myLogger.Info("AMA running logic: "+ currentLogic.ToString());
-
-                //Add the AlgoProcess to the end of the queue
-                queue.Enqueue(currentLogic);
-
-                return success;
-            }
-            return false;
-        }
 
         public void enable(bool toEnable)
         {
             aTimer.Enabled = toEnable;
             myLogger.Info("AMA enable set to" + toEnable);
 
-            OnTimedEvent(null, null);
+           // OnTimedEvent(null, null);
         }
 
         public bool isEnabled()

@@ -11,7 +11,6 @@ namespace MarketClient.BL
 {
     public class Communicator : ICommunicator
     {
-
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
         private static ILog myHistory = LogManager.GetLogger("HistoryLog");
 
@@ -186,8 +185,8 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             {
                 marketResponse = client.SendPostRequest<QueryAllMarketRequest, List<MQCommodityWrapper>> (url, user, privateKey, userReq);
                 myLogger.Info("Sent Query ALL Query Market{user:" + user + ", url:" + url);
-
-                myHistory.Info("Sent Query ALL Query Market-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
+                
+                myHistory.Info("Sent Query ALL Query Market-\r\nuser:" + user + "\n Response: " + Shell.listToString<MQCommodityWrapper>(marketResponse));
 
                 return marketResponse;
 
@@ -209,8 +208,7 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             {
                 marketResponse = client.SendPostRequest<QueryAllBuySellRequest, List<MQReqWrapper>>(url, user, privateKey, userReq);
                 myLogger.Info("Sent Query ALL Buy/Sell Request{user:" + user + ", url:" + url);
-
-                myHistory.Info("Sent Query ALL Buy/Sell Request-\r\nuser:" + user + "\n Response: " + marketResponse.ToString());
+                myHistory.Info("Sent Query ALL Buy/Sell Request-\r\nuser:" + user + "\n Response: " + Shell.listToString<MQReqWrapper>(marketResponse));
 
                 return marketResponse;
             }

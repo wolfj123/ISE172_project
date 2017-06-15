@@ -26,27 +26,24 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         private bool runningAMA;
         private ICommunicator comm;
-        //private DefaultAMA ama;
-        private DefaultAdvancedAMA ama;
-        //private UserAMA userAma;
-        private DefaultAdvancedAMA userAma;
+        private DefaultAMA ama;
+        private UserAMA userAma;
 
         public MainWindow()
         {
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
-            //comm = new CryptoCommunicator();
-            //ama = new DefaultAMA(comm);
-            //userAma = new UserAMA();
-
-            //ama = new DefaultCompareAMA();
-            ama = new DefaultMomentumAMA();
-            userAma = new DefaultAdvancedAMA();
+            comm = new Communicator();
+            //comm = new TestMarketCommunicator();
+            ama = new DefaultAMA(comm);
+            userAma = new UserAMA();
             runningAMA = false;
+            
         }
 
 
@@ -242,10 +239,12 @@ namespace WpfApplication1
             userInput.Show();
         }
 
-
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
             //stat Form
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
+        }
     }
 }

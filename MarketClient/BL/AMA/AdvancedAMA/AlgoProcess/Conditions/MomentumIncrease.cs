@@ -25,13 +25,13 @@ namespace MarketClient.BL
         {
             // TODO: Sell x shares of a stock when its 50-day moving average goes below the 200-day moving average
 
-            DateTime minTimeRange = DateTime.Now.AddMinutes(-minTime);  
+            DateTime minTimeRange = DateTime.Now.AddHours(-minTime);  
             float minAverage = sql.PriceAverage(minTimeRange, DateTime.Now, process.commodity);
 
-            DateTime medTimeRange = DateTime.Now.AddMinutes(-medTime);
+            DateTime medTimeRange = DateTime.Now.AddHours(-medTime);
             float medAverage = sql.PriceAverage(medTimeRange, DateTime.Now, process.commodity);
 
-            DateTime maxTimeRange = DateTime.Now.AddMinutes(-maxTime);
+            DateTime maxTimeRange = DateTime.Now.AddHours(-maxTime);
             float maxAverage = sql.PriceAverage(maxTimeRange, DateTime.Now, process.commodity);
 
             if (minAverage < 0 | medAverage < 0 | maxAverage < 0) return false;

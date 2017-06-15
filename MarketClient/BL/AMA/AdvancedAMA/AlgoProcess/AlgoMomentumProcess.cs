@@ -12,7 +12,7 @@ namespace MarketClient.BL
             : base(agent,comm,commodity)
         {
             addCondition(new HasNoActiveRequest());
-            addCondition(new MomentumIncrease(5,10,20));
+            addCondition(new MomentumIncrease(5,20,50));
 
             setAction(new AlgoBuy(3));
         }

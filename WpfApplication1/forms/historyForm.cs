@@ -65,7 +65,10 @@ namespace WpfApplication1.forms
                 }
                 catch
                 {
-                    textBox1.Text = "right now file is busy , pleas try again later";
+                    DateTime today = DateTime.Now;
+                    int todayYear = today.Year;
+                    int todayMonth = today.Month;
+                    textBox1.Text = "../../../History/" + todayYear + ".0" + todayMonth + "history2.log";
                 }
                 
             }

@@ -237,12 +237,10 @@ namespace WpfApplication1
             userInput.Show();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
+
             //stat Form
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
-        }
     }
 }

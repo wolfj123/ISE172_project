@@ -72,7 +72,7 @@
     <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumIncreaseTest.cs" />
     <Compile Include="BL-Tests\SimpleCryptoHTTPClientTest.cs" />
     <Compile Include="BL-Tests\NonceGenerationTest.cs" />
-    <Compile Include="DataEntries\SQL_DAL_implementitionTest.cs" />
+    <Compile Include="UnofficialTests\DataEntries\SQL_DAL_implementitionTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnofficialTests\SQLAverageTests.cs" />
@@ -87,10 +87,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Folder Include="BL-Tests\AlgoProcessTests\ActionsTest\" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

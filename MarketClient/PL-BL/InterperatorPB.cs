@@ -9,7 +9,7 @@ namespace MarketClient.PL_BL
 {
     static public class InterperatorPB
     {
-        static private ICommunicator comm = new Communicator();
+        static private ICommunicator comm = new CryptoCommunicator();
         static private AMA ama = new DefaultAMA(comm);
         public static IMarketResponse sendRequest(Request req)
         {

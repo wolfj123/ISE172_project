@@ -54,9 +54,5 @@ rxv9gh/KJgqOXc/YV3RG1FuQdflRy3ZvQutoIrznyKA=
             string output = Shell.listToString<MQReqWrapper>(resp);
             Trace.Write($"Server response is: {output}");
         }
-
-
-       
-
     }
 }

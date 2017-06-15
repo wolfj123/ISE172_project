@@ -29,25 +29,15 @@ namespace WpfApplication1.AMA
         private void addButton_Click(object sender, EventArgs e)
         {
             int commodity = (int)commodityNumeric.Value;
-            //int amount = (int)amountNumeric.Value;
             int price = (int)priceNumeric.Value;
 
             bool isBuyLogic = buyRadioButton.Checked;
-            /*
-            LogicProcess newLogic = null;
-            
-            if (isBuyLogic) 
-                newLogic = new BuyProcess(true, comm, commodity, price, amount, -1);
-            else
-                newLogic = new SellProcess(true, comm, commodity, price, amount, -1);
-            */
 
             AlgoProcess newLogic = null;
             if (isBuyLogic)
                 newLogic = new AlgoCompareBuyProcess(userAma, comm, commodity, price);
             else
                 newLogic = new AlgoCompareSellProcess(userAma, comm, commodity, price);
-
 
 
             bool succes = false;

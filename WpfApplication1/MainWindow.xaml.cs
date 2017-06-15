@@ -39,11 +39,6 @@ namespace WpfApplication1
         {
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
-            //comm = new CryptoCommunicator();
-            //ama = new DefaultAMA(comm);
-            //userAma = new UserAMA();
-
-            //ama = new DefaultCompareAMA();
             ama = new DefaultMomentumAMA();
             userAma = new DefaultAdvancedAMA();
             runningAMA = false;
@@ -241,7 +236,6 @@ namespace WpfApplication1
             forms.historyForm userInput = new forms.historyForm();
             userInput.Show();
         }
-
 
         private void button_Click(object sender, RoutedEventArgs e)
         {

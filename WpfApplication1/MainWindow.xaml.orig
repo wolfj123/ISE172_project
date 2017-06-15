@@ -91,15 +91,12 @@
                 <Button x:Name="userQueryButton" Content="My Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="1,124,0,0" Height="40" Click="userQueryButton_Click" Grid.Column="1" Foreground="White" Background="Black"/>
                 <Button x:Name="historyButton" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,17,0,0" Height="40" Grid.Column="1" Click="historyButton_Click" Background="Black" Foreground="White"/>
                 <Button x:Name="ConnectionTestButton" Content="Test Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="140,70,0,0" Height="40" Grid.Column="1" Click="ConnectionTestButton_Click" Foreground="#FFFCFAFA" Background="Black"/>
-<<<<<<< HEAD
                 <Button x:Name="statButton" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Grid.Column="1" Margin="140.2,124,0,0" Click="button_Click" Height="40" Background="Black" Foreground="White"/>
-=======
-                <Button x:Name="button" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="157.2,138,0,0" VerticalAlignment="Top" Width="73" Click="button_Click"/>
->>>>>>> master
             </Grid>
         </GroupBox>
+<<<<<<< HEAD
 
-
+=======
+>>>>>>> 19801babc946ae8eb2ebbb8a2abb0e9fe3c3939e
     </Grid>
-</Window> 
-    
+</Window>

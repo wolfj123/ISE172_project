@@ -26,24 +26,22 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         private bool runningAMA;
         private ICommunicator comm;
-        private DefaultAMA ama;
-        private UserAMA userAma;
+        //private DefaultAMA ama;
+        private DefaultAdvancedAMA ama;
+        //private UserAMA userAma;
+        private DefaultAdvancedAMA userAma;
 
         public MainWindow()
         {
             myLogger.Info("\nMainWindow initialized");
             InitializeComponent();
-            comm = new Communicator();
-            //comm = new TestMarketCommunicator();
-            ama = new DefaultAMA(comm);
-            userAma = new UserAMA();
+            ama = new DefaultMomentumAMA();
+            userAma = new DefaultAdvancedAMA();
             runningAMA = false;
-            
         }
 
 
@@ -54,7 +52,7 @@ namespace WpfApplication1
             forms.buyForm userInput = new forms.buyForm();
             userInput.Show();
 
-            
+
         }
 
         private void sellButton_Click(object sender, RoutedEventArgs e)
@@ -62,7 +60,7 @@ namespace WpfApplication1
             myLogger.Info("User opened SellForm");
 
             forms.sellForm userInput = new forms.sellForm();
-            
+
             userInput.Show();
         }
 
@@ -71,7 +69,7 @@ namespace WpfApplication1
             myLogger.Info("User opened CancelForm");
 
             forms.cancelForm userInput = new forms.cancelForm();
-            
+
             userInput.Show();
         }
 
@@ -80,7 +78,7 @@ namespace WpfApplication1
             myLogger.Info("User opened idStatusForm");
 
             forms.idStatusForm userInput = new forms.idStatusForm();
-            
+
             userInput.Show();
         }
 
@@ -94,7 +92,7 @@ namespace WpfApplication1
 
         private void userQueryButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             forms.userStatForm userInput = new forms.userStatForm();
             userInput.Show();
@@ -164,7 +162,7 @@ namespace WpfApplication1
         {
             myLogger.Info("User opened SellForm");
 
-            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm(userAma,comm);
+            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm(userAma, comm);
             addLogicForm.userAma = this.userAma;
             addLogicForm.comm = this.comm;
 
@@ -189,7 +187,7 @@ namespace WpfApplication1
                     // Sends the HttpWebRequest and waits for a response.
                     HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
                     if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
-                        MessageBox.Show("\r\nResponse Status Code is: OK"+"\n"+"StatusDescription is: " +
+                        MessageBox.Show("\r\nResponse Status Code is: OK" + "\n" + "StatusDescription is: " +
                                              myHttpWebResponse.StatusDescription);
                     // Releases the resources of the response.
                     myHttpWebResponse.Close();
@@ -239,9 +237,15 @@ namespace WpfApplication1
             userInput.Show();
         }
 
+<<<<<<< HEAD
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+=======
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //stat Form
+>>>>>>> 19801babc946ae8eb2ebbb8a2abb0e9fe3c3939e
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();

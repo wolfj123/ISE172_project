@@ -94,7 +94,5 @@
                 <Button x:Name="statButton" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Grid.Column="1" Margin="140.2,124,0,0" Click="button_Click" Height="40" Background="Black" Foreground="White"/>
             </Grid>
         </GroupBox>
-
     </Grid>
-</Window> 
-    
+</Window>

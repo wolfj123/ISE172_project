@@ -12,18 +12,19 @@ namespace MarketClient.DataEntries
 
         public static String[] historyByDate(DateTime minDate, DateTime maxDate)
         {
+            //take date parameters for the name of the file 
             DateTime today = DateTime.Now;
             int todayYear = today.Year;
-            int todayMonth = today.Month;
+            int todayMonth = today.Month;            
             // if the file didnt delete pervious time delete him
-            if (System.IO.File.Exists("../../../History/" + todayYear + todayMonth +"history2.log"))
+            if (System.IO.File.Exists("../../../History/" + todayYear +".0"+ todayMonth +"history2.log"))
             {
-                System.IO.File.Delete("../../../History/" + todayYear + todayMonth + "history2.log");
+                System.IO.File.Delete("../../../History/" + todayYear + ".0" + todayMonth + "history2.log");
             }
             //copy the history file, read from the copy and at the end delete it 
-            System.IO.File.Copy("../../../History/" + todayYear + todayMonth + "history.log", "../../../History/" + todayYear + todayMonth + "history2.log");        
+            System.IO.File.Copy("../../../History/" + todayYear + ".0" + todayMonth + "history.log", "../../../History/" + todayYear + ".0" + todayMonth + "history2.log");        
             List<String> output = new List<String>();
-            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + todayMonth + "History/history2.log"))
+            using (StreamReader sr = new StreamReader("../../../History/" + todayYear + ".0" + todayMonth + "History/history2.log"))
             {
                 string line = sr.ReadLine();
                 //check that the file isnt empty
@@ -55,13 +56,17 @@ namespace MarketClient.DataEntries
                     }
                     catch
                     {
-                        output.Add(line);
+                        //insert the end of the history log into the previous history log
+                        int indexString = output.Count() -1;
+                        String fullLine = output.ElementAt(indexString ) + line;
+                        output.RemoveAt(indexString);
+                        output.Add(fullLine);
                         line = sr.ReadLine();
                     }
                 }
                 
             }
-            System.IO.File.Delete("../../../History/history2.log");
+            System.IO.File.Delete("../../../History/" + todayYear  +".0"+ todayMonth + "history2.log");
             String[] historyInRange = new String[output.Count];
             int index = output.Count-1;
             //copy the output into an array

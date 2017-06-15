@@ -57,7 +57,7 @@ namespace WpfApplication1
             forms.buyForm userInput = new forms.buyForm();
             userInput.Show();
 
-            
+
         }
 
         private void sellButton_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,7 @@ namespace WpfApplication1
             myLogger.Info("User opened SellForm");
 
             forms.sellForm userInput = new forms.sellForm();
-            
+
             userInput.Show();
         }
 
@@ -74,7 +74,7 @@ namespace WpfApplication1
             myLogger.Info("User opened CancelForm");
 
             forms.cancelForm userInput = new forms.cancelForm();
-            
+
             userInput.Show();
         }
 
@@ -83,7 +83,7 @@ namespace WpfApplication1
             myLogger.Info("User opened idStatusForm");
 
             forms.idStatusForm userInput = new forms.idStatusForm();
-            
+
             userInput.Show();
         }
 
@@ -97,7 +97,7 @@ namespace WpfApplication1
 
         private void userQueryButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             forms.userStatForm userInput = new forms.userStatForm();
             userInput.Show();
@@ -167,7 +167,7 @@ namespace WpfApplication1
         {
             myLogger.Info("User opened SellForm");
 
-            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm(userAma,comm);
+            AMA.AddLogicForm addLogicForm = new AMA.AddLogicForm(userAma, comm);
             addLogicForm.userAma = this.userAma;
             addLogicForm.comm = this.comm;
 
@@ -192,7 +192,7 @@ namespace WpfApplication1
                     // Sends the HttpWebRequest and waits for a response.
                     HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
                     if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
-                        MessageBox.Show("\r\nResponse Status Code is: OK"+"\n"+"StatusDescription is: " +
+                        MessageBox.Show("\r\nResponse Status Code is: OK" + "\n" + "StatusDescription is: " +
                                              myHttpWebResponse.StatusDescription);
                     // Releases the resources of the response.
                     myHttpWebResponse.Close();
@@ -243,9 +243,11 @@ namespace WpfApplication1
         }
 
 
-            //stat Form
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
+        }
     }
 }

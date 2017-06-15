@@ -25,9 +25,7 @@ namespace MarketClient.PL_BL
         qReq,
         excp,
         qAllCommodity,
-        qAllCommodityList,
         qAllUserReq,
-        qAllUserReqList,
         generic
     }
 

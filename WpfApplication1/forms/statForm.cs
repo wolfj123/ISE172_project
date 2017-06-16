@@ -15,36 +15,60 @@ namespace WpfApplication1.forms
     public partial class statForm : Form
     {
         private String[] graphsList;
-        private SQL_DAL_implementation hadas= new SQL_DAL_implementation();
+        private HistoryDalImplementation hadas= new HistoryDalImplementation();
 
         public statForm()
         {
-            this.graphsList = new String[2];
-            graphsList[0] = "Average price";
-            graphsList[1] = "Highest sell";
+            this.graphsList = new String[3];
+            graphsList[0] = "Average price";//last 15 hours
+            graphsList[1] = "Times reached highest price";
+            graphsList[2] = "Times reached lowest price";
             InitializeComponent();
-            
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
-            
-            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //String message = "There is no data in:\n";
             for (int i = 0; i<10; i++)
             {
-                chart1.Series[graphsList[0]].Points.AddXY(i, hadas.PriceAverage(i));
-                chart1.Series[graphsList[1]].Points.AddXY(i, hadas.highestSell(i));
+                if (checkBox1.Checked && hadas.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[0]].Points.AddXY(i, hadas.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i));
+                if (checkBox2.Checked && hadas.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[1]].Points.AddXY(i, hadas.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i));
+                if (checkBox3.Checked && hadas.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[2]].Points.AddXY(i, hadas.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i));
             }            
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void label1_Click(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Average price");
+            //head line
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //avPrice
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            //highest price
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            //lowest price
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //explain:
         }
     }
 }

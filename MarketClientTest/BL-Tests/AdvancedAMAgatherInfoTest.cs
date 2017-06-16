@@ -26,9 +26,9 @@ namespace MarketClientTest
             comm.quser = mqUser;
 
             //Run AMA for a while
-            AdvancedAMA agent = new AdvancedAMA(3, 10000, comm);
+            AdvancedAMA agent = new AdvancedAMA(3, 1000, comm);
             agent.enable(true);
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(1500);
             agent.enable(false);
 
 

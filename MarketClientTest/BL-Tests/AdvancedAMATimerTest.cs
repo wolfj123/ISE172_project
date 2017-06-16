@@ -18,18 +18,22 @@ namespace MarketClientTest
         {
             //setup
             int maxReq = 10;
-            int interval = 6000;
-            int multiplier = 2;
+            int amaUpdateCost = 3;
+            int interval = 1000;
 
-            AlgoCountProcess testLogic = new AlgoCountProcess();
             AdvancedAMA amaTest = new AdvancedAMA(maxReq, interval, new CommStubStaticReturn());
+            AlgoCountProcess testLogic = new AlgoCountProcess(amaTest, new CommStubStaticReturn(),0);
             amaTest.add(testLogic);
             amaTest.enable(true);
 
-            System.Threading.Thread.Sleep(interval * multiplier);
+            //interval*2 because the ama waits the interval once enabled 
+            //to run the first time
+            System.Threading.Thread.Sleep(interval*2);
+
             amaTest.enable(false);
 
-            Assert.AreEqual(maxReq * multiplier, testLogic.count);
+            Task.WaitAll();
+            Assert.AreEqual(maxReq-amaUpdateCost, testLogic.count);
         }
     }
 }

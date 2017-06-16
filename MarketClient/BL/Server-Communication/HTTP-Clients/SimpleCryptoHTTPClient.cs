@@ -4,14 +4,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
+using log4net;
 
 namespace MarketClient.BL
 {
     public class SimpleCryptoHTTPClient : SimpleHTTPClient
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
+
         //SIngleton design pattern
         private static readonly SimpleCryptoHTTPClient instance = new SimpleCryptoHTTPClient();
         private Int64 nonceInt;
+
 
         private SimpleCryptoHTTPClient(){
             string concat = "";
@@ -34,12 +38,12 @@ namespace MarketClient.BL
         }
 
 
-        public override string SendPostRequest<T1>(string url, string user_base, string privateKey, T1 item)
+        public override string SendPostRequest<T1>(string url, string user, string privateKey, T1 item)
         {
             nonceInt += 1;
             string nonce = nonceInt.ToString();
-            string user = user_base +"_"+ nonce;
-            string token = SimpleCtyptoLibrary.CreateToken(user, privateKey);
+            string userNonce = user + "_"+ nonce;
+            string token = SimpleCtyptoLibrary.CreateToken(userNonce, privateKey);
 
             var auth = new { user, token, nonce };
             JObject jsonItem = JObject.FromObject(item);
@@ -50,13 +54,20 @@ namespace MarketClient.BL
                 var result = client.PostAsync(url, content).Result;
                 var responseContent = result?.Content?.ReadAsStringAsync().Result;
 
+                bool failed = false;
+                string decryptedContent = "";
                 try
                 {
-                    string decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
-                    responseContent = decryptedContent;
+                    decryptedContent = SimpleCtyptoLibrary.decrypt(responseContent, privateKey);
+                    //responseContent = decryptedContent;
                 }
-                finally { }
-                return responseContent;
+                catch(Exception e)
+                {
+                    myLogger.Error("Failed decryption of market response. Error: " + e.Message);
+                    failed = true;
+                }
+                if(!failed) return decryptedContent;
+                else return responseContent;
             }
         }
 

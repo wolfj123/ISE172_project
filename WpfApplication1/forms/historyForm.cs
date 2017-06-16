@@ -42,11 +42,14 @@ namespace WpfApplication1.forms
         {
             numericUpDown1.Enabled = true;
             monthCalendar1.Enabled = false;
+            numOfLines.Enabled = false;
+            
         }
 
         private void byDateRB_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown1.Enabled = false;
+            numOfLines.Enabled = false;
             monthCalendar1.Enabled = true;
         }
 
@@ -84,10 +87,25 @@ namespace WpfApplication1.forms
                     textBox1.Text = "right now file is busy , pleas try again later";
                 }
             }
+            if (radioButtonByLines.Checked)
+            {
+                textBox1.Text = "";
+                int numLines = (int)numOfLines.Value;
+                try
+                {
+                    String[] historyLines = HistoryView.historyByLines(numLines);
+                    textBox1.Lines = historyLines;
+                    historyError(historyLines);
+                }
+                catch
+                {
+                    textBox1.Text = "right now file is busy , pleas try again later";
+                }
+            }
         }
 
         private void historyError(String[] str)
-        {
+        {//print error massages
             if(str == null)
             {
                 textBox1.Text = "The history file is empty";
@@ -148,11 +166,18 @@ namespace WpfApplication1.forms
         }
 
         private void deletecheckBox_CheckedChanged_1(object sender, EventArgs e)
-        {
+        {//enabel the delete option
             if (deletecheckBox.Checked)
                 deleteHistoryButton.Enabled = true;
             else
                 deleteHistoryButton.Enabled = false;
+        }
+
+        private void radioButtonByLines_CheckedChanged(object sender, EventArgs e)
+        {
+            numericUpDown1.Enabled = false;
+            monthCalendar1.Enabled = false;
+            numOfLines.Enabled = true;
         }
     }
 }

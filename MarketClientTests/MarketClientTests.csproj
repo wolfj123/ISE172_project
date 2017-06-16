@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8C39E49-DE50-4EFD-A248-FE168DD031A6}</ProjectGuid>
+    <ProjectGuid>{2962C2A5-9114-4114-A02F-E5D1AE08A9CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarketClientTest</RootNamespace>
-    <AssemblyName>MarketClientTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>MarketClientTests</RootNamespace>
+    <AssemblyName>MarketClientTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -49,48 +45,20 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BL-Tests\AdvancedAMAgatherInfoTest.cs" />
-    <Compile Include="BL-Tests\AdvancedAMATimerTest.cs" />
-    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumDecreaseTest.cs" />
-    <Compile Include="BL-Tests\BL-Stubs\AlgoCounter.cs" />
-    <Compile Include="BL-Tests\BL-Stubs\SQLserverStub.cs" />
-    <Compile Include="UnofficialTests\CommunicatorNewRequestsTest.cs" />
-    <Compile Include="BL-Tests\CryptoCommunicatorTest.cs" />
-    <Compile Include="BL-Tests\milestone2-tests\AMATimerTest.cs" />
-    <Compile Include="BL-Tests\BL-Stubs\ICommunicatorStub.cs" />
-    <Compile Include="BL-Tests\CommunicatorTest.cs" />
-    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\HasNoActiveRequestTest.cs" />
-    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\AskCompareTest.cs" />
-    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\BidCompareTest.cs" />
-    <Compile Include="BL-Tests\AlgoProcessTests\ConditionsTest\MomentumIncreaseTest.cs" />
-    <Compile Include="BL-Tests\SimpleCryptoHTTPClientTest.cs" />
-    <Compile Include="BL-Tests\NonceGenerationTest.cs" />
-    <Compile Include="UnofficialTests\DataEntries\SQL_DAL_implementitionTest.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DataEntries\SQL_DAL_implementition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnofficialTests\SQLAverageTests.cs" />
-    <Compile Include="Util-Tests\ShellTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarketClient\MarketClient.csproj">
-      <Project>{371e8ea8-ce7a-4ab2-85e5-eac135df4a26}</Project>
+      <Project>{371E8EA8-CE7A-4AB2-85E5-EAC135DF4A26}</Project>
       <Name>MarketClient</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL-Tests\AlgoProcessTests\ActionsTest\" />
-  </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

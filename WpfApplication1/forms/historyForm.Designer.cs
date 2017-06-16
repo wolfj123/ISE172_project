@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.title = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.byDayRB = new System.Windows.Forms.RadioButton();
             this.byDateRB = new System.Windows.Forms.RadioButton();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -41,7 +40,10 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.cleanTextButton = new System.Windows.Forms.Button();
             this.deletecheckBox = new System.Windows.Forms.CheckBox();
+            this.radioButtonByLines = new System.Windows.Forms.RadioButton();
+            this.numOfLines = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOfLines)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -58,25 +60,13 @@
             this.title.Text = "History";
             this.title.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Choose to view history by date or by day";
-            // 
             // byDayRB
             // 
             this.byDayRB.AutoSize = true;
             this.byDayRB.BackColor = System.Drawing.Color.Transparent;
             this.byDayRB.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.byDayRB.ForeColor = System.Drawing.Color.White;
-            this.byDayRB.Location = new System.Drawing.Point(99, 90);
+            this.byDayRB.Location = new System.Drawing.Point(99, 29);
             this.byDayRB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.byDayRB.Name = "byDayRB";
             this.byDayRB.Size = new System.Drawing.Size(90, 27);
@@ -151,7 +141,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(51, 125);
+            this.numericUpDown1.Location = new System.Drawing.Point(61, 64);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(180, 31);
@@ -218,6 +208,29 @@
             this.deletecheckBox.UseVisualStyleBackColor = false;
             this.deletecheckBox.CheckedChanged += new System.EventHandler(this.deletecheckBox_CheckedChanged_1);
             // 
+            // radioButtonByLines
+            // 
+            this.radioButtonByLines.AutoSize = true;
+            this.radioButtonByLines.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonByLines.ForeColor = System.Drawing.Color.Ivory;
+            this.radioButtonByLines.Location = new System.Drawing.Point(99, 103);
+            this.radioButtonByLines.Name = "radioButtonByLines";
+            this.radioButtonByLines.Size = new System.Drawing.Size(91, 28);
+            this.radioButtonByLines.TabIndex = 21;
+            this.radioButtonByLines.TabStop = true;
+            this.radioButtonByLines.Text = "by lines";
+            this.radioButtonByLines.UseVisualStyleBackColor = false;
+            this.radioButtonByLines.CheckedChanged += new System.EventHandler(this.radioButtonByLines_CheckedChanged);
+            // 
+            // numOfLines
+            // 
+            this.numOfLines.Enabled = false;
+            this.numOfLines.Location = new System.Drawing.Point(61, 138);
+            this.numOfLines.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numOfLines.Name = "numOfLines";
+            this.numOfLines.Size = new System.Drawing.Size(180, 31);
+            this.numOfLines.TabIndex = 22;
+            // 
             // historyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
@@ -226,6 +239,8 @@
             this.BackgroundImage = global::WpfApplication1.Properties.Resources.html_page_background_color;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(986, 595);
+            this.Controls.Add(this.numOfLines);
+            this.Controls.Add(this.radioButtonByLines);
             this.Controls.Add(this.deletecheckBox);
             this.Controls.Add(this.cleanTextButton);
             this.Controls.Add(this.exitButton);
@@ -236,7 +251,6 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.byDateRB);
             this.Controls.Add(this.byDayRB);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.title);
             this.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -246,6 +260,7 @@
             this.Text = "History";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOfLines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +269,6 @@
         #endregion
 
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton byDayRB;
         private System.Windows.Forms.RadioButton byDateRB;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
@@ -266,5 +280,7 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button cleanTextButton;
         private System.Windows.Forms.CheckBox deletecheckBox;
+        private System.Windows.Forms.RadioButton radioButtonByLines;
+        private System.Windows.Forms.NumericUpDown numOfLines;
     }
 }

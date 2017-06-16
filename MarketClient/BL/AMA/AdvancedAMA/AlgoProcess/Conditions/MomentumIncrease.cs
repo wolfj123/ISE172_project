@@ -12,14 +12,14 @@ namespace MarketClient.BL
         public int minTime;
         public int medTime;
         public int maxTime;
-        public SQL_DAL_implementation sql;
+        public HistoryDalImplementation sql;
  
         public MomentumIncrease(int minTime, int medTime, int maxTime)
         {
             this.minTime = minTime;
             this.medTime = medTime;
             this.maxTime = maxTime;
-            this.sql = new SQL_DAL_implementation();
+            this.sql = new HistoryDalImplementation();
         }
         public bool conditionIsMet(AlgoProcess process)
         {

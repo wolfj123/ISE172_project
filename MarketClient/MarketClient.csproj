@@ -85,7 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>history.dbml</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\SQL_DAL_implementation.cs" />
+    <Compile Include="DataEntries\HistoryDalImplementation.cs" />
     <Compile Include="milestone1\BL\Poster.cs" />
     <Compile Include="milestone1\BL\RealMarketCommodityOffer.cs" />
     <Compile Include="milestone1\BL\RealMarketItemQuery.cs" />

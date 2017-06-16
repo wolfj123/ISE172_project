@@ -28,7 +28,7 @@ namespace MarketClientTest.BL_Tests
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            SQL_DAL_implementation sqlStub = new SQLserverMomentumStub(true);
+            HistoryDalImplementation sqlStub = new SQLserverMomentumStub(true);
             MomentumIncrease momentumIncreaseCond = new MomentumIncrease(1, 10, 20); momentumIncreaseCond.sql = sqlStub;
             testProcess.addCondition(momentumIncreaseCond);
             agent.add(testProcess);
@@ -47,7 +47,7 @@ namespace MarketClientTest.BL_Tests
         {
             //Create process that will count each time the AlgoAskCompare condition is "true"
             AlgoCountProcess testProcess = new AlgoCountProcess(agent, comm, commodity);
-            SQL_DAL_implementation sqlStub = new SQLserverMomentumStub(true);
+            HistoryDalImplementation sqlStub = new SQLserverMomentumStub(true);
             MomentumIncrease momentumIncreaseCond = new MomentumIncrease(20, 10, 1); momentumIncreaseCond.sql = sqlStub;
             testProcess.addCondition(momentumIncreaseCond);
             agent.add(testProcess);

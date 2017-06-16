@@ -11,13 +11,13 @@ namespace MarketClient.DataEntries.Tests
     [TestClass()]
     public class SQL_DAL_implementition
     {
-        private SQL_DAL_implementation query;
+        private HistoryDalImplementation query;
         private DateTime start;
         private DateTime end;
 
         [TestInitialize()]
         public void Initialize() {
-            query = new SQL_DAL_implementation();
+            query = new HistoryDalImplementation();
             end = DateTime.Now;
             start = end.AddHours(-25);
         }

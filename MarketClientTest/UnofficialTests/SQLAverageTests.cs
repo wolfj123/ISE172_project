@@ -11,7 +11,7 @@ namespace MarketClientTest
         [TestMethod]
         public void TestSQLStuffMethod()
         {
-            SQL_DAL_implementation sql = new SQL_DAL_implementation();
+            HistoryDalImplementation sql = new HistoryDalImplementation();
 
             int minTime = 9;
             int medTime = 10;

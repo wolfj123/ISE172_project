@@ -8,22 +8,22 @@ using System.Data.Linq.Mapping;
 
 namespace MarketClient.DataEntries
 {
-    public class SQL_DAL_implementation
+    public class HistoryDalImplementation
     {
         private historyDataContext db;
 
-        public SQL_DAL_implementation()
+        public HistoryDalImplementation()
         {
             db = new historyDataContext();
         }
 
-        protected IQueryable<item> itemsByNumDays(DateTime start, DateTime end)
+        private IQueryable<item> itemsByNumDays(DateTime start, DateTime end, int commodity)
         {//return the prices in the asked dates 
             start.AddHours(-3);
             end.AddHours(-3);
             IQueryable<item> itemsInRange =
                 from item in db.items
-                where item.timestamp > start && item.timestamp < end
+                where item.timestamp > start && item.timestamp < end && item.commodity == commodity
                 select item
                 ;
             return itemsInRange;
@@ -34,7 +34,7 @@ namespace MarketClient.DataEntries
             try
             {
                 IQueryable<item> itemsInRange =
-                    itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                    itemsByNumDays(start, end,commodity);
                 float avg = itemsInRange.Average(db => db.price);
                 return avg;
             }
@@ -55,7 +55,7 @@ namespace MarketClient.DataEntries
         {//return the highst price in the asked days
             try
             {
-                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float max = itemsInRange.Max(q => q.price);
                 item highestPrice = itemsInRange.Where(q => q.price == max).First();
                 return highestPrice;
@@ -77,7 +77,7 @@ namespace MarketClient.DataEntries
         {//return the number time of the highest price bought  
             try
             {
-                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float highestPrice = highestSell(start, end, commodity).price;
                 int amount = itemsInRange.Count(db => db.price == highestPrice);
                 return amount;
@@ -100,7 +100,7 @@ namespace MarketClient.DataEntries
         {//return the lowest sell of the commidity 
             try
             {
-                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float min = itemsInRange.Min(q => q.price);
                 item lowest = itemsInRange.OrderBy(db => db.price).First();
                 return lowest;
@@ -122,7 +122,7 @@ namespace MarketClient.DataEntries
         {//return the number time of the lowest price bought  
             try
             {
-                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float lowestPrice = lowestSell(start, end, commodity).price;
                 int amount = itemsInRange.Count(db => db.price == lowestPrice);
                 return amount;
@@ -144,7 +144,7 @@ namespace MarketClient.DataEntries
         {//return each day the avg price of the commodity
             try
             {
-                IQueryable<item> itemsInRange = itemsByNumDays(start, end).Where(db => db.commodity == commodity);
+                IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 int arraySize = end.Day - start.Day;
                 float[] output = new float[arraySize];
                 for (int i = 0; i < arraySize; i++)

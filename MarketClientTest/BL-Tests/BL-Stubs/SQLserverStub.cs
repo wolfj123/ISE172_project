@@ -7,7 +7,7 @@ using MarketClient.DataEntries;
 
 namespace MarketClientTest.BL_Tests
 {
-    public class SQLserverMomentumStub : SQL_DAL_implementation
+    public class SQLserverMomentumStub : HistoryDalImplementation
     {
         bool increase;
 

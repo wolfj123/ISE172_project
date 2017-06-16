@@ -39,10 +39,7 @@ namespace WpfApplication1.forms
             {
                 chart1.Series[graphsList[0]].Points.AddXY(i, hadas.PriceAverage(i));
                 chart1.Series[graphsList[1]].Points.AddXY(i, hadas.highestSell(i));
-            }
-
-
-            
+            }            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

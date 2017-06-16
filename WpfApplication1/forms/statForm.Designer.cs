@@ -33,6 +33,8 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,23 +48,43 @@
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Average price";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            series2.YValuesPerPoint = 6;
+            series2.Name = "Highest sell";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(732, 491);
+            this.chart1.Size = new System.Drawing.Size(1226, 491);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(335, 629);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(324, 126);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Load Graph";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1377, 77);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(221, 39);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // statForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1823, 984);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
             this.Name = "statForm";
             this.Text = "statForm";
@@ -74,5 +96,7 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

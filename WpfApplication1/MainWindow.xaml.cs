@@ -18,7 +18,6 @@ using log4net;
 using System.Net;
 using System.Threading;
 using System.Collections;
-using Nakov.TurtleGraphics;
 
 namespace WpfApplication1
 {
@@ -245,15 +244,16 @@ namespace WpfApplication1
             userInput.Show();
         }
 
-        private void button_Click_1(object sender, RoutedEventArgs e)
+        private void schedule_click(object sender, RoutedEventArgs e)
         {
-            Turtle.Init();
-            Turtle.Rotate(30);
-            Turtle.Forward(200);
-            Turtle.Rotate(120);
-            Turtle.Forward(200);
-            Turtle.Rotate(120);
-            Turtle.Forward(200);
+            myLogger.Info("User clicked scheduleButton");
+            AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this);
+            scheduleForm.Show();
+        }
+
+        public void enableAMA()
+        {
+            this.amaButton_Click(null, null);
         }
     }
 }

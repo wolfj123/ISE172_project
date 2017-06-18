@@ -72,6 +72,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AMA\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AMA\ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GeneratePDF.cs" />
     <Compile Include="Utils\Scheduler.cs" />
     <Page Include="MainWindow.xaml">
@@ -157,6 +163,9 @@
     </Compile>
     <EmbeddedResource Include="AMA\AddLogicForm.resx">
       <DependentUpon>AddLogicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AMA\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\buyForm.resx">
       <DependentUpon>buyForm.cs</DependentUpon>

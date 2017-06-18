@@ -29,8 +29,9 @@
                     <ColumnDefinition Width="67*"/>
                     <ColumnDefinition Width="42*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="amaButton" Content="Run default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="19,19,0,0" Height="33" Grid.ColumnSpan="4" Click="amaButton_Click" Background="Black" Foreground="White"/>
-                <Button x:Name="amaString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="18,67,0,0" Height="33" Grid.ColumnSpan="4" Click="amaString_Click" Foreground="White" Background="Black"/>
+                <Button x:Name="amaButton" Content="Run default AMA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="19,10,0,0" Height="33" Grid.ColumnSpan="4" Click="amaButton_Click" Background="Black" Foreground="White"/>
+                <Button x:Name="amaString" Content="Current Logics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="18,48,0,0" Height="33" Grid.ColumnSpan="4" Click="amaString_Click" Foreground="White" Background="Black"/>
+                <Button x:Name="amaSchedule" Content="Schedule Run" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="18,86,0,0" Height="33" Grid.ColumnSpan="4" Click="schedule_click" Foreground="White" Background="Black"/>
             </Grid>
         </GroupBox>
 
@@ -94,6 +95,5 @@
                 <Button x:Name="statButton" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Grid.Column="1" Margin="140.2,124,0,0" Click="button_Click" Height="40" Background="Black" Foreground="White"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="button" Content="Help" VerticalAlignment="Top" Margin="0,372,297,0" Height="18" Click="button_Click_1"/>
     </Grid>
 </Window>

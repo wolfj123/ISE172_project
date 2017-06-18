@@ -33,9 +33,34 @@ namespace WpfApplication1.AMA
             var registry = new Registry();
 
             IJob myjob = new MyJob(this.mainWindow);
-            registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
+            if(radioButton1.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Minutes();
+            if(radioButton2.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Hours();
+            if (radioButton3.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
 
             JobManager.Initialize(registry);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            //minute
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            //hours
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            //seconds
         }
     }
 

@@ -18,7 +18,6 @@ using log4net;
 using System.Net;
 using System.Threading;
 using System.Collections;
-using Nakov.TurtleGraphics;
 
 namespace WpfApplication1
 {
@@ -243,17 +242,6 @@ namespace WpfApplication1
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
-        }
-
-        private void button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Turtle.Init();
-            Turtle.Rotate(30);
-            Turtle.Forward(200);
-            Turtle.Rotate(120);
-            Turtle.Forward(200);
-            Turtle.Rotate(120);
-            Turtle.Forward(200);
         }
     }
 }

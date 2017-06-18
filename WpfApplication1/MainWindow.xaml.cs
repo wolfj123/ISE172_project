@@ -243,5 +243,12 @@ namespace WpfApplication1
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
         }
+
+        private void schedule_click(object sender, RoutedEventArgs e)
+        {
+            myLogger.Info("User clicked shcduleButton");
+            AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this.amaButton);
+            scheduleForm.Show();
+        }
     }
 }

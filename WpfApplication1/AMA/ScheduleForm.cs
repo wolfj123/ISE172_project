@@ -15,14 +15,11 @@ namespace WpfApplication1.AMA
 {
     public partial class ScheduleForm : Form
     {
-        //System.Windows.Controls.Button button;
         MainWindow mainWindow;
 
-        //public ScheduleForm(System.Windows.Controls.Button button)
          public ScheduleForm(MainWindow mainWindow)
         {
             InitializeComponent();
-            //this.button = button;
             this.mainWindow = mainWindow;
         }
 
@@ -34,7 +31,6 @@ namespace WpfApplication1.AMA
         {
             int minutes = (int) numericMinutes.Value;
             var registry = new Registry();
-            //registry.Schedule<MyJob>().ToRunOnceIn(minutes).Seconds();
 
             IJob myjob = new MyJob(this.mainWindow);
             registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
@@ -46,18 +42,14 @@ namespace WpfApplication1.AMA
 
     public class MyJob : IJob
     {
-        //System.Windows.Controls.Button button;
         MainWindow mainWindow;
 
-        //public MyJob(System.Windows.Controls.Button button)
         public MyJob(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-            //this.button = button;
         }
         public void Execute()
         {
-            //button.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
             System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
                 mainWindow.enableAMA();
             }));

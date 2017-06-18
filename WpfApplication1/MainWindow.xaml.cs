@@ -99,7 +99,7 @@ namespace WpfApplication1
             myLogger.Info("User clicked QUERY USER");
         }
 
-        public void amaButton_Click(object sender, RoutedEventArgs e)
+        private void amaButton_Click(object sender, RoutedEventArgs e)
         {
             runningAMA = !runningAMA;       //toggle runningAMA
             myLogger.Info("User set Default AMA enabled to " + runningAMA);
@@ -246,7 +246,7 @@ namespace WpfApplication1
 
         private void schedule_click(object sender, RoutedEventArgs e)
         {
-            myLogger.Info("User clicked shcduleButton");
+            myLogger.Info("User clicked scheduleButton");
             AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this);
             scheduleForm.Show();
         }

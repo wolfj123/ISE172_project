@@ -72,7 +72,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AMA\MyRegistry.cs" />
     <Compile Include="AMA\ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,24 +15,30 @@ namespace WpfApplication1.AMA
 {
     public partial class ScheduleForm : Form
     {
-        System.Windows.Controls.Button button;
+        //System.Windows.Controls.Button button;
+        MainWindow mainWindow;
 
-        public ScheduleForm(System.Windows.Controls.Button button)
+        //public ScheduleForm(System.Windows.Controls.Button button)
+         public ScheduleForm(MainWindow mainWindow)
         {
             InitializeComponent();
-            this.button = button;
+            //this.button = button;
+            this.mainWindow = mainWindow;
         }
 
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void scheduleButton_Click(object sender, EventArgs e)
         {
             int minutes = (int) numericMinutes.Value;
             var registry = new Registry();
-            registry.Schedule<MyJob>().ToRunOnceIn(minutes).Seconds();
+            //registry.Schedule<MyJob>().ToRunOnceIn(minutes).Seconds();
+
+            IJob myjob = new MyJob(this.mainWindow);
+            registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
+
             JobManager.Initialize(registry);
         }
     }
@@ -40,18 +46,20 @@ namespace WpfApplication1.AMA
 
     public class MyJob : IJob
     {
-        System.Windows.Controls.Button button;
+        //System.Windows.Controls.Button button;
+        MainWindow mainWindow;
 
-        public MyJob(System.Windows.Controls.Button button)
+        //public MyJob(System.Windows.Controls.Button button)
+        public MyJob(MainWindow mainWindow)
         {
-            this.button = button;
+            this.mainWindow = mainWindow;
+            //this.button = button;
         }
         public void Execute()
         {
-            System.Windows.MessageBox.Show("asdas");
             //button.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
-
-
+            mainWindow.enableAMA();
+            System.Windows.MessageBox.Show("AMA initiated as scheduled!");      
         }
     }
 }

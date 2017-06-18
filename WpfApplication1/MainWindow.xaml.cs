@@ -247,8 +247,13 @@ namespace WpfApplication1
         private void schedule_click(object sender, RoutedEventArgs e)
         {
             myLogger.Info("User clicked shcduleButton");
-            AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this.amaButton);
+            AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this);
             scheduleForm.Show();
+        }
+
+        public void enableAMA()
+        {
+            this.userAMAbutton_Click(null, null);
         }
     }
 }

@@ -246,14 +246,14 @@ namespace WpfApplication1
         }
 
         private void button_Click_1(object sender, RoutedEventArgs e)
-        {/*
-            Turtle.Dispose();
+        {
+            
             Turtle.Rotate(30);
             Turtle.Forward(200);
             Turtle.Rotate(120);
             Turtle.Forward(200);
             Turtle.Rotate(120);
-            Turtle.Forward(200);*/
+            Turtle.Forward(200);
         }
     }
 }

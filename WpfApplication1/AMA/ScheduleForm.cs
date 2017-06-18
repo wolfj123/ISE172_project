@@ -58,7 +58,9 @@ namespace WpfApplication1.AMA
         public void Execute()
         {
             //button.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
-            mainWindow.enableAMA();
+            System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
+                mainWindow.enableAMA();
+            }));
             System.Windows.MessageBox.Show("AMA initiated as scheduled!");      
         }
     }

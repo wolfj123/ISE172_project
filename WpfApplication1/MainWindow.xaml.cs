@@ -99,7 +99,7 @@ namespace WpfApplication1
             myLogger.Info("User clicked QUERY USER");
         }
 
-        private void amaButton_Click(object sender, RoutedEventArgs e)
+        public void amaButton_Click(object sender, RoutedEventArgs e)
         {
             runningAMA = !runningAMA;       //toggle runningAMA
             myLogger.Info("User set Default AMA enabled to " + runningAMA);
@@ -253,7 +253,7 @@ namespace WpfApplication1
 
         public void enableAMA()
         {
-            this.userAMAbutton_Click(null, null);
+            this.amaButton_Click(null, null);
         }
     }
 }

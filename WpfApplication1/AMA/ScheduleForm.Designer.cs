@@ -76,7 +76,7 @@
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Font = new System.Drawing.Font("Yu Gothic UI", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(69, 141);
+            this.radioButton1.Location = new System.Drawing.Point(70, 188);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(130, 42);
             this.radioButton1.TabIndex = 3;
@@ -91,7 +91,7 @@
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(69, 189);
+            this.radioButton2.Location = new System.Drawing.Point(70, 147);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(159, 36);
             this.radioButton2.TabIndex = 4;

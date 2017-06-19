@@ -65,12 +65,17 @@ namespace WpfApplication1.forms
 
                 QueryUserRequest req1 = new QueryUserRequest();
                 IMarketResponse resp1 = InterperatorPB.sendRequest(req1);
-                //QueryAllBuySellRequest req2 = new QueryAllBuySellRequest();
-                //List<MQReqWrapper> resp2 = InterperatorPB.sendAllUserRequest();
+                QueryAllBuySellRequest req2 = new QueryAllBuySellRequest();
+                List<MQReqWrapper> resp2 = InterperatorPB.sendAllUserRequest();
                 
                 doc1.Open();
                 doc1.Add(new iTextSharp.text.Paragraph(resp1.ToString()));
-                //doc1.Add(new iTextSharp.text.Paragraph(InterperatorPB.sendAllUserRequest().ToString()));
+                foreach (var element in resp2)
+                {
+                    doc1.Add(new iTextSharp.text.Paragraph(element.ToString()));
+                }
+
+                    // doc1.Add(new iTextSharp.text.Paragraph(InterperatorPB.sendAllUserRequest().ToString()));
 
                 doc1.Close();
             }

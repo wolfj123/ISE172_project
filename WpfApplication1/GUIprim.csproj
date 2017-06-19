@@ -79,7 +79,6 @@
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\GeneratePDF.cs" />
-    <Compile Include="Utils\Scheduler.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -195,7 +194,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="forms\historyForm.Designer.cs.orig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

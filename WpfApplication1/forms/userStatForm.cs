@@ -78,6 +78,8 @@ namespace WpfApplication1.forms
                     // doc1.Add(new iTextSharp.text.Paragraph(InterperatorPB.sendAllUserRequest().ToString()));
 
                 doc1.Close();
+
+                myLogger.Info("User Export status report");
             }
         }
     }

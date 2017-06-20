@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
+using log4net;
 
 namespace MarketClient.DataEntries
 {
     public class HistoryDalImplementation
     {
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
         private historyDataContext db;
 
         public HistoryDalImplementation()
@@ -36,6 +38,7 @@ namespace MarketClient.DataEntries
                 IQueryable<item> itemsInRange =
                     itemsByNumDays(start, end,commodity);
                 float avg = itemsInRange.Average(db => db.price);
+                myLogger.Info("A query of avarage price for " + commodity +" has occurred from history Data Base");
                 return avg;
             }
             catch (Exception e)
@@ -58,6 +61,7 @@ namespace MarketClient.DataEntries
                 IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float max = itemsInRange.Max(q => q.price);
                 item highestPrice = itemsInRange.Where(q => q.price == max).First();
+                myLogger.Info("A query of avarage price for " + commodity + " has occurred from history Data Base");
                 return highestPrice;
             }
             catch (Exception e)
@@ -80,6 +84,7 @@ namespace MarketClient.DataEntries
                 IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float highestPrice = highestSell(start, end, commodity).price;
                 int amount = itemsInRange.Count(db => db.price == highestPrice);
+                myLogger.Info("A query of num of highst price occur for " + commodity + " from history Data Base");
                 return amount;
             }
             catch (Exception e)
@@ -103,6 +108,7 @@ namespace MarketClient.DataEntries
                 IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float min = itemsInRange.Min(q => q.price);
                 item lowest = itemsInRange.OrderBy(db => db.price).First();
+                myLogger.Info("A query of lowest price for " + commodity +" from history Data Base has occured");
                 return lowest;
             }
             catch (Exception e)
@@ -125,6 +131,7 @@ namespace MarketClient.DataEntries
                 IQueryable<item> itemsInRange = itemsByNumDays(start, end, commodity);
                 float lowestPrice = lowestSell(start, end, commodity).price;
                 int amount = itemsInRange.Count(db => db.price == lowestPrice);
+                myLogger.Info("A query of number of lowest price for " + commodity + " from history Data Base has occured");
                 return amount;
             }
             catch (Exception e)
@@ -160,6 +167,8 @@ namespace MarketClient.DataEntries
                         output[i] = -1;
                     }
                 }
+                myLogger.Info("the avarge price per day for " + commodity + " , form the last " + arraySize +
+                    "days, from history Data Base has occured");
                 return output;
             }
             catch (Exception e)

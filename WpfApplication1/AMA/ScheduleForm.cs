@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Controls.Primitives;
+using log4net;
 
 namespace WpfApplication1.AMA
 {
     public partial class ScheduleForm : Form
     {
         MainWindow mainWindow;
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
 
         public ScheduleForm(MainWindow mainWindow)
@@ -30,41 +32,71 @@ namespace WpfApplication1.AMA
 
         private void scheduleButton_Click(object sender, EventArgs e)
         {
-            int minutesS = (int)numericMinutes.Value;
-            int minutesP = (int)numericMinutes.Value + (int)numericUpDown1.Value;
+            int time1 = (int)numericMinutes.Value;//time start to run
+            int time2 = (int)numericMinutes.Value + (int)numericUpDown1.Value;//time for duration
             var registry = new Registry();
 
-            IJob myjob = new MyJob(this.mainWindow);
+            IJob myjob = new MyJob(this.mainWindow);//set the job
             if (radioButton1.Checked)
             {
-                registry.Schedule(myjob).ToRunOnceIn(minutesS).Minutes();
+                registry.Schedule(myjob).ToRunOnceIn(time1).Minutes();
+                myLogger.Info("User schedule AMA to run in" + time1 + "minutes");
                 if (radioButton5.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Minutes();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "minutes");
+                }
                 if (radioButton6.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Hours();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "Hours");
+                }
                 if (radioButton4.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Seconds();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "seconds");
+                }
             }
             if (radioButton2.Checked)
             {
-                registry.Schedule(myjob).ToRunOnceIn(minutesS).Hours();
+                registry.Schedule(myjob).ToRunOnceIn(time1).Hours();
+                myLogger.Info("User schedule AMA to run in" + time1 + "hours");
                 if (radioButton5.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
-                if (radioButton6.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Minutes();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "minutes");
+                }
+                    if (radioButton6.Checked)
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Hours();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "Hours");
+                }
                 if (radioButton4.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
-            }
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Seconds();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "seconds");
+                }
+                }
             if (radioButton3.Checked)
             {
-                registry.Schedule(myjob).ToRunOnceIn(minutesS).Seconds();
+                registry.Schedule(myjob).ToRunOnceIn(time1).Seconds();
+                myLogger.Info("User schedule AMA to run in" + time1 + "seconds");
                 if (radioButton5.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
-                if (radioButton6.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Minutes();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "minutes");
+                }
+                    if (radioButton6.Checked)
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Hours();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "Hours");
+                }
                 if (radioButton4.Checked)
-                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
-            }
+                {
+                    registry.Schedule(myjob).ToRunOnceIn(time2).Seconds();
+                    myLogger.Info("User schedule AMA to run in" + time2 + "seconds");
+                }
+                }
 
             JobManager.Initialize(registry);
         }
@@ -157,8 +189,7 @@ namespace WpfApplication1.AMA
         {
             System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
                 mainWindow.enableAMA();
-            }));
-            //System.Windows.MessageBox.Show("AMA initiated as scheduled!");      
+            }));    
         }
     }
 }

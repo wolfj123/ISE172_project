@@ -17,7 +17,8 @@ namespace WpfApplication1.AMA
     {
         MainWindow mainWindow;
 
-         public ScheduleForm(MainWindow mainWindow)
+
+        public ScheduleForm(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -29,38 +30,117 @@ namespace WpfApplication1.AMA
 
         private void scheduleButton_Click(object sender, EventArgs e)
         {
-            int minutes = (int) numericMinutes.Value;
+            int minutesS = (int)numericMinutes.Value;
+            int minutesP = (int)numericMinutes.Value + (int)numericUpDown1.Value;
             var registry = new Registry();
 
             IJob myjob = new MyJob(this.mainWindow);
-            if(radioButton1.Checked)
-                registry.Schedule(myjob).ToRunOnceIn(minutes).Minutes();
-            if(radioButton2.Checked)
-                registry.Schedule(myjob).ToRunOnceIn(minutes).Hours();
+            if (radioButton1.Checked)
+            {
+                registry.Schedule(myjob).ToRunOnceIn(minutesS).Minutes();
+                if (radioButton5.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
+                if (radioButton6.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                if (radioButton4.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
+            }
+            if (radioButton2.Checked)
+            {
+                registry.Schedule(myjob).ToRunOnceIn(minutesS).Hours();
+                if (radioButton5.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
+                if (radioButton6.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                if (radioButton4.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
+            }
             if (radioButton3.Checked)
-                registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
+            {
+                registry.Schedule(myjob).ToRunOnceIn(minutesS).Seconds();
+                if (radioButton5.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Minutes();
+                if (radioButton6.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Hours();
+                if (radioButton4.Checked)
+                    registry.Schedule(myjob).ToRunOnceIn(minutesP).Seconds();
+            }
 
             JobManager.Initialize(registry);
+        }
+        
+        private void durtion()
+        {
+            int minutes = (int)numericMinutes.Value + (int)numericUpDown1.Value;
+            var registry = new Registry();
+
+            IJob myjob = new MyJob(this.mainWindow);
+            if (radioButton5.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Minutes();
+            if (radioButton6.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Hours();
+            if (radioButton4.Checked)
+                registry.Schedule(myjob).ToRunOnceIn(minutes).Seconds();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            //label run in:
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            //minute
+            //minute to run
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            //hours
+            //hours to run
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            //seconds
+            //seconds to run
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            //label choose duration:
+        }
+
+        private void numericMinutes_ValueChanged(object sender, EventArgs e)
+        {
+            //numeric to run in
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            //second duration
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            //minutes duration
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            //hours duration
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            ////numeric duration
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        { 
+            //panel 1
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            //panel 2 
         }
     }
 
@@ -78,7 +158,7 @@ namespace WpfApplication1.AMA
             System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
                 mainWindow.enableAMA();
             }));
-            System.Windows.MessageBox.Show("AMA initiated as scheduled!");      
+            //System.Windows.MessageBox.Show("AMA initiated as scheduled!");      
         }
     }
 }

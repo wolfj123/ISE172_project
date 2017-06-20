@@ -9,18 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUIprim.Utils;
 using MarketClient.DataEntries;
+using log4net;
 
 namespace WpfApplication1.forms
 {
     public partial class statForm : Form
     {
         private String[] graphsList;
-        private HistoryDalImplementation hadas= new HistoryDalImplementation();
+        private HistoryDalImplementation historyAcc= new HistoryDalImplementation();
+        private static ILog myLogger = LogManager.GetLogger("fileLogger");
 
         public statForm()
         {
             this.graphsList = new String[3];
-            graphsList[0] = "Average price";//last 15 hours
+            graphsList[0] = "Average price";
             graphsList[1] = "Times reached highest price";
             graphsList[2] = "Times reached lowest price";
             InitializeComponent();
@@ -28,23 +30,28 @@ namespace WpfApplication1.forms
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
+            //chart
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //String message = "There is no data in:\n";
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            
             for (int i = 0; i<10; i++)
             {
-                if (checkBox1.Checked && hadas.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
-                    chart1.Series[graphsList[0]].Points.AddXY(i, hadas.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i));
-                if (checkBox2.Checked && hadas.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
-                    chart1.Series[graphsList[1]].Points.AddXY(i, hadas.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i));
-                if (checkBox3.Checked && hadas.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
-                    chart1.Series[graphsList[2]].Points.AddXY(i, hadas.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i));
-            }            
+                if (checkBox1.Checked && historyAcc.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[0]].Points.AddXY(i, historyAcc.PriceAverage(DateTime.Now.AddHours(-24), DateTime.Now, i));
+                if (checkBox2.Checked && historyAcc.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[1]].Points.AddXY(i, historyAcc.numOfHighest(DateTime.Now.AddHours(-24), DateTime.Now, i));
+                if (checkBox3.Checked && historyAcc.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i)!=-1)
+                    chart1.Series[graphsList[2]].Points.AddXY(i, historyAcc.numOfLowest(DateTime.Now.AddHours(-24), DateTime.Now, i));
+            }
+            myLogger.Info("User generate graph");
         }
-
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

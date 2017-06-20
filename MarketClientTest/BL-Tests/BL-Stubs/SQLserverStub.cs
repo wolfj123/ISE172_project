@@ -27,7 +27,7 @@ namespace MarketClientTest.BL_Tests
         private float PriceAverageIncrease(DateTime start, DateTime end, int commodity)
         {
             TimeSpan difference = (end - start);
-            int differenceInt = difference.Minutes;
+            int differenceInt = difference.Hours;
             if (differenceInt == 1)
                 return 100;
             else if (differenceInt == 10)
@@ -41,7 +41,7 @@ namespace MarketClientTest.BL_Tests
         private float PriceAverageDecrease(DateTime start, DateTime end, int commodity)
         {
             TimeSpan difference = (end - start);
-            int differenceInt = difference.Minutes;
+            int differenceInt = difference.Hours;
             if (differenceInt == 1)
                 return 1;
             else if (differenceInt == 10)

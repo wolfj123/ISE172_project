@@ -20,3 +20,13 @@ C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketC
 C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketClient.dll
 C:\hadas\semester_2\mile-stone-new\ISE172_project\MarketClient\obj\Debug\MarketClient.pdb
 C:\Users\shira\OneDrive\מסמכים\Visual Studio 2015\Projects\ISE172_project\MarketClient\bin\Debug\MarketClient.dll.config
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\MarketClient.dll.config
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\MarketClient.dll
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\MarketClient.pdb
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\log4net.dll
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\bin\Debug\log4net.xml
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\obj\Debug\MarketClient.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\obj\Debug\MarketClient.dll
+C:\Users\User\Documents\ISE-Projects\Algo-Trading\ISE172_project\MarketClient\obj\Debug\MarketClient.pdb

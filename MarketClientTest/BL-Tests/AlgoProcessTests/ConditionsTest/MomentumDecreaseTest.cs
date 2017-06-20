@@ -23,6 +23,8 @@ namespace MarketClientTest.BL_Tests
             agent = new AdvancedAMA(3 + 1, 1000, comm);
         }
 
+
+        //TODO: FIX test
         [TestMethod]
         public void MomentumDecreaseTrue()
         {

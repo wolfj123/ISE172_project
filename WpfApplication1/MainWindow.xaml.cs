@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MarketClient.BL;
-using MarketClient.PL_BL;
 using log4net;
 using System.Net;
 using System.Threading;
@@ -30,9 +17,7 @@ namespace WpfApplication1
 
         private bool runningAMA;
         private ICommunicator comm;
-        //private DefaultAMA ama;
         private DefaultAdvancedAMA ama;
-        //private UserAMA userAma;
         private DefaultAdvancedAMA userAma;
 
         public MainWindow()
@@ -242,6 +227,18 @@ namespace WpfApplication1
             myLogger.Info("User clicked statButton");
             forms.statForm userInput = new forms.statForm();
             userInput.Show();
+        }
+
+        private void schedule_click(object sender, RoutedEventArgs e)
+        {
+            myLogger.Info("User clicked scheduleButton");
+            AMA.ScheduleForm scheduleForm = new AMA.ScheduleForm(this);
+            scheduleForm.Show();
+        }
+
+        public void enableAMA()
+        {
+            this.amaButton_Click(null, null);
         }
     }
 }

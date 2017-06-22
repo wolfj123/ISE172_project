@@ -73,12 +73,14 @@ namespace WpfApplication1.forms
                 doc1.Add(new iTextSharp.text.Paragraph("\n"));
                 doc1.Add(new iTextSharp.text.Paragraph(resp1.ToString()));
                 doc1.Add(new iTextSharp.text.Paragraph("\n"));
-                foreach (var element in resp2)
-                {
-                    doc1.Add(new iTextSharp.text.Paragraph(element.ToString()));
-                }
 
-                    // doc1.Add(new iTextSharp.text.Paragraph(InterperatorPB.sendAllUserRequest().ToString()));
+                if (!(resp2 == null))
+                {
+                    foreach (var element in resp2)
+                    {
+                        doc1.Add(new iTextSharp.text.Paragraph(element.ToString()));
+                    }
+                }
 
                 doc1.Close();
 
